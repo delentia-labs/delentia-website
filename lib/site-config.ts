@@ -15,13 +15,16 @@ export const SITE_UPTIME = "99.98% SLA"
 export const SITE_HALLUCINATION_RATE = "0.3% benchmark"
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com/rctlabs",
-  platformGithub: "https://github.com/rctlabs/rct-platform",
-  platformDocs: "https://rctlabs.github.io/rct-platform/",
-  linkedin: "https://linkedin.com/company/rctlabs",
-  twitter: "https://twitter.com/rctlabs",
+  github: "https://github.com/rctlabs",                         // org
+  githubPersonal: "https://github.com/ittirit720",             // personal
+  platformGithub: "https://github.com/rctlabs/rct-platform",  // open-source SDK
+  platformDocs: "https://rctlabs.github.io/rct-platform/",    // GitHub Pages docs
+  linkedin: "https://www.linkedin.com/in/ittirit-saengow/",   // personal LinkedIn
+  twitter: "https://x.com/ittirit_rct",                       // personal X
+  twitterHandle: "@ittirit_rct",
+  biosite: "https://ittiritsaengow.link",                      // BIO / gravatar
+  reddit: "https://www.reddit.com/user/WindLate5307/",        // Reddit
   discord: "https://discord.gg/rctlabs",
-  twitterHandle: "@rctlabs",
 } as const
 
 export const PUBLIC_ROUTE_PRIORITIES: Record<string, number> = {
