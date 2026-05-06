@@ -175,7 +175,7 @@ export function FloatingAI() {
   /* Build conversation_history from last 6 messages for API context.
      Filters out empty streaming placeholders to avoid polluting history. */
   const buildHistory = useCallback((): Array<{ role: string; content: string; _topic?: string }> => {
-    return messages.filter((m) => !m.isStreaming && m.content).slice(-6).map((_item) => ({
+    return messages.filter((m) => !m.isStreaming && m.content).slice(-8).map((_item) => ({
       role: _item.role,
       content: _item.content,
       ...(_item.topic ? { _topic: _item.topic } : {}),
