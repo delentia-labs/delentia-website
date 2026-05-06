@@ -48,15 +48,18 @@ const verification = googleSiteVerification || bingSiteVerification
     }
   : undefined
 
-/* Display: Space Grotesk (headings) — preload=true, fallback: gives font 100ms to
-   load before committing to fallback. adjustFontFallback generates size-adjust CSS
-   to minimise CLS if the fallback is used. Previously used "swap" which caused a
-   5s Render Delay (92% of LCP) due to repaint after font loaded on slow connections.
-   "optional" caused system-font fallback when cache was empty. */
+/* Display: Space Grotesk (headings) — preload=true, optional: commits to
+   size-adjusted fallback at 100ms with NO swap. Same fix as Kanit (06 May 2026):
+   with "fallback" the 3000ms swap window caused Lighthouse to measure LCP at the
+   font-swap repaint (~5s on throttled 4G) rather than at first paint.
+   "optional" eliminates swap repaint; first-time EN visitors see "Space Grotesk
+   Fallback" (Arial size-adjusted via adjustFontFallback); on cached loads the real
+   font renders correctly. Manual <link rel="preload"> in <head> below bypasses the
+   missing preload bug in Next.js 16 variable-mode fonts. */
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
-  display: "fallback",
+  display: "optional",
   preload: true,
   adjustFontFallback: true,
 })
@@ -217,6 +220,25 @@ export default async function RootLayout({
         {/* Locale bootstrap: set html[lang] immediately from URL to prevent Thai→Inter font flash */}
         <script dangerouslySetInnerHTML={{ __html: localeBootstrapScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+        {/* Font preloads — Next.js 16 variable-mode fonts don't inject preload
+            links automatically (missing <link rel="preload" as="font"> in HTML).
+            Manually adding them here ensures fonts start downloading with the HTML
+            document, before the CSS file that contains @font-face is even parsed.
+            Hashes are content-based (stable until font config changes). */}
+        <link
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          href="/_next/static/media/36966cca54120369-s.p.woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          href="/_next/static/media/25f7d470e08d7a87-s.p.woff2"
+          crossOrigin="anonymous"
+        />
         {/* Preconnect to image CDN for faster LCP */}
         <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://d2xsxph8kpxj0f.cloudfront.net" />
