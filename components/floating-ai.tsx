@@ -68,6 +68,9 @@ const SCENARIOS_TH = [
   { emoji: "✅", label: "SignedAI ตรวจสอบอย่างไร?", query: "SignedAI ทำงานอย่างไร?" },
   { emoji: "🧠", label: "HexaCore ทำงานอย่างไร?", query: "HexaCore ใช้โมเดล AI อะไรบ้าง?" },
   { emoji: "👤", label: "ใครสร้าง RCT?", query: "ใครสร้าง RCT?" },
+  { emoji: "🏢", label: "RCT ต่างจาก ChatGPT อย่างไร?", query: "RCT Labs แตกต่างจาก ChatGPT อย่างไร?" },
+  { emoji: "💰", label: "ราคาและแพลน Tier", query: "RCT มี pricing plan อะไรบ้าง?" },
+  { emoji: "🔐", label: "Data Sovereignty คืออะไร?", query: "Data Sovereignty และ Sovereignty Vault คืออะไร?" },
 ]
 
 const SCENARIOS_EN = [
@@ -75,6 +78,10 @@ const SCENARIOS_EN = [
   { emoji: "🧪", label: "The FDIA formula", query: "What is the FDIA formula?" },
   { emoji: "✅", label: "AI verifies AI (SignedAI)", query: "How does SignedAI verification work?" },
   { emoji: "👤", label: "Who built this?", query: "Who created RCT?" },
+  { emoji: "🏢", label: "RCT vs ChatGPT", query: "How is RCT different from ChatGPT or regular LLM APIs?" },
+  { emoji: "💰", label: "Pricing & Tiers", query: "What are the RCT pricing plans and tiers?" },
+  { emoji: "🔐", label: "Data Sovereignty", query: "What is Data Sovereignty and the Sovereignty Vault?" },
+  { emoji: "🧬", label: "41 Algorithms", query: "What are the 41 algorithms in the RCT Ecosystem?" },
 ]
 
 function useScenarios() {
@@ -171,6 +178,22 @@ export function FloatingAI() {
       scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })
     }
   }, [messages, loading])
+
+  /* F5 — Mobile keyboard: when the virtual keyboard opens on iOS/Android,
+     visualViewport fires a resize event. Scroll the message list to the
+     bottom so the input stays visible and the latest reply isn't hidden. */
+  useEffect(() => {
+    if (!isOpen) return
+    const vv = typeof window !== "undefined" ? window.visualViewport : null
+    if (!vv) return
+    const onResize = () => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })
+      }
+    }
+    vv.addEventListener("resize", onResize)
+    return () => vv.removeEventListener("resize", onResize)
+  }, [isOpen])
 
   /* Build conversation_history from last 6 messages for API context.
      Filters out empty streaming placeholders to avoid polluting history. */
@@ -725,7 +748,7 @@ export function FloatingAI() {
             className={`fixed z-50 flex flex-col rounded-2xl border border-warm-light-gray dark:border-border bg-background/85 backdrop-blur-2xl shadow-2xl overflow-hidden transition-all duration-300 ${
               isExpanded
                 ? "inset-4 md:inset-8"
-                : "bottom-6 right-6 w-100 h-140 max-w-[calc(100vw-3rem)] max-h-[calc(100vh-3rem)]"
+                : "bottom-6 right-6 w-[min(25rem,calc(100vw-1.5rem))] h-[min(35rem,calc(100vh-3rem))]"
             }`}
           >
             {/* ---------- Header ---------- */}
@@ -828,6 +851,13 @@ export function FloatingAI() {
               </div>
             )}
 
+            {/* ---------- Context window indicator ---------- */}
+            {messages.filter((m) => !m.isStreaming && m.content).length > 0 && (
+              <div className="px-4 py-0.5 text-[10px] text-muted-foreground/50 text-right border-b border-border/20 bg-transparent select-none">
+                {Math.min(messages.filter((m) => !m.isStreaming && m.content).length, 8)} / 8 messages in context
+              </div>
+            )}
+
             {/* ---------- Messages Area ---------- */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
 
@@ -839,7 +869,7 @@ export function FloatingAI() {
                     <p className="text-sm text-foreground font-medium">Welcome to RCT Ecosystem</p>
                     <p className="text-xs text-muted-foreground mt-1">เลือกหัวข้อที่สนใจ หรือพิมพ์คำถามของคุณ</p>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 max-h-52 overflow-y-auto pr-0.5">
                     {scenarios.map((s) => (
                       <button
                         key={s.query}
