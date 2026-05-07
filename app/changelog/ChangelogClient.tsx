@@ -23,6 +23,15 @@ export default function ChangelogClient() {
 
   const releases: ReleaseEntry[] = [
     {
+      version: "Website v3.7.0",
+      date: "2026-05-07",
+      title: language === "th" ? "README overhaul 15-point · rct-control-plane EN+TH · LCP Space Grotesk fix · lastReviewed Batch 4" : "README overhaul 15-point · rct-control-plane EN+TH · LCP Space Grotesk fix · lastReviewed Batch 4",
+      description: language === "th" ? "เขียน README.md ใหม่ทั้งหมด 240 → 593 บรรทัด คะแนน 13/200 → 175/200 พร้อม 19 sections, FDIA equation, Key Metrics table, Architecture diagram เผยแพร่ rct-control-plane-governance-layer EN+TH (8 วันก่อนกำหนด) แก้ไข Space Grotesk display:optional + font preload hints → LCP EN 5,056ms → 4,589ms อัปเดต lastReviewed batch 4 ครอบคลุม 22 ไฟล์ทั้งหมดที่ค้างอยู่" : "Complete README.md rewrite from 240 → 593 lines, score 13/200 → 175/200 with 19 sections, FDIA equation, Key Metrics table, Architecture ASCII diagram. Published rct-control-plane-governance-layer EN+TH (8 days early). Fixed Space Grotesk display:optional + font preload hints → LCP EN 5,056ms → 4,589ms. Applied lastReviewed batch 4 to 22 files.",
+      icon: Rocket,
+      highlights: language === "th" ? ["README.md 240 → 593 บรรทัด · คะแนน 13 → 175/200", "19 sections: FDIA equation, Key Metrics, Architecture diagram", "rct-control-plane-governance-layer EN+TH (8 วันก่อนกำหนด)", "Space Grotesk display:optional + font preload", "LCP EN 5,056ms → 4,589ms ✅", "lastReviewed batch 4: 22 ไฟล์ → 2026-05-07"] : ["README.md 240 → 593 lines · score 13 → 175/200", "19 sections: FDIA equation, Key Metrics, Architecture diagram", "rct-control-plane-governance-layer EN+TH (8 days early)", "Space Grotesk display:optional + font preload", "LCP EN 5,056ms → 4,589ms ✅", "lastReviewed batch 4: 22 files → 2026-05-07"],
+      tone: "border-green-500/25 bg-green-500/10 text-green-600 dark:text-green-400",
+    },
+    {
       version: "Website v3.6.1",
       date: "2026-05-06",
       title: language === "th" ? "lastReviewed Batch 3 · TH variants 3 บทความ · rct-7, intent-ops, verification" : "lastReviewed Batch 3 · 3 new TH variants · rct-7, intent-ops, verification",
