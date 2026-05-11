@@ -90,6 +90,18 @@ const faqCategories = [
         aEn: "The Delta Engine stores only incremental state changes (deltas) rather than full state snapshots. This achieves 74% average lossless compression with sub-1ms reconstruction, enabling warm recall under 50ms compared to a full cold-start LLM call of 3–5 seconds. It is what allows RCT to maintain deep context across long sessions without proportional memory cost or latency increase.",
         aTh: "Delta Engine เก็บเฉพาะการเปลี่ยนแปลง (deltas) แทนสถานะเต็ม บีบอัดได้ 74% แบบ lossless พร้อม reconstruction ต่ำกว่า 1ms ทำให้ warm recall ต่ำกว่า 50ms เทียบกับ cold-start LLM call 3–5 วินาที นี่คือสิ่งที่ทำให้ RCT รักษา context ยาวได้โดยไม่เพิ่มต้นทุนหน่วยความจำหรือ latency ตามสัดส่วน",
       },
+      {
+        qEn: "How does RCT's Circuit Breaker prevent cascading AI failures?",
+        qTh: "RCT Circuit Breaker ป้องกัน cascading AI failures ได้อย่างไร?",
+        aEn: "RCT's Circuit Breaker (RFC-006 Fault Isolation) monitors each component's FDIA score in real time. When a component's F score drops below 0.7 — indicating degraded data quality, misaligned intent, or reduced Architect authorization — the breaker opens immediately and routes traffic to one of 7 fallback LLM providers. The three states are: CLOSED (normal operation), OPEN (failure isolated, fallback active), and HALF-OPEN (test mode for recovery). This prevents a single failing model or service from poisoning dependent agents downstream — the worst failure mode in multi-agent AI because it is invisible in standard output without explicit fault isolation.",
+        aTh: "Circuit Breaker ของ RCT (RFC-006 Fault Isolation) ตรวจสอบคะแนน FDIA ของแต่ละ component แบบ real-time เมื่อคะแนน F ต่ำกว่า 0.7 (แสดงว่า data quality ต่ำ, intent ไม่ตรง หรือ Architect authorization ลดลง) breaker จะเปิดทันทีและ route traffic ไปยัง fallback LLM providers 7 ตัว มี 3 สถานะ: CLOSED (ปกติ), OPEN (failure ถูก isolate, fallback ทำงาน), HALF-OPEN (ทดสอบ recovery) ป้องกัน model หรือ service เดียวที่ล้มเหลวจากการทำให้ agents ที่พึ่งพาได้รับ input เสีย — failure mode ที่เลวร้ายที่สุดใน multi-agent AI เพราะไม่เห็นได้จาก output ปกติ",
+      },
+      {
+        qEn: "What is Intent Farming in enterprise AI?",
+        qTh: "Intent Farming ในระบบ enterprise AI คืออะไร?",
+        aEn: "Intent Farming is the systematic practice of accumulating, organizing, and enriching AI context over time — converting one-shot queries into progressively smarter sessions. Instead of starting cold with every interaction, RCT's RCTDB memory layer stores intent signals (user goals, constraints, preferences, domain context) and recalls them through the Delta Engine's warm recall mechanism in under 50ms. A fully farmed context can reduce LLM processing costs by up to 3× and improve response relevance by building on established understanding rather than re-deriving it each time.",
+        aTh: "Intent Farming คือการสะสม จัดระเบียบ และเพิ่มคุณค่า AI context อย่างเป็นระบบตลอดเวลา แปลง one-shot queries เป็น sessions ที่ฉลาดขึ้นเรื่อยๆ แทนที่จะเริ่มต้น cold ทุกครั้ง RCTDB ของ RCT เก็บ intent signals (เป้าหมาย, ข้อจำกัด, preferences, domain context) และเรียกคืนผ่าน Delta Engine warm recall ในเวลาต่ำกว่า 50ms Context ที่ farm มาอย่างดีลด LLM cost ได้ถึง 3 เท่า และเพิ่ม relevance โดยใช้ความเข้าใจที่สะสมไว้แทนการ derive ใหม่ทุกครั้ง",
+      },
     ],
   },
   {

@@ -146,6 +146,20 @@ const glossaryTerms = [
     definitionTh: "กรอบคิดสำหรับ AI ที่ให้ความสำคัญกับการเข้าใจเป้าหมาย บริบท และข้อจำกัดก่อนตัดสินใจว่าจะตอบหรือกระทำอะไรต่อ",
   },
   {
+    term: "Intent Farming",
+    termTh: "Intent Farming (การเพาะปลูกเจตนา)",
+    definition: "The systematic practice of accumulating, organizing, and enriching AI context over time across sessions. Rather than starting cold with every interaction, Intent Farming stores user goals, constraints, domain preferences, and conversation history in RCTDB and recalls them via the Delta Engine warm recall mechanism (under 50ms). A well-farmed context reduces LLM cost by up to 3× and improves response relevance by building on established understanding rather than re-deriving it each time.",
+    definitionTh: "การสะสม จัดระเบียบ และเพิ่มคุณค่า AI context อย่างเป็นระบบข้ามหลาย sessions แทนที่จะเริ่มต้น cold ทุกครั้ง Intent Farming เก็บเป้าหมาย ข้อจำกัด domain preferences และ conversation history ใน RCTDB และเรียกคืนผ่าน Delta Engine warm recall ในเวลาต่ำกว่า 50ms ลด LLM cost ได้ถึง 3 เท่าและเพิ่ม relevance โดยใช้ความเข้าใจที่สะสมแล้วแทนการ derive ใหม่",
+    entityHref: "/en/blog/intent-farming-grow-ai-context",
+  },
+  {
+    term: "Intent Signal",
+    termTh: "Intent Signal (สัญญาณเจตนา)",
+    definition: "Any observable indicator of a user's underlying goal, preference, or constraint that can be captured and stored to improve future AI interactions. Intent Signals include explicit statements ('I need a PDPA-compliant response'), implicit patterns (frequently queried topics), and behavioral cues (which answers the user expands or dismisses). These signals are the raw material of Intent Farming and the fuel for RCTDB's 8-dimensional memory schema.",
+    definitionTh: "ตัวบ่งชี้ที่สังเกตได้ของเป้าหมาย preferences หรือข้อจำกัดพื้นฐานของผู้ใช้ที่สามารถจับและเก็บไว้เพื่อปรับปรุง AI interactions ในอนาคต ได้แก่ คำชัดเจน ('ต้องการคำตอบที่ PDPA compliant'), รูปแบบ implicit (หัวข้อที่ query บ่อย) และ behavioral cues เหล่านี้คือวัตถุดิบของ Intent Farming",
+    entityHref: "/en/blog/intent-farming-grow-ai-context",
+  },
+  {
     term: "Prompt Injection",
     termTh: "Prompt Injection (การฉีดคำสั่ง)",
     definition: "A security attack where malicious text in user input attempts to override the system's intended behavior. RCT's JITNA Normalizer automatically strips known injection patterns on every request before LLM processing.",

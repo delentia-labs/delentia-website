@@ -1,0 +1,208 @@
+---
+title: "Specialist Studio: Domain-Specific AI Orchestration in the RCT Ecosystem"
+author: "Ittirit Saengow"
+authorId: "ittirit-saengow"
+reviewerId: "rct-research-desk"
+date: "2026-05-17"
+lastReviewed: "2026-05-11"
+category: "research"
+excerpt: "Most enterprise AI deployments fail at the domain boundary — where general-purpose LLMs meet specialized professional knowledge. The RCT Specialist Studio solves this with domain-specific orchestration that routes every query to the right genome, model, and verification tier automatically."
+tags: ["Specialist Studio", "Domain AI", "AI Orchestration", "Enterprise AI", "RCT Platform", "HexaCore", "Constitutional AI", "Genome System"]
+readTime: 13
+references:
+  - "https://arxiv.org/abs/2210.03629"
+  - "https://arxiv.org/abs/2304.01373"
+  - "https://www.nist.gov/artificial-intelligence"
+  - "https://rctlabs.github.io/rct-platform/architecture/"
+  - "https://rctlabs.co/en/genome"
+  - "https://rctlabs.co/en/products/artent-ai"
+  - "https://rctlabs.co/en/algorithms"
+---
+
+# Specialist Studio: Domain-Specific AI Orchestration in the RCT Ecosystem
+
+A general-purpose LLM given a query about Thai PDPA compliance, pharmaceutical dosing thresholds, or constitutional law interpretation will produce confident, fluent, and often subtly wrong answers. Not because the model is poorly trained — but because it was never designed to be authoritative on domains that require precision, up-to-date regulatory context, verified professional standards, and explicit reasoning chains that can be audited.
+
+The **Specialist Studio** is the RCT Platform's answer to this structural problem. It is not a prompt template system, a fine-tuning workflow, or a RAG pipeline with domain documents stuffed in. It is an orchestration layer that composes domain-specific genome configurations, specialized model routing, verification tiers, and constitutional constraints into a coherent execution unit — one per domain.
+
+This article explains what the Specialist Studio is, how it relates to the 7-Genome System, what makes domain-specific orchestration architecturally different from general AI, and how to think about deploying it for enterprise use cases where errors have real consequences.
+
+---
+
+## The Domain Boundary Problem
+
+General-purpose AI systems face a specific failure mode at domain boundaries. The problem has three layers:
+
+**Layer 1 — Knowledge Staleness.** Most LLMs have training cutoffs. A medical AI without a 2025 formulary update may recommend a drug combination now contraindicated. A legal AI unaware of recent case law may cite overruled precedent. A compliance AI missing a 2567 PDPA amendment may advise practices now illegal. General models have no mechanism to signal when their domain knowledge is stale.
+
+**Layer 2 — Precision vs. Fluency Tradeoff.** LLMs optimize for fluent, coherent text. In many domains, precision matters more than fluency. A response that reads confidently but rounds a threshold value from 0.5mg/kg to 0.5g/kg is catastrophic in a medical context — and will pass all standard fluency-based quality checks. Domain-specific orchestration must detect and block precision failures that general quality metrics miss.
+
+**Layer 3 — Accountability Gaps.** Enterprise deployments in regulated industries require explainable, auditable decisions. "The model said so" is not an acceptable audit response for a healthcare AI decision, a credit scoring output, or a PDPA compliance determination. General AI systems produce outputs — domain-specific orchestration must produce outputs with provenance, confidence levels, and reasoning chains that survive regulatory scrutiny.
+
+The Specialist Studio addresses all three layers.
+
+---
+
+## Architecture: How the Specialist Studio Works
+
+The Specialist Studio is not a single component — it is a **genome configuration pattern** applied to a specific domain. Each Studio instance composes:
+
+### 1. Domain Genome Bundle
+
+Every Specialist Studio activates a curated subset of the 7-Genome System:
+
+| Genome | Role in Specialist Studio |
+|---|---|
+| **G1 — Architect** | Domain knowledge scaffold: maps concepts, entities, and relationships specific to the domain |
+| **G2 — Codex** | Domain algorithm selection: which of the 41 algorithms apply to this domain's query types |
+| **G3 — JITNA** | Routing intelligence: selects the right model tier and processing path per query sub-type |
+| **G4 — ARTENT** | Memory persistence: stores domain-specific context, preferences, and session history |
+| **G6 — Vault** | Constitutional constraints: domain-specific prohibitions (e.g., never output unverified medical dosing) |
+
+G5 (SignedAI) is activated at configurable tiers depending on the domain's error tolerance — Tier 4 for internal drafts, Tier 8 for externally published compliance outputs.
+
+### 2. Domain-Specific FDIA Configuration
+
+The FDIA equation ($F = D^I \times A$) is calibrated per domain:
+
+- **D (Data)** threshold is elevated for medical and legal domains — queries require verified sources, not just model confidence
+- **I (Intent)** normalization is domain-tuned — a question asking "what is the maximum dose?" in a pharmaceutical context maps to a different intent classification than the same question in a culinary context
+- **A (Architect)** includes domain-specific constitutional rules: outputs that reference unverified clinical studies, cite overruled case law, or make absolute compliance determinations without audit trail are blocked regardless of fluency
+
+### 3. Verification Tier Configuration
+
+Each domain Studio has a verification policy:
+
+```
+Domain Examples:
+  Internal knowledge base queries     → Tier 4 (50% consensus)
+  Customer-facing advisory content    → Tier 6 (67% consensus)
+  Regulatory compliance determinations → Tier 8 (75% consensus)
+  Legal opinions for filing           → Tier S (100% consensus)
+```
+
+This is enforced constitutionally — a Tier S domain Studio cannot be configured to release a Tier 4 output even if instructed to skip verification.
+
+---
+
+## The 3.74× Efficiency Gain: Where It Comes From
+
+Across enterprise deployments, the Specialist Studio achieves an average **3.74× cost reduction** compared to single-model deployments handling the same domain queries. The savings come from three sources:
+
+**1. Intelligent Pre-filtering (~40% of savings)**
+JITNA Genome routes ~60% of typical domain queries to warm recall (Delta Engine cache, under 50ms) or Tier 1 processing before any expensive LLM call is made. Domain-specific query patterns are highly cacheable once the Studio has processed sufficient volume.
+
+**2. Right-sizing Verification (~35% of savings)**
+Without domain-specific orchestration, organizations default to over-verification — running every query through expensive multi-model consensus because they cannot distinguish high-stakes from routine queries. The Specialist Studio's intent classification routes each query to the correct verification tier automatically, eliminating unnecessary consensus calls on routine queries.
+
+**3. Eliminating Retry Loops (~25% of savings)**
+General AI systems in domain contexts often require human review cycles — an output is generated, found insufficient, and the query is resubmitted with corrections. Domain-specific constitutional constraints catch domain errors before output, eliminating most retry loops that represent hidden compute and human time costs.
+
+---
+
+## Domain Configuration: What Changes per Studio
+
+A Specialist Studio is defined by a domain configuration manifest that specifies:
+
+```yaml
+domain: "thai-pdpa-compliance"
+version: "2567.2"
+
+# Knowledge scaffold
+knowledge_graph:
+  primary_entities: ["data_subject", "controller", "processor", "supervisory_authority"]
+  regulatory_citations: ["PDPA_B.E.2562", "PDPA_Amendment_2567"]
+  cutoff_refresh: "quarterly"  # Knowledge staleness policy
+
+# FDIA calibration
+fdia:
+  data_threshold: 0.85         # Higher than default 0.70 — verified sources required
+  intent_normalization: "compliance_mode"
+  architect_prohibitions:
+    - "absolute_compliance_assertion_without_audit_trail"
+    - "cite_overruled_case_without_noting_status"
+
+# Verification policy
+verification:
+  default_tier: 6
+  high_stakes_patterns: ["penalty_calculation", "breach_notification_timing"]
+  high_stakes_tier: 8
+
+# Memory configuration
+memory:
+  session_persistence: true
+  organization_context: true   # Carry org-level compliance profile across sessions
+  delta_compression: "aggressive"
+```
+
+This manifest is what makes the Studio "domain-specific" — not a different model, but a different constitutional configuration applied to the same underlying infrastructure.
+
+---
+
+## Operational Characteristics
+
+### Initialization Behavior
+
+A new Specialist Studio requires a **warm-up period** — typically 200–500 queries — before the Delta Engine has built sufficient cache coverage for the domain's query distribution. During this period, costs are closer to full LLM processing rates. Once warm, the 3.74× efficiency is sustained.
+
+### Failure Modes the Studio Eliminates
+
+The Specialist Studio's constitutional constraints block specific failure patterns that cause enterprise AI incidents:
+
+| Failure Pattern | Standard AI | Specialist Studio |
+|---|---|---|
+| Stale regulatory citation | Allowed (no date awareness) | Blocked by knowledge cutoff policy |
+| Precision rounding in critical values | Passes fluency checks | Blocked by domain invariant rules |
+| Compliance assertion without audit trail | Allowed | Blocked by Architect constitutional rule |
+| Cross-domain contamination (medical advice in legal query) | Common | Blocked by domain boundary enforcement |
+| High-confidence output on unverified claim | Common | Requires verification tier escalation |
+
+### Metrics to Track per Studio
+
+Operators should monitor three Studio-specific metrics:
+
+1. **Domain F-Score Distribution** — histogram of FDIA scores per query type. A healthy Studio shows consistent scores above 0.85 for its core query types. Score drops indicate knowledge staleness or query drift outside the configured domain.
+
+2. **Verification Tier Distribution** — what percentage of queries hit each tier. Unexpected spikes in Tier 8 usage indicate the Studio is receiving queries it was not configured for.
+
+3. **Constitutional Block Rate** — percentage of queries blocked before output. A rising block rate signals either a domain configuration problem or an adversarial input pattern.
+
+---
+
+## Connecting to the Broader RCT Architecture
+
+The Specialist Studio does not operate in isolation — it connects to the full RCT ecosystem:
+
+- **[Circuit Breaker Pattern](/en/blog/circuit-breaker-pattern-ai-systems)** — Provides fault isolation at the Studio boundary. If a Studio's primary model provider degrades, the Circuit Breaker opens and routes to fallback providers without service interruption.
+- **[Intent Farming](/en/blog/intent-farming-grow-ai-context)** — The Studio's RCTDB persistence builds domain-specific intent profiles over time, reducing cold-start costs with each session.
+- **[RCT Control Plane](/en/blog/rct-control-plane-governance-layer)** — Governs Studio lifecycle, enforces organizational policy across multiple Studio instances, and provides the audit trail required for regulatory compliance.
+- **[Evaluation Harnesses](/en/blog/evaluation-harnesses-enterprise-llm)** — Domain-specific test suites validate Studio configuration before production deployment.
+
+---
+
+## What the Specialist Studio Is Not
+
+To avoid misapplication, it helps to be explicit about what this architecture is not:
+
+- **Not a fine-tuned model.** The Studio reconfigures orchestration, not model weights. The underlying LLMs are unchanged.
+- **Not a RAG system.** RAG augments a single LLM call with retrieved documents. The Studio orchestrates multi-model pipelines with constitutional constraints and verification tiers — retrieval is one of several components, not the architecture itself.
+- **Not a prompt engineering pattern.** Better prompts help, but they cannot enforce constitutional constraints, provide audit trails, or route to appropriate verification tiers programmatically.
+- **Not domain-locked.** An organization can run multiple Specialist Studios simultaneously — a PDPA compliance Studio and a technical documentation Studio running in parallel, each with appropriate constitutional configurations, routing through the same HexaCore infrastructure.
+
+---
+
+## Implementation Path for Enterprise Teams
+
+For teams evaluating Specialist Studio deployment, the recommended sequence is:
+
+1. **Domain Scoping** — Identify the 3–5 query types that constitute 80% of your domain's AI workload. These define the Studio's core configuration.
+2. **Constitutional Rule Mapping** — Work backward from past AI incidents or near-misses in your domain to define what the Architect must unconditionally prohibit.
+3. **Verification Tier Mapping** — Classify your query types by error tolerance. Tier S for externally published regulatory determinations; Tier 4 for internal drafting assistance.
+4. **Pilot with Harness** — Run the Studio configuration against a domain-specific evaluation harness before production deployment. The RCT Platform includes evaluation templates for common regulated domains.
+5. **Warm-Up and Monitor** — Accept the 200–500 query warm-up period, monitor the three Studio metrics, and adjust domain configuration as query distribution stabilizes.
+
+The Specialist Studio is not a product you deploy in an afternoon — it is an architectural pattern you configure, calibrate, and operate. The 3.74× efficiency and the constitutional safety properties are the reward for doing that configuration work correctly.
+
+---
+
+*Related articles: [Circuit Breaker Pattern](/en/blog/circuit-breaker-pattern-ai-systems) · [Intent Farming](/en/blog/intent-farming-grow-ai-context) · [RCT Control Plane](/en/blog/rct-control-plane-governance-layer) · [Evaluation Harnesses](/en/blog/evaluation-harnesses-enterprise-llm)*

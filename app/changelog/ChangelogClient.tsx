@@ -23,6 +23,15 @@ export default function ChangelogClient() {
 
   const releases: ReleaseEntry[] = [
     {
+      version: "Website v3.8.0",
+      date: "2026-05-11",
+      title: language === "th" ? "specialist-studio-explained EN+TH · FAQ 2 Q&As · Glossary Intent Farming + Intent Signal" : "specialist-studio-explained EN+TH · FAQ 2 Q&As · Glossary Intent Farming + Intent Signal",
+      description: language === "th" ? "เผยแพร่ specialist-studio-explained EN+TH (deadline 17 พ.ค.) อธิบาย Domain-Specific AI Orchestration ผ่าน 7-Genome System, FDIA calibration, Verification Tiers และ 3.74× efficiency gain เพิ่ม FAQ 2 Q&As: Circuit Breaker (FDIA score <0.7, 7 fallback providers, 3 states) และ Intent Farming (RCTDB, Delta Engine warm recall <50ms, 3× cost reduction) ใน technical category เพิ่ม Glossary 2 terms: Intent Farming และ Intent Signal รวม Glossary 40 terms" : "Published specialist-studio-explained EN+TH (deadline 17 May) explaining Domain-Specific AI Orchestration via 7-Genome System, FDIA calibration, Verification Tiers, and 3.74× efficiency gain. Added FAQ 2 Q&As: Circuit Breaker (FDIA score <0.7, 7 fallback providers, 3 states) and Intent Farming (RCTDB, Delta Engine warm recall <50ms, 3× cost reduction) in technical category. Added Glossary 2 terms: Intent Farming and Intent Signal — total 40 terms.",
+      icon: BookOpen,
+      highlights: language === "th" ? ["specialist-studio-explained.mdx EN ✅ (13 min read)", "specialist-studio-explained.th.mdx TH ✅", "7-Genome orchestration · FDIA per-domain calibration · Verification Tiers", "3.74× efficiency: pre-filtering 40% + right-sizing 35% + retry 25%", "FAQ technical: Circuit Breaker Q&A ✅", "FAQ technical: Intent Farming Q&A ✅", "Glossary: Intent Farming ✅", "Glossary: Intent Signal ✅ (40 terms total)"] : ["specialist-studio-explained.mdx EN ✅ (13 min read)", "specialist-studio-explained.th.mdx TH ✅", "7-Genome orchestration · FDIA per-domain calibration · Verification Tiers", "3.74× efficiency: pre-filtering 40% + right-sizing 35% + retry 25%", "FAQ technical: Circuit Breaker Q&A ✅", "FAQ technical: Intent Farming Q&A ✅", "Glossary: Intent Farming ✅", "Glossary: Intent Signal ✅ (40 terms total)"],
+      tone: "border-blue-500/25 bg-blue-500/10 text-blue-600 dark:text-blue-400",
+    },
+    {
       version: "Website v3.7.0",
       date: "2026-05-07",
       title: language === "th" ? "README overhaul 15-point · rct-control-plane EN+TH · LCP Space Grotesk fix · lastReviewed Batch 4" : "README overhaul 15-point · rct-control-plane EN+TH · LCP Space Grotesk fix · lastReviewed Batch 4",

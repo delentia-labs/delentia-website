@@ -1,0 +1,179 @@
+---
+title: "Specialist Studio: การ Orchestrate AI เฉพาะโดเมนในระบบ RCT Ecosystem"
+author: "Ittirit Saengow"
+authorId: "ittirit-saengow"
+reviewerId: "rct-research-desk"
+date: "2026-05-17"
+lastReviewed: "2026-05-11"
+category: "research"
+excerpt: "การ deploy enterprise AI ส่วนใหญ่ล้มเหลวที่ขอบเขตโดเมน — จุดที่ LLM ทั่วไปพบกับความรู้เชิงวิชาชีพเฉพาะทาง RCT Specialist Studio แก้ปัญหานี้ด้วย domain-specific orchestration ที่ route ทุก query ไปยัง genome, model และ verification tier ที่ถูกต้องโดยอัตโนมัติ"
+tags: ["Specialist Studio", "Domain AI", "AI Orchestration", "Enterprise AI", "RCT Platform", "HexaCore", "Constitutional AI", "Genome System"]
+readTime: 13
+references:
+  - "https://arxiv.org/abs/2210.03629"
+  - "https://arxiv.org/abs/2304.01373"
+  - "https://www.nist.gov/artificial-intelligence"
+  - "https://rctlabs.github.io/rct-platform/architecture/"
+  - "https://rctlabs.co/en/genome"
+  - "https://rctlabs.co/en/products/artent-ai"
+  - "https://rctlabs.co/en/algorithms"
+---
+
+# Specialist Studio: การ Orchestrate AI เฉพาะโดเมนในระบบ RCT Ecosystem
+
+LLM ทั่วไปที่ได้รับคำถามเกี่ยวกับการปฏิบัติตาม PDPA ของไทย เกณฑ์การใช้ยาในเภสัชกรรม หรือการตีความกฎหมายรัฐธรรมนูญ จะสร้างคำตอบที่มั่นใจ คล่องแคล่ว และมักผิดพลาดอย่างละเอียด ไม่ใช่เพราะโมเดลเทรนมาไม่ดี แต่เพราะไม่ได้ออกแบบมาเพื่อให้มีอำนาจในโดเมนที่ต้องการความแม่นยำ บริบทกฎระเบียบที่ทันสมัย มาตรฐานวิชาชีพที่ตรวจสอบแล้ว และ reasoning chains ที่สามารถ audit ได้
+
+**Specialist Studio** คือคำตอบของ RCT Platform สำหรับปัญหาเชิงโครงสร้างนี้ ไม่ใช่ระบบ prompt template, workflow การ fine-tune หรือ RAG pipeline ที่ยัด domain documents เข้าไป แต่เป็น orchestration layer ที่ประกอบ genome configurations เฉพาะโดเมน, specialized model routing, verification tiers และ constitutional constraints เป็น execution unit ที่สอดคล้องกัน — หนึ่งหน่วยต่อหนึ่งโดเมน
+
+บทความนี้อธิบายว่า Specialist Studio คืออะไร เกี่ยวข้องกับ 7-Genome System อย่างไร อะไรทำให้ domain-specific orchestration แตกต่างทางสถาปัตยกรรมจาก AI ทั่วไป และวิธีคิดเกี่ยวกับการ deploy สำหรับ use cases ระดับองค์กรที่ข้อผิดพลาดมีผลที่แท้จริง
+
+---
+
+## ปัญหา Domain Boundary
+
+ระบบ AI ทั่วไปเผชิญกับ failure mode เฉพาะที่ขอบเขตโดเมน ปัญหามี 3 ชั้น:
+
+**ชั้นที่ 1 — ความล้าสมัยของความรู้** LLM ส่วนใหญ่มี training cutoffs โมเดล medical AI ที่ไม่มีข้อมูลยา 2025 อาจแนะนำการผสมยาที่ถูก contraindicated แล้ว โมเดล legal AI ที่ไม่ทราบ case law ล่าสุดอาจอ้าง precedent ที่ถูก overruled โมเดล compliance AI ที่พลาด PDPA amendment 2567 อาจแนะนำแนวทางที่ผิดกฎหมายแล้ว โมเดลทั่วไปไม่มีกลไกส่งสัญญาณเมื่อความรู้โดเมนล้าสมัย
+
+**ชั้นที่ 2 — Tradeoff ระหว่าง Precision กับ Fluency** LLMs optimize เพื่อข้อความที่คล่องแคล่วและสอดคล้องกัน ในหลายโดเมน precision สำคัญกว่า fluency คำตอบที่อ่านมั่นใจแต่ปัดค่า threshold จาก 0.5mg/kg เป็น 0.5g/kg นั้นร้ายแรงในบริบทการแพทย์ — และจะผ่าน quality checks มาตรฐานทั้งหมดที่ใช้ fluency เป็นเกณฑ์ Domain-specific orchestration ต้องตรวจจับและบล็อก precision failures ที่ general quality metrics พลาด
+
+**ชั้นที่ 3 — ช่องว่างด้าน Accountability** การ deploy ระดับองค์กรในอุตสาหกรรมที่มีการควบคุมต้องการการตัดสินใจที่อธิบายและ audit ได้ "โมเดลบอกอย่างนั้น" ไม่ใช่คำตอบ audit ที่ยอมรับได้สำหรับการตัดสินใจของ healthcare AI, output การให้คะแนนเครดิต หรือการตัดสิน PDPA compliance ระบบ AI ทั่วไปสร้าง outputs — domain-specific orchestration ต้องสร้าง outputs พร้อม provenance, confidence levels และ reasoning chains ที่ผ่านการตรวจสอบด้านกฎระเบียบได้
+
+Specialist Studio แก้ไขทั้งสามชั้น
+
+---
+
+## สถาปัตยกรรม: Specialist Studio ทำงานอย่างไร
+
+Specialist Studio ไม่ใช่ component เดียว — มันคือ **genome configuration pattern** ที่นำไปใช้กับโดเมนเฉพาะ แต่ละ Studio instance ประกอบด้วย:
+
+### 1. Domain Genome Bundle
+
+ทุก Specialist Studio เปิดใช้งาน subset ที่คัดสรรจาก 7-Genome System:
+
+| Genome | บทบาทใน Specialist Studio |
+|---|---|
+| **G1 — Architect** | Domain knowledge scaffold: map concepts, entities และความสัมพันธ์เฉพาะโดเมน |
+| **G2 — Codex** | Domain algorithm selection: algorithms ใดใน 41 ตัวที่ใช้กับ query types ของโดเมนนี้ |
+| **G3 — JITNA** | Routing intelligence: เลือก model tier และ processing path ที่ถูกต้องต่อ query sub-type |
+| **G4 — ARTENT** | Memory persistence: เก็บ domain-specific context, preferences และ session history |
+| **G6 — Vault** | Constitutional constraints: prohibitions เฉพาะโดเมน (เช่น ห้ามออก unverified medical dosing) |
+
+G5 (SignedAI) เปิดใช้งานที่ tiers ที่กำหนดได้ตาม error tolerance ของโดเมน — Tier 4 สำหรับ internal drafts, Tier 8 สำหรับ compliance outputs ที่เผยแพร่ภายนอก
+
+### 2. Domain-Specific FDIA Configuration
+
+สมการ FDIA ($F = D^I \times A$) ถูก calibrate ต่อโดเมน:
+
+- **D (Data)** threshold ยกระดับสำหรับโดเมน medical และ legal — queries ต้องการแหล่งที่มาที่ verified ไม่ใช่แค่ model confidence
+- **I (Intent)** normalization tuned ตามโดเมน — คำถามถามว่า "ขนาดสูงสุดคือเท่าไร?" ในบริบทเภสัชกรรม map ไปยัง intent classification ต่างจากคำถามเดียวกันในบริบทการทำอาหาร
+- **A (Architect)** รวม constitutional rules เฉพาะโดเมน: outputs ที่อ้างอิงการศึกษาคลินิกที่ไม่ verified, อ้าง case law ที่ถูก overruled หรือทำ compliance determinations แบบ absolute โดยไม่มี audit trail จะถูกบล็อกไม่ว่า fluency จะเป็นเท่าไร
+
+### 3. Verification Tier Configuration
+
+แต่ละ domain Studio มี verification policy:
+
+```
+ตัวอย่างโดเมน:
+  Internal knowledge base queries     → Tier 4 (50% consensus)
+  Customer-facing advisory content    → Tier 6 (67% consensus)
+  Regulatory compliance determinations → Tier 8 (75% consensus)
+  Legal opinions for filing           → Tier S (100% consensus)
+```
+
+นี่บังคับใช้แบบ constitutional — Tier S domain Studio ไม่สามารถถูก configure ให้ release Tier 4 output แม้จะได้รับคำสั่งให้ข้ามการ verification
+
+---
+
+## ประสิทธิภาพ 3.74×: มาจากไหน
+
+ในการ deploy ระดับองค์กร Specialist Studio ทำได้ **ลดต้นทุน 3.74× เฉลี่ย** เทียบกับ single-model deployments ที่จัดการ domain queries เดียวกัน การประหยัดมาจาก 3 แหล่ง:
+
+**1. Intelligent Pre-filtering (~40% ของการประหยัด)**
+JITNA Genome route ~60% ของ domain queries ทั่วไปไปยัง warm recall (Delta Engine cache, ต่ำกว่า 50ms) หรือ Tier 1 processing ก่อนมี LLM call ที่มีค่าใช้จ่ายสูง Domain-specific query patterns สามารถ cache ได้ดีมากเมื่อ Studio ประมวลผลปริมาณเพียงพอแล้ว
+
+**2. Right-sizing Verification (~35% ของการประหยัด)**
+โดยไม่มี domain-specific orchestration องค์กรมักใช้ over-verification โดยค่าเริ่มต้น — รัน multi-model consensus ที่มีค่าใช้จ่ายสูงกับทุก query เพราะไม่สามารถแยกแยะ high-stakes จาก routine queries ได้ Intent classification ของ Specialist Studio route แต่ละ query ไปยัง verification tier ที่ถูกต้องโดยอัตโนมัติ ขจัด consensus calls ที่ไม่จำเป็นใน routine queries
+
+**3. ขจัด Retry Loops (~25% ของการประหยัด)**
+ระบบ AI ทั่วไปในบริบทโดเมนมักต้องการรอบ human review — output ถูกสร้าง พบว่าไม่เพียงพอ และ query ถูกส่งอีกครั้งพร้อมการแก้ไข Constitutional constraints เฉพาะโดเมนจับ domain errors ก่อน output ขจัด retry loops ส่วนใหญ่ที่แสดงต้นทุน compute และเวลามนุษย์ที่ซ่อนอยู่
+
+---
+
+## Domain Configuration: อะไรที่เปลี่ยนแปลงต่อ Studio
+
+Specialist Studio ถูกกำหนดโดย domain configuration manifest ที่ระบุ:
+
+```yaml
+domain: "thai-pdpa-compliance"
+version: "2567.2"
+
+# Knowledge scaffold
+knowledge_graph:
+  primary_entities: ["data_subject", "controller", "processor", "supervisory_authority"]
+  regulatory_citations: ["PDPA_B.E.2562", "PDPA_Amendment_2567"]
+  cutoff_refresh: "quarterly"  # Knowledge staleness policy
+
+# FDIA calibration
+fdia:
+  data_threshold: 0.85         # สูงกว่าค่าเริ่มต้น 0.70 — ต้องการแหล่งที่มาที่ verified
+  intent_normalization: "compliance_mode"
+  architect_prohibitions:
+    - "absolute_compliance_assertion_without_audit_trail"
+    - "cite_overruled_case_without_noting_status"
+
+# Verification policy
+verification:
+  default_tier: 6
+  high_stakes_patterns: ["penalty_calculation", "breach_notification_timing"]
+  high_stakes_tier: 8
+
+# Memory configuration
+memory:
+  session_persistence: true
+  organization_context: true   # พา org-level compliance profile ข้ามทุก session
+  delta_compression: "aggressive"
+```
+
+นี่คือสิ่งที่ทำให้ Studio "เฉพาะโดเมน" — ไม่ใช่โมเดลต่างกัน แต่เป็น constitutional configuration ต่างกันที่ใช้กับ infrastructure พื้นฐานเดียวกัน
+
+---
+
+## Failure Modes ที่ Studio ขจัด
+
+| Failure Pattern | AI ทั่วไป | Specialist Studio |
+|---|---|---|
+| อ้างกฎระเบียบที่ล้าสมัย | อนุญาต (ไม่มี date awareness) | บล็อกด้วย knowledge cutoff policy |
+| การปัดเลขใน critical values | ผ่าน fluency checks | บล็อกด้วย domain invariant rules |
+| Compliance assertion โดยไม่มี audit trail | อนุญาต | บล็อกด้วย Architect constitutional rule |
+| Cross-domain contamination | พบบ่อย | บล็อกด้วย domain boundary enforcement |
+| Output confidence สูงบน unverified claim | พบบ่อย | ต้องมี verification tier escalation |
+
+---
+
+## เชื่อมต่อกับสถาปัตยกรรม RCT ที่กว้างขึ้น
+
+Specialist Studio ไม่ทำงานแบบโดดเดี่ยว — เชื่อมต่อกับ RCT ecosystem ทั้งหมด:
+
+- **[Circuit Breaker Pattern](/th/blog/circuit-breaker-pattern-ai-systems)** — จัดให้มี fault isolation ที่ขอบเขต Studio ถ้า model provider หลักของ Studio ลดประสิทธิภาพ Circuit Breaker จะเปิดและ route ไปยัง fallback providers โดยไม่หยุดให้บริการ
+- **[Intent Farming](/th/blog/intent-farming-grow-ai-context)** — RCTDB persistence ของ Studio สร้าง domain-specific intent profiles เมื่อเวลาผ่านไป ลด cold-start costs ทุก session
+- **[RCT Control Plane](/th/blog/rct-control-plane-governance-layer)** — กำกับ Studio lifecycle บังคับ organizational policy ในหลาย Studio instances และจัดให้มี audit trail ที่ต้องการสำหรับ regulatory compliance
+- **[Evaluation Harnesses](/th/blog/evaluation-harnesses-enterprise-llm)** — Domain-specific test suites ตรวจสอบ Studio configuration ก่อน production deployment
+
+---
+
+## เส้นทาง Implementation สำหรับทีม Enterprise
+
+สำหรับทีมที่ประเมิน Specialist Studio deployment ลำดับที่แนะนำคือ:
+
+1. **Domain Scoping** — ระบุ 3–5 query types ที่ประกอบ 80% ของ AI workload ของโดเมน สิ่งเหล่านี้กำหนด core configuration ของ Studio
+2. **Constitutional Rule Mapping** — ทำงานย้อนกลับจาก AI incidents หรือ near-misses ในอดีตในโดเมนของคุณเพื่อกำหนดสิ่งที่ Architect ต้องห้ามอย่างแน่นอน
+3. **Verification Tier Mapping** — จำแนก query types ตาม error tolerance Tier S สำหรับการตัดสิน regulatory ที่เผยแพร่ภายนอก, Tier 4 สำหรับความช่วยเหลือการร่าง internal
+4. **Pilot กับ Harness** — รัน Studio configuration กับ domain-specific evaluation harness ก่อน production deployment
+5. **Warm-Up และ Monitor** — ยอมรับช่วง warm-up 200–500 queries ตรวจสอบ Studio metrics ทั้งสาม และปรับ domain configuration เมื่อ query distribution เสถียร
+
+Specialist Studio ไม่ใช่ผลิตภัณฑ์ที่ deploy ได้ภายในบ่าย — มันคือ architectural pattern ที่คุณ configure, calibrate และดำเนินการ ประสิทธิภาพ 3.74× และ constitutional safety properties คือรางวัลสำหรับการทำงาน configuration นั้นอย่างถูกต้อง
+
+---
+
+*บทความที่เกี่ยวข้อง: [Circuit Breaker Pattern](/th/blog/circuit-breaker-pattern-ai-systems) · [Intent Farming](/th/blog/intent-farming-grow-ai-context) · [RCT Control Plane](/th/blog/rct-control-plane-governance-layer) · [Evaluation Harnesses](/th/blog/evaluation-harnesses-enterprise-llm)*
