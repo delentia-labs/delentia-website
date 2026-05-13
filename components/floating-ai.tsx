@@ -14,9 +14,13 @@ import {
   ThumbsUp,
   ThumbsDown,
   ChevronRight,
+  ChevronDown,
   Minimize2,
   Maximize2,
   CheckCircle,
+  BrainCircuit,
+  Copy,
+  Check,
 } from "lucide-react"
 import { getSupabaseBrowserClient } from "@/lib/auth/browser-client"
 // Chat is proxied through /api/chat (server-side route) to hide backend credentials
@@ -37,9 +41,10 @@ interface ChatMessage {
   suggestions?: string[]
   suggestions_th?: string[]
   feedback?: "up" | "down" | null
-  source?: "knowledge_base" | "llm" | "hybrid" | "cache" | "fallback" | "analysearch" | "rate_limit"
+  source?: "knowledge_base" | "llm" | "hybrid" | "cache" | "fallback" | "analysearch" | "rate_limit" | "intent_loop_cache"
   model_used?: string
   tokens_used?: number
+  graphrag_hits?: number
   isStreaming?: boolean
   isAuthError?: boolean
   isError?: boolean        // G9: marks a failed message that can be retried
@@ -47,6 +52,15 @@ interface ChatMessage {
   mode?: AnalysisMode      // G5: which mode produced this message
   page_links?: Array<{ label: string; url: string; section?: string }>
   external_links?: Array<{ label: string; url: string }>
+  signedai_score?: number
+  rct7_steps?: {
+    tier: number
+    steps_run: string[]
+    trace: Record<string, string>
+    elapsed_ms: number
+    quality_score: number
+    mode: "heuristic" | "llm"
+  }
   metadata?: {
     intent?: string
     keywords?: string[]
@@ -68,6 +82,9 @@ const SCENARIOS_TH = [
   { emoji: "✅", label: "SignedAI ตรวจสอบอย่างไร?", query: "SignedAI ทำงานอย่างไร?" },
   { emoji: "🧠", label: "HexaCore ทำงานอย่างไร?", query: "HexaCore ใช้โมเดล AI อะไรบ้าง?" },
   { emoji: "👤", label: "ใครสร้าง RCT?", query: "ใครสร้าง RCT?" },
+  { emoji: "🏢", label: "RCT ต่างจาก ChatGPT อย่างไร?", query: "RCT Labs แตกต่างจาก ChatGPT อย่างไร?" },
+  { emoji: "💰", label: "ราคาและแพลน Tier", query: "RCT มี pricing plan อะไรบ้าง?" },
+  { emoji: "🔐", label: "Data Sovereignty คืออะไร?", query: "Data Sovereignty และ Sovereignty Vault คืออะไร?" },
 ]
 
 const SCENARIOS_EN = [
@@ -75,6 +92,10 @@ const SCENARIOS_EN = [
   { emoji: "🧪", label: "The FDIA formula", query: "What is the FDIA formula?" },
   { emoji: "✅", label: "AI verifies AI (SignedAI)", query: "How does SignedAI verification work?" },
   { emoji: "👤", label: "Who built this?", query: "Who created RCT?" },
+  { emoji: "🏢", label: "RCT vs ChatGPT", query: "How is RCT different from ChatGPT or regular LLM APIs?" },
+  { emoji: "💰", label: "Pricing & Tiers", query: "What are the RCT pricing plans and tiers?" },
+  { emoji: "🔐", label: "Data Sovereignty", query: "What is Data Sovereignty and the Sovereignty Vault?" },
+  { emoji: "🧬", label: "41 Algorithms", query: "What are the 41 algorithms in the RCT Ecosystem?" },
 ]
 
 function useScenarios() {
@@ -164,6 +185,10 @@ export function FloatingAI() {
   const [analysisMode, setAnalysisMode] = useState<AnalysisMode>("chat")
   // P8 — analysisResult is now read + used for metadata display
   const [analysisResult, setAnalysisResult] = useState<Record<string, unknown> | null>(null)
+  // S3.2: Track which message IDs have the JITNA trace panel expanded
+  const [expandedTraces, setExpandedTraces] = useState<Set<string>>(new Set())
+  // D-copy: Track which message was just copied (for checkmark flash)
+  const [copiedId, setCopiedId] = useState<string | null>(null)
 
   /* Auto-scroll on new messages */
   useEffect(() => {
@@ -172,10 +197,38 @@ export function FloatingAI() {
     }
   }, [messages, loading])
 
+  /* F5 — Mobile keyboard: when the virtual keyboard opens on iOS/Android,
+     visualViewport fires a resize event. Scroll the message list to the
+     bottom so the input stays visible and the latest reply isn't hidden. */
+  useEffect(() => {
+    if (!isOpen) return
+    const vv = typeof window !== "undefined" ? window.visualViewport : null
+    if (!vv) return
+    const onResize = () => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" })
+      }
+    }
+    vv.addEventListener("resize", onResize)
+    return () => vv.removeEventListener("resize", onResize)
+  }, [isOpen])
+
+  /* D-kbd: Ctrl+Shift+A → toggle FloatingAI widget */
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.shiftKey && e.key === "A") {
+        e.preventDefault()
+        setIsOpen((prev) => !prev)
+      }
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [])
+
   /* Build conversation_history from last 6 messages for API context.
      Filters out empty streaming placeholders to avoid polluting history. */
   const buildHistory = useCallback((): Array<{ role: string; content: string; _topic?: string }> => {
-    return messages.filter((m) => !m.isStreaming && m.content).slice(-6).map((_item) => ({
+    return messages.filter((m) => !m.isStreaming && m.content).slice(-8).map((_item) => ({
       role: _item.role,
       content: _item.content,
       ...(_item.topic ? { _topic: _item.topic } : {}),
@@ -303,6 +356,11 @@ export function FloatingAI() {
                       source: (event.source as ChatMessage["source"]) ?? "knowledge_base",
                       page_links: Array.isArray(event.page_links) ? (event.page_links as ChatMessage["page_links"]) : [],
                       external_links: Array.isArray(event.external_links) ? (event.external_links as ChatMessage["external_links"]) : [],
+                      signedai_score: typeof event.signedai_score === "number" ? event.signedai_score : undefined,
+                      rct7_steps: event.rct7_steps && typeof event.rct7_steps === "object"
+                        ? (event.rct7_steps as ChatMessage["rct7_steps"])
+                        : undefined,
+                      graphrag_hits: typeof event.graphrag_hits === "number" ? event.graphrag_hits : undefined,
                     }
                   }
                 } else {
@@ -581,7 +639,7 @@ export function FloatingAI() {
         </span>
       )
     }
-    if (msg.source === "cache") {
+    if (msg.source === "cache" || msg.source === "intent_loop_cache") {
       return (
         <span className="text-cyan-400" title="Cached response (instant)">
           ⚡
@@ -725,7 +783,7 @@ export function FloatingAI() {
             className={`fixed z-50 flex flex-col rounded-2xl border border-warm-light-gray dark:border-border bg-background/85 backdrop-blur-2xl shadow-2xl overflow-hidden transition-all duration-300 ${
               isExpanded
                 ? "inset-4 md:inset-8"
-                : "bottom-6 right-6 w-100 h-140 max-w-[calc(100vw-3rem)] max-h-[calc(100vh-3rem)]"
+                : "bottom-6 right-6 w-[min(25rem,calc(100vw-1.5rem))] h-[min(35rem,calc(100vh-3rem))]"
             }`}
           >
             {/* ---------- Header ---------- */}
@@ -828,6 +886,13 @@ export function FloatingAI() {
               </div>
             )}
 
+            {/* ---------- Context window indicator ---------- */}
+            {messages.filter((m) => !m.isStreaming && m.content).length > 0 && (
+              <div className="px-4 py-0.5 text-[10px] text-muted-foreground/50 text-right border-b border-border/20 bg-transparent select-none">
+                {Math.min(messages.filter((m) => !m.isStreaming && m.content).length, 8)} / 8 messages in context
+              </div>
+            )}
+
             {/* ---------- Messages Area ---------- */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
 
@@ -839,7 +904,7 @@ export function FloatingAI() {
                     <p className="text-sm text-foreground font-medium">Welcome to RCT Ecosystem</p>
                     <p className="text-xs text-muted-foreground mt-1">เลือกหัวข้อที่สนใจ หรือพิมพ์คำถามของคุณ</p>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 max-h-52 overflow-y-auto pr-0.5">
                     {scenarios.map((s) => (
                       <button
                         key={s.query}
@@ -888,6 +953,51 @@ export function FloatingAI() {
                         <div className="flex items-center gap-2 mt-2 pt-2 border-t border-border/50">
                           <CheckCircle className="w-3 h-3 text-green-400" />
                           <span className="text-xs font-mono text-green-400">SignedAI Verified</span>
+                          {msg.signedai_score !== undefined && (
+                            <span className={`text-xs font-mono ml-1 ${msg.signedai_score >= 0.8 ? "text-green-400" : msg.signedai_score >= 0.5 ? "text-yellow-400" : "text-red-400"}`}>
+                              {(msg.signedai_score * 100).toFixed(0)}%
+                            </span>
+                          )}
+                          {/* B2: GraphRAG Knowledge Graph indicator */}
+                          {msg.graphrag_hits !== undefined && msg.graphrag_hits > 0 && (
+                            <span className="text-xs text-blue-400 ml-1" title={`${msg.graphrag_hits} related nodes from Knowledge Graph`}>
+                              🕸️ Graph×{msg.graphrag_hits}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      {/* S3.2: RCT7 JITNA Reasoning Trace (collapsible) */}
+                      {msg.role === "assistant" && msg.rct7_steps && (
+                        <div className="mt-2 pt-2 border-t border-border/50">
+                          <button
+                            onClick={() => setExpandedTraces((prev) => {
+                              const next = new Set(prev)
+                              next.has(msg.id) ? next.delete(msg.id) : next.add(msg.id)
+                              return next
+                            })}
+                            className="flex items-center gap-1.5 text-xs text-muted-foreground/60 hover:text-warm-amber transition-colors"
+                          >
+                            <BrainCircuit className="w-3 h-3" />
+                            <span>RCT7 Reasoning — Tier {msg.rct7_steps.tier} ({msg.rct7_steps.steps_run.length} steps, {msg.rct7_steps.mode})</span>
+                            {expandedTraces.has(msg.id)
+                              ? <ChevronDown className="w-3 h-3" />
+                              : <ChevronRight className="w-3 h-3" />
+                            }
+                          </button>
+                          {expandedTraces.has(msg.id) && (
+                            <div className="mt-2 space-y-1.5 text-xs font-mono bg-muted/20 rounded-md p-2 border border-border/40">
+                              {msg.rct7_steps.steps_run.map((step) => (
+                                <div key={step} className="flex gap-2">
+                                  <span className="text-warm-amber shrink-0 uppercase">[{step}]</span>
+                                  <span className="text-muted-foreground leading-relaxed">{msg.rct7_steps!.trace[step]}</span>
+                                </div>
+                              ))}
+                              <div className="text-muted-foreground/40 text-right mt-1">
+                                quality: {(msg.rct7_steps.quality_score * 100).toFixed(0)}% · {msg.rct7_steps.elapsed_ms}ms
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
 
@@ -948,6 +1058,24 @@ export function FloatingAI() {
                       >
                         <ThumbsDown className="w-3 h-3" />
                       </button>
+                      {/* D-copy: Copy message content to clipboard */}
+                      {!msg.isStreaming && msg.content && (
+                        <button
+                          onClick={() => {
+                            void navigator.clipboard.writeText(msg.content).then(() => {
+                              setCopiedId(msg.id)
+                              setTimeout(() => setCopiedId(null), 2000)
+                            })
+                          }}
+                          className="p-0.5 rounded text-muted-foreground/40 hover:text-muted-foreground"
+                          title="Copy message"
+                        >
+                          {copiedId === msg.id
+                            ? <Check className="w-3 h-3 text-green-400" />
+                            : <Copy className="w-3 h-3" />
+                          }
+                        </button>
+                      )}
                       {/* G5: mode badge */}
                       {msg.mode && msg.mode !== "chat" && (
                         <span className="text-xs text-muted-foreground/60 ml-1" title={`Answered in ${msg.mode} mode`}>

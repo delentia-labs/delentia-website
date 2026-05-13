@@ -1,0 +1,128 @@
+---
+title: "วิธีประเมิน Enterprise AI Platform ก่อนจัดซื้อ"
+author: "RCT Labs Research Desk"
+excerpt: "ทีมจัดซื้อ Enterprise AI ส่วนใหญ่ถามคำถามผิด — พวกเขาถามว่า platform ใช้โมเดลอะไร แทนที่จะถามว่า platform จัดการ governance, hallucination, memory และ reliability อย่างไร นี่คือ 7 คำถามที่ควรถามก่อนซื้อ"
+date: "2026-03-26"
+lastReviewed: "2026-05-13"
+authorId: "rct-research-desk"
+reviewerId: "ittirit-saengow"
+category: "research"
+tags: ["Enterprise AI Platform", "AI Procurement", "AI Evaluation", "Buyer Guide", "AI Governance"]
+readTime: 8
+references:
+  - "https://www.nist.gov/artificial-intelligence"
+  - "https://oecd.ai/en/"
+  - "https://rctlabs.co/benchmark"
+  - "https://rctlabs.co/changelog"
+---
+
+# วิธีประเมิน Enterprise AI Platform ก่อนจัดซื้อ
+
+ตลาด Enterprise AI platform กำลังโตเร็ว — และ marketing materials ก็โตตามไปด้วย ทุก platform บอกว่า hallucination ต่ำ ปรับแต่งได้ และ secure ปัญหาคือ claims ส่วนใหญ่ไม่มีหลักฐานที่ตรวจสอบได้สนับสนุน
+
+บทความนี้เป็น framework สำหรับทีม IT, security, legal และ operations ในการประเมิน enterprise AI platform อย่างเป็นระบบ — ก่อนที่จะลงนามในสัญญา
+
+---
+
+## ทำไมคำถามส่วนใหญ่ในการประเมิน AI ถึงผิด
+
+คำถามที่พบบ่อยที่สุดในการประเมิน AI platform:
+- "ใช้โมเดลอะไร?"
+- "ความแม่นยำเป็นกี่เปอร์เซ็นต์?"
+- "Benchmark กับ ChatGPT ยังไง?"
+
+คำถามเหล่านี้ไม่ผิดแต่ไม่เพียงพอสำหรับ enterprise use cases คุณไม่ได้ซื้อโมเดล คุณกำลังซื้อระบบที่โมเดลทำงานอยู่ภายใน คำถามที่สำคัญกว่าคือเกี่ยวกับ architecture ของระบบนั้น
+
+---
+
+## 7 คำถามที่ควรถามก่อนซื้อ
+
+### คำถามที่ 1: Governance อยู่ที่ไหนในสถาปัตยกรรม?
+
+**สิ่งที่คุณกำลังค้นหา:** Governance ที่ embedded ใน architecture ไม่ใช่แค่ settings หรือ policies ที่บอกผู้ใช้ว่าทำหรือไม่ทำอะไร
+
+**คำตอบที่ดี:** "Governance ถูก enforce ที่ระดับ execution — มี architectural gate ที่ block output ที่ไม่ได้รับ authorization โดยไม่คำนึงถึงว่า LLM สร้างอะไรออกมา เรามี audit trail สำหรับทุก decision พร้อม provenance records ที่ครบถ้วน"
+
+**สัญญาณเตือน:** "เรามีนโยบายใช้งานที่ผู้ใช้ต้องปฏิบัติตาม" (governance เป็น responsibility ของผู้ใช้ ไม่ใช่ระบบ)
+
+### คำถามที่ 2: มีหลักฐานอะไรที่ตรวจสอบได้สำหรับการลด Hallucination?
+
+**สิ่งที่คุณกำลังค้นหา:** ตัวเลข hallucination rate พร้อม methodology ที่ชัดเจน ไม่ใช่แค่ตัวเลขเดียวที่อ้างเอาไว้
+
+**คำตอบที่ดี:** "Hallucination rate ของเราคือ 0.3% ยืนยันโดย automated test suite 4,849 tests ข้าม 8 ระดับ รวมถึง property-based tests ที่รันต่อเนื่องใน CI เราเผยแพร่ methodology และตัวเลขที่ [benchmark page] และอัปเดตเมื่อมีการเปลี่ยนแปลง"
+
+**สัญญาณเตือน:** ตัวเลขที่อ้างโดยไม่มี methodology หรือไม่มีการ link ไปยัง verifiable testing results
+
+### คำถามที่ 3: Memory Model ของ Platform เป็นอย่างไร?
+
+**สิ่งที่คุณกำลังค้นหา:** ความเข้าใจของ vendor ว่าระบบ manage context, session memory, knowledge persistence อย่างไร — และวิธีที่ PDPA erasure ทำงาน
+
+**คำตอบที่ดี:** "เราแยก session memory, working memory, knowledge memory และ governance memory อย่างชัดเจน แต่ละประเภทมี retention policy ที่กำหนดไว้ PDPA erasure request propagates ผ่านทุก tier ภายใน SLA ที่กำหนด (เช่น 200ms) พร้อม verification ว่าข้อมูลที่ลบแล้วไม่สามารถ retrieve ได้"
+
+**สัญญาณเตือน:** "เราใช้ database เก็บ conversation history" (ไม่มี memory architecture ที่แยกจริง)
+
+### คำถามที่ 4: Model Routing ทำงานอย่างไร?
+
+**สิ่งที่คุณกำลังค้นหา:** Dynamic routing ที่ optimize ทั้งคุณภาพและต้นทุน ไม่ใช่แค่ locked-in กับ single model
+
+**คำตอบที่ดี:** "เรา route query ไปยัง model ที่เหมาะสมตาม query type, jurisdiction, complexity และ risk level สำหรับ query ที่มีความเสี่ยงสูงหรือ geopolitically sensitive เราใช้ multi-model consensus สำหรับ output ที่สำคัญ"
+
+**สัญญาณเตือน:** Vendor ที่ tie กับโมเดลเดียวหรือ provider เดียวโดยไม่มี routing logic
+
+### คำถามที่ 5: มีหลักฐาน Reliability อะไรบ้าง?
+
+**สิ่งที่คุณกำลังค้นหา:** Uptime track record, incident history, การ publish ข้อมูลนี้ต่อสาธารณะ
+
+**คำตอบที่ดี:** "เรา maintain 99.98% uptime (ข้อมูล 12 เดือนที่ผ่านมา) เผยแพร่บน status page สาธารณะ เรามี incident history ที่โปร่งใสพร้อม post-mortems สำหรับ downtime ทุกครั้ง"
+
+**สัญญาณเตือน:** ข้อมูล uptime ที่ไม่สามารถ verify ได้หรือไม่มี public status page
+
+### คำถามที่ 6: Documentation และ Changelog มีคุณภาพอย่างไร?
+
+**ทำไมสิ่งนี้สำคัญ:** Documentation quality เป็น proxy ที่ดีสำหรับ engineering culture ถ้า vendor ไม่สามารถอธิบาย architecture ของตัวเองได้ชัดเจน นั่นน่ากังวล
+
+**สัญญาณที่ดี:**
+- Technical documentation ที่ครอบคลุมและ current
+- Public changelog ที่ documented ว่าเปลี่ยนอะไรและทำไม
+- Breaking change warnings ล่วงหน้าพร้อม migration paths
+
+**สัญญาณเตือน:** "เราจะส่ง documentation หลังจากลงนาม" หรือ documentation ที่ล้าสมัยมากกว่า 6 เดือน
+
+### คำถามที่ 7: ระบบ Explainable ต่อ Ops, Security และ Legal ได้แค่ไหน?
+
+**สิ่งที่คุณกำลังค้นหา:** Platform ที่สามารถตอบคำถาม "ทำไม AI ถึงตัดสินใจแบบนี้?" ได้ใน human-readable terms สำหรับ audience ที่ไม่ใช่ technical
+
+**คำตอบที่ดี:** "แต่ละ output มี provenance record ที่ประกอบด้วยข้อมูลต้นฉบับ, model ที่ใช้, quality scores และ governance check ที่ผ่าน Legal team สามารถ export records เหล่านี้สำหรับ audit โดยไม่ต้องร้องขอ technical support"
+
+**สัญญาณเตือน:** Explainability ที่ require technical staff ทุกครั้ง หรือ "black box" ที่ไม่สามารถอธิบายได้แม้กับทีมภายใน
+
+---
+
+## Roadmap และ Changelog: สำคัญกว่าที่คิด
+
+ทีม procurement หลายทีมดูแค่ feature ปัจจุบัน แต่ Roadmap และ Changelog เผยให้เห็น:
+
+- **Changelog ที่ดี:** แสดงว่า vendor มีวินัยใน release management และ backward compatibility
+- **Roadmap ที่ realistic:** มีกรอบเวลาที่ชัดเจน ไม่ใช่ "coming soon" ที่ไม่มีวันที่
+- **Breaking changes ที่ถูก communicate ล่วงหน้า:** แสดงถึงความเคารพต่อ customers ที่ต้อง integrate
+
+Vendor ที่ไม่ maintain public changelog ที่ดีมักจะมีปัญหาเรื่อง communication ในระยะยาวด้วย
+
+---
+
+## Reading Path ที่แนะนำสำหรับ Evaluation
+
+เราแนะนำให้ประเมิน platform ใดๆ ในลำดับนี้:
+
+1. **[Core Systems](/core-systems)** — เข้าใจ architecture พื้นฐาน (FDIA, JITNA, HexaCore, SignedAI)
+2. **[Architecture Overview](/architecture)** — ดูว่า components ทำงานร่วมกันอย่างไร
+3. **[Solutions](/solutions)** — ดูว่า architecture ถูก apply กับ use cases จริงอย่างไร
+4. **[Pricing](/pricing)** — เข้าใจ model ทางเศรษฐกิจ
+5. **[Research](/research)** — ดูหลักฐาน academic และ methodology
+6. **[Roadmap](/roadmap)** — ประเมินทิศทางของ platform
+7. **[Changelog](/changelog)** — ดู release history และ engineering discipline
+8. **[Contact](/contact)** — ถามคำถามที่ยังเหลืออยู่กับทีม
+
+---
+
+*บทความนี้เขียนโดย RCT Labs Research Desk, reviewed โดย อิทธิฤทธิ์ แซ่โง้ว*

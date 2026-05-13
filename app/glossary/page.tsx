@@ -146,6 +146,34 @@ const glossaryTerms = [
     definitionTh: "กรอบคิดสำหรับ AI ที่ให้ความสำคัญกับการเข้าใจเป้าหมาย บริบท และข้อจำกัดก่อนตัดสินใจว่าจะตอบหรือกระทำอะไรต่อ",
   },
   {
+    term: "Intent Farming",
+    termTh: "Intent Farming (การเพาะปลูกเจตนา)",
+    definition: "The systematic practice of accumulating, organizing, and enriching AI context over time across sessions. Rather than starting cold with every interaction, Intent Farming stores user goals, constraints, domain preferences, and conversation history in RCTDB and recalls them via the Delta Engine warm recall mechanism (under 50ms). A well-farmed context reduces LLM cost by up to 3× and improves response relevance by building on established understanding rather than re-deriving it each time.",
+    definitionTh: "การสะสม จัดระเบียบ และเพิ่มคุณค่า AI context อย่างเป็นระบบข้ามหลาย sessions แทนที่จะเริ่มต้น cold ทุกครั้ง Intent Farming เก็บเป้าหมาย ข้อจำกัด domain preferences และ conversation history ใน RCTDB และเรียกคืนผ่าน Delta Engine warm recall ในเวลาต่ำกว่า 50ms ลด LLM cost ได้ถึง 3 เท่าและเพิ่ม relevance โดยใช้ความเข้าใจที่สะสมแล้วแทนการ derive ใหม่",
+    entityHref: "/en/blog/intent-farming-grow-ai-context",
+  },
+  {
+    term: "Intent Signal",
+    termTh: "Intent Signal (สัญญาณเจตนา)",
+    definition: "Any observable indicator of a user's underlying goal, preference, or constraint that can be captured and stored to improve future AI interactions. Intent Signals include explicit statements ('I need a PDPA-compliant response'), implicit patterns (frequently queried topics), and behavioral cues (which answers the user expands or dismisses). These signals are the raw material of Intent Farming and the fuel for RCTDB's 8-dimensional memory schema.",
+    definitionTh: "ตัวบ่งชี้ที่สังเกตได้ของเป้าหมาย preferences หรือข้อจำกัดพื้นฐานของผู้ใช้ที่สามารถจับและเก็บไว้เพื่อปรับปรุง AI interactions ในอนาคต ได้แก่ คำชัดเจน ('ต้องการคำตอบที่ PDPA compliant'), รูปแบบ implicit (หัวข้อที่ query บ่อย) และ behavioral cues เหล่านี้คือวัตถุดิบของ Intent Farming",
+    entityHref: "/en/blog/intent-farming-grow-ai-context",
+  },
+  {
+    term: "Genome System",
+    termTh: "Genome System (ระบบ 7 Genome)",
+    definition: "The biological metaphor describing how the RCT Ecosystem's seven core modules (G1–G7) form a closed, circular architecture. Each genome expresses from a shared foundational blueprint (G1), meaning all modules operate on the same data primitives (FDIA score, intent vector, RCTDB memory state). The circular loop — G1 Architect → G2 Codex → G3 JITNA → G4 ARTENT → G5 SignedAI → G6 Vault → G7 RCT-7 → back to G1 — means performance signals from each completed operation feed back to improve the system's future routing, algorithm selection, and domain understanding continuously.",
+    definitionTh: "Metaphor ทางชีวภาพที่อธิบายวิธีที่ 7 Module หลักของ RCT Ecosystem (G1–G7) ก่อตัวเป็น Architecture แบบวงกลมปิด แต่ละ Genome แสดงออกจาก Blueprint พื้นฐานร่วมกัน (G1) หมายความว่า Module ทั้งหมดทำงานบน Data Primitives เดียวกัน (FDIA Score, Intent Vector, RCTDB Memory State) Loop แบบวงกลม — G1 → G2 → G3 → G4 → G5 → G6 → G7 → กลับ G1 — หมายความว่าสัญญาณ Performance จากการดำเนินงานแต่ละครั้งป้อนกลับเพื่อปรับปรุง Routing, การเลือก Algorithm และความเข้าใจ Domain ในอนาคตอย่างต่อเนื่อง",
+    entityHref: "/en/blog/rct-7-genome-system",
+  },
+  {
+    term: "Runtime Policy Enforcement",
+    termTh: "Runtime Policy Enforcement (การบังคับใช้นโยบาย ณ Runtime)",
+    definition: "Constitutional constraints applied at query execution time, not at configuration time. Unlike role-based access control (which can be reconfigured by an administrator), Runtime Policy Enforcement in the RCT Control Plane's 15-module DSL enforces A=0 constitutional prohibitions at the genome expression level — meaning no routing path, no model call, and no privileged escalation can produce an output that violates a constitutional rule. This is distinct from preference-based guardrails, which can be overridden by sufficiently confident model outputs.",
+    definitionTh: "ข้อจำกัด Constitutional ที่บังคับใช้ ณ เวลา Execute Query ไม่ใช่เวลา Configuration ต่างจาก Role-based Access Control (ที่ผู้ดูแลระบบสามารถกำหนดค่าใหม่ได้) Runtime Policy Enforcement ใน RCT Control Plane DSL 15 โมดูล บังคับใช้ Constitutional Prohibitions A=0 ที่ระดับ Genome Expression — หมายความว่าไม่มีเส้นทาง Routing ไม่มีการเรียกโมเดล และไม่มีการยกระดับสิทธิ์ใดที่สร้าง Output ที่ละเมิดกฎ Constitutional ได้ สิ่งนี้แตกต่างจาก Guardrails แบบ Preference ที่สามารถถูก Override โดย Output ของโมเดลที่มีความมั่นใจเพียงพอ",
+    entityHref: "/en/blog/rct-7-genome-system",
+  },
+  {
     term: "Prompt Injection",
     termTh: "Prompt Injection (การฉีดคำสั่ง)",
     definition: "A security attack where malicious text in user input attempts to override the system's intended behavior. RCT's JITNA Normalizer automatically strips known injection patterns on every request before LLM processing.",
@@ -328,6 +356,18 @@ const glossaryTerms = [
     termTh: "RCT-7 Genome (จีโนมพัฒนาต่อเนื่อง)",
     definition: "Continuous improvement — the meta-learning genome of the RCT 7-Genome System. Monitors system performance, identifies improvement opportunities, and governs the evolution of the entire ecosystem.",
     definitionTh: "การปรับปรุงต่อเนื่อง — genome meta-learning ของระบบ 7 Genome ของ RCT ตรวจสอบประสิทธิภาพระบบ ระบุโอกาสพัฒนา และกำกับดูแลวิวัฒนาการของ ecosystem ทั้งหมด",
+  },
+  {
+    term: "JITNA Assembly",
+    termTh: "JITNA Assembly (การประกอบ JITNA)",
+    definition: "The nodal assembly process by which the JITNA Protocol constructs a response: Intent Capture → Data Enrichment → Delta Synthesis → Architect Review → Response Delivery. Each step is a discrete gate — assembly halts if any gate returns an insufficient quality score. The assembly tier (1–9) controls how many gates are mandatory and what consensus threshold must be met before a response is released.",
+    definitionTh: "กระบวนการ nodal assembly ที่ JITNA Protocol ใช้สร้าง response: Intent Capture → Data Enrichment → Delta Synthesis → Architect Review → Response Delivery แต่ละขั้นตอนคือ gate แยกต่างหาก — การประกอบจะหยุดถ้า gate ใด return คะแนนคุณภาพที่ไม่เพียงพอ Assembly tier (1–9) ควบคุมว่า gate ใดบ้างที่บังคับและต้องผ่าน consensus threshold ระดับใดก่อนจะปล่อย response",
+  },
+  {
+    term: "Constitutional Prohibition",
+    termTh: "Constitutional Prohibition (ข้อห้ามตามรัฐธรรมนูญ)",
+    definition: "A hard architectural constraint that sets the Architect authorization value A=0 for a specific output class, permanently blocking that output regardless of data quality (D) or intent score (I). Because F = (D^I) × A and A=0 makes F=0 always, constitutional prohibitions are mathematically enforced — not policy suggestions. Examples include blocking output of private data after a PDPA erasure request, blocking high-risk autonomous actions without explicit human approval, and blocking cross-jurisdiction data replication without authorization.",
+    definitionTh: "ข้อจำกัดเชิงสถาปัตยกรรมที่เข้มงวด ซึ่ง set ค่า Architect authorization A=0 สำหรับ output class ที่กำหนด บล็อก output นั้นอย่างถาวรโดยไม่คำนึงถึงคุณภาพข้อมูล (D) หรือคะแนน intent (I) เนื่องจาก F = (D^I) × A และ A=0 ทำให้ F=0 เสมอ ข้อห้ามตามรัฐธรรมนูญจึงถูก enforce ทางคณิตศาสตร์ ไม่ใช่แค่ข้อแนะนำด้าน policy ตัวอย่างเช่น การบล็อก output ข้อมูลส่วนตัวหลัง PDPA erasure request การบล็อก high-risk autonomous actions โดยไม่มีการอนุมัติจากมนุษย์ และการบล็อก cross-jurisdiction data replication โดยไม่ได้รับอนุญาต",
   },
 ]
 

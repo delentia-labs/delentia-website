@@ -1,4 +1,4 @@
-# RCT Labs Deployment Guide
+﻿# RCT Labs Deployment Guide
 
 ## Deployment Overview
 
@@ -32,7 +32,7 @@ git push origin main
 5. Wait for deployment to complete
 
 ### Step 3: Configure Custom Domain
-1. In Vercel dashboard: Settings → Domains
+1. In Vercel dashboard: Settings โ’ Domains
 2. Add domain: rctlabs.co
 3. Update DNS records at your domain registrar:
    - Point to Vercel nameservers or
@@ -51,33 +51,22 @@ git push origin main
 
 Required environment variables:
 \`\`\`
-# FloatingAI Backend Connection (Required)
-NEXT_PUBLIC_API_URL=http://localhost:8003    # L3 API URL (development)
-NEXT_PUBLIC_SITE_URL=http://localhost:3010   # Frontend URL
+NEXT_PUBLIC_SITE_URL=http://localhost:3005   # Frontend URL (port 3005)
 
 # Search verification (set only when ready)
 GOOGLE_SITE_VERIFICATION=...                 # Google Search Console HTML meta code
 BING_SITE_VERIFICATION=...                   # Bing Webmaster Tools msvalidate.01 code
 
-# Hosted checkout links (optional per tier)
-NEXT_PUBLIC_STRIPE_LINK_RCTLABS=...
-NEXT_PUBLIC_STRIPE_LINK_ARTENT_AI=...
-NEXT_PUBLIC_STRIPE_LINK_SIGNED_AI=...
 
 # Production values
-# NEXT_PUBLIC_API_URL=https://api.rctlabs.co  # Production L3 API
 # NEXT_PUBLIC_SITE_URL=https://rctlabs.co     # Production frontend
 \`\`\`
 
-Add these in Vercel Settings → Environment Variables
+Add these in Vercel Settings โ’ Environment Variables
 
-### Backend Dependency
+### CORS
 
-The FloatingAI assistant requires the L3 API backend to be running:
-- **Development**: `http://localhost:8003` (start with `bash start-l3-llm.sh`)
-- **Production**: Deploy L3 API as a separate service
-- **Endpoints used**: `POST /rctlabs/assistant/chat`, `GET /health`
-- **CORS**: Backend must allow the frontend origin
+If integrating with an external API, ensure the backend allows the frontend origin (`rctlabs.co`).
 
 ## Performance Optimization
 

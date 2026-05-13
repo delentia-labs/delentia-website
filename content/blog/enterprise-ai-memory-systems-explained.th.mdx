@@ -1,0 +1,134 @@
+---
+title: "Enterprise AI Memory Systems อธิบาย: สิ่งที่ทีมส่วนใหญ่เข้าใจผิดเกี่ยวกับ Context, Recall และ Trust"
+author: "RCT Labs Research Desk"
+excerpt: "ทีมส่วนใหญ่ implement AI memory ด้วยการ store conversation history ใน database นั่นไม่ใช่ memory system — มันคือ log system สี่งานหลักที่ AI memory ต้องทำ และทำไม memory ถึงแยกไม่ออกจาก trust"
+date: "2026-03-26"
+lastReviewed: "2026-05-13"
+authorId: "rct-research-desk"
+reviewerId: "ittirit-saengow"
+category: "research"
+tags: ["AI Memory Systems", "Enterprise AI Memory", "Context Engineering", "Long-Term Memory", "AI Architecture"]
+readTime: 9
+references:
+  - "https://www.nist.gov/artificial-intelligence"
+  - "https://oecd.ai/en/"
+  - "https://arxiv.org/abs/2005.11401"
+---
+
+# Enterprise AI Memory Systems อธิบาย: สิ่งที่ทีมส่วนใหญ่เข้าใจผิดเกี่ยวกับ Context, Recall และ Trust
+
+เมื่อทีม Enterprise ถามว่า AI system ของพวกเขา "จำ" อะไร คำถามที่ได้ยินบ่อยที่สุดคือ: *"เราเก็บ conversation history แบบ long-term อยู่แล้ว ปัญหาคืออะไร?"*
+
+ปัญหาคือ conversation history ไม่ใช่ memory system มันเป็น log system ความแตกต่างนี้ไม่ใช่แค่ศัพท์เทคนิค — มันส่งผลต่อว่าระบบ AI ของคุณสามารถให้ output ที่น่าเชื่อถือ consistent และ compliant ได้หรือเปล่า
+
+---
+
+## 4 งานหลักของ AI Memory
+
+AI memory system ต้องทำงาน 4 อย่างพร้อมกัน ทีมส่วนใหญ่ implement งานเดียวหรือสองอย่าง แล้ว call มันว่า "memory"
+
+### งานที่ 1: Session Memory
+**คืออะไร:** ความจำระยะสั้นภายในการสนทนาหนึ่งครั้ง — context ที่สะสมตั้งแต่ต้น session จนปิดหน้าต่าง
+
+**ทีมส่วนใหญ่ทำอะไร:** Pass full conversation history เข้า context window ของ LLM
+
+**ปัญหาของแนวทางนั้น:** Conversation histories ยาวขึ้นเรื่อยๆ ถ้า context window เต็ม ระบบต้อง truncate ข้อมูลเก่าออก ซึ่งทำให้ AI ลืม constraints ที่กำหนดไว้ตั้งแต่ต้น session
+
+**แนวทางที่ดีกว่า:** Session memory แยกต่างหากพร้อม explicit constraint extraction — สิ่ง constraints ที่สำคัญถูก store แยก ไม่ถูก dilute ด้วย conversation noise
+
+### งานที่ 2: Working Memory
+**คืออะไร:** Information ที่เกี่ยวข้องกับ task ที่กำลังทำอยู่ — ข้อมูลที่จำเป็นสำหรับ reasoning ปัจจุบันแต่ไม่จำเป็นต้องเก็บถาวร
+
+**ปัญหาที่พบบ่อย:** ระบบที่ไม่มี working memory ที่ชัดเจน จะ pollute long-term memory ด้วยข้อมูลที่ temporary — ทำให้ retrieval ในอนาคตนำ context ที่ล้าสมัยกลับมา
+
+**แนวทางที่ดีกว่า:** Working memory มี TTL (time-to-live) ที่ชัดเจน เมื่อ task เสร็จ working memory cleared ไม่ถูก promote ไปยัง long-term knowledge
+
+### งานที่ 3: Knowledge Memory
+**คืออะไร:** ข้อมูลองค์กรที่ต้องการความถาวร — ข้อมูลเกี่ยวกับผลิตภัณฑ์ ลูกค้า นโยบาย กระบวนการ
+
+**ความผิดพลาดที่พบบ่อย:** Store ทุกอย่างเหมือนกัน — ไม่ว่าจะเป็น fact ที่เปลี่ยนบ่อย, rule ที่เปลี่ยนน้อย, หรือข้อมูลที่ไม่เคยเปลี่ยน
+
+**แนวทางที่ดีกว่า:** Knowledge tier ที่แบ่งตามอัตราการเปลี่ยนแปลง:
+- Hot zone: ข้อมูลที่เปลี่ยนบ่อย (ราคา, สถานะ, availability)
+- Warm zone: ข้อมูลที่เปลี่ยนเป็นครั้งคราว (นโยบาย, processes)
+- Cold zone: ข้อมูลที่เปลี่ยนน้อย (organizational facts, core rules)
+
+แต่ละ tier มี retrieval strategy ที่ต่างกัน
+
+### งานที่ 4: Governance Memory
+**คืออะไร:** Audit trails, provenance records, permission boundaries — สิ่งที่ทำให้ระบบ auditable
+
+**นี่คืองานที่ทีมส่วนใหญ่ข้ามไปจนกว่าจะถูก audit** ก่อนที่ regulators จะถามคุณว่า "ข้อมูลนี้มาจากไหน? ใครอนุมัติมัน? มันถูกลบออกตาม PDPA timeline ไหม?" คุณต้องมี governance memory ที่ออกแบบมาโดยเฉพาะ
+
+---
+
+## Memory กับ Trust แยกออกจากกันไม่ได้
+
+NIST AI Risk Management Framework และ OECD AI Principles ต่างเน้นย้ำ principle เดียวกัน: **Trust ใน AI systems ต้องการ traceability**
+
+Traceability หมายถึงอะไร:
+- ระบบสามารถอธิบายได้ว่า output ใดมาจากข้อมูลใด
+- ระบบสามารถแสดงได้ว่า output ผ่าน quality checks อะไร
+- ระบบสามารถยืนยันได้ว่าข้อมูลที่ลบแล้วไม่สามารถ retrieved ได้อีก
+- ระบบสามารถระบุได้ว่าใครมีสิทธิ์เข้าถึงข้อมูลใด
+
+Conversation log ธรรมดาไม่ทำสิ่งเหล่านี้ได้ Governance memory ที่ออกแบบมาดีทำได้
+
+---
+
+## 5 ข้อผิดพลาดที่พบบ่อยใน Enterprise AI Memory Design
+
+### ข้อผิดพลาดที่ 1: Treat Memory เป็น Database Problem
+Memory เป็น storage problem แค่บางส่วน ส่วนที่ยากกว่าคือ: ข้อมูลอะไรที่ควรถูก retrieve ในบริบทใด? เมื่อ context ขัดแย้งกัน ข้อมูลไหนมีความสำคัญมากกว่า?
+
+### ข้อผิดพลาดที่ 2: No Expiration Policy
+ข้อมูลที่ไม่มี expiration policy จะสะสมตลอดเวลา ข้อมูลเก่าจะ compete กับข้อมูลใหม่ใน retrieval และมักจะชนะ (เพราะมีปริมาณมากกว่า)
+
+### ข้อผิดพลาดที่ 3: ไม่ Validate Memory ก่อน Read
+ระบบส่วนใหญ่ validate ข้อมูล input ก่อน store แต่ไม่ validate ความ relevance หรือ freshness ก่อน retrieve การ retrieve ข้อมูลที่ผิดออกมา hallucinate เหมือนกับการสร้างข้อมูลผิดใหม่
+
+### ข้อผิดพลาดที่ 4: Memory ไม่ Linked กับ Downstream Effects
+เมื่อข้อมูลถูกลบ ต้องลบจาก memory ทุก tier ไม่ใช่แค่ tier ที่ถูก request ถ้าใน PDPA erasure request ระบบลบจาก knowledge memory แต่ไม่ลบจาก working memory cache ข้อมูลนั้นยังคง retrievable อยู่
+
+### ข้อผิดพลาดที่ 5: Single Memory Store สำหรับทุก User
+ใน multi-tenant Enterprise AI ข้อมูลของ user A ต้องไม่สามารถ influence output สำหรับ user B ระบบที่ใช้ shared memory store โดยไม่มี tenant isolation ที่ชัดเจนมีความเสี่ยง data leakage แบบที่ยากตรวจจับ
+
+---
+
+## Governed Memory Framework
+
+ก่อน implement AI memory ในระบบ Enterprise ตอบ 6 คำถามนี้สำหรับทุก data type:
+
+| คำถาม | ทำไมถึงสำคัญ |
+|---|---|
+| **อะไรถูก store?** | Scope ของ memory ต้องชัดเจน ไม่ใช่ "store ทุกอย่าง" |
+| **ทำไมถึง store?** | Purpose ของ memory type ต้องมี business justification |
+| **ถูก validate อย่างไร?** | Data quality gate ก่อน store ป้องกัน garbage in, garbage out |
+| **ใครเข้าถึงได้?** | Access control ต้องกำหนด ณ memory design ไม่ใช่ทีหลัง |
+| **หมดอายุเมื่อไหร่?** | TTL หรือ trigger-based expiration ต้องกำหนดในทุก memory type |
+| **ผลกระทบ downstream คืออะไร?** | Deletion ต้องลบข้อมูลออกจากทุก tier ที่ข้อมูลนั้นอาจถูก cache |
+
+---
+
+## ผลกระทบในทางปฏิบัติ
+
+Memory architecture ส่งผลโดยตรงต่อสิ่งที่ประกาศบน benchmark ของคุณ:
+
+- **Hallucination rate** ได้รับผลจาก retrieval quality และ context assembly — ซึ่งเป็น function ของ memory design
+- **Response consistency** ขึ้นกับว่าระบบ retrieve ข้อมูลเดิมสำหรับ query ที่คล้ายกันหรือเปล่า
+- **Compliance evidence** ต้องการ governance memory ที่ออกแบบมาก่อน ไม่ใช่ retrofitted หลัง
+
+สำหรับ RCT Ecosystem: RCTDB แบ่งออกเป็น Hot/Warm/Cold zones ตาม data access patterns; Delta Engine รักษา full provenance trail สำหรับทุก write operation; PDPA erasure propagates ผ่านทุก tiers ภายใน 200ms
+
+---
+
+## Reading Path
+
+- **ทำความเข้าใจ full architecture:** [Core Systems](/core-systems) — RCTDB zones, Delta Engine, JITNA
+- **ดู memory architecture ในบริบท enterprise:** [Architecture Overview](/architecture)  
+- **Enterprise AI memory solutions:** [Solutions: Enterprise AI Memory](/solutions/enterprise-ai-memory)
+- **Documentation เชิงเทคนิค:** [Technical Docs](/docs)
+
+---
+
+*บทความนี้เขียนโดย RCT Labs Research Desk, reviewed โดย อิทธิฤทธิ์ แซ่โง้ว*
