@@ -357,6 +357,18 @@ const glossaryTerms = [
     definition: "Continuous improvement — the meta-learning genome of the RCT 7-Genome System. Monitors system performance, identifies improvement opportunities, and governs the evolution of the entire ecosystem.",
     definitionTh: "การปรับปรุงต่อเนื่อง — genome meta-learning ของระบบ 7 Genome ของ RCT ตรวจสอบประสิทธิภาพระบบ ระบุโอกาสพัฒนา และกำกับดูแลวิวัฒนาการของ ecosystem ทั้งหมด",
   },
+  {
+    term: "JITNA Assembly",
+    termTh: "JITNA Assembly (การประกอบ JITNA)",
+    definition: "The nodal assembly process by which the JITNA Protocol constructs a response: Intent Capture → Data Enrichment → Delta Synthesis → Architect Review → Response Delivery. Each step is a discrete gate — assembly halts if any gate returns an insufficient quality score. The assembly tier (1–9) controls how many gates are mandatory and what consensus threshold must be met before a response is released.",
+    definitionTh: "กระบวนการ nodal assembly ที่ JITNA Protocol ใช้สร้าง response: Intent Capture → Data Enrichment → Delta Synthesis → Architect Review → Response Delivery แต่ละขั้นตอนคือ gate แยกต่างหาก — การประกอบจะหยุดถ้า gate ใด return คะแนนคุณภาพที่ไม่เพียงพอ Assembly tier (1–9) ควบคุมว่า gate ใดบ้างที่บังคับและต้องผ่าน consensus threshold ระดับใดก่อนจะปล่อย response",
+  },
+  {
+    term: "Constitutional Prohibition",
+    termTh: "Constitutional Prohibition (ข้อห้ามตามรัฐธรรมนูญ)",
+    definition: "A hard architectural constraint that sets the Architect authorization value A=0 for a specific output class, permanently blocking that output regardless of data quality (D) or intent score (I). Because F = (D^I) × A and A=0 makes F=0 always, constitutional prohibitions are mathematically enforced — not policy suggestions. Examples include blocking output of private data after a PDPA erasure request, blocking high-risk autonomous actions without explicit human approval, and blocking cross-jurisdiction data replication without authorization.",
+    definitionTh: "ข้อจำกัดเชิงสถาปัตยกรรมที่เข้มงวด ซึ่ง set ค่า Architect authorization A=0 สำหรับ output class ที่กำหนด บล็อก output นั้นอย่างถาวรโดยไม่คำนึงถึงคุณภาพข้อมูล (D) หรือคะแนน intent (I) เนื่องจาก F = (D^I) × A และ A=0 ทำให้ F=0 เสมอ ข้อห้ามตามรัฐธรรมนูญจึงถูก enforce ทางคณิตศาสตร์ ไม่ใช่แค่ข้อแนะนำด้าน policy ตัวอย่างเช่น การบล็อก output ข้อมูลส่วนตัวหลัง PDPA erasure request การบล็อก high-risk autonomous actions โดยไม่มีการอนุมัติจากมนุษย์ และการบล็อก cross-jurisdiction data replication โดยไม่ได้รับอนุญาต",
+  },
 ]
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -1,0 +1,139 @@
+---
+title: "การออกแบบ AI ให้มี Hallucination ต่ำ: สิ่งที่ลด Failure Rate ได้จริง"
+author: "RCT Labs Research Desk"
+excerpt: "AI Hallucination ไม่ใช่ปัญหาของโมเดล — มันเป็นปัญหาของระบบ ห้าแหล่งที่มาหลักของ hallucination ไม่ได้อยู่ใน weights ของโมเดล และวิธีที่ดีที่สุดในการลด failure rate ก็ไม่ใช่การเปลี่ยนโมเดล"
+date: "2026-03-26"
+lastReviewed: "2026-05-13"
+authorId: "rct-research-desk"
+reviewerId: "ittirit-saengow"
+category: "research"
+tags: ["Low Hallucination AI", "AI Evaluation", "Generative AI", "Verification", "Enterprise Reliability"]
+readTime: 9
+references:
+  - "https://www.nist.gov/artificial-intelligence"
+  - "https://arxiv.org/abs/2005.11401"
+  - "https://arxiv.org/abs/2212.08073"
+  - "https://hai.stanford.edu/"
+---
+
+# การออกแบบ AI ให้มี Hallucination ต่ำ: สิ่งที่ลด Failure Rate ได้จริง
+
+เมื่อ AI ของ Enterprise สร้าง output ที่ผิด ทีมส่วนใหญ่ตอบสนองด้วยวิธีเดียวกัน: ลอง prompt อีกครั้ง หรือเปลี่ยนโมเดล นี่คือเหตุผลว่าทำไมวิธีนั้นมักไม่ได้ผล
+
+**AI Hallucination ไม่ใช่ปัญหาของโมเดล แต่เป็นปัญหาของระบบ**
+
+ห้าแหล่งที่มาหลักของ hallucination ในระบบ Enterprise ไม่ได้อยู่ใน model weights ของโมเดลที่คุณเลือก พวกมันอยู่ในวิธีที่ระบบรับข้อมูล ประมวลผล route ตรวจสอบ และวัดผล output
+
+---
+
+## 5 แหล่งที่มาของ Hallucination ใน Enterprise Systems
+
+### แหล่งที่ 1: Context Assembly ที่ไม่ดี
+โมเดล LLM ไม่รู้ว่าข้อมูลอะไรที่เกี่ยวข้องกับ query ของผู้ใช้ — มันรู้แค่ข้อมูลที่ถูกวางใน context window เมื่อ context assembly ดึงเอกสารที่ไม่ถูกต้อง ไม่สมบูรณ์ หรือล้าสมัย โมเดลจะ reason ด้วย premise ที่ผิด ถ้า premise ผิด output ก็ผิด ถึงแม้ reasoning จะสมเหตุสมผล
+
+**ระบบที่ออกแบบดี:** Retrieval quality มี score แบบ explicit ข้อมูลที่มีคุณภาพต่ำถูก filter ก่อนถึง LLM context window
+
+### แหล่งที่ 2: Memory Discipline ไม่เพียงพอ
+ระบบ AI ส่วนใหญ่ treat ทุก query เป็น stateless แต่ความรู้ context และ constraints สะสมข้ามการสนทนาและ session เมื่อระบบไม่มี memory discipline ที่ดี มันจะ:
+- Forget constraints ที่กำหนดไว้ก่อนหน้านี้
+- สร้าง response ที่ขัดแย้งกับ interaction ก่อนหน้า
+- นำข้อมูลที่ล้าสมัยมาใช้แทนที่จะ update ด้วยข้อมูลใหม่
+
+**ระบบที่ออกแบบดี:** Session memory, working memory, knowledge memory, และ governance memory ถูก manage แยกกันพร้อม clear retention policies
+
+### แหล่งที่ 3: Verification ไม่เกิดขึ้นก่อน Action
+ระบบ AI หลายตัว execute actions ก่อนตรวจสอบว่า output ถูกต้อง ใน context ที่มีความเสี่ยงสูง (ธุรกรรมทางการเงิน เอกสารทางการแพทย์ สัญญาทางกฎหมาย) การ hallucination ที่ไม่ถูกตรวจพบจะกลายเป็นปัญหาที่ขยายตัวอย่างรวดเร็ว
+
+**ระบบที่ออกแบบดี:** Verification เกิดขึ้นก่อน delivery ทุก response ที่ critical มีการตรวจสอบหลายชั้น
+
+### แหล่งที่ 4: Static Routing ไปยัง Single Model
+การใช้โมเดลเดียวสำหรับทุก query หมายความว่า:
+- Query ที่ง่ายถูกประมวลผลด้วยทรัพยากรเกินความจำเป็น (ต้นทุนสูง)
+- Query ที่ซับซ้อนถูก route ไปยังโมเดลที่ไม่เหมาะสม (คุณภาพต่ำ)
+- Geopolitical bias ของโมเดลเดียวมีผลต่อ output ทุกชิ้น
+- ไม่มี multi-model consensus สำหรับ output ที่สำคัญ
+
+**ระบบที่ออกแบบดี:** Dynamic routing เลือก model ตาม query type, jurisdiction, complexity และ risk level พร้อม consensus verification สำหรับ high-stakes output
+
+### แหล่งที่ 5: Measurement Discipline ไม่เพียงพอ
+"Hallucination rate ต่ำ" ไม่มีความหมายโดยไม่มีนิยามที่ชัดเจน ระบบที่วัด hallucination อย่างไม่เป็นระบบจะ:
+- รายงาน false positives (ถือว่า output ถูกต้องเมื่อผิด)
+- Miss failure patterns ที่เกิดซ้ำ
+- ไม่มีข้อมูลพื้นฐาน (baseline) ในการเปรียบเทียบ
+
+**ระบบที่ออกแบบดี:** Scorecard metrics ที่กำหนดชัดเจน วัดอย่างต่อเนื่องใน automated tests
+
+---
+
+## Control Stack: 5 ระดับที่ลด Hallucination ได้จริง
+
+แทนที่จะมองว่า hallucination เป็นปัญหาของโมเดล ให้มองว่าเป็น stack ของ controls ที่แต่ละระดับลด failure rate:
+
+### ระดับ 1: Context Assembly Quality
+- ไม่ส่ง query ไปยัง LLM ด้วย context ที่มี score คุณภาพต่ำ
+- กำหนด threshold สำหรับ "ดึงมาได้แต่ไม่เพียงพอ"
+- Implement FDIA D-score: quality verification อย่างชัดเจนก่อนที่จะ pass ไปยัง LLM
+
+### ระดับ 2: Memory Discipline
+- แยก 4 ประเภทของ memory อย่างชัดเจน: session, working, knowledge, governance
+- กำหนด retention policies สำหรับแต่ละประเภท
+- ยืนยัน memory integrity ก่อน read (ไม่ใช่แค่หลัง write)
+
+### ระดับ 3: Verification Before Action
+- สำหรับ output ที่ critical: multi-model consensus ก่อน delivery
+- กำหนด "uncertain case" policy อย่างชัดเจน — เมื่อไรที่ระบบควรปฏิเสธแทนที่จะ guess
+- Log provenance ทุก output: ข้อมูลใด, โมเดลใด, เวลาใด, score อะไร
+
+### ระดับ 4: Dynamic Routing
+- Route query ไปยัง model ที่เหมาะสมกับ type, jurisdiction และ risk level
+- สำหรับ output ที่ geopolitically sensitive: ใช้หลายโมเดลจากหลาย jurisdictions
+- Implement circuit breaker: เมื่อ consensus ไม่ได้ ให้ escalate ไม่ใช่ guess
+
+### ระดับ 5: Measurement Discipline
+- นิยาม hallucination metrics อย่างชัดเจนก่อนที่จะวัด
+- รันการวัดเป็น automated tests ที่รัน continuous (ไม่ใช่แค่ ad-hoc evaluation)
+- รักษา baseline สำหรับเปรียบเทียบกับ regression
+
+---
+
+## Minimum Hallucination Scorecard
+
+ก่อนจะประกาศว่าระบบ AI มี "low hallucination" คุณควรมีข้อมูลสำหรับ 6 metrics ต่อไปนี้:
+
+| Metric | นิยาม | ตัวอย่าง Threshold |
+|---|---|---|
+| Groundedness rate | % output ที่อ้างถึงแหล่งข้อมูลที่ดึงมาได้ | > 95% |
+| Unsupported assertion rate | % claims ที่ไม่มี context support | < 2% |
+| Policy violation rate | % output ที่ violate constitutional constraints | 0% |
+| Uncertain-case refusal rate | % cases ที่ low-confidence ถูก handle ด้วย explicit refusal | > 98% |
+| Retrieval hit quality | Average relevance score ของเอกสารที่ดึงมา | > 0.7 |
+| Regression stability | % test cases ที่ผ่านต่อเนื่องใน CI | 100% |
+
+---
+
+## Practical Implication
+
+**Routing, memory, และ verification ลด hallucination ได้มากกว่าการเปลี่ยนโมเดล**
+
+นี่ไม่ได้หมายความว่าการเลือกโมเดลไม่สำคัญ แต่หมายความว่า:
+
+1. ถ้าคุณมี context assembly ที่ไม่ดี การเปลี่ยนจาก GPT-4o เป็น Claude Sonnet จะไม่แก้ปัญหา
+2. ถ้าคุณไม่มี verification ก่อน action การ upgrade โมเดลจะแค่ทำให้ confident output ที่ผิดเร็วขึ้น
+3. ถ้าคุณไม่มี measurement discipline ที่ดี คุณไม่รู้ว่าการเปลี่ยนโมเดลช่วยจริงหรือเปล่า
+
+ระบบ Enterprise AI ที่ดีที่สุดไม่ได้ถามว่า "เราใช้โมเดลไหนดี?" แต่ถามว่า "เราสร้าง control stack ของเราถูกต้องไหม?"
+
+---
+
+## Reading Path ที่แนะนำ
+
+สำหรับผู้ที่ต้องการเจาะลึกในแต่ละชั้นของ control stack:
+
+- **Context Assembly + Retrieval:** อ่านเพิ่มเติมเกี่ยวกับ [Enterprise AI Memory Systems](/solutions/enterprise-ai-memory)
+- **Dynamic Routing:** ดู [AI Routing Architecture](/solutions/dynamic-ai-routing)
+- **System Architecture:** ทำความเข้าใจ [RCT Architecture](/architecture) ทั้งหมด
+- **Research Basis:** ดู [Research Overview](/research) สำหรับ papers ที่อ้างอิง
+
+---
+
+*บทความนี้เขียนโดย RCT Labs Research Desk, reviewed โดย อิทธิฤทธิ์ แซ่โง้ว*
