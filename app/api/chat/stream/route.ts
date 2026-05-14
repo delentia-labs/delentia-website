@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       return new Response(
         fallbackSSE(
           "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\n" +
-            "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
+            "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ [founder@rctlabs.co](mailto:founder@rctlabs.co) หรือดูเอกสารได้ที่ [/docs](/docs)",
         ),
         {
           status: 200,
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
     return new Response(
       fallbackSSE(
         "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\n" +
-          "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
+          "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ [founder@rctlabs.co](mailto:founder@rctlabs.co) หรือดูเอกสารได้ที่ [/docs](/docs)",
       ),
       {
         status: 200,
