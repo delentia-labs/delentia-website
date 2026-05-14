@@ -167,6 +167,13 @@ const glossaryTerms = [
     entityHref: "/en/blog/rct-7-genome-system",
   },
   {
+    term: "RCT Control Plane",
+    termTh: "RCT Control Plane (ระนาบควบคุม RCT)",
+    definition: "A governance enforcement layer that sits between your application and every AI component — LLM calls, vector searches, tool invocations, and agent-to-agent handoffs. It runs in four sequential phases for every request: (1) FDIA intent validation, (2) DSL module policy evaluation across 15 governance dimensions, (3) signed execution authorization via ED25519 token, and (4) append-only audit logging. The result is 100% policy enforcement coverage with zero unmanaged LLM calls and 2.4ms average overhead.",
+    definitionTh: "ชั้นบังคับใช้การกำกับดูแลที่อยู่ระหว่าง Application ของคุณกับทุก Component AI — การเรียก LLM, vector search, tool invocations และ agent-to-agent handoffs ทำงาน 4 เฟสต่อเนื่องทุก request: (1) FDIA intent validation, (2) การประเมิน policy ผ่าน DSL module 15 มิติ, (3) Signed execution authorization ผ่าน token ED25519, (4) Append-only audit logging ผลคือ coverage การบังคับใช้ policy 100% โดยไม่มี unmanaged LLM calls และ overhead เฉลี่ยเพียง 2.4ms",
+    entityHref: "/en/blog/rct-control-plane-governance-at-runtime",
+  },
+  {
     term: "Runtime Policy Enforcement",
     termTh: "Runtime Policy Enforcement (การบังคับใช้นโยบาย ณ Runtime)",
     definition: "Constitutional constraints applied at query execution time, not at configuration time. Unlike role-based access control (which can be reconfigured by an administrator), Runtime Policy Enforcement in the RCT Control Plane's 15-module DSL enforces A=0 constitutional prohibitions at the genome expression level — meaning no routing path, no model call, and no privileged escalation can produce an output that violates a constitutional rule. This is distinct from preference-based guardrails, which can be overridden by sufficiently confident model outputs.",
