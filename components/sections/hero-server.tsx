@@ -19,7 +19,7 @@ export function HeroServer({ locale }: HeroServerProps) {
         badge: "Reverse Component Thinking",
         titleLine1: "RCT: ระบบปฏิบัติการ AI",
         titleLine2: "Intent-Centric",
-        titleLine3: "อันดับ 1 ของโลก",
+        titleLine3: "ลำดับที่ 1 ของโลก",
         subtitle:
           "โครงการสถาปัตยกรรม AI ระดับองค์กรที่สร้างบนโมเดล 10 ชั้น กรอบอัลกอริทึม 41 รายการ 7 Genome Subsystems สมการ FDIA และ JITNA Protocol",
         ctaExplore: "สำรวจสถาปัตยกรรม",
