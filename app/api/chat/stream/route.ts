@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
       `${API_BASE_URL}${ASSISTANT_PATH}/chat/stream`,
       {
         method: "POST",
-        signal: AbortSignal.timeout(30000),
+        signal: AbortSignal.timeout(60000), // Increased from 30s to 60s
         headers: {
           "Content-Type": "application/json",
           Accept: "text/event-stream",
