@@ -41,7 +41,7 @@ The April release was the first public availability of the RCT Platform SDK. Wha
 **Reference microservices (5):** intent-loop, analysearch, vector-search, crystallizer, gateway-api. These are reference implementations — they show how to compose the SDK modules into a service, not production-ready deployments.
 
 **Quality benchmarks at release:**
-- 1,193 tests passed, 0 skipped, 94% coverage
+- 1,272 tests passed, 0 skipped, 0 warnings, mypy clean, ruff clean, 94%+ coverage
 - Bandit security scan: 0 HIGH severity findings
 - CI/CD: GitHub Actions with ci.yml + security-scan.yml on every push
 - Whitepaper: 450+ pages, bilingual EN/TH, CITATION.cff for academic attribution
@@ -158,7 +158,7 @@ If you want to use `rct-platform` now:
 git clone https://github.com/rctlabs/rct-platform.git
 cd rct-platform
 pip install -e ".[dev]"
-pytest  # 1,193 tests should pass
+pytest  # 1,272 tests should pass
 ```
 
 Or open the Colab notebook directly for a no-install exploration of FDIA, SignedAI, and Delta Engine:

@@ -1,0 +1,257 @@
+---
+title: "PDPA AI Compliance Checklist 2567: 12 Obligations Enterprise AI Systems Must Meet"
+author: "Ittirit Saengow"
+authorId: "ittirit-saengow"
+reviewerId: "rct-research-desk"
+date: "2026-05-26"
+lastReviewed: "2026-05-26"
+category: "compliance"
+excerpt: "Thailand's PDPA entered full enforcement in June 2022. Three years later, most enterprise AI systems operating in Thailand remain non-compliant in ways that create measurable legal risk. This checklist covers 12 obligations most commonly missed in AI deployments, with specific technical controls required for each."
+tags: ["PDPA", "PDPA 2567", "AI Compliance", "Thailand", "Data Protection", "Enterprise AI", "Personal Data", "RCT Platform"]
+readTime: 11
+references:
+  - "https://www.pdpc.go.th/"
+  - "https://ratchakitcha.soc.go.th/documents/17098168.pdf"
+  - "https://www.etda.or.th/"
+---
+
+Thailand's Personal Data Protection Act B.E. 2562 (PDPA) entered full enforcement in June 2022. In B.E. 2567 (2024), additional notifications and guidelines were issued — specifically addressing AI-based data processing and automated decision-making.
+
+Yet most enterprise AI systems operating in Thailand remain non-compliant at multiple critical points. This checklist covers 12 obligations most commonly missed in enterprise AI deployments, with the specific technical controls required for each.
+
+---
+
+## Why AI Systems Face Higher PDPA Risk Than Standard Software
+
+AI systems have characteristics that create PDPA risks distinct from conventional software:
+
+1. **Implicit processing**: LLMs process personal data embedded in every text input, even when the stated purpose is not data management
+2. **Context window persistence**: Personal data entered in one conversation can influence responses in subsequent conversations through context mechanisms
+3. **Training data contamination**: LLMs fine-tuned on enterprise data may "memorize" personal data in ways that cannot be inspected or deleted
+4. **Automated decision-making**: AI making decisions about credit, employment, or healthcare must comply specifically with PDPA Section 34
+
+---
+
+## The 12-Point Compliance Checklist
+
+### ✅ Item 1 — Consent Collection and Storage (Section 19)
+
+**Requirement**: Obtain clear, specific, and informed consent before processing personal data.
+
+**Common AI failures**:
+- Using "continued service use = consent" — not valid consent under PDPA
+- Not separating AI processing consent from general Terms of Service
+- Not storing consent evidence with timestamp and policy version
+
+**Technical controls**:
+```
+- Store ConsentRecord { userId, timestamp, policyVersion, purpose[] }
+- Link ConsentRecord to every AI processing request
+- Validate ConsentRecord before each processing event (not just at onboarding)
+```
+
+### ✅ Item 2 — Processing Notification (Section 23)
+
+**Requirement**: Notify data subjects before or at the time of data collection — specify purpose, data types, recipients, and data subject rights.
+
+**Common AI failures**:
+- Stating vague purposes like "to improve our service" without specifying how AI uses the data
+- Failing to disclose that data is transmitted to external LLM providers
+
+**Technical controls**:
+```
+- Specify in Privacy Notice which data types are AI-processed
+- Name LLM providers receiving data (OpenAI, Anthropic, Google, etc.)
+- State data sharing level: [raw data | anonymized data | metadata only]
+```
+
+### ✅ Item 3 — Zero Unmasked PII Transmission (Sections 22, 26)
+
+**Requirement**: Data transmitted to external processors (e.g., LLM APIs) must be appropriately protected. Sensitive data (Section 26) requires heightened protection.
+
+**Common AI failures**:
+- Sending names, national ID numbers, or health data directly to LLM APIs
+- Treating "delete the name" as sufficient anonymization (it is not)
+
+**Technical controls**:
+```python
+# Example with RCT Platform
+adapter = RegionalLanguageAdapter(locale="th-TH", pdpa_mode="strict")
+masked_input = adapter.mask_pii(user_input)
+# masked_input: "Hello [THAI_NAME_REDACTED], ID [ID_HASH:a3f9b2], phone 08X-XXX-4567"
+# Transmit only masked_input to LLM API
+```
+
+### ✅ Item 4 — Right of Access and Rectification (Sections 30, 35)
+
+**Requirement**: Data subjects have the right to access their stored data and request correction of inaccurate data. Organizations must respond within 30 days.
+
+**Common AI failures**:
+- No process to identify where a user's data exists across AI system layers
+- Data scattered across conversation logs, vector stores, and fine-tuning datasets without indexing
+
+**Technical controls**:
+```
+- Use UserId as primary key across all AI storage layers
+- Maintain a Data Map specifying which storage layers hold each user's PII
+- Implement a DSAR API that retrieves data from all storage layers
+```
+
+### ✅ Item 5 — Right to Erasure (Section 33)
+
+**Requirement**: When a data subject withdraws consent, the organization must delete data within a reasonable timeframe.
+
+**Common AI failures**:
+- Deleting from the primary database but forgetting vector stores and embedding indexes
+- No erasure process for data in LLM context caches
+
+**Technical controls**:
+```
+On erasure request:
+1. Delete from primary database
+2. Delete from vector store (search by UserId metadata)
+3. Invalidate context cache entries containing UserId
+4. Flush warm recall entries (Delta Engine) containing UserId
+5. Record Erasure Certificate with timestamp
+6. Send confirmation within 30 days
+```
+
+### ✅ Item 6 — Data Breach Notification (Section 37)
+
+**Requirement**: Must notify PDPC within 72 hours of discovering a high-risk data breach.
+
+**Common AI failures**:
+- Not defining whether "prompt injection that retrieves another user's data" constitutes a data breach
+- No alert system for anomalous data access patterns
+
+**Technical controls**:
+```
+- Define AI-specific breach scenarios: prompt injection, context leakage, model inversion
+- Alert when User A accesses User B's data context (cross-user leakage)
+- Include AI-specific breach scenarios in incident response runbooks
+```
+
+### ✅ Item 7 — Sensitive Data Processing (Section 26)
+
+**Requirement**: Sensitive data (race, religion, health, biometric, criminal, sexual behavior, political opinion) requires explicit consent (not just general consent).
+
+**Common AI failures**:
+- No detection of whether incoming user input contains sensitive data
+- Healthcare AI processing symptoms under standard consent rather than explicit consent
+
+**Technical controls**:
+```
+- Use a classifier to detect sensitive data categories in input (before processing)
+- If sensitive data detected: require explicit consent record or reject processing
+- Log Sensitive Data Processing Records separately from standard processing logs
+```
+
+### ✅ Item 8 — International Data Transfer (Sections 28-29)
+
+**Requirement**: Must obtain consent before transferring personal data to countries with lower data protection standards than PDPA.
+
+**Common AI failures**:
+- Transmitting user inputs to LLM APIs processed in the US or EU without transfer notification or consent
+
+**Technical controls**:
+```
+- Inform users before transfer: "Your input will be processed by [LLM Provider] on servers in [Country]"
+- Execute EU Standard Contractual Clauses or BCR with LLM providers
+- Consider local inference for sensitive data to avoid transfer requirements
+```
+
+### ✅ Item 9 — Data Retention Limits
+
+**Requirement**: Delete data when no longer necessary for the stated purpose.
+
+**Common AI failures**:
+- Retaining conversation logs indefinitely without a retention policy
+- Storing personal data embedding vectors without expiry
+
+**Technical controls**:
+```yaml
+storage_retention:
+  conversation_logs: 90_days     # Or per Privacy Notice specification
+  embedding_vectors: 365_days    # Renew only if user is active
+  audit_logs: 7_years            # Per business/legal requirements
+  model_context_cache: 24_hours  # Short-lived, no permanent storage
+```
+
+### ✅ Item 10 — Automated Decision-Making (Section 34)
+
+**Requirement**: Data subjects have the right to request human review of AI-generated decisions that significantly affect their rights and interests.
+
+**Common AI failures**:
+- No human review process for consequential AI decisions
+- Cannot explain how the AI made a decision (black box)
+
+**Technical controls**:
+```
+For decisions affecting rights (credit approval, hiring, medical care):
+- Enforce Human-in-the-Loop before decision finalization
+- Store Explainability Record: FDIA score, models used, weighted factors
+- Provide mechanism for users to request human review within 30 days
+```
+
+### ✅ Item 11 — Data Protection Impact Assessment (DPIA)
+
+**Requirement**: Must conduct a DPIA before deploying AI that processes data at high risk.
+
+**Common AI failures**:
+- Not conducting DPIA for AI systems processing large volumes of personal data
+- Not updating DPIA when changing LLM providers or training data
+
+**Technical controls**:
+```
+DPIA required when AI system:
+- Processes personal data of 10,000+ users
+- Uses automated profiling for decisions affecting rights
+- Processes sensitive data (Section 26)
+- Uses biometric or location data
+```
+
+### ✅ Item 12 — DPO Appointment for High-Risk AI Processing
+
+**Requirement**: Organizations processing large volumes of personal data or sensitive data must appoint a Data Protection Officer.
+
+**Common AI failures**:
+- Treating DPO as an administrative role, not a technical one
+- DPO lacks sufficient understanding of AI system architecture to assess risk
+
+**Technical controls**:
+```
+DPO for an AI organization must understand:
+- AI pipeline data flows from input → LLM → storage → output
+- AI-specific risks: prompt injection, context leakage, model memorization
+- DSAR processes for vector store / embedding data
+- Audit log structure and compliance verification
+```
+
+---
+
+## Your AI System's PDPA Compliance Score
+
+Score your system against the checklist:
+
+| Score | Meaning |
+|---|---|
+| 12/12 | PDPA Ready — audit-ready |
+| 9–11/12 | Address gaps before onboarding enterprise customers |
+| 6–8/12 | High risk — critical obligations not yet met |
+| < 6/12 | Stop deployment and review architecture |
+
+---
+
+## How RCT Platform Helps
+
+The RCT Platform is designed PDPA-by-default:
+
+- **Zero Unmasked PII** (Item 3): Regional Language Adapter always masks before LLM
+- **Deterministic Audit Trail** (Items 6, 10): SignedAI generates cryptographic record for every call
+- **Constitutional Erasure** (Item 5): Control Plane has erasure flow across all storage layers
+- **Automated Decision Review** (Item 10): JITNA Protocol enforces Human-in-the-Loop for high-risk actions
+- **Data Retention Enforcement** (Item 9): Delta Engine enforces TTL policy on context cache
+
+---
+
+*Related articles: [PDPA AI Compliance in Thailand (Full Guide)](/en/blog/pdpa-ai-compliance-thailand) · [Regional Language Adapter: Thai NLP](/en/blog/regional-language-adapter-thai-nlp) · [Constitutional AI for Thailand Enterprise](/en/blog/constitutional-ai-thailand-enterprise-guide) · [RCT Control Plane: Governance at Runtime](/en/blog/rct-control-plane-governance-at-runtime)*

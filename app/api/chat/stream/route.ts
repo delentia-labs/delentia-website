@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
       `${API_BASE_URL}${ASSISTANT_PATH}/chat/stream`,
       {
         method: "POST",
-        signal: AbortSignal.timeout(60000), // Increased from 30s to 60s
+        signal: AbortSignal.timeout(30000),
         headers: {
           "Content-Type": "application/json",
           Accept: "text/event-stream",
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       return new Response(
         fallbackSSE(
           "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\n" +
-            "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ [founder@rctlabs.co](mailto:founder@rctlabs.co) หรือดูเอกสารได้ที่ [/docs](/docs)",
+            "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
         ),
         {
           status: 200,
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
     return new Response(
       fallbackSSE(
         "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\n" +
-          "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ [founder@rctlabs.co](mailto:founder@rctlabs.co) หรือดูเอกสารได้ที่ [/docs](/docs)",
+          "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
       ),
       {
         status: 200,

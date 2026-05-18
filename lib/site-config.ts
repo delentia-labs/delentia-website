@@ -5,7 +5,7 @@ export const SITE_OG_IMAGE = `${SITE_URL}/opengraph-image`
 export const SITE_VERSION = "2026.05 Snapshot"
 export const SITE_TEST_COUNT = 4849 // Enterprise full suite (private)
 export const SITE_PUBLIC_SDK_VERSION = "1.0.2a0"
-export const SITE_PUBLIC_SDK_TESTS = 1193 // Public SDK full suite: 1193 passed · 0 skipped · 0 failed · 94% coverage (rctlabs/rct-platform)
+export const SITE_PUBLIC_SDK_TESTS = 1272 // Public SDK full suite: 1272 passed · 0 skipped · 0 failed · 0 warnings · mypy clean · ruff clean · 94%+ coverage (rctlabs/rct-platform)
 export const SITE_MICROSERVICE_COUNT = 62
 export const SITE_ALGORITHM_COUNT = 41
 export const SITE_LAYER_COUNT = 10 // Product layers L1-L10; L11 = CI/CD pipeline layer (internal only)
