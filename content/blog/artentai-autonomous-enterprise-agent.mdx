@@ -1,0 +1,239 @@
+---
+title: "ArtentAI: The Autonomous Enterprise Agent"
+author: "Ittirit Saengow"
+authorId: "ittirit-saengow"
+reviewerId: "rct-research-desk"
+date: "2026-05-24"
+lastReviewed: "2026-05-24"
+category: "product"
+excerpt: "ArtentAI is not a chatbot with an agentic wrapper. It is an enterprise-grade autonomous agent built on FDIA-gated intent routing, JITNA-bounded execution, and SignedAI-verified decision chains — designed to operate in production without requiring human approval for every step while remaining auditable, stoppable, and constitutionally governed at all times."
+tags: ["ArtentAI", "Autonomous Agent", "Enterprise AI", "FDIA", "JITNA", "Agentic AI", "RCT Platform", "Multi-LLM Consensus"]
+readTime: 13
+references:
+  - "https://arxiv.org/abs/2210.03629"
+  - "https://arxiv.org/abs/2304.01373"
+  - "https://arxiv.org/abs/2308.11432"
+---
+
+Most "autonomous agents" are demos. They work on toy tasks in controlled environments, require careful prompt engineering, and fall apart when they encounter real enterprise data, compliance requirements, or multi-step workflows that span more than one API call.
+
+ArtentAI is built differently. It is the autonomous enterprise agent tier of the RCT Ecosystem — not a product that runs on top of the platform, but an agent architecture that is constitutionally governed by the platform at every execution step.
+
+---
+
+## What Makes an Agent "Enterprise-Grade"
+
+The term "autonomous agent" in enterprise AI carries a specific meaning: the agent must be able to take a sequence of actions toward a goal without a human approving each step. But enterprise deployments add four constraints that consumer-grade agents routinely fail:
+
+**1. Auditability** — Every decision must be traceable to a specific intent, a specific model consensus, and a specific verification tier. "The model decided" is not an acceptable audit trail.
+
+**2. Governance boundaries** — Some actions are constitutionally prohibited regardless of intent quality. The agent must refuse, not just warn, when crossing a boundary.
+
+**3. Stoppability** — An enterprise operator must be able to halt agent execution at any point without data loss or state corruption. This requires explicit checkpointing, not just process termination.
+
+**4. Multi-step coherence** — An agent that handles a 15-step workflow cannot be stateless. It needs a memory architecture that preserves intent context across steps without hallucinating prior states.
+
+ArtentAI addresses all four through the RCT Platform's core primitives — FDIA scoring, JITNA protocol, SignedAI verification, and Delta Engine context management.
+
+---
+
+## Architecture: The Four Pillars of ArtentAI
+
+### Pillar 1 — FDIA-Gated Intent Routing
+
+Every agent action begins with an intent classification step. The FDIA (Federated Deterministic Intent Assessment) score evaluates the action intent along four dimensions:
+
+- **Feasibility (F)**: Can this action be completed with the available tools and permissions?
+- **Determinism (D)**: Will this action produce a consistent outcome given the current state?
+- **Intent coherence (I)**: Does this action align with the original goal established at session start?
+- **Authorization (A)**: Is this action within the agent's constitutional permission boundary?
+
+An action only proceeds if its FDIA score clears the configured threshold. For routine data retrieval, the threshold is low (0.6). For irreversible actions — sending external messages, writing to production databases, triggering financial transactions — the threshold is high (0.92) and requires SignedAI multi-model consensus.
+
+```python
+from rct_platform.artent import ArtentAgent
+
+agent = ArtentAgent(
+    name="finance_report_agent",
+    genome=["G1_analytical", "G4_financial"],  # Specialist Studio genomes
+    fdia_thresholds={
+        "read": 0.6,
+        "write_internal": 0.75,
+        "write_external": 0.92,
+        "irreversible": 0.95,
+    },
+    constitution="enterprise_finance"
+)
+
+# Agent plans and executes a multi-step financial report generation
+result = agent.execute("Generate Q2 2026 variance analysis and send to CFO")
+print(result.steps_taken)    # List of all FDIA-gated steps
+print(result.audit_trail)    # SignedAI-verified decision chain
+```
+
+### Pillar 2 — JITNA-Bounded Execution
+
+JITNA (Just-in-Time Intent Normalization Architecture) provides execution slot management. Each agent step is allocated a JITNA slot with:
+
+- **Token budget**: Maximum tokens the step can consume (prevents runaway inference costs)
+- **Time budget**: Maximum latency for the step (50ms for synchronous UI-bound steps, 5000ms for async background steps)
+- **Retry limit**: Maximum number of retries before the step is escalated to human review
+- **Fallback behavior**: What to do if the primary action fails within budget
+
+JITNA's slot management means ArtentAI cannot silently exceed enterprise cost budgets or latency SLAs — budget violations are caught at the protocol level, not discovered in billing reports.
+
+```
+Goal: "Generate Q2 2026 variance analysis and send to CFO"
+
+Step 1: Retrieve Q2 financial data [JITNA slot: 200ms, 2000 tokens]
+Step 2: Retrieve Q1 comparison baseline [JITNA slot: 200ms, 2000 tokens]
+Step 3: FDIA score: "Compute variance analysis" → 0.88 (PASS)
+Step 4: Generate variance analysis [JITNA slot: 2000ms, 8000 tokens]
+Step 5: FDIA score: "Send to CFO email" → 0.94 (PASS, requires SignedAI)
+Step 6: SignedAI consensus: 4/7 models agree → verified
+Step 7: Send report [JITNA slot: 500ms, irreversible action]
+Step 8: Generate audit trail → stored in RCTDB
+```
+
+### Pillar 3 — SignedAI-Verified Decision Chains
+
+For consequential agent decisions, ArtentAI requires multi-model consensus through the SignedAI registry. This is not optional — it is a constitutional enforcement point.
+
+The HexaCore 7-model roster evaluates the proposed action:
+- **3W (Western tier)**: Claude Sonnet, Gemini Pro, Grok
+- **3E (Eastern tier)**: Kimi, MiniMax, DeepSeek
+- **1TH (Thai tier)**: Typhoon
+
+Each model signs its verdict with an Ed25519 key. The consensus tier (TIER_S, TIER_4, TIER_6, TIER_8) is determined by the minimum number of agreeing signatures:
+
+| Tier | Required Agreements | Use Case |
+|---|---|---|
+| TIER_S | 1 (speed mode) | Low-risk reads, UI interactions |
+| TIER_4 | 4/7 models | Standard write operations |
+| TIER_6 | 6/7 models | High-value decisions, external communications |
+| TIER_8 | 7/7 models | Irreversible actions, compliance-sensitive operations |
+
+The signed consensus record is stored in RCTDB permanently. If a regulator asks "which models agreed that this action was appropriate?" the answer is available with cryptographic proof, not a statistical inference.
+
+### Pillar 4 — Delta Engine Context Management
+
+Multi-step agent execution requires maintaining intent context across steps without context window bloat. The Delta Engine provides:
+
+- **Warm recall**: Previously resolved intent states are compressed and cached (74% compression on typical enterprise agent context)
+- **State delta tracking**: Only changes in context are stored, not full context copies at each step
+- **Semantic anchoring**: The original goal intent is preserved as an anchor that prevents drift across multi-step execution
+
+Without Delta Engine context management, a 15-step agent workflow would accumulate context at each step, eventually exceeding LLM context windows and losing coherence with the original goal. With it, each step receives precisely the context it needs — no more, no less.
+
+---
+
+## The Specialist Studio Connection
+
+ArtentAI does not use a single generalist model. It uses the [Specialist Studio](/en/blog/specialist-studio-explained) genome orchestration layer to route each step to the appropriate domain specialist:
+
+| Step Type | Genome | Rationale |
+|---|---|---|
+| Data retrieval | G1 (Analytical) | Structured data parsing, SQL context |
+| Financial calculation | G4 (Financial) | Domain-specific numerical reasoning |
+| Report narrative | G2 (Communication) | Executive-level writing register |
+| Compliance check | G5 (Legal/Regulatory) | Constitutional boundary verification |
+| External communication | G3 (Operational) | Action execution, API integration |
+
+This genome routing happens automatically based on the FDIA step classification — the agent developer does not need to manually specify which model handles each step.
+
+---
+
+## What ArtentAI Can and Cannot Do
+
+### What it can do
+
+- Execute multi-step workflows autonomously within constitutional boundaries
+- Maintain coherent goal state across 50+ step workflows
+- Adapt to intermediate failures by replanning within JITNA budget
+- Generate cryptographically signed audit trails for every decision
+- Handle Thai and English enterprise communication natively
+- Route to specialist genomes automatically per step type
+
+### What it will not do (by constitutional enforcement)
+
+- Transmit unmasked PII to external services (PDPA masking is not bypass-able)
+- Execute irreversible actions without SignedAI TIER_6+ consensus
+- Exceed token budgets even if the task would benefit from more context
+- Operate outside the declared constitutional permission boundary
+- Modify its own governance configuration at runtime
+
+The second list is as important as the first. An autonomous agent that *can* be instructed to bypass its governance layer is not a trustworthy enterprise agent — it is a prompt injection risk with an autonomous execution layer. ArtentAI's constitutional boundaries are enforced by the Control Plane, not suggested by the system prompt.
+
+---
+
+## Performance Characteristics
+
+At v1.0.2a0 CI baseline (1,272 tests passing):
+
+| Metric | Value |
+|---|---|
+| FDIA gating latency | < 15ms per step (p99) |
+| JITNA slot allocation | < 5ms overhead |
+| SignedAI TIER_4 consensus | < 800ms (4 model round-trip) |
+| Delta Engine warm recall | < 50ms for 10K-token context |
+| End-to-end 5-step workflow | < 3,200ms (p95) |
+| Audit trail generation | < 10ms per step |
+| PII masking (Thai + EN) | < 12ms per 1,000 tokens |
+
+---
+
+## Comparison: ArtentAI vs Generic Agentic Wrappers
+
+| Capability | Generic Agent Framework | ArtentAI |
+|---|---|---|
+| Auditability | Log-based (post-hoc) | Cryptographic (real-time) |
+| Governance enforcement | Prompt-based (bypassable) | Control Plane (not bypassable) |
+| Multi-LLM consensus | Optional, manual | Constitutional enforcement |
+| Context management | Full context copy per step | Delta compression, warm recall |
+| Language support | English-first | 8 ASEAN language pairs |
+| PII handling | Application responsibility | Constitutional enforcement |
+| Cost control | Monitoring-based | JITNA budget enforcement |
+| Stoppability | Process kill | Checkpoint-safe halt |
+
+---
+
+## Integration
+
+ArtentAI is integrated with the `rct-platform` core SDK. A minimal enterprise agent requires:
+
+```python
+from rct_platform.artent import ArtentAgent
+from rct_platform.control_plane import ControlPlane
+
+# Initialize Control Plane with enterprise governance config
+cp = ControlPlane.from_config("rct_governance.yaml")
+
+# Create ArtentAI agent with domain-specific configuration
+agent = ArtentAgent(
+    name="hr_onboarding_agent",
+    genome=["G2_communication", "G3_operational"],
+    constitution="enterprise_hr",
+    control_plane=cp
+)
+
+# Execute multi-step onboarding workflow
+result = agent.execute(
+    "Complete onboarding checklist for new employee John Smith starting 2026-06-01"
+)
+
+print(result.completed_steps)   # Steps completed autonomously
+print(result.escalated_steps)   # Steps escalated to human review
+print(result.audit_hash)        # SHA-256 of full decision chain
+```
+
+---
+
+## Summary
+
+ArtentAI is the enterprise answer to the question: "Can we deploy autonomous AI agents that we trust?" The trust comes not from the agent being limited, but from the agent being governed — by FDIA scoring that gates every action, JITNA protocol that bounds every resource, SignedAI consensus that verifies every consequential decision, and Delta Engine context that preserves coherence across the full workflow.
+
+The goal is not to build an agent that never makes mistakes. It is to build an agent where every decision is traceable, every boundary is enforced, and every step is auditable — so when mistakes happen, they can be found, explained, and corrected.
+
+---
+
+*Related articles: [Specialist Studio: Domain-Specific AI Orchestration](/en/blog/specialist-studio-explained) · [RCT Control Plane: Governance at Runtime](/en/blog/rct-control-plane-governance-at-runtime) · [ASEAN Enterprise AI Deployment Guide](/en/blog/asean-enterprise-ai-deployment-guide) · [7 Genome System Architecture](/en/blog/rct-7-genome-system)*

@@ -1,0 +1,257 @@
+---
+title: "PDPA AI Compliance Checklist 2567: What Enterprise AI Systems Must Do Now"
+author: "Ittirit Saengow"
+authorId: "ittirit-saengow"
+reviewerId: "rct-research-desk"
+date: "2026-05-26"
+lastReviewed: "2026-05-26"
+category: "compliance"
+excerpt: "Thailand's PDPA entered full enforcement in June 2022. Three years later, most enterprise AI systems operating in Thailand are still non-compliant in ways that create measurable legal risk. This checklist covers the 12 obligations most commonly missed in AI system deployments, with specific technical controls required for each."
+tags: ["PDPA", "PDPA 2567", "AI Compliance", "Thailand", "Data Protection", "Enterprise AI", "Personal Data", "RCT Platform"]
+readTime: 11
+references:
+  - "https://www.pdpc.go.th/"
+  - "https://ratchakitcha.soc.go.th/documents/17098168.pdf"
+  - "https://www.etda.or.th/"
+---
+
+พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA) มีผลบังคับใช้เต็มรูปแบบตั้งแต่ มิถุนายน 2565 ในปี พ.ศ. 2567 (2024) ได้มีการออกประกาศและแนวปฏิบัติเพิ่มเติม โดยเฉพาะที่เกี่ยวข้องกับการประมวลผลข้อมูลด้วยระบบ AI และการตัดสินใจอัตโนมัติ
+
+ทว่า Enterprise AI ส่วนใหญ่ที่ทำงานอยู่ในประเทศไทยยังไม่สอดคล้องกับกฎหมายในหลายจุดที่สำคัญ บทความนี้นำเสนอ Checklist 12 ข้อครอบคลุมภาระผูกพันที่ถูกมองข้ามบ่อยที่สุดในการ Deploy ระบบ AI ระดับ Enterprise พร้อมมาตรการควบคุมทางเทคนิคที่จำเป็นสำหรับแต่ละข้อ
+
+---
+
+## ทำไมระบบ AI ถึงมีความเสี่ยง PDPA สูงกว่าระบบซอฟต์แวร์ทั่วไป
+
+ระบบ AI มีลักษณะเฉพาะที่สร้างความเสี่ยง PDPA ที่แตกต่างจากระบบซอฟต์แวร์ทั่วไป:
+
+1. **การประมวลผลโดยนัย**: LLM ประมวลผลข้อมูลส่วนบุคคลที่ฝังอยู่ในข้อความทุกรายการ แม้ว่าจุดประสงค์หลักจะไม่ใช่การจัดการข้อมูลส่วนบุคคลก็ตาม
+2. **Context Window Persistence**: ข้อมูลส่วนบุคคลที่ป้อนเข้าไปในการสนทนาหนึ่งอาจส่งผลต่อการตอบสนองในการสนทนาถัดไปผ่านกลไก Context
+3. **Training Data Contamination**: LLM ที่ Fine-tune ด้วยข้อมูลองค์กรอาจ "จดจำ" ข้อมูลส่วนบุคคลในลักษณะที่ตรวจสอบหรือลบออกไม่ได้
+4. **การตัดสินใจอัตโนมัติ**: AI ที่ตัดสินใจเรื่องการให้สินเชื่อ การจ้างงาน หรือการให้บริการทางการแพทย์ต้องปฏิบัติตามมาตรา 34 ของ PDPA โดยเฉพาะ
+
+---
+
+## Checklist 12 ข้อ: ภาระผูกพัน PDPA สำหรับระบบ AI
+
+### ✅ ข้อที่ 1 — การระบุและจัดเก็บความยินยอม (มาตรา 19)
+
+**ข้อกำหนด**: ต้องได้รับความยินยอมอย่างชัดเจน เฉพาะเจาะจง และแจ้งข้อมูลครบถ้วนก่อนประมวลผลข้อมูลส่วนบุคคล
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ใช้ "การใช้บริการต่อไป = ความยินยอม" ซึ่งไม่ถือเป็นความยินยอมตาม PDPA
+- ไม่แยกความยินยอมสำหรับ AI processing จาก Terms of Service ทั่วไป
+- ไม่เก็บหลักฐานความยินยอมพร้อม Timestamp และเวอร์ชัน Policy
+
+**มาตรการทางเทคนิค**:
+```
+- จัดเก็บ ConsentRecord { userId, timestamp, policyVersion, purpose[] }
+- เชื่อมโยง ConsentRecord กับทุก AI processing request
+- ตรวจสอบ ConsentRecord ก่อนประมวลผลทุกครั้ง (ไม่ใช่แค่ครั้งแรก)
+```
+
+### ✅ ข้อที่ 2 — การแจ้งการประมวลผลข้อมูลส่วนบุคคล (มาตรา 23)
+
+**ข้อกำหนด**: ต้องแจ้งเจ้าของข้อมูลก่อนหรือขณะเก็บรวบรวมข้อมูล ระบุวัตถุประสงค์ ประเภทข้อมูล ผู้รับข้อมูล และสิทธิของเจ้าของข้อมูล
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ระบุวัตถุประสงค์กว้างเกินไป ("เพื่อปรับปรุงบริการ") โดยไม่ระบุว่า AI ใช้ข้อมูลอย่างไร
+- ไม่แจ้งว่าข้อมูลถูกส่งไปยัง LLM Provider ภายนอก
+
+**มาตรการทางเทคนิค**:
+```
+- ระบุใน Privacy Notice ว่าใช้ AI processing กับข้อมูลประเภทใด
+- ระบุชื่อ LLM Provider ที่ใช้ (OpenAI, Anthropic, Google ฯลฯ)
+- แสดงระดับการแชร์ข้อมูล: [ข้อมูลจริง | ข้อมูล Anonymized | Metadata เท่านั้น]
+```
+
+### ✅ ข้อที่ 3 — Zero Unmasked PII Transmission (มาตรา 22, 26)
+
+**ข้อกำหนด**: ข้อมูลที่ส่งให้ผู้ประมวลผลข้อมูลภายนอก (เช่น LLM API) ต้องมีการป้องกันที่เหมาะสม ข้อมูลอ่อนไหว (มาตรา 26) ต้องได้รับการคุ้มครองเป็นพิเศษ
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ส่งชื่อ-นามสกุล หมายเลขบัตรประชาชน หรือข้อมูลสุขภาพโดยตรงไปยัง LLM API
+- ถือว่า Anonymization = ลบชื่อออก (ไม่เพียงพอ)
+
+**มาตรการทางเทคนิค**:
+```python
+# ตัวอย่างด้วย RCT Platform
+adapter = RegionalLanguageAdapter(locale="th-TH", pdpa_mode="strict")
+masked_input = adapter.mask_pii(user_input)
+# masked_input: "สวัสดี คุณ[THAI_NAME_REDACTED] รหัส[ID_HASH:a3f9b2] โทร 08X-XXX-4567"
+# ส่งเฉพาะ masked_input ไปยัง LLM API
+```
+
+### ✅ ข้อที่ 4 — สิทธิในการเข้าถึงและแก้ไขข้อมูล (มาตรา 30, 35)
+
+**ข้อกำหนด**: เจ้าของข้อมูลมีสิทธิขอดูข้อมูลที่เก็บไว้ และขอแก้ไขข้อมูลที่ไม่ถูกต้อง องค์กรต้องตอบสนองภายใน 30 วัน
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ไม่มีกระบวนการระบุว่าข้อมูลของ User ถูกเก็บอยู่ที่ใดใน AI System
+- ข้อมูลกระจายอยู่ใน Conversation Logs, Vector Store, Fine-tuning Dataset โดยไม่มีการ Index
+
+**มาตรการทางเทคนิค**:
+```
+- ใช้ UserId เป็น Primary Key ในทุก AI storage layer
+- สร้าง Data Map ที่ระบุว่า PII ของ User แต่ละคนอยู่ใน Storage ใดบ้าง
+- มี API สำหรับ Data Subject Access Request (DSAR) ที่ดึงข้อมูลจากทุก Storage
+```
+
+### ✅ ข้อที่ 5 — สิทธิในการลบข้อมูล (Right to Erasure, มาตรา 33)
+
+**ข้อกำหนด**: เมื่อเจ้าของข้อมูลยกเลิกความยินยอม องค์กรต้องลบข้อมูลภายในระยะเวลาที่เหมาะสม
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ลบออกจาก Database แต่ลืมลบออกจาก Vector Store และ Embedding Index
+- ไม่มีกระบวนการ Erasure สำหรับข้อมูลใน LLM Context Cache
+
+**มาตรการทางเทคนิค**:
+```
+เมื่อได้รับคำขอลบข้อมูล:
+1. ลบจาก Primary Database
+2. ลบจาก Vector Store (ค้นหาด้วย UserId metadata)
+3. Invalidate Context Cache entries ที่มี UserId
+4. Flush Warm Recall entries (Delta Engine) ที่มี UserId
+5. บันทึก Erasure Certificate พร้อม Timestamp
+6. ส่ง Confirmation กลับภายใน 30 วัน
+```
+
+### ✅ ข้อที่ 6 — การแจ้งเหตุการณ์ Data Breach (มาตรา 37)
+
+**ข้อกำหนด**: ต้องแจ้ง PDPC ภายใน 72 ชั่วโมงหลังพบเหตุการณ์ Data Breach ที่มีความเสี่ยงสูง
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ไม่มีการกำหนดว่า "Prompt Injection ที่ดึงข้อมูล User อื่น" ถือเป็น Data Breach
+- ไม่มี Alert System สำหรับการ Access ข้อมูลที่ผิดปกติ
+
+**มาตรการทางเทคนิค**:
+```
+- กำหนด Breach Scenarios สำหรับ AI system: Prompt injection, Context leakage, Model inversion
+- ตั้ง Alert เมื่อ User A เข้าถึงข้อมูล User B (cross-user context leakage)
+- มีระบบ Incident Response ที่ครอบคลุม AI-specific breach scenarios
+```
+
+### ✅ ข้อที่ 7 — การประมวลผลข้อมูลอ่อนไหว (มาตรา 26)
+
+**ข้อกำหนด**: ข้อมูลอ่อนไหว (เชื้อชาติ ศาสนา สุขภาพ ชีวมาตร อาชญากรรม พฤติกรรมทางเพศ ความคิดเห็นทางการเมือง) ต้องได้รับความยินยอมอย่างชัดแจ้ง (Explicit Consent)
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ไม่มีการตรวจจับว่า Input ที่ User ส่งมาประกอบด้วยข้อมูลอ่อนไหวหรือไม่
+- Healthcare AI ที่ประมวลผลอาการโดยใช้ Standard Consent ไม่ใช่ Explicit Consent
+
+**มาตรการทางเทคนิค**:
+```
+- ใช้ Classifier ตรวจจับข้อมูลอ่อนไหวใน Input (ก่อนประมวลผล)
+- หากตรวจพบข้อมูลอ่อนไหว: ต้องมี Explicit Consent Record หรือปฏิเสธการประมวลผล
+- บันทึก Sensitive Data Processing Record แยกจาก Standard Processing Record
+```
+
+### ✅ ข้อที่ 8 — การถ่ายโอนข้อมูลไปต่างประเทศ (มาตรา 28-29)
+
+**ข้อกำหนด**: ต้องได้รับความยินยอมก่อนส่งข้อมูลส่วนบุคคลไปประมวลผลในประเทศที่มีมาตรการคุ้มครองข้อมูลต่ำกว่า PDPA
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ส่ง Input ของ User ไปยัง LLM API ที่ประมวลผลใน US หรือ EU โดยไม่มีการแจ้งหรือขอความยินยอมสำหรับการ Transfer
+
+**มาตรการทางเทคนิค**:
+```
+- แสดงข้อมูลการ Transfer ให้ User ทราบก่อน: "ข้อความของคุณจะถูกประมวลผลโดย [LLM Provider] ที่เซิร์ฟเวอร์ใน [ประเทศ]"
+- ใช้ EU Standard Contractual Clauses หรือ BCR กับ LLM Provider
+- พิจารณาใช้ Local Inference สำหรับข้อมูลอ่อนไหว (เพื่อหลีกเลี่ยงการ Transfer)
+```
+
+### ✅ ข้อที่ 9 — Data Retention Limits
+
+**ข้อกำหนด**: ต้องลบข้อมูลเมื่อหมดความจำเป็น
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- เก็บ Conversation Logs ตลอดไปโดยไม่มี Retention Policy
+- เก็บ Embedding Vector ของข้อมูลส่วนบุคคลโดยไม่มีการ Expire
+
+**มาตรการทางเทคนิค**:
+```
+storage_retention:
+  conversation_logs: 90_days    # หรือตามกำหนดใน Privacy Notice
+  embedding_vectors: 365_days   # ต่ออายุเฉพาะถ้า User Active
+  audit_logs: 7_years           # ตามข้อกำหนดทางธุรกิจ/กฎหมาย
+  model_context_cache: 24_hours # Short-lived, ไม่มีการเก็บถาวร
+```
+
+### ✅ ข้อที่ 10 — การตัดสินใจอัตโนมัติ (มาตรา 34)
+
+**ข้อกำหนด**: เจ้าของข้อมูลมีสิทธิขอให้มีการทบทวนการตัดสินใจที่เกิดจาก AI โดยเฉพาะการตัดสินใจที่มีผลต่อสิทธิและผลประโยชน์อย่างมีนัยสำคัญ
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ไม่มีกระบวนการ Human Review สำหรับการตัดสินใจ AI ที่มีผลต่อสิทธิ
+- ไม่สามารถอธิบายได้ว่า AI ตัดสินใจอย่างไร (Black Box)
+
+**มาตรการทางเทคนิค**:
+```
+สำหรับการตัดสินใจที่มีผลต่อสิทธิ (เช่น การอนุมัติสินเชื่อ การรับสมัครงาน):
+- บังคับใช้ Human-in-the-Loop ก่อนการตัดสินใจสิ้นสุด
+- เก็บ Explainability Record: คะแนน FDIA, โมเดลที่ใช้, ปัจจัยที่มีน้ำหนัก
+- มี Mechanism ให้ User ขอ Human Review ได้ภายใน 30 วัน
+```
+
+### ✅ ข้อที่ 11 — การประเมินผลกระทบด้านการคุ้มครองข้อมูล (DPIA)
+
+**ข้อกำหนด**: ต้องทำ Data Protection Impact Assessment ก่อน Deploy AI ที่ประมวลผลข้อมูลในระดับสูง (High Risk Processing)
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ไม่ทำ DPIA สำหรับ AI System ที่ใช้ข้อมูลส่วนบุคคลจำนวนมาก
+- ไม่อัปเดต DPIA เมื่อมีการเปลี่ยนแปลง LLM Provider หรือ Training Data
+
+**มาตรการทางเทคนิค**:
+```
+ต้องทำ DPIA เมื่อ AI System:
+- ประมวลผลข้อมูลส่วนบุคคลของผู้ใช้มากกว่า 10,000 รายขึ้นไป
+- ใช้ Automated Profiling สำหรับการตัดสินใจที่มีผลต่อสิทธิ
+- ประมวลผลข้อมูลอ่อนไหว (มาตรา 26)
+- ใช้ Biometric Data หรือ Location Data
+```
+
+### ✅ ข้อที่ 12 — การแต่งตั้ง DPO สำหรับ AI High-Risk Processing
+
+**ข้อกำหนด**: องค์กรที่ประมวลผลข้อมูลส่วนบุคคลในปริมาณมากหรือประมวลผลข้อมูลอ่อนไหวต้องแต่งตั้ง Data Protection Officer
+
+**สิ่งที่ระบบ AI มักทำผิด**:
+- ถือว่า DPO เป็นตำแหน่ง Administrative ไม่ใช่ Technical
+- DPO ไม่มีความเข้าใจ AI System Architecture เพียงพอที่จะประเมินความเสี่ยง
+
+**มาตรการทางเทคนิค**:
+```
+DPO ของ AI Organization ต้องเข้าใจ:
+- Data Flow ของ AI Pipeline ตั้งแต่ Input → LLM → Storage → Output
+- ความเสี่ยงเฉพาะของ AI: Prompt Injection, Context Leakage, Model Memorization
+- กระบวนการ DSAR สำหรับข้อมูลที่อยู่ใน Vector Store / Embedding
+- Audit Log Structure และการตรวจสอบ Compliance
+```
+
+---
+
+## สรุป: คะแนน PDPA Compliance ของ AI System ของคุณ
+
+ตรวจสอบด้วยตัวเองว่าระบบ AI ของคุณผ่านกี่ข้อ:
+
+| คะแนน | ความหมาย |
+|---|---|
+| 12/12 | PDPA Ready — พร้อมรับการ Audit |
+| 9-11/12 | ต้องแก้ไขจุดที่ขาด ก่อนรับ Enterprise Customer |
+| 6-8/12 | ความเสี่ยงสูง — มีภาระผูกพันหลักที่ยังไม่ได้ทำ |
+| < 6/12 | ต้องหยุด Deploy และทบทวน Architecture ใหม่ |
+
+---
+
+## วิธีที่ RCT Platform ช่วย
+
+RCT Platform ออกแบบให้เป็น PDPA-by-default:
+
+- **Zero Unmasked PII** (ข้อ 3): Regional Language Adapter Mask ก่อน LLM เสมอ
+- **Deterministic Audit Trail** (ข้อ 6, 10): SignedAI สร้าง Cryptographic Record ทุก Call
+- **Constitutional Erasure** (ข้อ 5): Control Plane มี Erasure Flow สำหรับทุก Storage Layer
+- **Automated Decision Review** (ข้อ 10): JITNA Protocol บังคับ Human-in-the-Loop สำหรับ High-Risk Actions
+- **Data Retention Enforcement** (ข้อ 9): Delta Engine มี TTL Policy สำหรับ Context Cache
+
+---
+
+*บทความที่เกี่ยวข้อง: [PDPA AI Compliance ใน Thailand (ฉบับเต็ม)](/th/blog/pdpa-ai-compliance-thailand) · [Regional Language Adapter: Thai NLP](/th/blog/regional-language-adapter-thai-nlp) · [Constitutional AI สำหรับ Enterprise ไทย](/th/blog/constitutional-ai-thailand-enterprise-guide) · [RCT Control Plane: Governance at Runtime](/th/blog/rct-control-plane-governance-at-runtime)*

@@ -74,6 +74,7 @@ export function Footer({ locale: forcedLocale }: FooterProps) {
       { label: isTh ? "การเชื่อมต่อ" : "Integration", href: "/integration" },
       { label: isTh ? "งานวิจัย" : "Research", href: "/research" },
       { label: isTh ? "บันทึกการเปลี่ยนแปลง" : "Changelog", href: "/changelog", badge: "NEW" as const },
+      { label: isTh ? "Interactive Architecture Guide" : "Interactive Architecture Guide", href: "https://notebooklm.google.com/notebook/094c48f4-0f95-4c59-9962-55ef8a7e3199?authuser=1", external: true, badge: "NEW" as const },
     ],
     [isTh ? "บริษัท" : "Company"]: [
       { label: isTh ? "เกี่ยวกับเรา" : "About Us", href: "/about" },
@@ -83,10 +84,6 @@ export function Footer({ locale: forcedLocale }: FooterProps) {
       { label: isTh ? "ข้อกำหนด" : "Terms", href: "/terms" },
       { label: "GitHub (rctlabs)", href: SOCIAL_LINKS.github, external: true },
       { label: "GitHub (ittirit720)", href: SOCIAL_LINKS.githubPersonal, external: true },
-      { label: isTh ? "เอกสาร SDK" : "SDK Docs", href: SOCIAL_LINKS.platformDocs, external: true },
-      { label: "LinkedIn", href: SOCIAL_LINKS.linkedin, external: true },
-      { label: "X / Twitter", href: SOCIAL_LINKS.twitter, external: true },
-      { label: "Reddit", href: SOCIAL_LINKS.reddit, external: true },
       { label: isTh ? "โปรไฟล์ผู้ก่อตั้ง" : "Founder Profile", href: SOCIAL_LINKS.biosite, external: true },
     ],
   }

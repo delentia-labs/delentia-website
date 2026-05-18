@@ -181,6 +181,27 @@ const glossaryTerms = [
     entityHref: "/en/blog/rct-7-genome-system",
   },
   {
+    term: "Regional Language Adapter",
+    termTh: "Regional Language Adapter (ตัวปรับภาษาภูมิภาค)",
+    definition: "A pre-processing module in rct-platform that normalizes text input for ASEAN languages before FDIA scoring. For Thai, it performs dictionary-based word segmentation (65,000-word lexicon), PDPA-sensitive PII masking (names, national ID numbers, phone patterns, medical terms), and code-switch boundary detection for mixed Thai/English enterprise text. The adapter ensures Thai-language inputs receive equivalent FDIA scoring fidelity to English inputs, eliminating invisible language bias in the governance pipeline. Covers 8 ASEAN language pairs: Thai, English, Simplified Chinese, Traditional Chinese, Japanese, Indonesian, Vietnamese, and Malay.",
+    definitionTh: "โมดูล Pre-processing ใน rct-platform ที่ Normalize Input ข้อความสำหรับภาษา ASEAN ก่อน FDIA scoring สำหรับภาษาไทย ดำเนินการ Word Segmentation แบบ Dictionary-based (Lexicon 65,000 คำ), PDPA PII Masking (ชื่อ หมายเลข ID โทรศัพท์ ข้อมูลการแพทย์) และการตรวจจับขอบเขต Code-Switch สำหรับข้อความ Enterprise ที่ผสม Thai/English Adapter ให้ความแม่นยำ FDIA Scoring สำหรับ Input ภาษาไทยเทียบเท่ากับภาษาอังกฤษ กำจัด Language Bias ที่มองไม่เห็นใน Governance Pipeline ครอบคลุม 8 คู่ภาษา ASEAN",
+    entityHref: "/en/blog/regional-language-adapter-thai-nlp",
+  },
+  {
+    term: "Thai Governance Boundary",
+    termTh: "Thai Governance Boundary (ขอบเขต Governance ไทย)",
+    definition: "The jurisdictional enforcement perimeter applied to AI interactions involving Thai personal data, as defined by PDPA B.E. 2562 and enforced by the RCT Control Plane's governance configuration. Within this boundary, four rules are non-negotiable: (1) No PII transmitted to external LLMs without masking, (2) Explicit consent required for automated profiling decisions, (3) Sensitive data (race, health, religion) requires Explicit Consent record before processing, (4) Data subject erasure requests must be fulfilled within 30 days across all storage layers including vector stores and embedding indexes. The boundary is expressed as a jurisdiction block in rct_governance.yaml, not as application code.",
+    definitionTh: "ขอบเขตการบังคับใช้ตามเขตอำนาจศาลสำหรับ AI Interactions ที่เกี่ยวข้องกับข้อมูลส่วนบุคคลไทย ตาม PDPA พ.ศ. 2562 และบังคับใช้โดย Governance Configuration ของ RCT Control Plane ภายในขอบเขตนี้ กฎ 4 ข้อที่ไม่สามารถยกเว้นได้: (1) ไม่มีการส่ง PII ไปยัง LLM ภายนอกโดยไม่ Mask (2) ต้องมีความยินยอมอย่างชัดแจ้งสำหรับการตัดสินใจ Automated Profiling (3) ข้อมูลอ่อนไหวต้องมี Explicit Consent Record ก่อนประมวลผล (4) คำขอลบข้อมูลต้องดำเนินการภายใน 30 วันใน Storage ทุกชั้น รวมถึง Vector Store และ Embedding Indexes",
+    entityHref: "/en/blog/pdpa-ai-compliance-thailand",
+  },
+  {
+    term: "ASEAN AI Governance",
+    termTh: "ASEAN AI Governance (การกำกับดูแล AI ระดับ ASEAN)",
+    definition: "The multi-jurisdiction governance challenge of deploying enterprise AI across ASEAN's 10 member states, which operate under 7 different data protection frameworks (Thailand PDPA, Singapore PDPA, Philippines DPA, Indonesia PDP Law, Malaysia PDPA, Vietnam Decree 13, Cambodia draft law) and 4 AI-specific regulatory frameworks. The core problem: an AI system compliant with Thailand's automated profiling consent rules may not satisfy Indonesia's PDP Law electronic accountability requirements. The RCT Platform addresses ASEAN AI Governance through jurisdiction-specific configuration blocks in rct_governance.yaml, allowing a single deployment to apply different governance rules per user's data residency jurisdiction without separate engineering builds per country.",
+    definitionTh: "ความท้าทายด้าน Governance หลายเขตอำนาจศาลในการ Deploy Enterprise AI ทั่ว 10 ประเทศสมาชิก ASEAN ซึ่งดำเนินการภายใต้กรอบการคุ้มครองข้อมูล 7 ฉบับที่แตกต่างกัน และกรอบกฎหมาย AI เฉพาะ 4 ฉบับ ปัญหาหลัก: ระบบ AI ที่สอดคล้องกับกฎ Consent สำหรับ Automated Profiling ของไทยอาจไม่ตรงตามข้อกำหนด Accountability ทางอิเล็กทรอนิกส์ของ PDP Law อินโดนีเซีย RCT Platform แก้ไขปัญหา ASEAN AI Governance ผ่าน Configuration Blocks เฉพาะเขตอำนาจใน rct_governance.yaml ทำให้ Deploy เดียวสามารถใช้กฎ Governance ที่แตกต่างกันต่อ Jurisdiction ของแต่ละ User โดยไม่ต้องสร้าง Engineering Build แยกต่อประเทศ",
+    entityHref: "/en/blog/asean-enterprise-ai-deployment-guide",
+  },
+  {
     term: "Prompt Injection",
     termTh: "Prompt Injection (การฉีดคำสั่ง)",
     definition: "A security attack where malicious text in user input attempts to override the system's intended behavior. RCT's JITNA Normalizer automatically strips known injection patterns on every request before LLM processing.",

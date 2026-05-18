@@ -34,10 +34,10 @@ export default function CommunityClient() {
     },
     {
       title: language === "th" ? "Community forum" : "Community forum",
-      description: language === "th" ? "พื้นที่สำหรับคำถามเชิงลึก การออกแบบระบบ และบทสนทนาที่ต้องการบริบทยาวกว่าการแชตสด GitHub Discussions จะเปิดพร้อม v1.0.3a0 (May 2026)" : "A place for deeper questions, system design discussion, and conversations that need more context than live chat. GitHub Discussions opens with v1.0.3a0 (May 2026).",
+      description: language === "th" ? "พื้นที่สำหรับคำถามเชิงลึก การออกแบบระบบ และบทสนทนาที่ต้องการบริบทยาวกว่าการแชตสด GitHub Discussions เปิดให้บริการแล้ว ร่วมสนทนาได้ที่ github.com/orgs/rctlabs/discussions" : "A place for deeper questions, system design discussion, and conversations that need more context than live chat. GitHub Discussions are now live — join the conversation at github.com/orgs/rctlabs/discussions.",
       href: "https://github.com/orgs/rctlabs/discussions",
       icon: Users,
-      badge: language === "th" ? "Coming May 2026" : "Coming May 2026",
+      badge: language === "th" ? "Live" : "Live",
       meta: language === "th" ? "Long-form discussion" : "Long-form discussion",
       external: true,
       tags: ["Q&A", "Design", "Knowledge sharing"],
