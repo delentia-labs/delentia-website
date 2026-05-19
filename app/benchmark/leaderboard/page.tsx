@@ -28,7 +28,7 @@ const leaderboardData = {
       params: "7 models (HexaCore)",
       provider: "RCT Labs",
       truthfulqa_mc2: null as number | null,
-      halueval_f1: null as number | null,
+      halueval_f1: 0.5714,  // measured: precision 1.0, recall 0.40 (adversarial-first filter)
       fdia_accuracy: 0.9167,
       adversarial_block_rate: 1.0,
       composite_score: 95.84,
