@@ -5,6 +5,7 @@ import { BarChart3, BookOpen, Globe, Layers, Rocket, Sparkles, Zap } from "lucid
 import { useLanguage } from "@/components/language-provider"
 import { ResourcePageShell, ResourceSection } from "@/components/resource/resource-shell"
 import { getLocalePrefix, resolveLocale } from "@/lib/i18n"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL } from "@/lib/site-config"
 
 interface ReleaseEntry {
   version: string
@@ -140,12 +141,12 @@ export default function ChangelogClient() {
       tone: "border-blue-500/25 bg-blue-500/10 text-blue-600 dark:text-blue-400",
     },
     {
-      version: "Ecosystem v5.4.5",
+      version: SITE_ENTERPRISE_EVIDENCE_LABEL,
       date: "2026-03-21",
-      title: language === "th" ? "Backend Ecosystem v5.4.5 — 4,849 tests ผ่าน, Tier 8-9 algorithms สมบูรณ์" : "Backend Ecosystem v5.4.5 — 4,849 passing tests, Tier 8-9 algorithms complete",
-      description: language === "th" ? "ระบบ backend ecosystem ผ่าน 4,849 automated tests บน CI/CD pipeline — Tier 8 (Synthesis) และ Tier 9 (Autonomy) algorithm tiers สมบูรณ์ครบถ้วน GitHub Actions pipeline ทำงานบนทุก PR" : "The backend ecosystem reached 4,849 passing automated tests across the CI/CD pipeline. Tier 8 (Synthesis) and Tier 9 (Autonomy) algorithm tiers are now complete, with GitHub Actions running on every PR.",
+      title: language === "th" ? "Enterprise private snapshot — 4,849 tests ผ่าน, Tier 8-9 algorithms สมบูรณ์" : "Enterprise private snapshot — 4,849 passing tests, Tier 8-9 algorithms complete",
+      description: language === "th" ? "สรุป enterprise private snapshot ของ backend ecosystem: 4,849 automated tests บน CI/CD pipeline โดย public SDK proof lane ถูกแยกจากชุด runtime validation นี้อย่างชัดเจน" : "Enterprise private snapshot of the backend ecosystem: 4,849 automated tests across the CI/CD pipeline, with the public SDK proof lane kept separate from this broader runtime validation set.",
       icon: BookOpen,
-      highlights: language === "th" ? ["4,849 tests (pytest + Hypothesis)", "Tier 8-9 algorithm rollout สมบูรณ์", "GitHub Actions CI/CD", "v5.4.5 released Mar 21, 2026"] : ["4,849 tests (pytest + Hypothesis)", "Tier 8-9 algorithm rollout complete", "GitHub Actions CI/CD", "v5.4.5 released Mar 21, 2026"],
+      highlights: language === "th" ? ["4,849 tests (pytest + Hypothesis)", "Tier 8-9 algorithm rollout สมบูรณ์", "GitHub Actions CI/CD", "enterprise private snapshot released Mar 21, 2026"] : ["4,849 tests (pytest + Hypothesis)", "Tier 8-9 algorithm rollout complete", "GitHub Actions CI/CD", "enterprise private snapshot released Mar 21, 2026"],
       tone: "border-teal-500/25 bg-teal-500/10 text-teal-600 dark:text-teal-400",
     },
     {

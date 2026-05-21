@@ -1,7 +1,7 @@
 ---
 title: "Evaluation Harnesses for Enterprise LLMs: Beyond Vibe-Testing"
 author: "Ittirit Saengow"
-excerpt: "Most AI teams evaluate their LLM deployments by looking at outputs and deciding if they seem right. This is vibe-testing. Here is a rigorous alternative — how the RCT Ecosystem runs 4,849 automated tests across 8 evaluation levels to produce verifiable enterprise trust signals."
+excerpt: "Most AI teams still rely on vibe-testing. This article explains a rigorous evaluation harness and uses the RCT Ecosystem's enterprise-private 4,849-test snapshot as a methodology example, not as public SDK proof."
 date: "2026-03-28"
 lastReviewed: "2026-05-06"
 authorId: "ittirit-saengow"
@@ -15,6 +15,9 @@ references:
   - "https://arxiv.org/abs/2212.08073"
   - "https://hai.stanford.edu/"
   - "https://rctlabs.co/benchmark"
+claimScope: "enterprise-methodology"
+evidenceLane: "Enterprise private snapshot"
+lastEvidenceReview: "2026-05-21"
 ---
 
 # Evaluation Harnesses for Enterprise LLMs: Beyond Vibe-Testing
@@ -25,7 +28,7 @@ The root cause is almost always the same. **The team did not have an evaluation 
 
 Vibe-testing means: *we looked at the outputs, and they seemed right.* It is fast, feels intuitive, and is fundamentally insufficient for production AI systems.
 
-An evaluation harness is a systematic, automated set of quality gates that a system must pass every time code changes. Here is how we built one for the RCT Ecosystem — 4,849 tests, 8 levels, 0 failures — and why the architecture of your harness matters as much as the tests themselves.
+An evaluation harness is a systematic, automated set of quality gates that a system must pass every time code changes. This article uses the RCT Ecosystem's enterprise-private 4,849-test snapshot as a methodology example, not as the public proof lane for the open SDK, and explains why the architecture of your harness matters as much as the tests themselves.
 
 ---
 
@@ -146,7 +149,7 @@ Every core system has mathematical invariants that must hold unconditionally. Fo
 Property-based testing generates thousands of test cases automatically. You write the property, the framework finds the edge cases.
 
 ### Principle 2: Contract Tests at Every Service Boundary
-Each of the 62 microservices in the RCT Ecosystem has a defined contract — what it accepts, what it returns, what errors it raises. Contract tests verify that each service satisfies its contract regardless of implementation changes.
+Each of the 62 runtime components in the enterprise RCT Ecosystem has a defined contract — what it accepts, what it returns, what errors it raises. Contract tests verify that each service satisfies its contract regardless of implementation changes.
 
 Without contract tests, a change to the RCTDB query format breaks the Delta Engine silently. With contract tests, the CI pipeline rejects the change at the boundary.
 
@@ -172,7 +175,7 @@ Three months after deploying the RCT evaluation harness in its current form:
 - **Deployment confidence:** Daily deployments, no deployment freeze window required
 - **Compliance audit time:** Reduced from weeks to hours — test results are the compliance evidence
 
-The 4,849 tests are not a vanity metric. Each one represents a specific property of the system that is now monitored continuously. When the number is 4,849/0/0 (passed/failed/errors), I can deploy. When it is anything else, I cannot.
+The 4,849-test snapshot is not presented here as public GitHub proof. It is an enterprise operating threshold: each test represents a specific property of the system that is monitored continuously in that environment. When the result is not green, deployment is blocked.
 
 ---
 
@@ -210,7 +213,7 @@ A: Level 6 security tests include dedicated PDPA compliance tests: (1) write a r
 
 ### Related Resources
 
-- 📊 [Benchmark Summary — 4,849/0/0 full test results with methodology](/en/benchmark-summary)
+- 📊 [Benchmark Summary — methodology and scope notes for enterprise and benchmark evidence](/en/benchmark-summary)
 - ⚙️ [FDIA Equation — the mathematical invariant that Level 1 and Level 8 tests verify](/en/blog/fdia-equation-explained)
 - 🧠 [Intent Operating System — the 4-layer architecture tested by this harness](/en/blog/intent-operating-system-explained)
 

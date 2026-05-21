@@ -49,7 +49,7 @@ export const baseKeywords: Record<Locale, string[]> = {
     "PDPA AI",
     "production algorithms",
     "41 algorithms",
-    "99.98% uptime SLA",
+    "availability target",
     "reduce AI hallucination",
     "AI governance framework",
     "constitutional AI platform",
@@ -93,7 +93,7 @@ export const baseKeywords: Record<Locale, string[]> = {
     "ระบบ AI อัจฉริยะ",
     "AI กำกับดูแล",
     "ระบบ AI ธุรกิจไทย",
-    "SLA ความพร้อมใช้งาน 99.98%"
+    "availability target สำหรับ enterprise programs"
   ]
 }
 

@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation"
 import { getLocaleFromPathname } from "@/lib/i18n"
 import { ArrowRight, Layers, Cpu, Brain, Shield, Database, Network, Bot, AppWindow, RefreshCw } from "lucide-react"
 import { LazyInteractiveArchDiagram } from "@/components/diagrams/lazy-diagram-wrapper"
-import { SITE_MICROSERVICE_COUNT } from "@/lib/site-config"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_MICROSERVICE_COUNT, SITE_PUBLIC_SDK_COVERAGE, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
 
 const layers = {
   en: [
@@ -41,7 +41,7 @@ const layers = {
 const comparisons = {
   en: [
     { feature: "Architecture", rct: "10-Layer Cognitive Stack", others: "Monolithic / 2-3 layers" },
-    { feature: "Memory", rct: "RCTDB v2.0 — 9D Schema", others: "No persistent memory" },
+    { feature: "Memory", rct: "RCTDB v2.0 — 8D Schema", others: "No persistent memory" },
     { feature: "Hallucination", rct: "<0.3% on benchmarks (SignedAI)", others: "12-15% typical" },
     { feature: "Multi-LLM", rct: "7-model HexaCore, dynamic routing", others: "Single provider lock-in" },
     { feature: "Self-Improvement", rct: "L10 autonomous evolution", others: "Manual updates only" },
@@ -49,7 +49,7 @@ const comparisons = {
   ],
   th: [
     { feature: "Architecture", rct: "10-Layer Cognitive Stack", others: "Monolithic / 2-3 ชั้น" },
-    { feature: "Memory", rct: "RCTDB v2.0 — 9D Schema", others: "ไม่มี Persistent Memory" },
+    { feature: "Memory", rct: "RCTDB v2.0 — 8D Schema", others: "ไม่มี Persistent Memory" },
     { feature: "Hallucination", rct: "<0.3% บน benchmarks (SignedAI)", others: "12-15% ทั่วไป" },
     { feature: "Multi-LLM", rct: "7-model HexaCore, Dynamic Routing", others: "ผูกกับ Provider เดียว" },
     { feature: "Self-Improvement", rct: "L10 Autonomous Evolution", others: "อัปเดตด้วยมือเท่านั้น" },
@@ -72,19 +72,106 @@ export default function ArchitecturePage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-4 py-20 md:py-28 text-center">
-        <div className="max-w-3xl mx-auto space-y-5">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-warm-sky/10 border border-warm-sky/30 text-warm-sky text-sm font-medium">
-            <Layers className="w-4 h-4" /> {isTh ? "สถาปัตยกรรม" : "Architecture"}
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground">
-            {isTh ? "สถาปัตยกรรม Cognitive 10 ชั้น" : "10-Layer Cognitive Architecture"}
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            {isTh
-              ? "สถาปัตยกรรม 10 ชั้นที่ออกแบบสำหรับ Enterprise AI Infrastructure — ตั้งแต่ Hardware Abstraction ถึง Self-Evolving Orchestrator"
-              : "A comprehensive 10-layer stack engineered for enterprise AI infrastructure — from hardware abstraction to autonomous improvement."}
-          </p>
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,168,83,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(137,180,200,0.18),transparent_34%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-start">
+          <div className="space-y-6">
+            <span className="inline-flex items-center gap-2 rounded-full border border-warm-sky/30 bg-warm-sky/10 px-4 py-1.5 text-sm font-medium text-warm-sky">
+              <Layers className="h-4 w-4" /> {isTh ? "สถาปัตยกรรม" : "Architecture"}
+            </span>
+            <div className="space-y-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-warm-amber">
+                {isTh ? "RCT OS Systems Surface" : "RCT OS Systems Surface"}
+              </p>
+              <h1 className="max-w-4xl text-4xl font-bold leading-tight text-foreground sm:text-5xl md:text-6xl">
+                {isTh ? "สถาปัตยกรรม Cognitive 10 ชั้นสำหรับระบบ AI ที่ต้องพิสูจน์ได้" : "10-layer cognitive architecture for AI systems that must stay provable."}
+              </h1>
+              <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+                {isTh
+                  ? "หน้า architecture นี้ถูกยกระดับให้เป็น systems surface ที่เชื่อมภาษาการออกแบบของ RCT OS CLI เข้ากับ footprint จริงของแพลตฟอร์ม โดยแยก public SDK proof, enterprise runtime footprint และ benchmark scope ออกจากกันอย่างชัดเจน"
+                  : "This architecture page now acts as a systems surface that bridges the RCT OS CLI language with the platform's real footprint, keeping public SDK proof, enterprise runtime footprint, and benchmark scope visibly separate."}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
+              <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5">
+                {isTh ? "10 layers / governed boundaries" : "10 layers / governed boundaries"}
+              </span>
+              <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5">
+                {isTh ? `${SITE_MICROSERVICE_COUNT}+ enterprise runtime components` : `${SITE_MICROSERVICE_COUNT}+ enterprise runtime components`}
+              </span>
+              <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5">
+                {isTh ? "RCTDB v2.0 / 8D memory schema" : "RCTDB v2.0 / 8D memory schema"}
+              </span>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                {
+                  value: SITE_PUBLIC_SDK_TESTS.toLocaleString(),
+                  label: isTh ? SITE_PUBLIC_SDK_EVIDENCE_LABEL : SITE_PUBLIC_SDK_EVIDENCE_LABEL,
+                  tone: "text-warm-sage",
+                },
+                {
+                  value: `${SITE_MICROSERVICE_COUNT}+`,
+                  label: isTh ? SITE_ENTERPRISE_EVIDENCE_LABEL : SITE_ENTERPRISE_EVIDENCE_LABEL,
+                  tone: "text-warm-amber",
+                },
+                {
+                  value: "<0.3%",
+                  label: isTh ? "Benchmark scope" : "Benchmark scope",
+                  tone: "text-warm-sky",
+                },
+              ].map((item) => (
+                <div key={item.label} className="rounded-2xl border border-border/80 bg-background/75 p-4 backdrop-blur-sm">
+                  <div className={`text-3xl font-bold ${item.tone}`}>{item.value}</div>
+                  <div className="mt-1 text-xs uppercase tracking-[0.24em] text-muted-foreground">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <m.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={prefersReducedMotion ? undefined : { duration: 0.35, ease: "easeOut" }}
+            className="rounded-[28px] border border-warm-amber/30 bg-[linear-gradient(160deg,rgba(15,23,42,0.96),rgba(23,37,52,0.92))] p-5 text-white shadow-[0_24px_90px_-40px_rgba(15,23,42,0.9)]"
+          >
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.34em] text-warm-amber">RCT OS</p>
+                <p className="mt-1 text-lg font-semibold">{isTh ? "Architecture Rail" : "Architecture Rail"}</p>
+              </div>
+              <div className="rounded-full border border-white/15 px-3 py-1 text-[11px] uppercase tracking-[0.28em] text-white/70">
+                {isTh ? "Flagship Surface" : "Flagship Surface"}
+              </div>
+            </div>
+
+            <div className="mt-5 space-y-4 font-mono text-sm leading-6 text-white/88">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div className="text-[11px] uppercase tracking-[0.28em] text-warm-sky">{isTh ? "Truth lanes" : "Truth lanes"}</div>
+                <div className="mt-2 text-white">public SDK proof</div>
+                <div className="text-white/65">enterprise runtime footprint</div>
+                <div className="text-white/65">benchmark scope</div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="text-[11px] uppercase tracking-[0.28em] text-warm-amber">{isTh ? "Memory rail" : "Memory rail"}</div>
+                  <div className="mt-2 text-white">RCTDB v2.0 / 8D schema</div>
+                  <div className="text-white/65">Identity · Sovereignty · Context</div>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="text-[11px] uppercase tracking-[0.28em] text-warm-sage">{isTh ? "Runtime rail" : "Runtime rail"}</div>
+                  <div className="mt-2 text-white">{SITE_MICROSERVICE_COUNT}+ components</div>
+                  <div className="text-white/65">layered, governed, independently deployable</div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div className="text-[11px] uppercase tracking-[0.28em] text-warm-amber">{isTh ? "Launch doctrine" : "Launch doctrine"}</div>
+                <div className="mt-2 text-white">{isTh ? "Architecture is presented like the CLI: brand surface first, evidence lane second, runtime claims last." : "Architecture is presented like the CLI: brand surface first, evidence lane second, runtime claims last."}</div>
+              </div>
+            </div>
+          </m.div>
         </div>
       </section>
 
@@ -189,18 +276,20 @@ export default function ArchitecturePage() {
         </div>
       </section>
 
-      {/* Test Infrastructure v5.4.5 */}
+      {/* Evidence Lanes Snapshot */}
       <section className="mx-auto max-w-4xl px-4 py-16">
-        <h2 className="text-2xl font-bold text-foreground text-center mb-2">{isTh ? "Test Infrastructure v5.4.5" : "Test Infrastructure v5.4.5"}</h2>
+        <h2 className="text-2xl font-bold text-foreground text-center mb-2">{isTh ? "Evidence Lanes Snapshot" : "Evidence Lanes Snapshot"}</h2>
         <p className="text-sm text-muted-foreground text-center mb-8">
-          {isTh ? "First ever 0-failure milestone — Mar 21, 2026" : "First ever 0-failure milestone — Mar 21, 2026"}
+          {isTh
+            ? "อ่านหน้าสถาปัตยกรรมนี้โดยแยก public SDK proof ออกจาก enterprise runtime footprint และ benchmark scope"
+            : "Read this architecture page with the public SDK proof lane separated from the enterprise runtime footprint and benchmark scope."}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {[
-            { value: "4,849", label: isTh ? "Tests Passed" : "Tests Passed", color: "#7B9E87" },
-            { value: "0", label: isTh ? "Failures" : "Failures", color: "#C4745B" },
-            { value: "6,738+", label: isTh ? "Total Tests" : "Total Tests", color: "#D4A853" },
-            { value: "62", label: isTh ? "Microservices" : "Microservices", color: "#89B4C8" },
+            { value: SITE_PUBLIC_SDK_TESTS.toLocaleString(), label: isTh ? SITE_PUBLIC_SDK_EVIDENCE_LABEL : SITE_PUBLIC_SDK_EVIDENCE_LABEL, color: "#7B9E87" },
+            { value: SITE_PUBLIC_SDK_COVERAGE, label: isTh ? "Coverage" : "Coverage", color: "#C4745B" },
+            { value: `${SITE_MICROSERVICE_COUNT}+`, label: isTh ? SITE_ENTERPRISE_EVIDENCE_LABEL : SITE_ENTERPRISE_EVIDENCE_LABEL, color: "#D4A853" },
+            { value: isTh ? "Benchmark scope" : "Benchmark scope", label: isTh ? "Hallucination / SLA" : "Hallucination / SLA", color: "#89B4C8" },
           ].map((s, i) => (
             <m.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
               className="p-5 rounded-2xl border border-border bg-card text-center">

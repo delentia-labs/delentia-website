@@ -1,13 +1,16 @@
 ﻿---
-title: "rct-platform v1.0.2a0: Public Alpha บน GitHub ภายใต้ Apache 2.0"
+title: "rct-platform v1.0.4b0: Beta Preview ของ Public SDK"
 author: "Ittirit Saengow"
 authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
 date: "2026-04-22"
 lastReviewed: "2026-05-07"
 category: "engineering"
-excerpt: "rct-platform v1.0.2a0 พร้อมให้ดาวน์โหลดบน GitHub ภายใต้ Apache 2.0 แล้ว SDK มาพร้อม 723 tests ที่ผ่านทั้งหมด coverage 89% microservice อ้างอิง 5 รายการ และ FDIA + JITNA reference implementation แบบเต็ม — ไม่ต้องใช้ API key ในการเริ่มต้น"
-tags: ["Open Source", "SDK", "Apache 2.0", "rct-platform", "GitHub", "FDIA", "JITNA", "Constitutional AI", "Public Alpha"]
+excerpt: "rct-platform v1.0.4b0 คือ checkpoint beta-preview ปัจจุบันของ public SDK บน GitHub โดย proof lane สาธารณะคือ 1,287 tests ที่ 92% coverage ส่วน evidence ของ enterprise runtime ถูกแยกเป็น private snapshot คนละชั้น"
+tags: ["Open Source", "SDK", "Apache 2.0", "rct-platform", "GitHub", "FDIA", "JITNA", "Constitutional AI", "Beta Preview"]
+claimScope: "public-sdk"
+evidenceLane: "Public SDK verified"
+lastEvidenceReview: "2026-05-21"
 readTime: 8
 references:
   - "https://github.com/rctlabs/rct-platform"
@@ -15,15 +18,15 @@ references:
   - "https://choosealicense.com/licenses/apache-2.0/"
 ---
 
-# rct-platform v1.0.2a0: Public Alpha บน GitHub ภายใต้ Apache 2.0
+# rct-platform v1.0.4b0: Beta Preview ของ Public SDK
 
-RCT Platform SDK เป็น open source แล้ว
+RCT Platform SDK เปิดสาธารณะบน GitHub แล้วและตอนนี้อยู่ใน checkpoint แบบ beta preview
 
-[rct-platform v1.0.2a0](https://github.com/rctlabs/rct-platform) คือ Public Alpha release ของ core SDK ของ RCT Ecosystem — layer ที่ implement สมการ FDIA, JITNA Protocol RFC-001, SignedAI multi-LLM consensus, Delta Engine และ microservice อ้างอิง 5 รายการ มาพร้อม Apache 2.0 license, 723 tests ที่ผ่านทั้งหมด, coverage 89% และ demo offline แบบเต็มที่ไม่ต้องใช้ API key
+[rct-platform v1.0.4b0](https://github.com/rctlabs/rct-platform) คือ checkpoint ปัจจุบันของ public SDK สำหรับ open RCT stack มันเปิดเผยสมการ FDIA, JITNA Protocol RFC-001, SignedAI multi-LLM consensus, Delta Engine และ microservice อ้างอิง 5 รายการภายใต้ Apache 2.0 โดย proof lane สาธารณะปัจจุบันคือ **1,287 tests ที่ผ่านทั้งหมด และ 92% coverage** ส่วน evidence ของ enterprise runtime ที่กว้างกว่านี้ถูกแยกเป็น private snapshot และไม่ควรถูกใช้เป็น proof ของ GitHub repo
 
-นี่ไม่ใช่ demo มันคือ algorithm implementation จริงที่ขับเคลื่อน constitutional AI layer ของ RCT Ecosystem ใน production
+นี่ไม่ใช่แพ็กเกจตัวอย่าง มันคือ public SDK layer ที่ใช้ยืนยัน algorithm, CLI flow และ reference services ของฝั่งเปิดเผย ส่วน runtime production เต็มรูปแบบยังเป็นอีกชั้นหนึ่ง
 
-## สิ่งที่มาใน v1.0.2a0
+## สิ่งที่มาใน v1.0.4b0
 
 | Component | คำอธิบาย |
 |---|---|
@@ -32,11 +35,11 @@ RCT Platform SDK เป็น open source แล้ว
 | **SignedAI** | Multi-LLM consensus layer — `signedai/core/` |
 | **Delta Engine** | Memory compression 74% ผ่าน state diffing — `core/delta_engine/` |
 | **Regional Adapter** | รองรับ language-pair 8 คู่ — `core/regional_adapter/` |
-| **5 Microservices** | Reference implementations พร้อม 142 dedicated tests |
-| **CLI** | `rct compile`, `rct governance`, `rct timeline` |
-| **Benchmarks** | FDIA accuracy (0.92 เทียบกับ 0.65 baseline), hallucination (0.3%) |
+| **5 Microservices** | Reference implementations ที่อยู่ใน public SDK suite |
+| **CLI** | `rct compile`, `rct governance`, `rct timeline`, `rct doctor`, `rct start --ui-test` |
+| **Evidence** | Public SDK verified ที่ 1,287 tests / 92% coverage โดยแยกจาก benchmark และ enterprise snapshot |
 
-723 tests ผ่านทั้งหมดบน Python 3.10, 3.11 และ 3.12 ไม่ต้องใช้ Docker ในการรัน test suite หรือ offline demo
+checkpoint สาธารณะปัจจุบันคือ **1,287 passed, 0 skipped, 0 failed** บน Python 3.10, 3.11 และ 3.12 พร้อม **92%** coverage โดยไม่ต้องใช้ Docker ในการรัน test suite, offline demo หรือเส้นทาง onboarding ของ CLI
 
 ## เริ่มต้นใช้งาน (5 นาที ไม่ต้องใช้ API key)
 
@@ -75,19 +78,19 @@ Delta vs Baseline    : +0.2667 (+41.0%)
 ✅  Benchmark PASSED
 ```
 
-> **PyPI note:** v1.0.2a0 เป็น Public Alpha package ยังไม่ได้ publish ไป PyPI ใช้ `pip install -e .` จาก repository ที่ clone การ publish PyPI วางแผนสำหรับ v1.0.0 stable (Q3 2026)
+> **PyPI note:** v1.0.4b0 ยังเป็น beta preview และกำลังถูก harden ก่อน publish ไป PyPI ตอนนี้ให้ใช้ `pip install -e .` จาก repository ที่ clone
 
 ## ทำไมถึง open source และทำไมตอนนี้
 
 [RCT Open Protocol](/open-protocol) ถูกออกแบบมาให้ verify ได้เสมอ Constitutional AI ที่ไม่สามารถตรวจสอบได้ไม่ใช่ constitutional — มันคือ marketing การ publish reference implementation คือขั้นต่ำที่จำเป็นเพื่อให้ governance claims มีความน่าเชื่อถือ
 
-เหตุผลสามประการที่กำหนด timing ของ v1.0.2a0:
+เหตุผลสามประการที่กำหนดสถานะ beta preview ปัจจุบัน:
 
-**1. JITNA RFC-001 stable พอที่จะ reference** Protocol definition ไม่ได้เปลี่ยน structurally ตั้งแต่สิงหาคม 2025 implementation ใน `rct_control_plane/` คือ canonical reference สำหรับ spec การ publish มันปิดช่องว่างระหว่าง documentation และ running code
+**1. Public SDK มี canonical proof source แล้ว** ตัวเลข test count และ coverage ถูกยึดจาก `docs/testing/TESTING_CANONICAL.md` ซึ่งลด drift ระหว่าง README, roadmap, release note และ launch copy
 
-**2. FDIA benchmark reproduce ได้** ตัวเลข accuracy 0.92 ที่อ้างใน benchmark summary ตรวจสอบได้โดยใครก็ตามที่ clone repository และรัน `python benchmark/fdia_benchmark.py`
+**2. CLI onboarding แข็งแรงขึ้นจริง** `rct init`, `rct doctor` และ `rct start --ui-test` ทำให้ตรวจสอบ first-run experience ได้โดยไม่ต้องมี API key ก่อนเข้าสู่ live integration
 
-**3. Test suite coverage เพียงพอ** 723 tests ที่ coverage 89% ไม่สมบูรณ์แบบแต่เพียงพอสำหรับ public alpha ที่มีความหมาย ช่องว่าง 11% อยู่ใน optional enterprise integrations ที่ขึ้นอยู่กับบริการภายนอก
+**3. Evidence lanes ชัดขึ้น** public SDK validation, benchmark framing และ enterprise-private runtime claims ถูกแยกจากกันชัดกว่าการใช้ตัวเลขก้อนเดียวแบบเดิม
 
 ## Apache 2.0 หมายความว่าอะไรสำหรับคุณ
 
@@ -96,34 +99,23 @@ Delta vs Baseline    : +0.2667 (+41.0%)
 - **มี patent grant** Contributors ให้ royalty-free, worldwide patent license ครอบคลุม contributions ของพวกเขา
 - **ไม่มี copyleft** ต่างจาก GPL Apache 2.0 ไม่กำหนดให้ derivative works เป็น open source
 
-Enterprise layer — 62 microservices, HexaCore inference cluster, RCTDB, MEE production pipeline — ยังคงเป็น proprietary SDK คือ public interface ที่เชื่อมต่อกับ layer นั้น
+Enterprise layer — 62 runtime components, HexaCore inference cluster, RCTDB และ MEE production pipeline — ยังเป็น proprietary เมื่ออ้างถึง publicly ควรติดป้ายว่าเป็น enterprise-private snapshot ไม่ใช่ GitHub-verifiable proof
 
-## รายละเอียด Test Coverage
+## รายละเอียด Public Proof
 
 | Dimension | จำนวน | หมายเหตุ |
 |---|---|---|
-| Unit tests | 581 | Per-function, algorithm-level isolation |
-| Integration tests | 142 | 5 microservices end-to-end ไม่มี external dependencies |
+| Public SDK suite | 1,287 | checkpoint เต็มของ public repository |
+| Direct microservice slice | 297 | reference microservices โดยตรง |
 | Benchmark suite | — | Script แยกใน `benchmark/` ไม่ใช่ใน pytest |
 
-Coverage แยกตาม subsystem:
+Coverage ปัจจุบันรายงานที่ **92%** ใน canonical checkpoint โดย source สาธารณะที่ authoritative คือ `docs/testing/TESTING_CANONICAL.md` ใน repository ถ้าต้องการตัวเลขล่าสุดให้ยึดไฟล์นั้นแทน snapshot เก่าของบทความ
 
-| Subsystem | Coverage |
-|---|---|
-| FDIA engine | 97% |
-| JITNA protocol | 94% |
-| SignedAI consensus | 91% |
-| Delta Engine | 88% |
-| Regional Adapter | 85% |
-| Reference microservices | 82% |
-| Optional integrations | 41% |
+## สิ่งที่ wave beta preview นี้เพิ่มเข้ามา
 
-## สิ่งที่ v1.0.3a0 จะเพิ่ม (พฤษภาคม 2026)
-
-- **GitHub Discussions** — async community Q&A, design discussions และ RFC feedback
-- **MOIP reference implementation** — Multi-Objective Intent Planning algorithm เป็น standalone module
-- **PyPI alpha publish** — `pip install rct-platform==1.0.3a0`
-- **MEE v2 integration** — Meta-Evolution Engine growth formula ใน public SDK
+- **CLI diagnostics และ first-run UX** — `rct doctor`, `rct start` ที่ดีขึ้น, คำสั่ง log/status และ `rct init` ที่ปลอดภัยกับ wheel install
+- **Canonical claim sync** — เอกสารสาธารณะและ distribution materials ถูก sync กับ checkpoint ปัจจุบัน
+- **Scope boundary ที่สะอาดขึ้น** — public SDK proof แยกจาก benchmark scope และ enterprise-private snapshot
 
 ## ความสัมพันธ์กับ Enterprise Layer
 
@@ -135,11 +127,11 @@ rct-platform (Apache 2.0, public)
     └── microservices/ ← 5 reference implementations
 
 RCT Enterprise (proprietary, rctlabs.co)
-    └── 62 microservices
+  └── 62 runtime components
     └── RCTDB (8-dimensional memory schema)
     └── HexaCore 7-model inference cluster
     └── MEE production pipeline
-    └── 4,849 enterprise test suite
+    └── 4,849 enterprise-private test snapshot
 ```
 
 SDK ไม่ใช่ stripped-down version ของ enterprise layer มันคือ canonical reference implementation ของ protocols และ algorithms ที่ enterprise layer ใช้ พวกเขา share interface contract ร่วมกัน — JITNA RFC-001 spec — แต่สร้างและดูแลรักษาแยกกัน

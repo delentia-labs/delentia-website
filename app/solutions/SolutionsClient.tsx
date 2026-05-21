@@ -13,6 +13,7 @@ import {
 import OptimizedImage from "@/components/ui/optimized-image"
 import { getLocaleFromPathname } from "@/lib/i18n"
 import { pixelIcons } from "@/lib/pixel-icons"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL } from "@/lib/site-config"
 
 const PIXEL_SHIELD = pixelIcons.shield
 const PIXEL_BRAIN = pixelIcons.brain
@@ -339,10 +340,10 @@ export default function SolutionsPage() {
             <p className="text-muted-foreground">{isTh ? "Deploy AI ด้วยความมั่นใจ — Audit Trails ครบถ้วน, Compliance Frameworks และ Enterprise Security" : "Deploy AI with confidence — full audit trails, compliance frameworks, and enterprise-grade security."}</p>
             <ul className="space-y-2">
               {[
-                { icon: Shield, t: "0.3% hallucination rate with SignedAI" },
+                { icon: Shield, t: "0.3% benchmark evidence with SignedAI" },
                 { icon: Lock, t: "ED25519 + JWT RS256 + RBAC" },
-                { icon: Users, t: "99.98% uptime SLA" },
-                { icon: Zap, t: "62 microservices" },
+                { icon: Users, t: "Availability target for enterprise programs" },
+                { icon: Zap, t: `${SITE_ENTERPRISE_EVIDENCE_LABEL}: 62 runtime components` },
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground"><item.icon className="w-4 h-4 text-warm-amber shrink-0" />{item.t}</li>
               ))}

@@ -271,8 +271,8 @@ const glossaryTerms = [
   {
     term: "Evaluation Harness",
     termTh: "Evaluation Harness (ชุดประเมินอัตโนมัติ)",
-    definition: "A systematic, automated set of quality gates that an AI system must pass before deployment. The RCT Ecosystem runs 4,849 tests across 8 levels (Unit, Integration, Service, Contract, Performance, Security, Chaos, Property).",
-    definitionTh: "ชุดทดสอบอัตโนมัติที่ระบบ AI ต้องผ่านก่อน deploy RCT Ecosystem รัน 4,849 tests ใน 8 ระดับ (Unit, Integration, Service, Contract, Performance, Security, Chaos, Property)",
+    definition: "A systematic, automated set of quality gates that an AI system must pass before deployment. In the enterprise private snapshot, the RCT Ecosystem disclosed 4,849 tests across 8 levels (Unit, Integration, Service, Contract, Performance, Security, Chaos, Property), while public SDK verified evidence remains a separate lane.",
+    definitionTh: "ชุดทดสอบอัตโนมัติที่ระบบ AI ต้องผ่านก่อน deploy โดยใน enterprise private snapshot นั้น RCT Ecosystem เปิดเผย 4,849 tests ครอบคลุม 8 ระดับ (Unit, Integration, Service, Contract, Performance, Security, Chaos, Property) และยังแยกจาก public SDK verified evidence อย่างชัดเจน",
   },
   {
     term: "Mathematical Invariant",

@@ -59,12 +59,12 @@ const pillars = [
     en: {
       title: "Solo-Developer Proof of Possibility",
       subtitle: "Enterprise AI without enterprise capital",
-      body: "RCT Labs is proof that a single developer without external funding can build a production-grade constitutional AI operating system. That proof matters because it changes what emerging-market teams believe is possible. Our 30-day bootstrap — 62 microservices, 41 algorithms, 4,849 passing tests, v5.4.5 — is not a tech demo. It is a reproducible blueprint for AI sovereignty at any resource level.",
+      body: "RCT Labs is proof that a single developer without external funding can build a production-grade constitutional AI operating system. That proof matters because it changes what emerging-market teams believe is possible. Our 30-day bootstrap — 62 runtime components, 41 algorithms, and an enterprise private snapshot with 4,849 passing tests — is not a tech demo. It is a reproducible blueprint for AI sovereignty at any resource level.",
     },
     th: {
       title: "การพิสูจน์ความเป็นไปได้ของนักพัฒนาคนเดียว",
       subtitle: "Enterprise AI โดยไม่ต้องมีทุน Enterprise",
-      body: "RCT Labs คือหลักฐานว่านักพัฒนาคนเดียวโดยไม่มีเงินทุนภายนอกสามารถสร้าง Constitutional AI OS ระดับ production ได้ การ bootstrap 30 วันของเรา — 62 microservices, 41 algorithms, 4,849 passing tests, v5.4.5 — ไม่ใช่การสาธิตเทคโนโลยี แต่เป็นแบบพิมพ์เขียวที่ทำซ้ำได้สำหรับ AI sovereignty ในทุกระดับทรัพยากร",
+      body: "RCT Labs คือหลักฐานว่านักพัฒนาคนเดียวโดยไม่มีเงินทุนภายนอกสามารถสร้าง Constitutional AI OS ระดับ production ได้ การ bootstrap 30 วันของเรา — 62 runtime components, 41 algorithms และ enterprise private snapshot ที่มี 4,849 passing tests — ไม่ใช่การสาธิตเทคโนโลยี แต่เป็นแบบพิมพ์เขียวที่ทำซ้ำได้สำหรับ AI sovereignty ในทุกระดับทรัพยากร",
     },
   },
   {
@@ -165,8 +165,8 @@ export default async function VisionPage() {
             </h2>
             <p className="text-foreground/70 leading-relaxed">
               {isTh
-                ? "v5.4.5 ที่ส่งมอบในเดือนสิงหาคม 2025 คือการพิสูจน์แนวคิดที่ทำงานได้จริง"
-                : "v5.4.5 delivered in August 2025 is the working proof of concept. Next: formal GAIA leaderboard submission, HexaCore expansion to regional AI providers, and Thai infrastructure partnerships."}
+                ? "สแนปช็อต enterprise private snapshot ล่าสุดคือการพิสูจน์แนวคิดที่ทำงานได้จริง และ public SDK verified lane ยังคงเป็นจุดอ้างอิงสาธารณะหลัก"
+                : "The latest enterprise private snapshot is the working proof of concept, while the public SDK verified lane remains the primary public checkpoint. Next: formal GAIA leaderboard submission, HexaCore expansion to regional AI providers, and Thai infrastructure partnerships."}
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link href={`${localePrefix}/roadmap`} className="text-sm text-emerald-500 hover:underline">

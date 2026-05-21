@@ -6,7 +6,7 @@ reviewerId: "rct-research-desk"
 date: "2026-03-28"
 lastReviewed: "2026-05-05"
 category: "research"
-excerpt: "HexaCore is the multi-model AI routing infrastructure at the heart of the RCT Ecosystem. This article explains how 7 AI models (3 Western + 3 Eastern + 1 Regional Thai) are selected, balanced, and verified to achieve 0.3% hallucination and 30-40% cost savings vs single-model deployments."
+excerpt: "HexaCore is the multi-model routing infrastructure at the heart of the RCT Ecosystem. This article explains the architecture while treating 0.3% hallucination and cost-reduction figures as benchmark-scoped or enterprise-scoped evidence rather than unconditional public production claims."
 tags: ["HexaCore", "Multi-LLM", "AI Infrastructure", "SignedAI", "Constitutional AI", "RCT Labs"]
 readTime: 10
 references:
@@ -17,6 +17,9 @@ references:
   - "https://arxiv.org/abs/2303.17760"
   - "https://arxiv.org/abs/2210.03629"
   - "https://www.rfc-editor.org/rfc/rfc8032"
+claimScope: "architecture-benchmark"
+evidenceLane: "Research / benchmark scope"
+lastEvidenceReview: "2026-05-21"
 ---
 
 # HexaCore: The 7-Model AI Infrastructure with Geopolitical Balance
@@ -27,7 +30,7 @@ A single AI model is a single point of failure. It reflects the training data, c
 
 HexaCore is the multi-model AI infrastructure I designed for the RCT Ecosystem. It routes tasks across 7 AI models — selected for complementary strengths, cost profiles, and geopolitical diversity — and verifies results through SignedAI consensus before any output reaches users.
 
-The result: **0.3% hallucination rate** (industry: 12–15%), **30–40% cost reduction** vs always using the most capable model, and guaranteed geopolitical balance in every production decision.
+The architectural goal is to combine geopolitical balance, task-appropriate routing, and verification discipline. In RCT materials, **0.3% hallucination** should be read as a benchmark-scoped figure and **30–40% cost reduction** as scenario-dependent routing evidence rather than an unconditional production guarantee.
 
 ---
 
@@ -156,13 +159,13 @@ HexaCore is the infrastructure layer that makes the RCT Ecosystem's performance 
 - **Circuit breaker** — automatic fault tolerance with 30s recovery
 - **18 req/s aggregate throughput** — scalable across 6 concurrent models
 
-The result: 0.3% hallucination rate, 99.98% uptime, and 3.74x cost reduction — all built on a balanced, verifiable, multi-model foundation.
+In benchmark and enterprise operating contexts, the architecture is described as supporting 0.3% hallucination scope, 99.98% uptime targets, and 3.74x cost-reduction scenarios — all built on a balanced, verifiable, multi-model foundation.
 
 ---
 
 ## Related Reading
 
-- [AI Hallucination Prevention — solution page](/solutions/ai-hallucination-prevention) — see how HexaCore's consensus voting achieves the 0.3% hallucination benchmark
+- [AI Hallucination Prevention — solution page](/solutions/ai-hallucination-prevention) — see how HexaCore's consensus voting is framed in benchmark scope
 - [Dynamic AI Routing](/solutions/dynamic-ai-routing) — the JITNA routing layer that selects which HexaCore model handles each task
 - [SignedAI Product](/products/signed-ai) — the verification API built on HexaCore consensus infrastructure
 - [RCTDB 8-Dimensional Memory Schema](/blog/rctdb-8-dimensional-memory-schema) — the storage layer that HexaCore models read and write to via Delta Engine
