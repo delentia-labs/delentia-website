@@ -5,6 +5,7 @@ import { AlertTriangle, BarChart3, CheckCircle2, FileText, Gauge, ShieldCheck } 
 import { useLanguage } from "@/components/language-provider"
 import { ResourceCardGrid, ResourcePageShell, ResourceSection } from "@/components/resource/resource-shell"
 import { getLocalePrefix, resolveLocale } from "@/lib/i18n"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_EVIDENCE_LAST_UPDATED, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
 
 export default function BenchmarkSummaryClient() {
   const pathname = usePathname()
@@ -41,7 +42,7 @@ export default function BenchmarkSummaryClient() {
     },
     {
       title: language === "th" ? "ข้อจำกัดและ caveat ถูกเปิดเผยชัด" : "Caveats are disclosed explicitly",
-      description: language === "th" ? "ทุกตัวเลขในหน้านี้ถูกจัดให้อ่านคู่กับ method และ caveat เพื่อไม่ให้ benchmark กลายเป็น marketing claim." : "Every number on this page is paired with its method and caveat so the benchmark summary does not collapse into a marketing claim.",
+      description: language === "th" ? "ทุกตัวเลขในหน้านี้ถูกจัดให้อ่านคู่กับ method, caveat และ evidence lane เพื่อไม่ให้ benchmark กลายเป็น marketing claim." : "Every number on this page is paired with its method, caveat, and evidence lane so the benchmark summary does not collapse into a marketing claim.",
       href: `${localePrefix}/methodology`,
       icon: AlertTriangle,
       badge: language === "th" ? "Disclosure" : "Disclosure",
@@ -80,7 +81,7 @@ export default function BenchmarkSummaryClient() {
     <ResourcePageShell
       eyebrow={language === "th" ? "Validate / Benchmark Summary" : "Validate / Benchmark Summary"}
       title={language === "th" ? "สรุป benchmark แบบ public-safe ที่อ่านคู่กับ method และ caveat" : "A public-safe benchmark summary that keeps methods and caveats visible"}
-      description={language === "th" ? "หน้า Benchmark Summary ถูกจัดใหม่ให้เป็น validation layer ของ resource system โดยเน้นตัวเลขที่เปิดเผยได้ วิธีวัด และข้อจำกัดของแต่ละ metric อย่างชัดเจน." : "The benchmark summary now behaves as the validation layer of the resource system, emphasizing which numbers are public-safe, how they were measured, and what limitations apply to each metric."}
+      description={language === "th" ? `หน้า Benchmark Summary ถูกจัดใหม่ให้เป็น validation layer ของ resource system โดยแยก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} และอธิบายวิธีวัดพร้อมข้อจำกัดของแต่ละ metric อย่างชัดเจน.` : `The benchmark summary now behaves as the validation layer of the resource system, separating ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} from ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} and explaining how each metric was measured with explicit caveats.`}
       taxonomy={language === "th" ? ["Benchmark framing", "Public-safe metrics", "Measurement notes", "Caveat disclosure"] : ["Benchmark framing", "Public-safe metrics", "Measurement notes", "Caveat disclosure"]}
       accent="sage"
       actions={[
@@ -92,7 +93,7 @@ export default function BenchmarkSummaryClient() {
         { label: language === "th" ? "Hallucination" : "Hallucination", value: "0.3%", detail: language === "th" ? "controlled enterprise workload" : "controlled enterprise workload" },
         { label: language === "th" ? "FDIA accuracy" : "FDIA accuracy", value: "0.92", detail: language === "th" ? "benchmark factual QA" : "benchmark factual QA" },
         { label: language === "th" ? "Warm recall" : "Warm recall", value: "<50ms", detail: language === "th" ? "hot-zone cache hits" : "hot-zone cache hits" },
-        { label: language === "th" ? "Test result" : "Test result", value: "4,849 / 0 / 0", detail: language === "th" ? "pass / fail / error" : "pass / fail / error" },
+        { label: language === "th" ? "Public SDK" : "Public SDK", value: `${SITE_PUBLIC_SDK_TESTS}`, detail: language === "th" ? `verified • updated ${SITE_EVIDENCE_LAST_UPDATED}` : `verified • updated ${SITE_EVIDENCE_LAST_UPDATED}` },
       ]}
       footerTitle={language === "th" ? "benchmark summary ควรใช้คู่กับ methodology และ evaluation เสมอ" : "The benchmark summary should always be read with methodology and evaluation"}
       footerDescription={language === "th" ? "ตัวเลขในหน้านี้มีไว้เพื่อ framing และ validation ไม่ใช่เพื่อแทนการตัดสินใจทั้งหมด ให้ใช้ร่วมกับ methodology, whitepaper และ evaluation hub ก่อนสรุปผลเชิงธุรกิจหรือ procurement." : "The numbers on this page are for framing and validation, not as a substitute for the full decision process. Pair them with methodology, whitepapers, and the evaluation hub before making business or procurement conclusions."}

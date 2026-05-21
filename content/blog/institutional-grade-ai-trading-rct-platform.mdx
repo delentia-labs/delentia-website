@@ -5,6 +5,9 @@ authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
 date: "2026-05-17"
 lastReviewed: "2026-05-12"
+claimScope: "architecture-blueprint"
+evidenceLane: "Research / benchmark scope"
+lastEvidenceReview: "2026-05-21"
 category: "engineering"
 excerpt: "An architectural blueprint for applying rct-platform's FDIA, SignedAI, and Delta Engine to institutional trading. This article maps the 7-state IntentLoop to a complete news-driven trading pipeline — from data ingestion through multi-model risk gating and RCTDB trade outcome logging."
 tags: ["Algorithmic Trading", "AI Trading", "FDIA", "SignedAI", "Delta Engine", "HexaCore", "Intent Loop", "Fintech AI", "rct-platform"]
@@ -18,7 +21,7 @@ references:
 
 # Building an Institutional-Grade AI Trading System on the RCT Platform
 
-**Important framing before we begin:** This article is an architectural blueprint. `rct-platform` v1.0.2a0 is a developer SDK — it provides the algorithmic building blocks (FDIA scoring, SignedAI consensus, Delta Engine compression, JITNA routing). It is not a production-ready trading system. A working trading deployment based on this architecture requires additional extensions — described explicitly in the [Extensions Required](#what-you-need-to-build) section.
+**Important framing before we begin:** This article is an architectural blueprint. The public `rct-platform` SDK line is a developer SDK — it provides the algorithmic building blocks (FDIA scoring, SignedAI consensus, Delta Engine compression, JITNA routing). It is not a production-ready trading system. A working trading deployment based on this architecture requires additional extensions — described explicitly in the [Extensions Required](#what-you-need-to-build) section.
 
 This is also not financial advice. The patterns described here are engineering patterns for building deterministic, auditable AI systems in the financial domain.
 
@@ -206,7 +209,7 @@ In practice, this means 70–80% of routine signals (confirmation of known trend
 
 ## What You Need to Build
 
-`rct-platform` v1.0.2a0 provides the algorithmic core. A production trading deployment requires three additional components:
+The public `rct-platform` SDK line provides the algorithmic core. A production trading deployment requires three additional components:
 
 ### 1. Market Data Adapters
 

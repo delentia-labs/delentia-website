@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Impact — What RCT Labs Has Proven",
     "ผลกระทบ — สิ่งที่ RCT Labs พิสูจน์แล้ว",
-    "RCT Labs real-world impact: solo-developer enterprise-grade AI, 4,849 tests, projected GAIA 84-89% (pending formal validation), and Thailand-to-global Constitutional AI standard.",
-    "ผลกระทบจริงของ RCT Labs: ระบบ AI ระดับองค์กรโดยนักพัฒนาคนเดียว 4,849 tests, projected GAIA 84-89% (pending formal validation) และมาตรฐาน Constitutional AI จากไทยสู่โลก",
+    "RCT Labs real-world impact: a solo-developer constitutional AI program, separated public SDK verified and enterprise private snapshot evidence lanes, and Thailand-to-global governance standards.",
+    "ผลกระทบจริงของ RCT Labs: โครงการ Constitutional AI โดยนักพัฒนาคนเดียว พร้อมการแยก evidence lane ระหว่าง public SDK verified และ enterprise private snapshot และมาตรฐาน governance จากไทยสู่โลก",
     "/philosophy/impact"
   )
 }
@@ -52,9 +52,9 @@ export default async function ImpactPage() {
       titleEn: "Solo-Developer Proof of Possibility",
       titleTh: "Solo-Developer Proof of Possibility",
       descEn:
-        "One engineer, zero-dollar infrastructure budget, 30-day bootstrap sprint. The result: a multi-LLM consensus platform with Constitutional AI enforcement, PDPA-native architecture, and 4,849 automated tests. This is the most important claim RCT Labs has proven — that enterprise-grade AI systems do not require enterprise-sized teams or budgets.",
+        "One engineer, zero-dollar infrastructure budget, 30-day bootstrap sprint. The result: a multi-LLM consensus platform with Constitutional AI enforcement, PDPA-native architecture, and an enterprise private snapshot covering 4,849 automated tests. This is the most important claim RCT Labs has proven — that enterprise-grade AI systems do not require enterprise-sized teams or budgets.",
       descTh:
-        "วิศวกรหนึ่งคน งบประมาณ infrastructure เป็นศูนย์ sprint bootstrap 30 วัน ผลลัพธ์: platform multi-LLM consensus พร้อม Constitutional AI enforcement สถาปัตยกรรม PDPA-native และการทดสอบอัตโนมัติ 4,849 รายการ นี่คือข้อพิสูจน์ที่สำคัญที่สุดของ RCT Labs — ระบบ AI ระดับองค์กรไม่จำเป็นต้องมีทีมหรืองบประมาณขนาดองค์กร",
+        "วิศวกรหนึ่งคน งบประมาณ infrastructure เป็นศูนย์ sprint bootstrap 30 วัน ผลลัพธ์: platform multi-LLM consensus พร้อม Constitutional AI enforcement สถาปัตยกรรม PDPA-native และ enterprise private snapshot ที่ครอบคลุมการทดสอบอัตโนมัติ 4,849 รายการ นี่คือข้อพิสูจน์ที่สำคัญที่สุดของ RCT Labs — ระบบ AI ระดับองค์กรไม่จำเป็นต้องมีทีมหรืองบประมาณขนาดองค์กร",
     },
     {
       icon: FlaskConical,
@@ -63,9 +63,9 @@ export default async function ImpactPage() {
       titleEn: "Evidence-Culture Discipline",
       titleTh: "วัฒนธรรม Evidence-Culture",
       descEn:
-        "4,849 automated tests across unit, integration, and end-to-end layers. Backend-validated coverage at 66.7% with a public 100% target. The test count is not a vanity metric — it is the organization's commitment to evidence culture, visible and trackable from day one.",
+        "The enterprise private snapshot covers 4,849 automated tests across unit, integration, and end-to-end layers. Backend-validated coverage sits at 66.7% with a public 100% target. The test count is not a vanity metric — it is the organization's commitment to evidence culture, visible and trackable from day one.",
       descTh:
-        "การทดสอบอัตโนมัติ 4,849 รายการครอบคลุม unit, integration และ end-to-end coverage ที่ backend-validated 66.7% โดยมีเป้าหมาย 100% สาธารณะ จำนวนการทดสอบไม่ใช่ตัวชี้วัดความภาคภูมิใจ — มันคือความมุ่งมั่นขององค์กรต่อ evidence culture ที่มองเห็นและติดตามได้ตั้งแต่วันแรก",
+        "enterprise private snapshot ครอบคลุมการทดสอบอัตโนมัติ 4,849 รายการในชั้น unit, integration และ end-to-end โดยมี backend-validated coverage 66.7% และเป้าหมายสาธารณะ 100% จำนวนการทดสอบไม่ใช่ตัวชี้วัดความภาคภูมิใจ — มันคือความมุ่งมั่นขององค์กรต่อ evidence culture ที่มองเห็นและติดตามได้ตั้งแต่วันแรก",
     },
     {
       icon: Award,

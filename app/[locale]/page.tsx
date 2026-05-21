@@ -4,6 +4,7 @@ import { getBreadcrumbSchema, getFAQSchema, getOrganizationSchema, getSoftwareAp
 import HomePageClient from "../HomePageClient"
 import { HeroServer } from "@/components/sections/hero-server"
 import { Navbar } from "@/components/navbar"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL } from "@/lib/site-config"
 
 // ISR: cache the homepage for 1 hour, then regenerate in the background.
 // No headers() call here — root layout is also headers()-free → statically renderable.
@@ -22,10 +23,10 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
 
   return createBilingualMetadata(
     locale,
-    "RCT Labs — Constitutional AI Operating System | 41 Algorithms, 0.3% Hallucination",
-    "RCT Labs — ระบบปฏิบัติการ AI แบบรัฐธรรมนูญ | 41 อัลกอริทึม, Hallucination 0.3%",
-    "RCT Labs builds the Constitutional AI Operating System with 10-layer architecture, a 41-algorithm framework, Multi-LLM Consensus, and 0.3% benchmark hallucination framing. Enterprise AI governance for Thailand and beyond.",
-    "RCT Labs สร้างระบบปฏิบัติการ AI แบบรัฐธรรมนูญ สถาปัตยกรรม 10 ชั้น 41 อัลกอริทึม Multi-LLM Consensus อัตราหลอน 0.3% ระบบ AI ระดับองค์กรสำหรับประเทศไทยและทั่วโลก",
+    "RCT Labs — Constitutional AI Operating System | Public SDK + Enterprise Evidence Lanes",
+    "RCT Labs — ระบบปฏิบัติการ AI แบบรัฐธรรมนูญ | Public SDK + Enterprise Evidence Lanes",
+    `RCT Labs presents a constitutional AI operating system with 10-layer architecture, a 41-algorithm framework, and explicit evidence lanes that separate ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} from ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} and benchmark disclosures.`,
+    `RCT Labs นำเสนอระบบปฏิบัติการ AI แบบรัฐธรรมนูญที่มีสถาปัตยกรรม 10 ชั้น กรอบอัลกอริทึม 41 รายการ และแยก evidence lanes อย่างชัดเจนระหว่าง ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} กับ ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} รวมถึง benchmark disclosures.`,
     "/",
     locale === "th"
       ? ["ระบบ AI สำหรับองค์กร", "ป้องกัน AI hallucination", "ระบบตรวจสอบผลลัพธ์ AI", "โครงสร้างพื้นฐาน AI ประเทศไทย", "AI governance"]

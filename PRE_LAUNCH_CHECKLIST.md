@@ -1,5 +1,12 @@
 # Pre-Launch Checklist — rctlabs.co
 
+## Claim Boundary & Truth Discipline
+- [ ] `lib/site-config.ts` separates `Public SDK verified`, `Enterprise private snapshot`, and `Research / benchmark scope`
+- [ ] Public SDK numbers match the current canonical proof in `rct-platform/docs/testing/TESTING_CANONICAL.md`
+- [ ] High-visibility pages (`/about`, `/algorithms`, OG images, benchmark surfaces) do not present enterprise-private numbers as public repo proof
+- [ ] Benchmark claims include scope language such as `controlled workload`, `benchmark summary`, or equivalent caveat
+- [ ] Internal/admin/mock surfaces do not present conflicting metrics that could be mistaken for production truth
+
 ## DNS & Infrastructure
 - [ ] DNS records configured (A, AAAA, CNAME) pointing to Vercel
 - [ ] SSL/TLS certificate provisioned and valid
@@ -40,6 +47,7 @@
 ## Testing
 - [ ] All TypeScript compilation passes (`npm run build`)
 - [ ] ESLint passes with no errors (`npm run lint`)
+- [ ] Manual QA run completed using `docs/MANUAL_QA_PLAYBOOK_TH.md`
 - [ ] Critical user flows manually tested (home, pricing, solutions, contact)
 - [ ] Mobile responsive testing on iPhone SE, iPhone 15, Samsung Galaxy
 - [ ] Cross-browser testing: Chrome, Firefox, Safari, Edge

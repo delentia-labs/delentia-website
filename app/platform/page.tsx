@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { headers } from "next/headers"
 import { loadTranslations } from "@/lib/i18n"
-import { SITE_HALLUCINATION_RATE, SITE_TEST_COUNT, SITE_UPTIME, SITE_VERSION } from "@/lib/site-config"
+import { SITE_HALLUCINATION_RATE, SITE_PUBLIC_SDK_COVERAGE, SITE_PUBLIC_SDK_TESTS, SITE_UPTIME, SITE_VERSION } from "@/lib/site-config"
 import { 
   Shield, 
   Database, 
@@ -78,7 +78,7 @@ export default async function PlatformPage() {
     { icon: Server, title: p("infra_k8s"), desc: p("infra_k8s_desc"), stat: "57 Resources" },
     { icon: Network, title: p("infra_gateway"), desc: p("infra_gateway_desc"), stat: "10 Routes" },
     { icon: Activity, title: p("infra_monitoring"), desc: p("infra_monitoring_desc"), stat: "Real-time" },
-    { icon: Shield, title: p("infra_test"), desc: p("infra_test_desc"), stat: `${SITE_TEST_COUNT} Verified Tests` },
+    { icon: Shield, title: p("infra_test"), desc: p("infra_test_desc"), stat: `${SITE_PUBLIC_SDK_TESTS} Public SDK tests` },
     { icon: FileCode, title: p("infra_docs"), desc: p("infra_docs_desc"), stat: "14 Endpoints" },
   ]
 
@@ -87,7 +87,7 @@ export default async function PlatformPage() {
     { metric: p("metric_compression"), rct: "74% lossless", industry: "30-40%", improvement: "185% better" },
     { metric: p("metric_latency"), rct: "0.07-1.5s", industry: "2-5s", improvement: "70% faster" },
     { metric: locale === "th" ? "เป้าหมายความพร้อมใช้งาน" : "Availability Target", rct: SITE_UPTIME, industry: "99.5%", improvement: locale === "th" ? "เป้าหมายปฏิบัติการ" : "Operational target" },
-    { metric: p("metric_coverage"), rct: `${SITE_TEST_COUNT} verified`, industry: "70-80%", improvement: locale === "th" ? "snapshot ปัจจุบัน" : "Current snapshot" },
+    { metric: p("metric_coverage"), rct: `${SITE_PUBLIC_SDK_TESTS} verified / ${SITE_PUBLIC_SDK_COVERAGE}`, industry: "70-80%", improvement: locale === "th" ? "public SDK proof lane" : "Public SDK proof lane" },
     { metric: p("metric_cost"), rct: "3.74x reduction", industry: "1x baseline", improvement: "274% savings" },
   ]
 

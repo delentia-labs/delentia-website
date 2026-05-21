@@ -6,7 +6,12 @@ import Link from "next/link"
 import { Briefcase, FileText, Users, ArrowRight, Building2, Star, Globe, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/components/language-provider"
-import { SITE_HALLUCINATION_RATE, SITE_TEST_COUNT } from "@/lib/site-config"
+import {
+  SITE_HALLUCINATION_RATE,
+  SITE_PUBLIC_SDK_COVERAGE,
+  SITE_PUBLIC_SDK_TESTS,
+  SITE_TEST_COUNT,
+} from "@/lib/site-config"
 import { m } from "framer-motion"
 
 export default function CompanyClient() {
@@ -46,24 +51,24 @@ export default function CompanyClient() {
         {
           question: "RCT Labs พร้อมใช้งานใน production จริงหรือไม่",
           answer:
-            "ใช่ — ระบบปัจจุบัน v5.4.5 มี automated tests 4,849 รายการทั้งหมดผ่าน ไม่มี failed และมี SLA uptime 99.98% ระบบได้รับการพัฒนาและทดสอบต่อเนื่องในสภาพแวดล้อม production จริง ไม่ใช่ demo หรือ prototype",
+            `ใช่ แต่เราแยก evidence lane ชัดเจน: public SDK proof lane ปัจจุบันยืนยัน ${SITE_PUBLIC_SDK_TESTS} tests ที่ ${SITE_PUBLIC_SDK_COVERAGE} coverage ส่วน enterprise private snapshot ใช้สำหรับ runtime validation วงกว้างกว่า (${SITE_TEST_COUNT} tests) และมี availability target สำหรับโปรแกรมที่ deploy จริง`,
         },
         {
           question: "อะไรทำให้ RCT Labs แตกต่างจาก LangChain หรือ AutoGPT",
           answer:
-            "RCT Labs ใช้ constitutional architecture ที่ทุก AI output ต้องผ่าน governance และ policy verification ก่อน ต่างจาก framework อื่นที่เน้นเพียง orchestration RCT Labs มี full audit trail, Delta Engine compression 74%, PDPA compliance by design และ FDIA accuracy 0.92 เทียบกับ baseline อุตสาหกรรม 0.65",
+            "RCT Labs ใช้ constitutional architecture ที่ทุก AI output ต้องผ่าน governance และ policy verification ก่อน ต่างจาก framework อื่นที่เน้นเพียง orchestration โดยเราแสดง benchmark evidence สำหรับ FDIA accuracy 0.92 เทียบกับ baseline อุตสาหกรรม 0.65 พร้อม full audit trail, Delta Engine compression 74% และ PDPA compliance by design",
         },
       ]
     : [
         {
           question: "Is RCT Labs production-ready?",
           answer:
-            "Yes — the current system is v5.4.5 with 4,849 automated tests passing at zero failures and a 99.98% uptime SLA. The system is continuously developed and validated in live production environments, not a demo or prototype.",
+            `Yes, with separated evidence lanes. The current public SDK proof lane verifies ${SITE_PUBLIC_SDK_TESTS} tests at ${SITE_PUBLIC_SDK_COVERAGE} coverage, while the enterprise private snapshot covers broader runtime validation (${SITE_TEST_COUNT} tests) and an availability target for deployed programs.`,
         },
         {
           question: "What makes this different from LangChain or AutoGPT?",
           answer:
-            "RCT Labs uses a constitutional architecture where every AI output must pass governance and policy verification before execution. Unlike orchestration-only frameworks, RCT Labs provides full audit trails, 74% Delta Engine memory compression, PDPA compliance by design, and a measured FDIA accuracy of 0.92 versus the 0.65 industry baseline.",
+            "RCT Labs uses a constitutional architecture where every AI output must pass governance and policy verification before execution. Unlike orchestration-only frameworks, RCT Labs provides full audit trails, 74% Delta Engine memory compression, PDPA compliance by design, and benchmark evidence for a measured FDIA accuracy of 0.92 versus the 0.65 industry baseline.",
         },
       ]
 

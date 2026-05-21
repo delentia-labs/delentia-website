@@ -3,6 +3,7 @@ import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
 import AlgorithmsClient from "./AlgorithmsClient"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL } from "@/lib/site-config"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
@@ -11,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "41 Algorithms & Analysearch",
     "41 อัลกอริทึม & Analysearch",
-    "RCT Labs 41 proprietary algorithms across 9 capability tiers — from foundation intent processing to autonomous planning. Includes Analysearch: a multi-depth analysis engine with Quick, Standard, Deep, and Mirror modes. Validated by 4,849 automated tests.",
-    "อัลกอริทึมเฉพาะ 41 ตัวของ RCT Labs ใน 9 Tiers: จาก foundation intent processing ถึง autonomous planning รวมถึง Analysearch — analysis engine ที่มี 4 โหมด ผ่านการทดสอบด้วย automated tests 4,849 รายการ",
+    "RCT Labs 41 proprietary algorithms across 9 capability tiers — from foundation intent processing to autonomous planning. Public pages distinguish open-SDK verification from larger enterprise runtime validation and controlled benchmark claims.",
+    "อัลกอริทึมเฉพาะ 41 ตัวของ RCT Labs ใน 9 Tiers: จาก foundation intent processing ถึง autonomous planning โดยหน้า public จะแยก open-SDK verification ออกจาก enterprise runtime validation และ benchmark claims ที่มี scope ชัดเจน",
     "/algorithms",
     ["41 algorithms", "Analysearch", "AI algorithms", "9-tier algorithm", "production AI algorithms", "AI orchestration algorithms"]
   )
@@ -46,7 +47,7 @@ export default async function AlgorithmsPage() {
     {
       question: "What validates the 41-algorithm framework?",
       answer:
-        "The algorithm framework is validated by 4,849 automated tests across the full RCT Ecosystem, producing a measured hallucination rate of 0.3% against a 12–15% industry average. Each tier is gated by benchmark tests before activation in production.",
+        `The algorithm framework is presented through multiple evidence lanes. ${SITE_PUBLIC_SDK_EVIDENCE_LABEL} covers the open SDK and public release path, while ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} covers the larger runtime footprint. The 0.3% hallucination figure is disclosed as a controlled-workload benchmark rather than a blanket production guarantee.`,
     },
     {
       question: "How does the algorithm tier system relate to the RCT 10-layer architecture?",

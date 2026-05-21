@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { createBilingualMetadata, type Locale } from "@/lib/seo-bilingual"
+import Link from "next/link"
+import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getBreadcrumbSchema, getOrganizationSchema } from "@/lib/schema"
 import { AboutFDIAShowcase } from "@/components/about/about-fdia-showcase"
 import { AboutPageMotionBackdrop } from "@/components/about/about-page-motion-backdrop"
@@ -9,7 +10,19 @@ import { Footer } from "@/components/footer"
 import { Shield, Eye, Heart, Sparkles, Target, Quote } from "lucide-react"
 import { getRequestLocale } from "@/lib/request-locale"
 import { pixelIcons } from "@/lib/pixel-icons"
-import { SITE_ALGORITHM_COUNT, SITE_HALLUCINATION_RATE, SITE_MICROSERVICE_COUNT, SITE_TEST_COUNT, SITE_UPTIME, SITE_VERSION } from "@/lib/site-config"
+import {
+  SITE_ALGORITHM_COUNT,
+  SITE_ENTERPRISE_EVIDENCE_LABEL,
+  SITE_EVIDENCE_LAST_UPDATED,
+  SITE_HALLUCINATION_RATE,
+  SITE_MICROSERVICE_COUNT,
+  SITE_PUBLIC_SDK_COVERAGE,
+  SITE_PUBLIC_SDK_EVIDENCE_LABEL,
+  SITE_PUBLIC_SDK_TESTS,
+  SITE_TEST_COUNT,
+  SITE_UPTIME,
+  SITE_VERSION,
+} from "@/lib/site-config"
 
 // Force fresh server render on every navigation so x-locale header is always read.
 // Without this, Next.js partial rendering may reuse a cached RSC payload when
@@ -24,8 +37,8 @@ export async function generateMetadata(): Promise<Metadata> {
     "About RCT Labs — Constitutional AI Platform | Thai-Built Enterprise AI Operating System",
     "เกี่ยวกับ RCT Labs — Constitutional AI Platform ระดับองค์กร สร้างโดยคนไทย",
     // Lengthened meta descriptions for SEO (150-160 chars)
-    "RCT Labs: Enterprise Constitutional AI Operating System — 4,849 passing tests, 62 microservices, 41 algorithms, and sub-0.3% hallucination target on benchmarked workloads — built by a solo architect from Bangkok.",
-    "RCT Labs: ระบบ AI ระดับองค์กร — ผ่านการทดสอบ 4,849 รายการ, 62 microservices, 41 algorithms และเป้าหมาย hallucination ต่ำกว่า 0.3% บน benchmark workloads สร้างโดย Solo Architect จากกรุงเทพฯ",
+    "RCT Labs: Constitutional AI platform with a public SDK verification lane and a separate enterprise runtime snapshot — 41 algorithms, public SDK v1.0.4b0, and benchmark disclosures with explicit scope.",
+    "RCT Labs: แพลตฟอร์ม Constitutional AI ที่แยก public SDK verification ออกจาก enterprise runtime snapshot อย่างชัดเจน — 41 algorithms, public SDK v1.0.4b0 และ benchmark disclosures ที่มีการระบุ scope.",
     "/about",
     ["Constitutional AI", "enterprise AI platform", "AI governance", "Thailand AI", "RCT Labs", "Ittirit Saengow", "multi-LLM consensus"]
   )
@@ -119,9 +132,9 @@ export default async function AboutPage() {
     { value: String(SITE_ALGORITHM_COUNT), label: isTh ? "Algorithms" : "Algorithms", detail: isTh ? "reasoning primitives" : "reasoning primitives" },
     { value: "10", label: isTh ? "Layers" : "Layers", detail: isTh ? "operating architecture" : "operating architecture" },
     { value: "7", label: isTh ? "Genomes" : "Genomes", detail: isTh ? "system DNA" : "system DNA" },
-    { value: SITE_TEST_COUNT.toLocaleString(), label: isTh ? "Verified Backend Tests" : "Verified Backend Tests", detail: isTh ? "public engineering proof" : "public engineering proof" },
-    { value: runtimeFootprint, label: isTh ? "Runtime Components" : "Runtime Components", detail: isTh ? "service footprint" : "service footprint" },
-    { value: SITE_HALLUCINATION_RATE, label: isTh ? "Benchmark Hallucination" : "Benchmark Hallucination", detail: isTh ? "controlled workload" : "controlled workload" },
+    { value: SITE_PUBLIC_SDK_TESTS.toLocaleString(), label: isTh ? "Public SDK Tests" : "Public SDK Tests", detail: isTh ? `${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} • ${SITE_PUBLIC_SDK_COVERAGE}` : `${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} • ${SITE_PUBLIC_SDK_COVERAGE}` },
+    { value: runtimeFootprint, label: isTh ? "Enterprise Runtime" : "Enterprise Runtime", detail: isTh ? "private snapshot" : "private snapshot" },
+    { value: SITE_HALLUCINATION_RATE, label: isTh ? "Benchmark Hallucination" : "Benchmark Hallucination", detail: isTh ? "controlled workload scope" : "controlled workload scope" },
     { value: SITE_UPTIME, label: isTh ? "Design SLA Target" : "Design SLA Target", detail: isTh ? "availability design goal" : "availability design goal" },
   ]
 
@@ -142,7 +155,7 @@ export default async function AboutPage() {
       title: isTh ? "Proof before hype" : "Proof before hype",
       description: isTh
         ? "ตัวเลข test, benchmark และ runtime footprint ทำหน้าที่เป็นหลักฐาน ไม่ใช่เพียงคำโฆษณา"
-        : "Tests, benchmark posture, and runtime footprint act as evidence rather than marketing decoration.",
+        : "Public SDK tests, enterprise runtime snapshots, and benchmark numbers are shown as separate evidence lanes rather than one blended marketing claim.",
     },
   ]
 
@@ -316,8 +329,8 @@ export default async function AboutPage() {
       phase: isTh ? "Current enterprise snapshot" : "Current enterprise snapshot",
       period: SITE_VERSION,
       title: isTh ? "snapshot ปัจจุบันแสดงให้เห็นระบบที่วัดผลและตรวจสอบได้จริง" : "The current snapshot shows a system that is measurable and reviewable",
-      capability: isTh ? "7-model HexaCore stack, 62 runtime components, 4,849 passing tests และ publication governance ที่ยังพัฒนาต่ออย่างมีทิศทาง" : "A 7-model HexaCore stack, 62 runtime components, 4,849 passing tests, and publication governance still improving in a visible direction.",
-      businessImpact: isTh ? "ทำให้เรื่องราวของ RCT ไม่ได้ยืนอยู่บนคำกล่าวอ้างอย่างเดียว แต่ยืนอยู่บน execution evidence" : "That makes the RCT story stand on execution evidence, not narrative claims alone.",
+      capability: isTh ? "snapshot ปัจจุบันแยกชัดระหว่าง public SDK ที่ตรวจได้สาธารณะ กับ enterprise runtime footprint ที่ยังเป็น private snapshot" : "The current snapshot now separates a publicly verifiable SDK lane from an enterprise runtime footprint that remains a private snapshot.",
+      businessImpact: isTh ? "เป้าหมายคือให้คนอ่านรู้ทันทีว่า evidence แบบใดตรวจได้จาก public repo และ evidence แบบใดเป็น enterprise context" : "The goal is for readers to understand immediately which evidence is verifiable from the public repo and which evidence belongs to enterprise context.",
       tone: "terra",
     },
   ]
@@ -359,7 +372,7 @@ export default async function AboutPage() {
     },
     {
       label: isTh ? "Engineering proof" : "Engineering proof",
-      value: `${SITE_TEST_COUNT.toLocaleString()} ${isTh ? "tests ที่ผ่าน" : "passing tests"}`,
+      value: `${SITE_PUBLIC_SDK_TESTS.toLocaleString()} ${isTh ? "tests ที่ผ่าน" : "passing tests"}`,
     },
     {
       label: isTh ? "Runtime footprint" : "Runtime footprint",
@@ -371,7 +384,7 @@ export default async function AboutPage() {
     { label: "Language Paradox", title: isTh ? "ข้อจำกัดด้านภาษา กลายเป็น protocol สากล" : "Language constraint turned into a universal protocol", value: isTh ? "ไม่ได้ใช้ภาษาอังกฤษเป็นหลัก — แต่สร้างภาษา Intent สากล (JITNA)" : "Doesn't primarily use English — yet created a universal intent language (JITNA)", iconSrc: pixelIcons.jitna, color: "#7B9E87", bg: "#D1FAE5", footer: isTh ? "เปลี่ยนข้อจำกัดด้านภาษาเป็น protocol" : "Turns language constraint into protocol" },
     { label: "Resource Paradox", title: isTh ? "ทรัพยากรน้อย แต่ discipline สูง" : "Low-resource conditions, high execution discipline", value: isTh ? "สร้าง AI-grade System ผ่านมือถือ Android เครื่องเดียว" : "Built an AI-grade system through a single Android mobile phone", iconSrc: pixelIcons.brain, color: "#D4A853", bg: "#FEF3C7", footer: isTh ? "เปลี่ยนข้อจำกัดทรัพยากรเป็น discipline" : "Turns resource limits into discipline" },
     { label: "Constitution Shift", title: isTh ? "จากผู้ใช้ AI สู่ผู้ออกแบบกรอบของมัน" : "From AI user to framework author", value: isTh ? "จากผู้ใช้ AI → ผู้กำหนดกรอบ Constitutional AI ของตนเอง" : "From AI user to defining an original Constitutional AI framework", iconSrc: pixelIcons.shield, color: "#89B4C8", bg: "#DBEAFE", footer: isTh ? "จากผู้ใช้สู่ผู้ออกแบบกรอบ" : "Moves from user to framework author" },
-    { label: "Scale Achievement", title: isTh ? "ระบบโตจากเอกสารสู่หลักฐานสาธารณะ" : "Scale moved from narrative into public evidence", value: isTh ? "จาก prototype เชิงเอกสารสู่ public engineering snapshot ที่มี 62 microservices, 4,849 tests ที่ผ่านทั้งหมด และ benchmark evidence ที่เปิดเผยได้จริง" : "From a documentation-driven prototype to a public engineering snapshot with 62 microservices, 4,849 passing tests, and benchmark evidence suitable for external review.", iconSrc: pixelIcons.chart, color: "#C4745B", bg: "#FEE2E2", footer: isTh ? "จาก narrative ไปสู่ evidence" : "Moves from narrative into evidence" },
+    { label: "Scale Achievement", title: isTh ? "ระบบโตจาก narrative สู่ evidence ที่แยกชั้นชัดขึ้น" : "Scale is moving from narrative into clearly separated evidence", value: isTh ? `public SDK ตอนนี้ยืนยันได้ ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests ขณะที่ enterprise runtime footprint ${SITE_MICROSERVICE_COUNT} components และ ${SITE_TEST_COUNT.toLocaleString()} tests ถูกจัดเป็น private snapshot พร้อม benchmark notes ที่แยก scope` : `The public SDK now verifies ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests, while the ${SITE_MICROSERVICE_COUNT}-component runtime and ${SITE_TEST_COUNT.toLocaleString()} enterprise tests are framed as a private snapshot with separately scoped benchmark notes.`, iconSrc: pixelIcons.chart, color: "#C4745B", bg: "#FEE2E2", footer: isTh ? "จาก claim ปนกัน ไปสู่ evidence lanes" : "Moves from blended claims into evidence lanes" },
   ]
 
   return (
@@ -396,7 +409,7 @@ export default async function AboutPage() {
             "name": "How does RCT Labs prevent AI hallucination in enterprise deployments?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "RCT Labs uses a multi-layer verification architecture: the FDIA (Functional Decomposition Intent Architecture) equation decomposes intent into auditable components, the SignedAI genome runs multi-LLM consensus scoring with 8D quality dimensions, and the RCTdb memory layer cross-checks outputs against verified enterprise knowledge. Current benchmark evidence shows 0.3% hallucination rate on controlled workloads."
+              "text": "RCT Labs uses a multi-layer verification architecture: the FDIA equation decomposes intent into auditable components, SignedAI runs multi-LLM consensus scoring, and the memory layer cross-checks outputs against governed knowledge. Public pages disclose benchmark claims only with explicit scope; the current 0.3% hallucination figure is framed as controlled-workload benchmark evidence, not a universal production guarantee."
             }
           },
           {
@@ -412,7 +425,7 @@ export default async function AboutPage() {
             "name": "Is RCT Labs suitable for large enterprise deployments?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. RCT Labs is designed natively for enterprise requirements: 62 microservices with independent scaling boundaries, sub-50ms warm recall via the Intent Loop Engine, 3.74x cost reduction through memory-first routing, multi-LLM governance with provider failover, and a Constitutional AI layer that enforces compliance rules without touching application code. The platform targets regulated industries including finance, legal, and healthcare."
+              "text": "RCT Labs is being positioned for enterprise requirements through governed routing, persistent memory, verification layers, and a separately disclosed runtime snapshot. Public evidence currently lives in the open SDK and public methodology pages, while larger runtime scale claims are clearly marked as enterprise-private snapshot data."
             }
           },
           {
@@ -461,7 +474,12 @@ export default async function AboutPage() {
                 : "Built on the FDIA equation and a 10-Layer Architecture, RCT Ecosystem orchestrates models into a governed enterprise runtime. We engineer deterministic pathways where every output is verifiable, making AI safe for highly-regulated workflows."}
             </p>
             <p className="mt-8 text-sm font-medium uppercase tracking-[0.16em] text-warm-amber">
-              {isTh ? "สถาปนิกอิสระ • 41 Algorithms • เป้าหมาย Benchmark Hallucination 0.3%" : "Solo Architect • 41 Algorithms • 0.3% Benchmark Hallucination Target"}
+              {isTh ? "สถาปนิกอิสระ • 41 Algorithms • Public SDK verified + Enterprise snapshot" : "Solo Architect • 41 Algorithms • Public SDK verified + Enterprise snapshot"}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {isTh
+                ? `${SITE_PUBLIC_SDK_EVIDENCE_LABEL}: ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests • ${SITE_PUBLIC_SDK_COVERAGE} | ${SITE_ENTERPRISE_EVIDENCE_LABEL}: ${SITE_TEST_COUNT.toLocaleString()} tests / ${SITE_MICROSERVICE_COUNT} runtime components | updated ${SITE_EVIDENCE_LAST_UPDATED}`
+                : `${SITE_PUBLIC_SDK_EVIDENCE_LABEL}: ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests • ${SITE_PUBLIC_SDK_COVERAGE} | ${SITE_ENTERPRISE_EVIDENCE_LABEL}: ${SITE_TEST_COUNT.toLocaleString()} tests / ${SITE_MICROSERVICE_COUNT} runtime components | updated ${SITE_EVIDENCE_LAST_UPDATED}`}
             </p>
           </div>
 
@@ -815,9 +833,9 @@ export default async function AboutPage() {
                     ))}
                   </div>
                   <div className="mt-5 text-center">
-                    <a href="/changelog" className="text-sm font-medium text-warm-amber hover:underline underline-offset-4">
+                    <Link href="/changelog" className="text-sm font-medium text-warm-amber hover:underline underline-offset-4">
                       {isTh ? "ดู Development Changelog ทั้งหมด →" : "View full development changelog →"}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

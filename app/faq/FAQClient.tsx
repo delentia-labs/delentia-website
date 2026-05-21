@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ChevronDown, BookOpen, Zap, Tag, History, HelpCircle } from "lucide-react"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
 
 type FAQClientProps = {
   locale: "en" | "th"
@@ -31,8 +32,8 @@ const faqCategories = [
       {
         qEn: "What makes RCT different from LangChain or AutoGPT?",
         qTh: "RCT แตกต่างจาก LangChain หรือ AutoGPT อย่างไร?",
-        aEn: "RCT is a complete ecosystem, not just a framework. It includes its own equation (FDIA), protocol (JITNA), database (RCTDB), 41 algorithms, and 7 genome subsystems. While LangChain focuses on chaining LLM calls and AutoGPT on autonomous agents, RCT provides end-to-end AI governance with built-in quality control (0.3% hallucination rate vs industry 12-15%), cost optimization, and evolutionary improvement.",
-        aTh: "RCT เป็น Ecosystem ที่สมบูรณ์ ไม่ใช่แค่ Framework มี Equation (FDIA), Protocol (JITNA), Database (RCTDB), 41 Algorithms และ 7 Genome Subsystems พร้อม Hallucination Rate เพียง 0.3% เทียบกับ Industry 12-15%",
+        aEn: `RCT is a complete ecosystem, not just a framework. It includes its own equation (FDIA), protocol (JITNA), database (RCTDB), 41 algorithms, and 7 genome subsystems. Public-facing explanations now keep ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()}, ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}, and benchmark claims in separate lanes instead of collapsing them into one headline.`,
+        aTh: `RCT เป็น ecosystem ที่สมบูรณ์ ไม่ใช่แค่ framework มี Equation (FDIA), Protocol (JITNA), Database (RCTDB), 41 Algorithms และ 7 Genome Subsystems โดยคำอธิบายสาธารณะตอนนี้จะแยก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} และ benchmark claims ออกจากกัน ไม่รวมเป็น headline เดียว`,
       },
       {
         qEn: "Is RCT open source?",
@@ -63,8 +64,8 @@ const faqCategories = [
       {
         qEn: "What are the 41 Algorithms?",
         qTh: "41 Algorithms คืออะไร?",
-        aEn: "The 41 algorithms span across the 10-layer architecture, covering everything from data ingestion (Layer 1) to autonomous improvement (Layer 10). They include algorithms for intent classification, context compression (74% lossless), hallucination detection, and cost optimization (3.74x reduction). The current public engineering snapshot reports 4,849 passing tests across the platform.",
-        aTh: "41 Algorithms กระจายอยู่ใน 10 ชั้นของสถาปัตยกรรม ครอบคลุมตั้งแต่ Data Ingestion ถึง Autonomous Improvement รวมถึง Intent Classification, Context Compression (74% lossless), Hallucination Detection และ Cost Optimization (3.74x reduction) โดย public engineering snapshot ปัจจุบันรายงานผลการทดสอบที่ผ่านทั้งหมด 4,849 รายการทั่วทั้งแพลตฟอร์ม",
+        aEn: `The 41 algorithms span the 10-layer architecture, from data ingestion to autonomous improvement. They cover intent classification, context compression, verification, and cost optimization. For public verification, use the open SDK checkpoint of ${SITE_PUBLIC_SDK_TESTS} tests under ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()}, not the broader enterprise snapshot.`,
+        aTh: `41 Algorithms กระจายอยู่ใน 10 ชั้นของสถาปัตยกรรม ตั้งแต่ data ingestion ถึง autonomous improvement ครอบคลุม intent classification, context compression, verification และ cost optimization โดยถ้าจะดู public verification ให้ยึด open SDK checkpoint ที่ ${SITE_PUBLIC_SDK_TESTS} tests ภายใต้ ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ไม่ใช่ enterprise snapshot ที่กว้างกว่า`,
       },
       {
         qEn: "What LLM providers are supported?",
@@ -75,14 +76,14 @@ const faqCategories = [
       {
         qEn: "What is the RCT HexaCore 7-model architecture?",
         qTh: "สถาปัตยกรรม HexaCore 7 โมเดลของ RCT คืออะไร?",
-        aEn: "HexaCore is the 7-model AI infrastructure: 3 Western LLMs + 3 Eastern LLMs + 1 Thai regional model (Typhoon v2). For critical queries, all 7 models process in parallel through the HexaCore Consensus mechanism, which enforces constitutional agreement thresholds (50–100% by tier) before any output is released. This achieves 3.74x cost reduction vs single-model deployments while reducing hallucination to 0.3%.",
-        aTh: "HexaCore คือโครงสร้าง AI 7 โมเดล: LLM ตะวันตก 3 ตัว + ตะวันออก 3 ตัว + โมเดลไทย 1 ตัว (Typhoon v2) สำหรับ query สำคัญ ทั้ง 7 โมเดลประมวลผลพร้อมกันผ่านกลไก HexaCore Consensus ที่บังคับ threshold รัฐธรรมนูญ (50–100% ตาม Tier) ก่อนปล่อยผลลัพธ์ ทำให้ลดต้นทุน 3.74 เท่าและ hallucination เหลือ 0.3%",
+        aEn: "HexaCore is the 7-model AI infrastructure: 3 Western LLMs + 3 Eastern LLMs + 1 Thai regional model. For critical queries, all 7 models can process in parallel through the HexaCore Consensus mechanism, which enforces constitutional agreement thresholds before output is released. Cost and hallucination claims should be read as benchmark-scoped or methodology-scoped disclosures, not unconditional production guarantees.",
+        aTh: "HexaCore คือโครงสร้าง AI 7 โมเดล: LLM ตะวันตก 3 ตัว + ตะวันออก 3 ตัว + โมเดลไทย 1 ตัว สำหรับ query สำคัญ ระบบสามารถประมวลผลพร้อมกันผ่านกลไก HexaCore Consensus ที่บังคับ threshold รัฐธรรมนูญก่อนปล่อยผลลัพธ์ โดยคำอ้างเรื่องต้นทุนและ hallucination ต้องอ่านเป็น benchmark-scoped หรือ methodology-scoped disclosures ไม่ใช่ production guarantee แบบไม่มีเงื่อนไข",
       },
       {
         qEn: "How does SignedAI reduce hallucination to 0.3%?",
         qTh: "SignedAI ลด hallucination เหลือ 0.3% ได้อย่างไร?",
-        aEn: "SignedAI routes critical queries through 4–8 models simultaneously and requires constitutional consensus: Tier 4 = 50% agreement, Tier 6 = 67%, Tier 8 = 75%, Tier S = 100%. If consensus is not reached, the system escalates rather than releasing an unverified output. The industry average hallucination rate is 12–15%; RCT achieves 0.3% through this multi-model verification layer combined with Ed25519 cryptographic signatures on all consensus decisions.",
-        aTh: "SignedAI ส่ง query สำคัญผ่าน 4–8 โมเดลพร้อมกันและต้องการ consensus รัฐธรรมนูญ: Tier 4 = 50%, Tier 6 = 67%, Tier 8 = 75%, Tier S = 100% ถ้าไม่ถึง threshold ระบบจะ escalate ไม่ใช่ปล่อยผลลัพธ์ที่ยังไม่ verified อุตสาหกรรม hallucinate ที่ 12–15% แต่ RCT ทำได้ 0.3% ผ่าน multi-model verification layer พร้อมลายเซ็น Ed25519",
+        aEn: "SignedAI routes critical queries through 4–8 models simultaneously and requires constitutional consensus. If consensus is not reached, the system escalates rather than releasing an unverified output. The 0.3% figure on public pages is framed as controlled-workload benchmark evidence supported by methodology disclosures, not as a blanket statement for every live deployment.",
+        aTh: "SignedAI ส่ง query สำคัญผ่าน 4–8 โมเดลพร้อมกันและต้องการ constitutional consensus หากไม่ถึง threshold ระบบจะ escalate แทนการปล่อยผลลัพธ์ที่ยังไม่ verified โดยตัวเลข 0.3% บนหน้า public ถูกจัดเป็น benchmark evidence บน controlled workloads ที่มี methodology disclosure รองรับ ไม่ใช่คำกล่าวครอบจักรวาลสำหรับทุก live deployment",
       },
       {
         qEn: "What is the Delta Engine's 74% compression capability?",
@@ -155,8 +156,8 @@ const faqCategories = [
       {
         qEn: "What infrastructure does RCT require?",
         qTh: "RCT ต้องการ Infrastructure อะไรบ้าง?",
-        aEn: "RCT runs across a 62-microservice architecture with PostgreSQL, Redis, and optional Ollama for local LLM inference. Minimum local evaluation setups can start smaller, while enterprise deployments can scale into containerized runtime boundaries and Kubernetes-style orchestration.",
-        aTh: "RCT ทำงานบนสถาปัตยกรรม 62 microservices พร้อม PostgreSQL, Redis และ Ollama (optional) สำหรับ local LLM inference โดยการประเมินในเครื่องเริ่มจากสเกลเล็กได้ และการ deploy ระดับองค์กรสามารถขยายไปยัง containerized runtime boundaries และ Kubernetes-style orchestration",
+        aEn: `RCT can be evaluated locally with PostgreSQL, Redis, and optional Ollama on a smaller setup, while the broader 62-component runtime should be read as an ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} rather than a required public starter footprint.`,
+        aTh: `RCT สามารถประเมินในเครื่องด้วย PostgreSQL, Redis และ Ollama แบบ optional บนสเกลเล็กได้ ส่วน runtime ที่กว้างกว่าซึ่งมี 62 components ควรอ่านเป็น ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} ไม่ใช่ footprint บังคับสำหรับผู้ใช้ public`,
       },
       {
         qEn: "Does RCT support external integrations?",
@@ -195,7 +196,7 @@ const faqCategories = [
 ] as const
 
 const versions = [
-  { ver: "5.4.5", name: "Full Suite Green — 4,849 Tests", date: "2026-03-21", status: "LATEST" },
+  { ver: "5.4.5", name: "Enterprise Snapshot — 4,849 Tests", date: "2026-03-21", status: "LATEST" },
   { ver: "2.7.0", name: "Enterprise Integration Suite", date: "2026-03-10", status: "PRODUCTION" },
   { ver: "2.1.0", name: "Enterprise Refactor Edition", date: "2026-02-15", status: "PRODUCTION" },
   { ver: "8.0", name: "Universal Integration & Open Standard", date: "2026-02-02", status: "PRODUCTION" },

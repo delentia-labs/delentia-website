@@ -48,12 +48,12 @@ const entities: Record<string, {
   "rct-kernel": {
     name: "RCT Kernel",
     type: "AI Operating System Core",
-    definition: "The central orchestration module of the RCT Ecosystem — coordinates the FDIA gating, JITNA protocol, HexaCore routing, SignedAI consensus, and RCTDB memory across all 62 microservices.",
+    definition: "The central orchestration module of the RCT Ecosystem — coordinates the FDIA gating, JITNA protocol, HexaCore routing, SignedAI consensus, and RCTDB memory across the broader runtime service graph.",
     description: "The RCT Kernel is the core runtime of the RCT (Reverse Component Thinking) Ecosystem. It implements the 7-State Intent Loop Pipeline (RECEIVED → VALIDATED → MEMORY_CHECK → COMPUTING → VERIFYING → COMMITTING → COMPLETED) and coordinates all subsystems. Built on constitutional constraints — every component of the kernel has defined invariants that cannot be violated. Implemented in Python (`core/kernel/fdia.py`) with 41 algorithms across Tier 1–9 complexity levels.",
     relatedTerms: ["FDIA Equation", "Intent Loop Engine", "Delta Engine", "RCTDB", "HexaCore"],
     relatedArticles: [
       { title: "The RCT-7 Process Explained", href: "/en/blog/rct-7-process-explained" },
-      { title: "4,849 Tests Methodology", href: "/en/blog/rct-ecosystem-4849-tests-methodology" },
+      { title: "Enterprise Snapshot Testing Methodology", href: "/en/blog/rct-ecosystem-4849-tests-methodology" },
       { title: "Delta Engine 74% Compression", href: "/en/blog/delta-engine-74-percent-compression" },
     ],
     sourceUrl: "https://rctlabs.co/en/about",

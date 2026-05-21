@@ -3,16 +3,17 @@ import BenchmarkSummaryClient from "./BenchmarkSummaryClient"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
+import { SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
 
   return createBilingualMetadata(
     locale,
-    "Benchmark Summary — 0.3% Hallucination, 0.92 FDIA Accuracy",
-    "สรุป Benchmark — Hallucination 0.3%, FDIA Accuracy 0.92",
-    "Detailed explanation of RCT Labs benchmark methodology: 0.3% hallucination rate, 0.92 FDIA accuracy, 4,849/0/0 test results. Includes caveats, test conditions, and honest limitations.",
-    "คำอธิบายรายละเอียดของ benchmark methodology จาก RCT Labs: hallucination rate 0.3%, FDIA accuracy 0.92 และผลทดสอบ 4,849/0/0 พร้อม caveats เงื่อนไขการทดสอบ และข้อจำกัดอย่างตรงไปตรงมา",
+    "Benchmark Summary — Controlled Benchmark Scope and Method Notes",
+    "สรุป Benchmark — Controlled Benchmark Scope และ Method Notes",
+    "Detailed explanation of RCT Labs benchmark methodology with explicit scope. This page separates public SDK verified evidence from enterprise private snapshot evidence and pairs the 0.3% benchmark figure with caveats and method notes.",
+    "คำอธิบาย benchmark methodology ของ RCT Labs พร้อมการระบุ scope อย่างชัดเจน โดยหน้านี้แยก public SDK verified evidence ออกจาก enterprise private snapshot evidence และผูกตัวเลข 0.3% เข้ากับ caveats และ method notes.",
     "/benchmark-summary",
     ["AI benchmark summary", "FDIA accuracy", "hallucination benchmark", "enterprise AI evaluation"]
   )
@@ -29,7 +30,7 @@ const BENCHMARK_FAQS = [
   },
   {
     question: "What does the 4,849/0/0 test result mean?",
-    answer: "4,849 tests passed, 0 failed, 0 errors — measured on RCT Ecosystem v5.4.5 (March 21, 2026). Tests run across 8 levels: Unit, Integration, Service, Contract, Performance, Security, Chaos, and Property-based tests. The test suite runs on GitHub Actions CI/CD pipeline on every commit.",
+    answer: `It refers to an enterprise private snapshot of the broader RCT runtime rather than the public SDK checkpoint. Public readers should use the open SDK checkpoint of ${SITE_PUBLIC_SDK_TESTS} verified tests as the public SDK verified lane and treat the 4,849 figure as separately disclosed enterprise context.`,
   },
   {
     question: "What is warm recall and how fast is it?",

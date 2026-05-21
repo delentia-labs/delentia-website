@@ -10,6 +10,7 @@ import { Cpu, ArrowRight } from "lucide-react"
 import { getBreadcrumbSchema } from "@/lib/schema"
 import OptimizedImage from "@/components/ui/optimized-image"
 import { pixelIcons } from "@/lib/pixel-icons"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS, SITE_TEST_COUNT } from "@/lib/site-config"
 
 const features = [
   {
@@ -26,9 +27,9 @@ const features = [
   },
   {
     iconSrc: pixelIcons.shield, color: "#C4745B",
-    titleEn: "4,849 Verified Tests / 0 Failures", titleTh: "4,849 Tests ผ่าน / 0 ครั้งผิดพลาด",
-    descEn: "8-level test pyramid: Unit → Integration → System → Performance → Security → Chaos → Digital Twin → Hypothesis. v5.4.5 canonical. Zero errors.",
-    descTh: "8-Level Test Pyramid: Unit → Integration → System → Performance → Security → Chaos → Digital Twin → Hypothesis v5.4.5 Canonical — Zero Errors",
+    titleEn: `${SITE_PUBLIC_SDK_TESTS} ${SITE_PUBLIC_SDK_EVIDENCE_LABEL}`, titleTh: `${SITE_PUBLIC_SDK_TESTS} ${SITE_PUBLIC_SDK_EVIDENCE_LABEL}`,
+    descEn: `Public product copy uses the open release path as the main proof lane, while the ${SITE_TEST_COUNT.toLocaleString()}-test runtime remains a separate ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+    descTh: `ข้อความของผลิตภัณฑ์นี้ใช้ open release path เป็น proof lane หลัก ส่วน runtime ที่มี ${SITE_TEST_COUNT.toLocaleString()} tests ถูกเก็บเป็น ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} แยกต่างหาก`,
   },
   {
     iconSrc: pixelIcons.genome, color: "#89B4C8",
@@ -63,8 +64,8 @@ export default function RCTLabsPage() {
           <h1 className="text-5xl font-bold text-foreground">RCTLabs</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             {isTh
-              ? "Constitutional AI Operating Environment — ศูนย์กลางของ RCT Ecosystem ที่ 7 Genome มาบรรจบกัน, รัน 41 Production Algorithms และ FDIA ควบคุมทุก Inference"
-              : "The Constitutional AI Operating Environment where 7 Genomes converge. Runs 41 production algorithms across 62 microservices, with FDIA governing every inference — F\u00a0=\u00a0(D\u1da1)\u00a0\u00d7\u00a0A."}
+              ? `Constitutional AI Operating Environment — ศูนย์กลางของ RCT Ecosystem ที่ 7 Genome มาบรรจบกัน โดยหน้า public นี้แยก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} และให้ FDIA ควบคุมทุก Inference`
+              : `The Constitutional AI Operating Environment where 7 Genomes converge. This public page separates ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} from ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}, with FDIA governing every inference.`}
           </p>
         </div>
       </section>
@@ -73,9 +74,9 @@ export default function RCTLabsPage() {
       <section className="mx-auto max-w-4xl px-4 pb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {([
-            { value: "4,849", label: isTh ? "Tests ผ่าน / 0 ผิด" : "Verified Tests" },
+            { value: `${SITE_PUBLIC_SDK_TESTS}`, label: isTh ? SITE_PUBLIC_SDK_EVIDENCE_LABEL : SITE_PUBLIC_SDK_EVIDENCE_LABEL },
             { value: "41", label: isTh ? "Production Algorithms" : "Production Algorithms" },
-            { value: "62", label: isTh ? "Microservices" : "Microservices" },
+            { value: `${SITE_TEST_COUNT}`, label: isTh ? SITE_ENTERPRISE_EVIDENCE_LABEL : SITE_ENTERPRISE_EVIDENCE_LABEL },
             { value: "7", label: isTh ? "Genome System" : "Genome System" },
           ] as const).map((stat, i) => (
             <m.div
@@ -100,7 +101,7 @@ export default function RCTLabsPage() {
             className="inline-flex items-center gap-2.5 px-4 py-2 rounded-lg border border-border bg-card hover:bg-muted text-sm text-muted-foreground transition-colors"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
-            {isTh ? "Open Source SDK — v1.0.2a0 · 723 tests · Apache 2.0" : "Open Source SDK — v1.0.2a0 · 723 tests · Apache 2.0"}
+            {isTh ? `Open Source SDK — v1.0.4b0 · ${SITE_PUBLIC_SDK_TESTS} tests · Apache 2.0` : `Open Source SDK — v1.0.4b0 · ${SITE_PUBLIC_SDK_TESTS} tests · Apache 2.0`}
           </a>
         </div>
       </section>
@@ -118,13 +119,13 @@ export default function RCTLabsPage() {
           </p>
           <p>
             {isTh
-              ? "4,849 Tests ผ่าน / 0 ที่ล้มเหลว (เวอร์ชัน v5.4.5, 21 มีนาคม 2026) ครอบคลุม 8 ระดับ: Unit → Integration → System → Performance → Security → Chaos → Digital Twin → Hypothesis — ภายใต้ 41 Production Algorithms และ 62 Microservices"
-              : "4,849 tests passing / 0 failures (v5.4.5, March 21 2026). Covers 8 levels: Unit → Integration → System → Performance → Security → Chaos → Digital Twin → Hypothesis — powering 41 production algorithms across 62 microservices."}
+              ? `${SITE_PUBLIC_SDK_EVIDENCE_LABEL} ปัจจุบันอยู่ที่ ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests บน open release path ส่วน footprint ที่กว้างกว่า รวมถึง runtime components และ suite ขนาดใหญ่กว่า ถูกสื่อสารเป็น ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} แยกต่างหาก`
+              : `${SITE_PUBLIC_SDK_EVIDENCE_LABEL} currently covers ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests on the open release path, while the broader runtime footprint and larger suites are presented separately as an ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`}
           </p>
           <p>
             {isTh
-              ? "ด้วย Test Cases อัตโนมัติ 4,849 รายการที่ผ่าน / 0 ล้มเหลว RCTLabs ครอบคลุม Unit Testing, Integration Testing, Performance Benchmarking และ Regression Analysis ซึ่งแต่ละ Test Case ถูกสร้างเพื่อให้ Algorithm Tier สามารถทำงานได้อย่างถูกต้องใน Production"
-              : "With 4,849 verified passing tests / 0 failures, RCTLabs covers unit testing, integration testing, performance benchmarking, and regression analysis. Each test is mapped to specific algorithm tiers to ensure every component works correctly in production."}
+              ? "จุดสำคัญของหน้านี้ไม่ใช่การรวมทุกเลขมาไว้ก้อนเดียว แต่เป็นการชี้ว่าอะไรตรวจได้จาก public repo และอะไรเป็น enterprise context เพื่อให้ buyer อ่าน proof chain ได้ตรงตามจริง"
+              : "The important point on this page is not to collapse every number into one badge, but to show which claims are verifiable from the public repo and which belong to enterprise context so buyers can follow the proof chain accurately."}
           </p>
           <p>
             {isTh
@@ -193,8 +194,8 @@ export default function RCTLabsPage() {
               },
               {
                 titleEn: "JITNA Protocol Gateway", titleTh: "JITNA Protocol Gateway",
-                descEn: "Every agent interaction passes through JITNA RFC-001 before execution — structured, signed, and auditable across all 62 microservices.",
-                descTh: "ทุก Agent Interaction ผ่าน JITNA RFC-001 ก่อน Execution — มีโครงสร้าง, Signed และตรวจสอบได้ทั้ง 62 Microservices",
+                descEn: `Every agent interaction passes through JITNA RFC-001 before execution — structured, signed, and auditable across the broader runtime described as an ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+                descTh: `ทุก Agent Interaction ผ่าน JITNA RFC-001 ก่อน Execution — มีโครงสร้าง Signed และตรวจสอบได้ โดย footprint ของ runtime ที่กว้างกว่าถูกสื่อสารเป็น ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}`,
                 color: "#C4745B",
               },
             ].map((item, i) => (

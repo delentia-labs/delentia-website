@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useState, useRef, useEffect, useCallback, Fragment, type FormEvent } from "react"
 import { m, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -321,7 +322,6 @@ export function FloatingAI() {
         let finalMeta: Partial<ChatMessage> = {}
 
         if (reader) {
-          // eslint-disable-next-line no-constant-condition
           while (true) {
             const { done, value } = await reader.read()
             if (done) break
@@ -877,12 +877,12 @@ export function FloatingAI() {
             {userId === "anonymous" && (
               <div className="px-4 py-1.5 border-b border-border/30 bg-warm-amber/5 flex items-center justify-between">
                 <span className="text-xs text-muted-foreground">ล็อกอินเพื่อบันทึกประวัติการสนทนา</span>
-                <a
+                <Link
                   href="/auth/signin"
                   className="text-xs text-warm-amber hover:underline font-medium ml-2 whitespace-nowrap"
                 >
                   Sign in →
-                </a>
+                </Link>
               </div>
             )}
 
@@ -942,9 +942,9 @@ export function FloatingAI() {
                       )}
                       {msg.isAuthError && (
                         <div className="mt-2 pt-2 border-t border-border/50">
-                          <a href="/auth/signin" className="text-xs text-warm-amber hover:underline">
+                          <Link href="/auth/signin" className="text-xs text-warm-amber hover:underline">
                             → ล็อกอินเพื่อใช้งาน RCT AI Assistant
-                          </a>
+                          </Link>
                         </div>
                       )}
 

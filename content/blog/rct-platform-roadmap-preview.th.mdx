@@ -6,7 +6,10 @@ reviewerId: "rct-research-desk"
 date: "2026-05-20"
 lastReviewed: "2026-05-12"
 category: "engineering"
-excerpt: "rct-platform v1.0.2a0 เปิดตัวแล้ว บทความนี้สรุปสิ่งที่ Ship แล้ว สิ่งที่กำลังดำเนินการ และแผนสำหรับ v1.0.3a0, v1.0.0 Stable, v1.1.0 Observability และ v1.2.0 ASEAN Expansion — รวมถึงสิ่งที่เราไม่ได้สร้างใน Open-source Tier อย่างชัดเจน"
+excerpt: "rct-platform ตอนนี้อ้างอิงจาก checkpoint v1.0.4b0 beta preview บทความนี้แยกให้ชัดว่าอะไรคือ public-proof ของ SDK, อะไรยังเป็น benchmark scope และอะไรยังเป็น enterprise-private"
+claimScope: "public-sdk"
+evidenceLane: "Public SDK verified"
+lastEvidenceReview: "2026-05-21"
 tags: ["RCT Platform", "Platform Roadmap", "Open Source", "FDIA", "SignedAI", "JITNA", "ASEAN AI", "rct-platform"]
 readTime: 9
 references:
@@ -17,15 +20,15 @@ references:
 
 # Roadmap RCT Platform: จาก Public Alpha สู่ ASEAN Expansion
 
-`rct-platform` v1.0.2a0 (Public Alpha) เปิดตัวในเดือนเมษายน 2026 บทความนี้คือสรุปทางเทคนิคของสิ่งที่ Ship แล้ว สิ่งที่กำลังดำเนินการอยู่ และแผนการพัฒนาจนถึงปี 2027 — พร้อมขอบเขตที่ชัดเจนสำหรับ Open-source Tier
+`rct-platform` ตอนนี้อ้างอิงจาก **checkpoint v1.0.4b0 beta preview** บทความนี้สรุปว่าอะไรคือ public-proof ที่ยืนยันได้แล้วใน SDK อะไรยังอยู่ในช่วง hardening ก่อน PyPI release และอะไรที่ตั้งใจอยู่นอก open-source tier
 
 หากต้องการ Roadmap Document ดิบ สามารถดูได้ที่ [ROADMAP.md](https://github.com/rctlabs/rct-platform/blob/main/ROADMAP.md) ใน Repository
 
 ---
 
-## สิ่งที่ Ship แล้ว: v1.0.2a0 Public Alpha (เมษายน 2026)
+## สิ่งที่ Ship แล้ว: v1.0.4b0 Beta Preview (พฤษภาคม 2026)
 
-การเปิดตัวในเดือนเมษายนเป็นครั้งแรกที่ RCT Platform SDK พร้อมสาธารณะ "Public Alpha" ในบริบทนี้หมายถึง: Algorithm หลักมีความเสถียรและทดสอบแล้ว แต่ API Surface ยังไม่ถือว่าเสถียรสำหรับ Production Dependencies โดยไม่ Pin เวอร์ชันที่แน่นอน
+public alpha ครั้งแรกเป็นจุดเริ่มต้นของ open SDK ส่วน checkpoint beta preview ปัจจุบันคือจุดที่ CLI onboarding, การ sync เอกสาร และวินัยด้าน public proof ถูก harden จน repo สามารถถูกใช้เป็นเป้าการประเมินจากภายนอกได้จริง
 
 **โมดูล SDK หลัก (พฤติกรรมเสถียร, Alpha API):**
 
@@ -35,31 +38,31 @@ references:
 | SignedAI Registry | `signedai/` | HexaCore 7-model Registry, Consensus TIER_S/4/6/8, Ed25519 Attestation |
 | Delta Engine | `core/delta_engine/` | State Compression, Warm Recall, อัตราการบีบอัด 74% |
 | JITNA Protocol | `rct_control_plane/jitna_protocol.py` | การใช้งาน RFC-001, Intent Schema 6 ฟิลด์ |
-| Regional Language Adapter | `adapters/` | คู่ภาษา 8 คู่ในภูมิภาค ASEAN |
+| Regional Language Adapter | `adapters/` | คู่ภาษาระดับภูมิภาค 8 คู่ |
 | Control Plane DSL | `rct_control_plane/` | 15 โมดูล, `rct` CLI Entry Point |
 
-**Benchmark คุณภาพ ณ การเปิดตัว:**
-- 1,272 Tests ผ่าน, 0 Skip, 0 Warnings, mypy clean, ruff clean, Coverage 94%+
+**checkpoint สาธารณะปัจจุบันของ SDK:**
+- 1,287 Tests ผ่าน, 0 Skip, 0 Failed, Coverage 92%
 - Bandit Security Scan: 0 HIGH Severity
 - CI/CD: GitHub Actions บนทุก Push
 - Whitepaper: 450+ หน้า, สองภาษา EN/TH, CITATION.cff
 
 ---
 
-## กำลังดำเนินการ: v1.0.3a0 Playground (พฤษภาคม 2026)
+## กำลังดำเนินการ: Hardening ก่อน PyPI
 
-Milestone v1.0.3a0 เป็น Usability Release ที่มีเป้าหมายเดียว: **ประสบการณ์ครั้งแรกที่ไม่มีอุปสรรค** ผู้ใช้ใหม่ควรสามารถ Run FDIA, SignedAI และ Delta Engine โดยไม่ต้อง Clone Repository หรือ Install อะไรใน Local
+ก้าวถัดไปที่สำคัญคือ **การ harden ให้พร้อมระดับ PyPI** ผู้ใช้ใหม่ควรตรวจสอบ CLI, docs และ first-run workflow ได้เร็ว และทุก public claim ต้องย้อนกลับไปหา canonical proof source ได้
 
 **เสร็จแล้ว:**
-- `notebooks/rct_playground.ipynb` — Colab Notebook ที่ Run ได้พร้อม Demo FDIA, SignedAI และ Delta Engine
-- `benchmark/run_benchmark.py` — CLI Runner สำหรับ Benchmark ที่ Reproduce ได้
-- Badge Quick-launch สำหรับ Binder / Colab / Codespaces ใน README
-- Hypothesis Property-based Tests — การรับประกันความถูกต้องทางคณิตศาสตร์
+- `rct doctor` สำหรับ environment diagnostics
+- `rct start --ui-test` สำหรับ verify first-run โดยไม่ใช้ API key
+- `rct init` fallback template สำหรับ wheel และ clean-room installs
+- การติดตาม canonical public checkpoint ใน `docs/testing/TESTING_CANONICAL.md`
 
-**เหลืออยู่สำหรับ v1.0.3a0:**
-- `docs/benchmark/hallucination-methodology.md` — Dataset 100-prompt สาธารณะและคำอธิบาย Methodology
-- การเปิดใช้งาน GitHub Discussions — หมวด Q&A, RFC Discussion, Show & Tell
-- เอกสาร API Stability Guarantees สำหรับ `core/fdia`, `signedai/core`, `core/delta_engine`
+**ยังเหลือก่อนถึง v1.0.0 stable:**
+- flow การ publish PyPI และ signed artifacts ขั้นสุดท้าย
+- เอกสาร API stability guarantees สำหรับ `core/fdia`, `signedai/core` และ `core/delta_engine`
+- ชุด reproduction materials สำหรับ claim ที่เป็น benchmark scope
 
 ---
 
@@ -102,7 +105,7 @@ Milestone v1.0.0 เป็นการเปลี่ยนผ่านจาก
 
 ## v1.2.0 — ASEAN Expansion (2027)
 
-Target ปี 2027 แก้ช่องว่างระหว่างความสามารถด้านภาษาภูมิภาค (8 คู่ ASEAN ใน v1.0.2a0) และการ Align ระเบียบ ASEAN อย่างเต็มรูปแบบ
+Target ปี 2027 แก้ช่องว่างระหว่าง baseline ของ ASEAN language preview รุ่นก่อนหน้า และการ Align ระเบียบ ASEAN อย่างเต็มรูปแบบ
 
 **Language Expansion:**
 - Adapter สำหรับ VN (เวียดนาม), ID (อินโดนีเซีย), MY (มาเลเซีย) เพิ่มจาก 8 เป็น 11 คู่ภาษา ASEAN
@@ -148,7 +151,7 @@ Open-source Tier คือ **Developer SDK** — Building Blocks ของ Algor
 git clone https://github.com/rctlabs/rct-platform.git
 cd rct-platform
 pip install -e ".[dev]"
-pytest  # 1,193 Tests ควรผ่าน
+pytest  # 1,287 Tests ควรผ่าน
 ```
 
 หรือเปิด Colab Notebook โดยตรงเพื่อสำรวจ FDIA, SignedAI และ Delta Engine โดยไม่ต้อง Install:

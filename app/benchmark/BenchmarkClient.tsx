@@ -16,6 +16,7 @@ import {
 } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL } from "@/lib/site-config"
 
 /* ─── DATA ─── */
 const benchmarks = [
@@ -27,7 +28,7 @@ const benchmarks = [
   { metricEn: "Cryptographic Signing", metricTh: "Cryptographic Signing", rct: "Yes", single: "No", rctVal: 100, singleVal: 0, color: "#D4A853", icon: Shield },
   { metricEn: "FDIA Protocol Score", metricTh: "FDIA Protocol Score", rct: "0.92", single: "~0.65", rctVal: 92, singleVal: 65, color: "#C4745B", icon: TrendingUp },
   { metricEn: "L4 Virtuoso Benchmark", metricTh: "L4 Virtuoso Benchmark", rct: "389/390", single: "N/A", rctVal: 99.7, singleVal: 0, color: "#B8A9C9", icon: Shield },
-  { metricEn: "Uptime SLA", metricTh: "Uptime SLA", rct: "99.98%", single: "No SLA", rctVal: 100, singleVal: 80, color: "#7B9E87", icon: CheckCircle },
+  { metricEn: "Availability Target", metricTh: "Availability Target", rct: "Defined", single: "No SLA", rctVal: 100, singleVal: 80, color: "#7B9E87", icon: CheckCircle },
 ]
 
 const radarData = [
@@ -222,6 +223,11 @@ export default function BenchmarkPage() {
                 ? "RCT SignedAI achieves 99.7% accuracy vs 85% for single LLM, with 60% cost savings, full audit trails, and cryptographic signing."
                 : "RCT SignedAI ความแม่นยำ 99.7% เทียบกับ 85% สำหรับ Single LLM พร้อมประหยัดต้นทุน 60% Audit Trails ครบถ้วน และ Cryptographic Signing"}
             </m.p>
+            <p className={`text-xs max-w-2xl mx-auto ${isDark ? "text-[#666]" : "text-warm-gray"}`}>
+              {isEn
+                ? "Benchmark evidence is shown separately from the enterprise private snapshot used for broader runtime validation."
+                : "หน้า benchmark นี้แยก benchmark evidence ออกจาก enterprise private snapshot ที่ใช้สำหรับ runtime validation วงกว้างกว่า"}
+            </p>
           </div>
         </section>
 
@@ -541,17 +547,17 @@ export default function BenchmarkPage() {
           </div>
         </section>
 
-        {/* v5.4.5 Milestone */}
-        <section className={`py-16 px-4 transition-colors duration-300 ${isDark ? "bg-[#141414]" : "bg-warm-cream/50"}`} aria-label="v5.4.5 milestone">
+        {/* Enterprise snapshot milestone */}
+        <section className={`py-16 px-4 transition-colors duration-300 ${isDark ? "bg-[#141414]" : "bg-warm-cream/50"}`} aria-label="enterprise snapshot milestone">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <h2 className={`text-3xl font-bold mb-2 ${isDark ? "text-warm-light-gray" : "text-warm-charcoal"}`}>
-                {isEn ? "Test Infrastructure v5.4.5" : "Test Infrastructure v5.4.5"}
+                {isEn ? `${SITE_ENTERPRISE_EVIDENCE_LABEL} validation` : `${SITE_ENTERPRISE_EVIDENCE_LABEL} validation`}
               </h2>
               <p className={`text-sm ${isDark ? "text-[#888]" : "text-warm-gray"}`}>
                 {isEn
-                  ? "First ever 0-failure milestone across the entire test suite — March 21, 2026"
-                  : "Milestone 0 ความล้มเหลวครั้งแรก ในชุดทดสอบทั้งหมด — 21 มีนาคม 2026"}
+                  ? "Enterprise private snapshot disclosed on March 21, 2026. Public readers should treat this as a separate validation lane from the public SDK checkpoint."
+                  : "ชุดตัวเลขนี้เป็น enterprise private snapshot ที่เปิดเผยเมื่อ 21 มีนาคม 2026 และต้องแยกออกจาก public SDK checkpoint"}
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
@@ -570,8 +576,8 @@ export default function BenchmarkPage() {
             </div>
             <div className={`p-5 rounded-xl border text-sm leading-relaxed ${isDark ? "bg-[#1E1E1E] border-[#2A2A2A] text-[#999]" : "bg-white border-warm-light-gray text-[#4A4A4A]"}`}>
               {isEn
-                ? "FDIA accuracy 0.92 vs industry average ~0.65. Test pyramid: Unit → Integration → Contract → Component → API → E2E → Performance → Security (8 levels). Zero failures across 6,738+ tests represents the first clean run in project history."
-                : "FDIA Accuracy 0.92 เทียบกับอุตสาหกรรมที่ ~0.65 Test Pyramid: Unit→Integration→Contract→Component→API→E2E→Performance→Security (8 ระดับ) ผ่าน 6,738+ Tests โดยไม่มีความล้มเหลวเลย — ครั้งแรกในประวัติศาสตร์โปรเจกต์"}
+                ? "FDIA accuracy 0.92 vs industry average ~0.65. This card summarizes benchmark evidence plus an enterprise private snapshot validation lane; the public SDK proof lane remains the canonical public checkpoint."
+                : "FDIA Accuracy 0.92 เทียบกับอุตสาหกรรมที่ ~0.65 การ์ดนี้สรุป benchmark evidence ร่วมกับ enterprise private snapshot validation lane โดย public SDK proof lane ยังเป็นจุดอ้างอิงสาธารณะหลัก"}
             </div>
           </div>
         </section>
