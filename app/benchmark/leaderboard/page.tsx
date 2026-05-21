@@ -212,18 +212,6 @@ function ScoreCell({
   )
 }
 
-function MiniBar({ value, max, color }: { value: number; max: number; color: string }) {
-  const pct = Math.min(100, (value / max) * 100)
-  return (
-    <div className="h-2 bg-[#1e293b] rounded-full overflow-hidden w-24">
-      <div
-        className="h-full rounded-full transition-all"
-        style={{ width: `${pct}%`, backgroundColor: color }}
-      />
-    </div>
-  )
-}
-
 export default async function LeaderboardPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"

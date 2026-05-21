@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { createBilingualMetadata, type Locale } from "@/lib/seo-bilingual"
+import Link from "next/link"
+import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getBreadcrumbSchema, getOrganizationSchema } from "@/lib/schema"
 import { AboutFDIAShowcase } from "@/components/about/about-fdia-showcase"
 import { AboutPageMotionBackdrop } from "@/components/about/about-page-motion-backdrop"
@@ -832,9 +833,9 @@ export default async function AboutPage() {
                     ))}
                   </div>
                   <div className="mt-5 text-center">
-                    <a href="/changelog" className="text-sm font-medium text-warm-amber hover:underline underline-offset-4">
+                    <Link href="/changelog" className="text-sm font-medium text-warm-amber hover:underline underline-offset-4">
                       {isTh ? "ดู Development Changelog ทั้งหมด →" : "View full development changelog →"}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

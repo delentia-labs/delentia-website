@@ -3,7 +3,7 @@ import BenchmarkSummaryClient from "./BenchmarkSummaryClient"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
-import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
+import { SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
@@ -12,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Benchmark Summary — Controlled Benchmark Scope and Method Notes",
     "สรุป Benchmark — Controlled Benchmark Scope และ Method Notes",
-    `Detailed explanation of RCT Labs benchmark methodology with explicit scope. This page separates ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} from ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} and pairs the 0.3% benchmark figure with caveats and method notes.`,
-    `คำอธิบาย benchmark methodology ของ RCT Labs พร้อมการระบุ scope อย่างชัดเจน โดยหน้านี้แยก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} และผูกตัวเลข 0.3% เข้ากับ caveats และ method notes.`,
+    "Detailed explanation of RCT Labs benchmark methodology with explicit scope. This page separates public SDK verified evidence from enterprise private snapshot evidence and pairs the 0.3% benchmark figure with caveats and method notes.",
+    "คำอธิบาย benchmark methodology ของ RCT Labs พร้อมการระบุ scope อย่างชัดเจน โดยหน้านี้แยก public SDK verified evidence ออกจาก enterprise private snapshot evidence และผูกตัวเลข 0.3% เข้ากับ caveats และ method notes.",
     "/benchmark-summary",
     ["AI benchmark summary", "FDIA accuracy", "hallucination benchmark", "enterprise AI evaluation"]
   )
@@ -30,7 +30,7 @@ const BENCHMARK_FAQS = [
   },
   {
     question: "What does the 4,849/0/0 test result mean?",
-    answer: `It refers to an enterprise-private snapshot of the broader RCT runtime rather than the public SDK checkpoint. Public readers should use the open SDK checkpoint of ${SITE_PUBLIC_SDK_TESTS} verified tests as the public verification lane and treat the 4,849 figure as separately disclosed enterprise context.`,
+    answer: `It refers to an enterprise private snapshot of the broader RCT runtime rather than the public SDK checkpoint. Public readers should use the open SDK checkpoint of ${SITE_PUBLIC_SDK_TESTS} verified tests as the public SDK verified lane and treat the 4,849 figure as separately disclosed enterprise context.`,
   },
   {
     question: "What is warm recall and how fast is it?",

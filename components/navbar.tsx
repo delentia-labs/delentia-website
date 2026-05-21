@@ -29,8 +29,6 @@ const MobileNavDrawer = dynamic(
   { ssr: false, loading: () => null },
 )
 
-const LOGO_HORIZONTAL = "/RCTLogo-horizontal.svg"
-
 interface NavbarProps {
   variant?: "default" | "article"
   locale?: "en" | "th"
@@ -159,13 +157,13 @@ export function Navbar({ variant = "default", locale: forcedLocale }: NavbarProp
   }, [])
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- route changes should immediately collapse transient nav UI state.
     // Track full pathname so locale-only changes (e.g. /th/about → /en/about) also close the drawer.
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- route changes should immediately collapse transient nav UI state.
     setMobileOpen(false)
     setOpenGroupId(null)
     setShortcutsOpen(false)
     setActiveResourceTrackId(findActiveResourceTrack(localePath))
-  }, [pathname])
+  }, [localePath])
 
   useEffect(() => {
     return () => {

@@ -15,7 +15,6 @@ import {
   Terminal,
   ExternalLink,
   CheckCircle,
-  XCircle,
   Clock,
 } from "lucide-react"
 

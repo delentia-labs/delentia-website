@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
-import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
+import { getBreadcrumbSchema } from "@/lib/schema"
 import { SITE_URL } from "@/lib/site-config"
 import UseCasesClient from "./UseCasesClient"
 

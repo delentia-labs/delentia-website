@@ -505,7 +505,7 @@ export default function PricingPage() {
               { tier: "4", label: "Standard", price: "$0.75", models: 4, voting: "MAJORITY", color: "#D4A853", descEn: "4-model majority consensus. Ideal for production workflows requiring trusted AI output.", descTh: "4 โมเดล Majority Consensus — สมดุลระหว่างความแม่นยำและต้นทุน" },
               { tier: "6", label: "Advanced", price: "$2.00", models: 6, voting: "WEIGHTED", color: "#C4745B", descEn: "6-model weighted consensus for regulated sectors needing high-confidence AI decisions.", descTh: "6 โมเดล Weighted Consensus — ความเชื่อมั่นสูงสำหรับอุตสาหกรรมที่มีกฎระเบียบ" },
               { tier: "8", label: "Supreme", price: "$5.00", models: 8, voting: "UNANIMOUS 75%", color: "#9B7BB8", descEn: "All 8 HexaCore models, 75% consensus. Maximum trust for legal, medical, and financial AI.", descTh: "8 โมเดล ต้องการฉันทามติ 75% — ความเชื่อมั่นสูงสุดสำหรับกฎหมาย การแพทย์ การเงิน" },
-            ] as const).map((t, i) => (
+            ] as const).map((t) => (
               <div key={t.tier} className="flex flex-col gap-3 p-6 rounded-2xl border-2"
                 style={{ borderColor: `${t.color}40`, background: `${t.color}08` }}>
                 <div className="flex items-center justify-between">

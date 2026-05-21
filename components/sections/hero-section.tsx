@@ -214,7 +214,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             </div>
 
             <div className="grid grid-cols-2 gap-3 pt-7 md:grid-cols-4">
-              {stats.map((stat, i) => (
+              {stats.map((stat) => (
                 <div
                   key={stat.label}
                   {...(deferredHeroAssetsReady ? statCardSpotlight : {})}
@@ -224,7 +224,6 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                     <div className={`flex h-8 w-8 items-center justify-center rounded-lg border shadow-sm ${
                       isDark ? "bg-card/80 border-border" : "border-[#e6ddd0] bg-white"
                     }`}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <Image
                         src={stat.iconSrc}
                         alt=""
