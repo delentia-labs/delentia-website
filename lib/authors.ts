@@ -1,3 +1,5 @@
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
+
 export type AuthorProfile = {
   id: string
   name: string
@@ -27,8 +29,8 @@ export const authorProfiles: AuthorProfile[] = [
       th: "ผู้ก่อตั้งและสถาปนิกระบบ, RCT Labs",
     },
     bio: {
-      en: "Ittirit Saengow (อิทธิฤทธิ์ แซ่โง้ว) is the founder, sole developer, and primary author of RCT Labs — a constitutional AI operating system platform built independently from architecture through publication. He conceived and developed the FDIA equation (F = (D^I) × A), the JITNA protocol specification (RFC-001), the 10-layer architecture, the 7-Genome system, and the RCT-7 process framework. The full platform — including bilingual infrastructure, enterprise SEO systems, 62 microservices, 41 production algorithms, and all published research — was built as a solo project in Bangkok, Thailand.",
-      th: "อิทธิฤทธิ์ แซ่โง้ว คือผู้ก่อตั้ง นักพัฒนาเพียงคนเดียว และผู้เขียนหลักของ RCT Labs — แพลตฟอร์มระบบปฏิบัติการ AI แบบ constitutional ที่สร้างขึ้นอย่างอิสระตั้งแต่สถาปัตยกรรมจนถึงการเผยแพร่ เขาคิดค้นสมการ FDIA (F = (D^I) × A) ข้อกำหนดโปรโตคอล JITNA (RFC-001) สถาปัตยกรรม 10 ชั้น ระบบ 7-Genome และกระบวนการ RCT-7 แพลตฟอร์มทั้งหมด ทั้งโครงสร้างสองภาษา ระบบ SEO ระดับองค์กร ไมโครเซอร์วิส 62 ตัว อัลกอริทึม 41 ชุด และงานวิจัยทั้งหมดที่เผยแพร่ สร้างโดยคนเพียงคนเดียวในกรุงเทพฯ ประเทศไทย",
+      en: `Ittirit Saengow (อิทธิฤทธิ์ แซ่โง้ว) is the founder, sole developer, and primary author of RCT Labs — a constitutional AI operating system platform built independently from architecture through publication. He conceived and developed the FDIA equation (F = (D^I) × A), the JITNA protocol specification (RFC-001), the 10-layer architecture, the 7-Genome system, and the RCT-7 process framework. Public-facing proof uses ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} at ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests, while the broader runtime footprint is disclosed separately as an ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+      th: `อิทธิฤทธิ์ แซ่โง้ว คือผู้ก่อตั้ง นักพัฒนาเพียงคนเดียว และผู้เขียนหลักของ RCT Labs — แพลตฟอร์มระบบปฏิบัติการ AI แบบ constitutional ที่สร้างขึ้นอย่างอิสระตั้งแต่สถาปัตยกรรมจนถึงการเผยแพร่ เขาคิดค้นสมการ FDIA (F = (D^I) × A) ข้อกำหนดโปรโตคอล JITNA (RFC-001) สถาปัตยกรรม 10 ชั้น ระบบ 7-Genome และกระบวนการ RCT-7 โดยหลักฐานสาธารณะใช้ ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ที่ ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests ส่วน footprint ของ runtime ที่กว้างกว่าถูกเปิดเผยแยกเป็น ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}`,
     },
     expertise: [
       "constitutional AI system design",

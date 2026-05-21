@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { getAuthorProfileById, getAuthorProfileByName } from "@/lib/authors"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_HALLUCINATION_RATE, SITE_PUBLIC_SDK_COVERAGE, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS, SITE_PUBLIC_SDK_VERSION, SITE_TEST_COUNT } from "@/lib/site-config"
 
 const postsDirectory = path.join(process.cwd(), "content/blog")
 
@@ -119,8 +120,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
     },
     {
-      value: "0.3%", label: "Hallucination ceiling",
-      detail: "Constitutional runtime controls — RCT production workload",
+      value: SITE_HALLUCINATION_RATE, label: "Benchmark hallucination scope",
+      detail: "Controlled-workload benchmark framing, not a blanket production guarantee",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -139,8 +140,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/protocols/fdia-equation", verifiedAt: "2026-04-15",
     },
     {
-      value: "0.3%", label: "Production hallucination rate",
-      detail: "Sustained on RCT Ecosystem live workload — monitored per-request",
+      value: SITE_HALLUCINATION_RATE, label: "Benchmark hallucination scope",
+      detail: "Controlled benchmark framing disclosed with methodology notes",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -159,8 +160,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
     },
     {
-      value: "0.3%", label: "Live hallucination rate",
-      detail: "With verification layer active — RCT production monitoring",
+      value: SITE_HALLUCINATION_RATE, label: "Benchmark hallucination scope",
+      detail: "Public benchmark framing with caveats; deployment outcomes vary by workload",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -346,8 +347,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/protocols/jitna-rfc-001", verifiedAt: "2026-04-15",
     },
     {
-      value: "0.3%", label: "Consensus hallucination target",
-      detail: "Multi-agent verification layer — all agents must agree before signing",
+      value: SITE_HALLUCINATION_RATE, label: "Consensus benchmark scope",
+      detail: "Multi-agent verification layer benchmark — all agents must agree before signing",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -366,8 +367,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
     },
     {
-      value: "62 services", label: "Production microservice count",
-      detail: "All services governed by Intent OS policy layer — no raw LLM calls exposed",
+      value: SITE_ENTERPRISE_EVIDENCE_LABEL, label: "Runtime scope",
+      detail: "The broader runtime footprint is disclosed separately from the public SDK proof lane",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -386,8 +387,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/protocols/fdia-equation", verifiedAt: "2026-04-15",
     },
     {
-      value: "62 services", label: "RCT infrastructure scope",
-      detail: "Intent OS governs all 62 microservices — no unmanaged AI execution path",
+      value: SITE_ENTERPRISE_EVIDENCE_LABEL, label: "RCT runtime scope",
+      detail: "Intent OS governance spans the broader runtime, which is disclosed separately from public SDK proof",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -402,22 +403,22 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
     },
     {
-      value: "4,849 tests", label: "Platform evidence requirement",
-      detail: "RCT Ecosystem proof: 4,849 automated tests, 0 failures, 62 microservices",
+      value: `${SITE_PUBLIC_SDK_TESTS} tests`, label: SITE_PUBLIC_SDK_EVIDENCE_LABEL,
+      detail: `Use the public SDK checkpoint as the open proof lane; ${SITE_TEST_COUNT.toLocaleString()} tests remain a separate ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}`,
       type: "mechanism", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
     {
-      value: "0.3%", label: "Hallucination benchmark",
-      detail: "RCT production target rate — stated in evaluation criteria",
+      value: SITE_HALLUCINATION_RATE, label: "Hallucination benchmark scope",
+      detail: "Benchmark-scoped rate used in evaluation criteria, paired with methodology disclosures",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "evaluation-harnesses-enterprise-llm": [
     {
-      value: "4,849 tests", label: "Automated test suite",
-      detail: "8-level pyramid: Unit → Integration → Contract → E2E → Constitutional → Load → Security → Drift",
+      value: `${SITE_TEST_COUNT.toLocaleString()} tests`, label: "Enterprise snapshot suite",
+      detail: `Broader runtime evaluation across the enterprise-private snapshot; public SDK checkpoint is ${SITE_PUBLIC_SDK_TESTS} tests`,
       type: "outcome", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -429,21 +430,21 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
     },
     {
       value: "0.92", label: "FDIA benchmark score",
-      detail: "RCT measured accuracy vs ~0.65 industry baseline — 4,849-test eval set",
+      detail: `RCT measured accuracy vs ~0.65 industry baseline — enterprise evaluation set disclosed separately from the ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()}`,
       type: "operational", evidenceType: "source",
       evidenceRef: "https://hai.stanford.edu/", verifiedAt: "2026-04-15",
     },
   ],
   "rct-ecosystem-4849-tests-methodology": [
     {
-      value: "4,849", label: "Tests passing",
-      detail: "0 failures, 0 errors across all levels in v5.4.5 production suite",
+      value: `${SITE_TEST_COUNT.toLocaleString()}`, label: "Tests in enterprise snapshot",
+      detail: `0 failures, 0 errors across the larger suite, disclosed separately from the ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()}`,
       type: "outcome", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
     {
-      value: "62 microservices", label: "Test matrix scope",
-      detail: "All 62 services covered; multi-layer pyramid including constitutional checks",
+      value: SITE_ENTERPRISE_EVIDENCE_LABEL, label: "Test matrix scope",
+      detail: "Broader runtime coverage with multi-layer checks, disclosed as enterprise context rather than public SDK proof",
       type: "mechanism", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -468,8 +469,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
     },
     {
-      value: "4,849", label: "Test gates per cycle",
-      detail: "0 failures allowed to proceed to next stage — hard quality gate",
+      value: `${SITE_TEST_COUNT.toLocaleString()}`, label: "Enterprise test gates per cycle",
+      detail: "0 failures allowed to proceed to next stage in the enterprise snapshot; public SDK uses its own smaller verified checkpoint",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -552,8 +553,8 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
     },
     {
-      value: "4,849 / 0 fail", label: "Quality gate result",
-      detail: "4,849 tests passing, 0 failures, 0 errors — reverse-component methodology verified",
+      value: `${SITE_TEST_COUNT.toLocaleString()} / 0 fail`, label: "Enterprise quality gate result",
+      detail: `Enterprise snapshot passes the larger suite, while ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} remains the public proof lane`,
       type: "operational", evidenceType: "source",
       evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
     },
@@ -624,20 +625,20 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
   ],
   "rct-platform-open-source-launch": [
     {
-      value: "723", label: "Passing tests",
-      detail: "723 tests pass across Python 3.10, 3.11, 3.12 — zero failures, zero errors",
+      value: `${SITE_PUBLIC_SDK_TESTS}`, label: "Passing tests",
+      detail: `${SITE_PUBLIC_SDK_TESTS} tests pass on the current public SDK checkpoint with ${SITE_PUBLIC_SDK_COVERAGE} coverage`,
       type: "outcome", evidenceType: "source",
       evidenceRef: "https://github.com/rctlabs/rct-platform", verifiedAt: "2026-04-22",
     },
     {
-      value: "89%", label: "Code coverage",
-      detail: "89% line coverage across FDIA, JITNA, SignedAI, Delta Engine, and 5 microservices",
+      value: SITE_PUBLIC_SDK_COVERAGE, label: "Code coverage",
+      detail: `${SITE_PUBLIC_SDK_COVERAGE} line coverage across the current public SDK release path`,
       type: "mechanism", evidenceType: "source",
       evidenceRef: "https://github.com/rctlabs/rct-platform", verifiedAt: "2026-04-22",
     },
     {
-      value: "Apache 2.0", label: "License",
-      detail: "Permissive open source — commercial use, patent grant, no copyleft",
+      value: SITE_PUBLIC_SDK_VERSION, label: "Public SDK version",
+      detail: "Apache 2.0 licensed developer SDK — separate from the broader enterprise runtime",
       type: "operational", evidenceType: "source",
       evidenceRef: "https://choosealicense.com/licenses/apache-2.0/", verifiedAt: "2026-04-22",
     },

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
-import { SITE_URL } from "@/lib/site-config"
+import { SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_RESEARCH_EVIDENCE_LABEL, SITE_URL } from "@/lib/site-config"
 import { GENERAL_CONTACT_EMAIL } from "@/lib/contact"
 import ContactPageClient from "./contact-page-client"
 
@@ -13,8 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Contact RCT Labs — Enterprise AI Partnership & Technical Support",
     "ติดต่อ RCT Labs — พันธมิตร AI ระดับองค์กร และการสนับสนุนทางเทคนิค",
-    "Contact RCT Labs for enterprise AI partnerships, technical inquiries, and collaboration opportunities. Get in touch with our team building Constitutional AI with 41 algorithms and 0.3% hallucination rate.",
-    "ติดต่อ RCT Labs สำหรับพันธมิตรทาง AI ระดับองค์กร สอบถามข้อมูลทางเทคนิค และโอกาสความร่วมมือ ทีมผู้สร้าง Constitutional AI พร้อม 41 อัลกอริทึม และอัตราหลอน 0.3%",
+    `Contact RCT Labs for enterprise AI partnerships, technical inquiries, and collaboration opportunities. Public-facing claims are organized around ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()}.`,
+    `ติดต่อ RCT Labs สำหรับพันธมิตรทาง AI ระดับองค์กร สอบถามข้อมูลทางเทคนิค และโอกาสความร่วมมือ โดยข้อความสาธารณะถูกจัดตาม ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} และ ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()}.`,
     "/contact",
     ["contact RCT Labs", "enterprise AI partnership", "AI technical support"]
   )

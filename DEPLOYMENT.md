@@ -14,6 +14,8 @@ rctlabs.co is configured for seamless deployment on Vercel with optimized perfor
 - [x] Image optimization enabled
 - [x] Environment variables configured
 - [x] Analytics setup (Vercel Analytics integrated)
+- [ ] Public claim boundary check completed (`Public SDK verified` vs `Enterprise private snapshot` vs `Research / benchmark scope`)
+- [ ] Public SDK counts synced from `rct-platform/docs/testing/TESTING_CANONICAL.md`
 
 ## Deployment Steps
 
@@ -46,6 +48,12 @@ git push origin main
 - [ ] Verify robots.txt at /robots.txt
 - [ ] Verify sitemap at /sitemap.xml
 - [ ] Test Open Graph tags on social media
+
+### Step 5: Verify Evidence Lanes
+- [ ] `/en/about` shows public SDK proof separately from enterprise snapshot proof
+- [ ] `/en/algorithms` does not imply enterprise-private test counts are public repo verification
+- [ ] `/en/benchmark-summary` and `/en/methodology` remain the authority surfaces for benchmark scope and disclosure language
+- [ ] Public SDK test count matches the latest canonical checkpoint from `rct-platform`
 
 ## Environment Variables
 
@@ -91,6 +99,7 @@ Current optimizations:
 - [ ] Navbar does not imply working user login before auth launch
 - [ ] Public pages do not expose placeholder notifications or fake account states
 - [ ] Contact CTAs route to real contact / access-request flows
+- [ ] Admin or internal routes are not indexable and do not read like production truth if preview data is shown
 
 ### Funnel QA
 - [ ] Pricing tier without hosted checkout falls back to contact flow with the correct context

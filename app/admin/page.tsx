@@ -125,6 +125,11 @@ export default function AdminConsolePage() {
                 RCT Ecosystem v3.3.0 — Operational Dashboard
                 {lastRefresh && <span className="ml-3 text-xs">Last refresh: {lastRefresh}</span>}
               </p>
+              {!summary && (
+                <p className="mt-2 text-xs text-yellow-300/80">
+                  Preview mode: backend summary unavailable. Values below are mock dashboard data and not public proof.
+                </p>
+              )}
             </div>
             <Button
               variant="outline"
@@ -143,7 +148,7 @@ export default function AdminConsolePage() {
             <StatCard label="Services Healthy" value={`${data.services.healthy}/${data.services.total}`} color="text-green-400" />
             <StatCard label="Health %" value={data.services.health_pct} unit="%" color="text-emerald-400" />
             <StatCard label="Open Incidents" value={data.open_incidents} color={data.open_incidents > 0 ? "text-red-400" : "text-green-400"} />
-            <StatCard label="Tests Passing" value={data.test_coverage.total_tests.toLocaleString()} color="text-blue-400" />
+            <StatCard label={summary ? "Tests Passing" : "Preview Dataset"} value={data.test_coverage.total_tests.toLocaleString()} color="text-blue-400" />
           </div>
 
           {/* Resource Utilization */}

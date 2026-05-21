@@ -7,6 +7,7 @@ import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
 import Link from "next/link"
 import { Mail, Linkedin, Github, ExternalLink, Building2, User, Newspaper } from "lucide-react"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_EVIDENCE_LAST_UPDATED, SITE_PUBLIC_SDK_COVERAGE, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS, SITE_TEST_COUNT } from "@/lib/site-config"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
@@ -15,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Press & Media — Constitutional AI from Thailand",
     "สื่อมวลชนและข่าวประชาสัมพันธ์ — Constitutional AI จากประเทศไทย",
-    "Press kit, fact sheet, story angles, and media contact for RCT Labs — a constitutional AI operating system built by a solo developer in Bangkok, Thailand. 62 microservices, 4,849 passing tests, benchmark hallucination target: 0.3%.",
-    "Press kit, fact sheet, มุมข่าว และข้อมูลติดต่อสื่อสำหรับ RCT Labs — constitutional AI operating system ที่สร้างโดยผู้พัฒนาคนเดียวจากกรุงเทพฯ ประเทศไทย พร้อม 62 microservices, 4,849 passing tests และ Benchmark Hallucination Target 0.3%",
+    `Press kit, fact sheet, story angles, and media contact for RCT Labs. Public press copy distinguishes ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} from ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} and benchmark-scoped statements.`,
+    `Press kit, fact sheet, มุมข่าว และข้อมูลติดต่อสื่อสำหรับ RCT Labs โดย press copy สาธารณะจะแยก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} และ benchmark-scoped statements อย่างชัดเจน`,
     "/press",
     ["press kit", "media contact", "constitutional AI Thailand", "RCT Labs press"]
   )
@@ -26,11 +27,12 @@ const facts = [
   { label: "Founded", labelTh: "ก่อตั้ง", value: "June 25, 2025" },
   { label: "First Public Release", labelTh: "เวอร์ชันสาธารณะแรก", value: "August 11, 2025 (30 days)" },
   { label: "Enterprise Version", labelTh: "เวอร์ชัน Enterprise", value: "v5.4.5" },
-  { label: "Public SDK", labelTh: "Public SDK (GitHub)", value: "v1.0.2a0 (Apache 2.0)" },
+  { label: "Public SDK", labelTh: "Public SDK (GitHub)", value: `v1.0.4b0 · ${SITE_PUBLIC_SDK_TESTS} tests · ${SITE_PUBLIC_SDK_COVERAGE}` },
   { label: "Microservices", labelTh: "Microservices", value: "62" },
   { label: "Algorithms", labelTh: "Algorithms", value: "41 (Tier 1–9)" },
   { label: "AI Models (HexaCore)", labelTh: "โมเดล AI (HexaCore)", value: "7 (3 Western + 3 Eastern + 1 Thai)" },
-  { label: "Test Suite", labelTh: "ชุดทดสอบ", value: "4,849 passed / 0 failed / 0 errors" },
+  { label: "Public Evidence", labelTh: "หลักฐานสาธารณะ", value: `${SITE_PUBLIC_SDK_EVIDENCE_LABEL} · ${SITE_PUBLIC_SDK_TESTS} tests` },
+  { label: "Enterprise Snapshot", labelTh: "สแนปช็อตระดับองค์กร", value: `${SITE_TEST_COUNT.toLocaleString()} tests / 62 runtime components` },
   { label: "Benchmark Hallucination Target", labelTh: "เป้าหมาย Benchmark Hallucination", value: "0.3% (industry: 12–15%)" },
   { label: "FDIA Benchmark Accuracy", labelTh: "ความแม่นยำ FDIA (Benchmark)", value: "0.92 vs ~0.65 baseline" },
   { label: "Memory Compression", labelTh: "การบีบอัดหน่วยความจำ", value: "74% lossless (Delta Engine)" },
@@ -48,8 +50,8 @@ const storyAngles = [
     headlineTh: "นักพัฒนาคนเดียวจากไทยสร้าง Constitutional AI OS ระดับ Enterprise ในเวลา 30 วัน ด้วยต้นทุนศูนย์บาท",
     angle: "Human interest / entrepreneurship",
     angleTh: "ความสนใจมนุษย์ / ผู้ประกอบการ",
-    hook: "While Silicon Valley needs $100M and 50 engineers, Ittirit Saengow built a production-grade AI operating system with 62 microservices from a single Android phone in Bangkok.",
-    hookTh: "ขณะที่ Silicon Valley ต้องใช้เงิน 100 ล้านดอลลาร์และวิศวกร 50 คน อิทธิฤทธิ์ แซ่โง้ว สร้าง AI OS ระดับ production ที่มี 62 microservices จากโทรศัพท์ Android เครื่องเดียวในกรุงเทพฯ",
+    hook: `While Silicon Valley narratives often assume large teams and capital, Ittirit Saengow built a constitutional AI operating system whose public proof lane and enterprise snapshot are disclosed separately instead of being collapsed into one claim.`,
+    hookTh: `ขณะที่ narrative ของ Silicon Valley มักสมมติว่าต้องใช้ทีมใหญ่และเงินทุนสูง Ittirit Saengow สร้าง constitutional AI operating system ที่แยก public proof lane ออกจาก enterprise snapshot อย่างชัดเจน แทนการรวมทุกอย่างเป็น claim เดียว`,
     badgeClass: "border-warm-amber/30 bg-warm-amber/10 text-warm-amber",
     cardClass: "border-warm-amber/20",
   },
@@ -58,8 +60,8 @@ const storyAngles = [
     headlineTh: "Constitutional AI: สถาปัตยกรรมที่พิสูจน์ได้ว่าป้องกัน Hallucination",
     angle: "Technology / AI safety",
     angleTh: "เทคโนโลยี / ความปลอดภัย AI",
-    hook: "FDIA equation F = (D^I) × A introduces a mathematical kill switch: when A=0, no AI output is produced — regardless of model, prompt, or context. Benchmark hallucination target: 0.3% vs 12–15% industry average.",
-    hookTh: "สมการ FDIA F = (D^I) × A สร้างสวิตช์ตัดทางคณิตศาสตร์: เมื่อ A=0 จะไม่มี AI output เกิดขึ้นเลย ไม่ว่าโมเดล prompt หรือบริบทจะเป็นอะไร Benchmark Hallucination Target: 0.3% เทียบกับค่าเฉลี่ยอุตสาหกรรม 12–15%",
+    hook: "FDIA equation F = (D^I) × A introduces a mathematical kill switch: when A=0, no AI output is produced. Benchmark hallucination statements are disclosed with controlled-workload scope rather than presented as universal guarantees.",
+    hookTh: "สมการ FDIA F = (D^I) × A สร้างสวิตช์ตัดทางคณิตศาสตร์: เมื่อ A=0 จะไม่มี AI output เกิดขึ้น โดย benchmark hallucination statements จะถูกเปิดเผยพร้อม controlled-workload scope ไม่ใช่เล่าเป็น guarantee แบบครอบจักรวาล",
     badgeClass: "border-sky-400/30 bg-sky-400/10 text-sky-400",
     cardClass: "border-sky-400/20",
   },
@@ -111,7 +113,7 @@ export default async function PressPage() {
     alternateName: "Reverse Component Thinking Labs",
     url: "https://rctlabs.co",
     logo: "https://rctlabs.co/RCTLogo-horizontal.svg",
-    description: "Constitutional AI Operating System built by a solo developer in Bangkok, Thailand — 62 microservices, 4,849 passing tests, 0.3% benchmark hallucination target.",
+    description: `Constitutional AI Operating System built by a solo developer in Bangkok, Thailand, with a public SDK proof lane and a separately disclosed ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
     foundingDate: "2024",
     founder: { "@type": "Person", name: "Ittirit Saengow", jobTitle: "The Architect" },
     location: { "@type": "Place", addressLocality: "Bangkok", addressCountry: "TH" },
@@ -145,8 +147,8 @@ export default async function PressPage() {
             {/* Hero stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
               {[
-                { value: "62", label: isTh ? "Microservices" : "Microservices" },
-                { value: "4,849", label: isTh ? "Tests ผ่าน" : "Tests Passing" },
+                { value: `${SITE_PUBLIC_SDK_TESTS}`, label: isTh ? SITE_PUBLIC_SDK_EVIDENCE_LABEL : SITE_PUBLIC_SDK_EVIDENCE_LABEL },
+                { value: `${SITE_TEST_COUNT}`, label: isTh ? SITE_ENTERPRISE_EVIDENCE_LABEL : SITE_ENTERPRISE_EVIDENCE_LABEL },
                 { value: "0.3%", label: isTh ? "เป้าหมาย Benchmark Hallucination" : "Benchmark Hallucination Target" },
                 { value: "99.98%", label: isTh ? "เป้าหมาย Design SLA" : "Uptime Design SLA Target" },
               ].map((s) => (
@@ -156,6 +158,9 @@ export default async function PressPage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-muted-foreground max-w-2xl">
+              {`${SITE_PUBLIC_SDK_EVIDENCE_LABEL}: ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests • ${SITE_PUBLIC_SDK_COVERAGE} | ${SITE_ENTERPRISE_EVIDENCE_LABEL}: ${SITE_TEST_COUNT.toLocaleString()} tests / 62 runtime components | updated ${SITE_EVIDENCE_LAST_UPDATED}`}
+            </p>
 
             {/* Media contact */}
             <div className="inline-flex flex-col sm:flex-row gap-3">
@@ -192,8 +197,8 @@ export default async function PressPage() {
                 </p>
                 <p className="text-muted-foreground leading-relaxed max-w-3xl mb-4">
                   {isTh
-                    ? "อิทธิฤทธิ์ แซ่โง้ว คือผู้สร้างเพียงคนเดียวของ RCT (Reverse Component Thinking) Ecosystem — Constitutional AI Operating System ที่ประกอบด้วย 62 microservices, 41 algorithms, AI models 7 ตัวในระบบ HexaCore และ automated tests กว่า 4,849 รายการ สร้างขึ้นภายใน 30 วัน ในช่วงมิถุนายน–สิงหาคม 2025 โดยไม่มีเงินลงทุนภายนอก จากกรุงเทพฯ ประเทศไทย"
-                    : "Ittirit Saengow is the sole creator of the RCT (Reverse Component Thinking) Ecosystem — a constitutional AI operating system comprising 62 microservices, 41 algorithms, 7 HexaCore AI models, and 4,849 automated tests. Built over 30 days in June–August 2025 with zero investment capital, from Bangkok, Thailand. Before RCT Labs, Ittirit ran four businesses, studied facility management at the Faculty of Architecture (completing a 4-year program in 6.5 years), and developed the FDIA equation, JITNA protocol, and 7-Genome system as conceptual frameworks before implementing them in code."}
+                    ? `อิทธิฤทธิ์ แซ่โง้ว คือผู้สร้างเพียงคนเดียวของ RCT (Reverse Component Thinking) Ecosystem — Constitutional AI Operating System ที่มี 41 algorithms และ 7 HexaCore models โดยหลักฐานสาธารณะใช้ ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ที่ ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests ส่วน footprint ของ runtime ที่กว้างกว่าและ suite ขนาดใหญ่กว่าถูกจัดเป็น ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} แยกต่างหาก`
+                    : `Ittirit Saengow is the sole creator of the RCT (Reverse Component Thinking) Ecosystem — a constitutional AI operating system with 41 algorithms and 7 HexaCore AI models. Public-facing proof now uses ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} at ${SITE_PUBLIC_SDK_TESTS.toLocaleString()} tests, while the broader runtime footprint and larger suite remain separately disclosed as an ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`}
                 </p>
                 <div className="flex gap-3">
                   <a href="https://github.com/ittirit720" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-warm-dim hover:text-warm-amber transition">

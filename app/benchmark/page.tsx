@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS, SITE_RESEARCH_EVIDENCE_LABEL } from "@/lib/site-config"
 import BenchmarkClient from "./BenchmarkClient"
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -10,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "AI Benchmark Results",
     "ผลลัพธ์ Benchmark AI",
-    "Independent benchmark results: RCT Labs vs LangChain vs LlamaIndex vs AutoGen. RCT achieves 99.7% accuracy, 0.3% hallucination rate, and 47ms average latency at enterprise scale.",
-    "ผลลัพธ์ Benchmark อิสระ: RCT Labs เทียบกับ LangChain, LlamaIndex, AutoGen ความแม่นยำ 99.7%, อัตรา Hallucination 0.3% และ Latency เฉลี่ย 47ms",
+    `Benchmark framing for RCT Labs vs common orchestration patterns. This page should be read with methodology disclosures and separates ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} from ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+    `หน้าสรุป benchmark ของ RCT Labs เทียบกับแนวทาง orchestration ทั่วไป โดยต้องอ่านคู่กับ methodology disclosures และแยก ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} และ ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
     "/benchmark",
     ["AI benchmark", "LangChain vs RCT", "LlamaIndex comparison", "hallucination benchmark", "AI accuracy benchmark", "enterprise AI performance"]
   )
@@ -25,13 +26,13 @@ export default async function BenchmarkPage() {
     "@context": "https://schema.org",
     "@type": "Dataset",
     "name": "RCT Labs AI Reliability Benchmark — 2025 Results",
-    "description": "4,849 test cases across 9 validation tiers comparing RCT Labs Constitutional AI against LangChain, LlamaIndex, and AutoGen. Metrics: hallucination rate, accuracy, and latency at enterprise scale.",
+    "description": `Benchmark framing that explains how RCT Labs evaluates hallucination, accuracy, latency, and routing quality. Public readers should distinguish ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} from ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and larger ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} statements.`,
     "url": `https://rctlabs.co${localePrefix}/benchmark`,
     "creator": { "@type": "Organization", "name": "RCT Labs", "url": "https://rctlabs.co" },
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
     "variableMeasured": [
       { "@type": "PropertyValue", "name": "Hallucination Rate", "value": "0.3%", "unitText": "percent" },
-      { "@type": "PropertyValue", "name": "Test Cases", "value": 4849, "unitText": "count" },
+      { "@type": "PropertyValue", "name": "Public SDK Verified Tests", "value": SITE_PUBLIC_SDK_TESTS, "unitText": "count" },
       { "@type": "PropertyValue", "name": "Validation Tiers", "value": 9, "unitText": "count" }
     ]
   }

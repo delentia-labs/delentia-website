@@ -10,6 +10,7 @@ import { Palette, ShieldCheck, ArrowRight, Layers, Cpu, Zap } from "lucide-react
 import OptimizedImage from "@/components/ui/optimized-image"
 import { getLocaleFromPathname } from "@/lib/i18n"
 import { pixelIcons } from "@/lib/pixel-icons"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS } from "@/lib/site-config"
 
 const PIXEL_LABS = pixelIcons.algorithms
 const PIXEL_ARTENT = pixelIcons.brain
@@ -25,10 +26,10 @@ const products = [
     titleTh: "RCTLabs",
     tagEn: "AI Operating Environment",
     tagTh: "AI Operating Environment",
-    descEn: "Constitutional AI Operating Environment where 7 Genomes converge. 4,849 verified tests, 41 production algorithms, and FDIA governing every inference across 62 microservices.",
-    descTh: "AI Operating Environment ที่ 7 Genome บรรจบกัน พร้อม 4,849 Verified Tests, 41 Production Algorithms และ FDIA Constitutional Scoring กำกับทุก Inference",
+    descEn: `Constitutional AI Operating Environment where 7 Genomes converge. Public pages use ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} for ${SITE_PUBLIC_SDK_TESTS} open-release tests and keep the broader runtime under ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+    descTh: `AI Operating Environment ที่ 7 Genome บรรจบกัน โดยหน้า public ใช้ ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} สำหรับ ${SITE_PUBLIC_SDK_TESTS} tests ของ open release path และเก็บ runtime ที่กว้างกว่าไว้ภายใต้ ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}`,
     features: [
-      { en: "4,849 Verified Tests", th: "4,849 Verified Tests" },
+      { en: `${SITE_PUBLIC_SDK_TESTS} ${SITE_PUBLIC_SDK_EVIDENCE_LABEL}`, th: `${SITE_PUBLIC_SDK_TESTS} ${SITE_PUBLIC_SDK_EVIDENCE_LABEL}` },
       { en: "41 Production Algorithms", th: "41 Production Algorithms" },
       { en: "FDIA Constitutional Scoring", th: "FDIA Constitutional Scoring" },
       { en: "7 Genome System", th: "7 Genome System" },
@@ -84,7 +85,7 @@ export default function ProductsPage() {
   const localHref = (href: string) => `${localePrefix}${href}`
 
   const productMetrics = [
-    { value: "4,849", labelEn: "Verified Tests", labelTh: "Verified Tests", color: "#D4A853" },
+    { value: `${SITE_PUBLIC_SDK_TESTS}`, labelEn: SITE_PUBLIC_SDK_EVIDENCE_LABEL, labelTh: SITE_PUBLIC_SDK_EVIDENCE_LABEL, color: "#D4A853" },
     { value: "99.7%", labelEn: "Verified Accuracy", labelTh: "ความแม่นยำที่ตรวจสอบได้", color: "#7B9E87" },
     { value: "3", labelEn: "Core Products", labelTh: "ผลิตภัณฑ์หลัก", color: "#B8A9C9" },
   ]

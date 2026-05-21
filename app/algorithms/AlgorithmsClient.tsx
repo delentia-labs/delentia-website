@@ -11,7 +11,7 @@ import SectionHeading from "@/components/section-heading"
 import AnalysearchDemo from "@/components/demos/analysearch-demo"
 import OptimizedImage from "@/components/ui/optimized-image"
 import { pixelIcons } from "@/lib/pixel-icons"
-import { SITE_HALLUCINATION_RATE } from "@/lib/site-config"
+import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_HALLUCINATION_RATE, SITE_PUBLIC_SDK_EVIDENCE_LABEL } from "@/lib/site-config"
 
 const PIXEL_ALGO = pixelIcons.algorithms
 
@@ -88,8 +88,8 @@ export default function AlgorithmsPage() {
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground">41 Algorithms & Analysearch</h1>
           <p className="text-lg text-muted-foreground">
             {isTh
-              ? "41-algorithm framework พร้อม staged rollout ใน 9 tiers — Analysearch สำหรับการวิเคราะห์และสังเคราะห์แบบหลายระดับ"
-              : "41-algorithm framework with staged rollout across 9 tiers, with Analysearch providing the multi-depth analysis and synthesis layer."}
+              ? "41-algorithm framework พร้อม staged rollout ใน 9 tiers — แยก public SDK verification ออกจาก enterprise runtime validation และ benchmark scope"
+              : "41-algorithm framework with staged rollout across 9 tiers, separating public SDK verification from enterprise runtime validation and benchmark scope."}
           </p>
 
           {/* Hero stats */}
@@ -98,7 +98,7 @@ export default function AlgorithmsPage() {
               { value: "41", label: isTh ? "Algorithms" : "Algorithms" },
               { value: "9", label: isTh ? "Capability Tiers" : "Capability Tiers" },
               { value: "4", label: isTh ? "Analysearch Modes" : "Analysearch Modes" },
-              { value: SITE_HALLUCINATION_RATE, label: isTh ? "Hallucination Rate" : "Hallucination Rate" },
+              { value: SITE_HALLUCINATION_RATE, label: isTh ? "Benchmark Scope" : "Benchmark Scope" },
             ].map((s) => (
               <div key={s.label} className="rounded-xl border border-warm-amber/20 bg-warm-amber/5 px-4 py-3 text-left">
                 <p className="text-2xl font-bold text-warm-amber">{s.value}</p>
@@ -158,8 +158,8 @@ export default function AlgorithmsPage() {
         <div className="mx-auto max-w-3xl px-4 space-y-4 text-muted-foreground text-base leading-relaxed">
           <h2 className="text-2xl font-bold text-foreground">{isTh ? "สถาปัตยกรรม 9 ระดับ" : "The 9-Tier Architecture"}</h2>
           <p>{isTh
-            ? "RCT Ecosystem จัดอัลกอริทึม 41 ตัวเป็น 9 ระดับความสามารถ โดยแต่ละระดับต่อยอดจากระดับก่อนหน้าเพื่อสร้าง routing และ reasoning ที่เหมาะกับบริบทธุรกิจต่างกัน"
-            : "The 41 algorithms are grouped into 9 capability tiers. Each tier extends the one below it so the platform can route work according to business context, depth, and risk."}</p>
+            ? `RCT Ecosystem จัดอัลกอริทึม 41 ตัวเป็น 9 ระดับความสามารถ โดยหน้า public นี้จะใช้ ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} สำหรับสิ่งที่ตรวจได้จาก open release path และใช้ ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} เมื่อพูดถึง runtime footprint ที่กว้างกว่า`
+            : `The 41 algorithms are grouped into 9 capability tiers. This public page uses ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} for claims tied to the open release path and ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} when referring to the broader runtime footprint.`}</p>
         </div>
       </section>
 
