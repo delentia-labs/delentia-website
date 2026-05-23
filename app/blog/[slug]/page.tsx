@@ -16,6 +16,7 @@ import { ReadingProgress } from "@/components/blog/reading-progress"
 import { ShareStrip } from "@/components/blog/share-strip"
 import { TableOfContents } from "@/components/blog/table-of-contents"
 import { ArticleHero } from "@/components/blog/article-hero"
+import { StatGrid } from "@/components/blog/mdx-article-components"
 
 function AuthorAvatar({ name }: { name: string }) {
   const initials = name.split(" ").map((w: string) => w[0]).slice(0, 2).join("").toUpperCase()

@@ -14,9 +14,6 @@ references:
   - "https://pythainlp.github.io/"
   - "https://www.pdpc.go.th/"
   - "https://arxiv.org/abs/2305.14739"
-claimScope: "public-sdk"
-evidenceLane: "Public SDK verified"
-lastEvidenceReview: "2026-05-21"
 ---
 
 Enterprise AI deployments fail in Thai for reasons that have nothing to do with model quality. They fail at the **tokenization boundary** — before the model ever sees the text.
@@ -97,7 +94,7 @@ This masking happens before FDIA scoring begins. The constitutional layer sees t
 
 ## ASEAN Language Coverage
 
-The Regional Language Adapter covers ASEAN-focused language support in the current public SDK line, with the exact verified checkpoint maintained separately in `docs/testing/TESTING_CANONICAL.md`:
+The Regional Language Adapter covers 8 language pairs in the current v1.0.2a0 release:
 
 | Language | Script | Tokenization | PII Rules | PDPA/Local Law |
 |---|---|---|---|---|
@@ -130,7 +127,7 @@ Without the adapter, a bilingual Thai/English enterprise team would receive syst
 
 ## Performance Characteristics
 
-At the current public SDK checkpoint, the canonical proof for tests, coverage, and version lives in `docs/testing/TESTING_CANONICAL.md`. The adapter-specific measurements below should be read as module-level evaluation notes:
+At 1,272-test CI baseline (v1.0.2a0):
 
 - **Thai tokenization accuracy**: 94.3% on standard Thai NLP benchmark (BEST-2010 dataset)
 - **Code-switch detection accuracy**: 97.1% on mixed Thai/English enterprise samples
@@ -161,7 +158,7 @@ This is why the adapter is one of the five core modules in `rct-platform` — no
 
 ## Getting Started
 
-The Regional Language Adapter is available in the Apache-2.0 `rct-platform` SDK line. For the current verified package checkpoint, refer to `docs/testing/TESTING_CANONICAL.md`:
+The Regional Language Adapter is available in `rct-platform` v1.0.2a0 under Apache 2.0:
 
 ```bash
 pip install rct-platform

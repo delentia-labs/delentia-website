@@ -3,8 +3,8 @@ title: "ArtentAI: The Autonomous Enterprise Agent"
 author: "Ittirit Saengow"
 authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
-date: "2026-05-24"
-lastReviewed: "2026-05-24"
+date: "2026-05-23"
+lastReviewed: "2026-05-23"
 category: "product"
 excerpt: "ArtentAI is not a chatbot with an agentic wrapper. It is an enterprise-grade autonomous agent built on FDIA-gated intent routing, JITNA-bounded execution, and SignedAI-verified decision chains — designed to operate in production without requiring human approval for every step while remaining auditable, stoppable, and constitutionally governed at all times."
 tags: ["ArtentAI", "Autonomous Agent", "Enterprise AI", "FDIA", "JITNA", "Agentic AI", "RCT Platform", "Multi-LLM Consensus"]
@@ -13,9 +13,6 @@ references:
   - "https://arxiv.org/abs/2210.03629"
   - "https://arxiv.org/abs/2304.01373"
   - "https://arxiv.org/abs/2308.11432"
-claimScope: "enterprise-architecture"
-evidenceLane: "Enterprise private snapshot"
-lastEvidenceReview: "2026-05-21"
 ---
 
 Most "autonomous agents" are demos. They work on toy tasks in controlled environments, require careful prompt engineering, and fall apart when they encounter real enterprise data, compliance requirements, or multi-step workflows that span more than one API call.
@@ -171,7 +168,7 @@ The second list is as important as the first. An autonomous agent that *can* be 
 
 ## Performance Characteristics
 
-For the current public SDK checkpoint, use the canonical proof in `docs/testing/TESTING_CANONICAL.md`. The enterprise agent metrics below should be read as architecture and enterprise-environment guidance, not as the public proof lane for the SDK:
+At v1.0.2a0 CI baseline (1,272 tests passing):
 
 | Metric | Value |
 |---|---|
@@ -193,7 +190,7 @@ For the current public SDK checkpoint, use the canonical proof in `docs/testing/
 | Governance enforcement | Prompt-based (bypassable) | Control Plane (not bypassable) |
 | Multi-LLM consensus | Optional, manual | Constitutional enforcement |
 | Context management | Full context copy per step | Delta compression, warm recall |
-| Language support | English-first | Regional adapter support with ASEAN-focused enterprise coverage |
+| Language support | English-first | 8 ASEAN language pairs |
 | PII handling | Application responsibility | Constitutional enforcement |
 | Cost control | Monitoring-based | JITNA budget enforcement |
 | Stoppability | Process kill | Checkpoint-safe halt |

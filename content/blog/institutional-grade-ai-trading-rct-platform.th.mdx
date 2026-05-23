@@ -5,9 +5,6 @@ authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
 date: "2026-05-17"
 lastReviewed: "2026-05-12"
-claimScope: "architecture-blueprint"
-evidenceLane: "Research / benchmark scope"
-lastEvidenceReview: "2026-05-21"
 category: "engineering"
 excerpt: "Blueprint สถาปัตยกรรมสำหรับการนำ FDIA, SignedAI และ Delta Engine ของ rct-platform ไปใช้กับ Institutional Trading บทความนี้ Map IntentLoop 7 สถานะเข้ากับ Trading Pipeline แบบสมบูรณ์ — ตั้งแต่การรับข้อมูลผ่านการกรองความเสี่ยงหลายโมเดลและการ Log ผลลัพธ์การเทรดลง RCTDB"
 tags: ["Algorithmic Trading", "AI Trading", "FDIA", "SignedAI", "Delta Engine", "HexaCore", "Intent Loop", "Fintech AI", "rct-platform"]
@@ -19,7 +16,7 @@ references:
 
 # สร้างระบบ AI Trading ระดับ Institutional บน RCT Platform
 
-**สิ่งสำคัญก่อนเริ่ม:** บทความนี้คือ Blueprint สถาปัตยกรรม โดย public `rct-platform` SDK line เป็น Developer SDK — ให้ Building Blocks ด้าน Algorithm (FDIA Scoring, SignedAI Consensus, Delta Engine Compression, JITNA Routing) มันไม่ใช่ระบบ Trading ที่พร้อมใช้งาน Production Deployment จากสถาปัตยกรรมนี้ต้องการ Component เพิ่มเติม — อธิบายอย่างชัดเจนในส่วน [Extensions ที่ต้องสร้าง](#สิ่งที่ต้องสร้าง)
+**สิ่งสำคัญก่อนเริ่ม:** บทความนี้คือ Blueprint สถาปัตยกรรม `rct-platform` v1.0.2a0 เป็น Developer SDK — ให้ Building Blocks ด้าน Algorithm (FDIA Scoring, SignedAI Consensus, Delta Engine Compression, JITNA Routing) มันไม่ใช่ระบบ Trading ที่พร้อมใช้งาน Production Deployment จากสถาปัตยกรรมนี้ต้องการ Component เพิ่มเติม — อธิบายอย่างชัดเจนในส่วน [Extensions ที่ต้องสร้าง](#สิ่งที่ต้องสร้าง)
 
 นอกจากนี้ไม่ใช่คำแนะนำทางการเงิน Pattern ที่อธิบายเป็น Engineering Patterns สำหรับสร้างระบบ AI แบบ Deterministic และ Auditable ในโดเมนการเงิน
 
@@ -152,7 +149,7 @@ Architecture IntentLoop ทำงานใน Standby Mode สำหรับ Si
 
 ## สิ่งที่ต้องสร้าง
 
-public `rct-platform` SDK line ให้ Algorithm Core โดย Production Trading Deployment ต้องการ 3 Component เพิ่มเติม:
+`rct-platform` v1.0.2a0 ให้ Algorithm Core Production Trading Deployment ต้องการ 3 Component เพิ่มเติม:
 
 ### 1. Market Data Adapters
 

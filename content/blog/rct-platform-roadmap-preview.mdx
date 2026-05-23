@@ -6,10 +6,7 @@ reviewerId: "rct-research-desk"
 date: "2026-05-20"
 lastReviewed: "2026-05-12"
 category: "engineering"
-excerpt: "rct-platform is now tracked from the v1.0.4b0 beta-preview checkpoint. This roadmap separates what is already public-proof in the SDK from what remains benchmark-scoped or enterprise-private."
-claimScope: "public-sdk"
-evidenceLane: "Public SDK verified"
-lastEvidenceReview: "2026-05-21"
+excerpt: "rct-platform v1.0.2a0 is live. Here is what was shipped, what is in progress, and what is coming in v1.0.3a0, v1.0.0 stable, v1.1.0 Observability, and v1.2.0 ASEAN Expansion — and what we are explicitly not building in the open-source tier."
 tags: ["RCT Platform", "Platform Roadmap", "Open Source", "FDIA", "SignedAI", "JITNA", "ASEAN AI", "rct-platform"]
 readTime: 9
 references:
@@ -20,15 +17,15 @@ references:
 
 # RCT Platform Roadmap: From Public Alpha to ASEAN Expansion
 
-`rct-platform` is now tracked from the **v1.0.4b0 beta-preview checkpoint**. This article summarizes what is already public-proof in the SDK, what remains in progress before PyPI release, and what is still intentionally outside the open-source tier.
+`rct-platform` v1.0.2a0 (Public Alpha) launched in April 2026. This article is a technical summary of what shipped, what is currently being completed, and what the planned trajectory looks like through 2027 — with explicit scope boundaries for the open-source tier.
 
 If you want the raw roadmap document, it lives at [ROADMAP.md](https://github.com/rctlabs/rct-platform/blob/main/ROADMAP.md) in the repository.
 
 ---
 
-## What Shipped: v1.0.4b0 Beta Preview (May 2026)
+## What Shipped: v1.0.2a0 Public Alpha (April 2026)
 
-The first public alpha established the open SDK surface. The current beta-preview checkpoint is where the CLI onboarding path, documentation sync, and public-proof discipline have been hardened enough to treat the repository as a serious external evaluation target.
+The April release was the first public availability of the RCT Platform SDK. What "public alpha" means in this context: the core algorithms are stable and tested; the API surface is not yet considered stable for production dependencies without pinning the exact version.
 
 **Core SDK modules (stable behavior, alpha API):**
 
@@ -38,33 +35,33 @@ The first public alpha established the open SDK surface. The current beta-previe
 | SignedAI Registry | `signedai/` | HexaCore 7-model registry, TIER_S/4/6/8 consensus, Ed25519 attestation |
 | Delta Engine | `core/delta_engine/` | State compression, warm recall, 74% compression rate on typical agent context |
 | JITNA Protocol | `rct_control_plane/jitna_protocol.py` | RFC-001 implementation, 6-field intent schema, multi-agent routing |
-| Regional Language Adapter | `adapters/` | 8 regional language pairs |
+| Regional Language Adapter | `adapters/` | 8 ASEAN language pairs |
 | Control Plane DSL | `rct_control_plane/` | 15 modules, `rct` CLI entry point |
 
 **Reference microservices (5):** intent-loop, analysearch, vector-search, crystallizer, gateway-api. These are reference implementations — they show how to compose the SDK modules into a service, not production-ready deployments.
 
-**Current public SDK checkpoint:**
-- 1,287 tests passed, 0 skipped, 0 failed, 92% coverage
+**Quality benchmarks at release:**
+- 1,272 tests passed, 0 skipped, 0 warnings, mypy clean, ruff clean, 94%+ coverage
 - Bandit security scan: 0 HIGH severity findings
 - CI/CD: GitHub Actions with ci.yml + security-scan.yml on every push
 - Whitepaper: 450+ pages, bilingual EN/TH, CITATION.cff for academic attribution
 
 ---
 
-## Currently In Progress: Pre-PyPI Hardening
+## Currently In Progress: v1.0.3a0 Playground (May 2026)
 
-The next critical step is **PyPI-grade hardening**. A new user should be able to verify the CLI, docs, and first-run workflow quickly, and every public claim should map back to a canonical proof source.
+The v1.0.3a0 milestone is a usability release with one goal: **zero-friction first experience**. A new user should be able to run FDIA, SignedAI, and Delta Engine without cloning the repository or installing anything locally.
 
 **Already completed:**
-- `rct doctor` environment diagnostics
-- `rct start --ui-test` for zero-key first-run verification
-- `rct init` fallback template for wheel and clean-room installs
-- canonical public SDK checkpoint tracking in `docs/testing/TESTING_CANONICAL.md`
+- `notebooks/rct_playground.ipynb` — runnable Colab notebook with live FDIA, SignedAI, and Delta Engine demonstrations
+- `benchmark/run_benchmark.py` — unified benchmark runner CLI for reproducible performance testing
+- Binder / Colab / Codespaces quick-launch badges in README
+- Hypothesis property-based tests — mathematical correctness guarantees for FDIA, Delta Engine, SignedAI
 
-**Remaining before v1.0.0 stable:**
-- final PyPI packaging and signed artifact flow
-- API stability guarantees documentation for `core/fdia`, `signedai/core`, and `core/delta_engine`
-- external reproduction materials for benchmark-scoped claims
+**Remaining for v1.0.3a0:**
+- `docs/benchmark/hallucination-methodology.md` — the 100-prompt public dataset and methodology description (enables external reproduction)
+- GitHub Discussions activation in the GitHub UI — Q&A, RFC Discussion, Show & Tell categories
+- API stability guarantees documentation for `core/fdia`, `signedai/core`, `core/delta_engine`
 
 ---
 
@@ -107,7 +104,7 @@ This is the release that moves `rct-platform` from "SDK you use in your code" to
 
 ## v1.2.0 — ASEAN Expansion (2027)
 
-The 2027 release target addresses the gap between the platform's earlier ASEAN language preview baseline and full ASEAN regulatory alignment.
+The 2027 release target addresses the gap between the platform's regional language capabilities (8 ASEAN pairs in v1.0.2a0) and full ASEAN regulatory alignment.
 
 **Language expansion:**
 - VN (Vietnamese), ID (Indonesian), MY (Malay) adapter additions, bringing the total from 8 to 11 ASEAN language pairs
@@ -161,7 +158,7 @@ If you want to use `rct-platform` now:
 git clone https://github.com/rctlabs/rct-platform.git
 cd rct-platform
 pip install -e ".[dev]"
-pytest  # 1,287 tests should pass
+pytest  # 1,272 tests should pass
 ```
 
 Or open the Colab notebook directly for a no-install exploration of FDIA, SignedAI, and Delta Engine:

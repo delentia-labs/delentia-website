@@ -6,7 +6,7 @@ import { m } from "framer-motion"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { getLocaleFromPathname } from "@/lib/i18n"
-import { ArrowRight, Eye, Brain, ShieldCheck, Lock } from "lucide-react"
+import { Palette, ArrowRight, Target, Layers, Eye, Wand2, Brain, ShieldCheck, Cpu, Lock } from "lucide-react"
 import { getBreadcrumbSchema } from "@/lib/schema"
 
 const capabilities = [

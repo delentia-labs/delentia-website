@@ -3,14 +3,15 @@ export const SITE_NAME = "RCT Labs"
 export const SITE_DESCRIPTION = "Enterprise AI architecture and verification platform built around FDIA, JITNA, SignedAI, and staged deployment evidence."
 export const SITE_OG_IMAGE = `${SITE_URL}/opengraph-image`
 export const SITE_VERSION = "2026.05 Snapshot"
-export const SITE_TEST_COUNT = 4849 // Enterprise full suite (private snapshot)
+export const SITE_TEST_COUNT = 4849 // Enterprise full suite (private)
 export const SITE_PUBLIC_SDK_VERSION = "1.0.4b0"
-export const SITE_PUBLIC_SDK_TESTS = 1287 // Public SDK full suite: 1287 passed · 0 skipped · 0 failed · 92% coverage (rctlabs/rct-platform)
-export const SITE_PUBLIC_SDK_COVERAGE = "92%"
-export const SITE_PUBLIC_SDK_EVIDENCE_LABEL = "Public SDK verified"
-export const SITE_ENTERPRISE_EVIDENCE_LABEL = "Enterprise private snapshot"
-export const SITE_RESEARCH_EVIDENCE_LABEL = "Research / benchmark scope"
-export const SITE_EVIDENCE_LAST_UPDATED = "2026-05-20"
+export const SITE_PUBLIC_SDK_TESTS = 1297 // Public SDK full suite: 1297 passed · 0 skipped · 0 failed · 0 warnings · mypy clean · ruff clean · 94%+ coverage (rctlabs/rct-platform)
+// Compatibility evidence labels reused across public pages, metadata, and blog stat cards.
+export const SITE_PUBLIC_SDK_EVIDENCE_LABEL = "Public SDK verification lane"
+export const SITE_ENTERPRISE_EVIDENCE_LABEL = "Enterprise runtime snapshot"
+export const SITE_RESEARCH_EVIDENCE_LABEL = "Research evaluation lane"
+export const SITE_PUBLIC_SDK_COVERAGE = "94%+"
+export const SITE_EVIDENCE_LAST_UPDATED = "2026-05-23"
 export const SITE_MICROSERVICE_COUNT = 62
 export const SITE_ALGORITHM_COUNT = 41
 export const SITE_LAYER_COUNT = 10 // Product layers L1-L10; L11 = CI/CD pipeline layer (internal only)

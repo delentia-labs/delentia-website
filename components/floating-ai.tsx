@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import { useState, useRef, useEffect, useCallback, Fragment, type FormEvent } from "react"
+import Link from "next/link"
 import { m, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -322,6 +322,7 @@ export function FloatingAI() {
         let finalMeta: Partial<ChatMessage> = {}
 
         if (reader) {
+          // eslint-disable-next-line no-constant-condition
           while (true) {
             const { done, value } = await reader.read()
             if (done) break

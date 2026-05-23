@@ -39,13 +39,6 @@ interface CompressionChartProps {
   title?: string
 }
 
-interface TooltipEntry {
-  dataKey?: string
-  name?: string
-  value?: number
-  color?: string
-}
-
 // Pre-computed demo data: 60 ticks, 3 agents
 // Naive: 200 bytes per agent × 3 agents = 600 bytes/tick → cumulative
 // Delta: ~42 bytes per agent avg (30% of 200 × 0.7 compression factor)
@@ -122,26 +115,18 @@ function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`
 }
 
-function CustomTooltip({
-  active,
-  payload,
-  label,
-}: {
-  active?: boolean
-  payload?: TooltipEntry[]
-  label?: number | string
-}) {
+function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null
   return (
     <div className="bg-card border border-border rounded-lg p-3 text-xs font-mono shadow-xl">
       <div className="text-muted-foreground mb-2">Tick {label}</div>
-      {payload.map((entry) => (
+      {payload.map((entry: any) => (
         <div key={entry.dataKey} className="flex justify-between gap-4" style={{ color: entry.color }}>
           <span>{entry.name}</span>
           <span className="font-bold">
-            {entry.dataKey?.includes("Pct")
-              ? `${entry.value ?? 0}%`
-              : formatBytes(entry.value ?? 0)}
+            {entry.dataKey.includes("Pct")
+              ? `${entry.value}%`
+              : formatBytes(entry.value)}
           </span>
         </div>
       ))}
@@ -220,7 +205,7 @@ export function CompressionChart({
       {/* Bar Chart: Memory Usage */}
       <div className="bg-card border border-border rounded-xl p-5">
         <h3 className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-4">
-          {title}
+          Cumulative Memory Usage Over Time
         </h3>
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={tickData} barCategoryGap="20%">
