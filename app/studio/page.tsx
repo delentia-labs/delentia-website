@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { FlaskConical, Play, GitCompare, Beaker, Database, ChevronRight, Cpu } from "lucide-react"
+import { FlaskConical, Play, GitCompare, Beaker, Database, ChevronRight, Cpu, BookOpen } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { StudioSidebar } from "@/components/studio/studio-sidebar"

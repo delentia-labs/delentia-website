@@ -6,7 +6,6 @@ import Link from "next/link"
 import { useLanguage } from "@/components/language-provider"
 import { ResourceCardGrid, ResourcePageShell, ResourceSection } from "@/components/resource/resource-shell"
 import { getLocalePrefix, resolveLocale } from "@/lib/i18n"
-import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL } from "@/lib/site-config"
 
 const researchLinks = [
   {
@@ -60,7 +59,7 @@ export default function MethodologyClient() {
     },
     {
       title: language === "th" ? "baseline การทดสอบภายใน" : "Internal testing baselines",
-      description: language === "th" ? `จัดให้การวาง positioning และตัวเลขสาธารณะไม่ขัดกับ version, test, uptime และ public-safe metrics ที่ถูกยืนยันแล้ว โดยแยก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.` : `Keeps public positioning and numeric claims aligned with verified versions, tests, uptime, and public-safe metrics while separating ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} from ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+      description: language === "th" ? "จัดให้การวาง positioning และตัวเลขสาธารณะไม่ขัดกับ version, test, uptime และ public-safe metrics ที่ถูกยืนยันภายในแล้ว." : "Keeps public positioning and numeric claims aligned with internally verified versions, tests, uptime, and public-safe metrics.",
       href: `${localePrefix}/benchmark-summary`,
       icon: FileSearch,
       badge: language === "th" ? "Testing" : "Testing",
@@ -115,7 +114,7 @@ export default function MethodologyClient() {
     <ResourcePageShell
       eyebrow={language === "th" ? "Validate / Methodology" : "Validate / Methodology"}
       title={language === "th" ? "กรอบวิธีคิดสำหรับการอ้างอิง การทดสอบ และการเปิดเผยข้อมูลบน public site" : "The method layer for references, testing, and disclosure on the public site"}
-      description={language === "th" ? `Methodology เป็นหน้ากลางที่อธิบายว่าข้ออ้าง การอ้างอิง benchmark และ trust-sensitive content บนเว็บไซต์ถูกกำกับอย่างไร โดยแยก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} อย่างชัดเจน ไม่ใช่ compliance dossier เต็มรูปแบบ.` : `Methodology is the central page that explains how claims, benchmark references, and trust-sensitive content are governed on the website, with an explicit split between ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}. It is not a full compliance dossier.`}
+      description={language === "th" ? "Methodology เป็นหน้ากลางที่อธิบายว่าข้ออ้าง การอ้างอิง benchmark และ trust-sensitive content บนเว็บไซต์ถูกกำกับอย่างไร ไม่ใช่ compliance dossier เต็มรูปแบบ." : "Methodology is the central page that explains how claims, benchmark references, and trust-sensitive content are governed on the website. It is not a full compliance dossier."}
       taxonomy={language === "th" ? ["Frameworks", "Testing baselines", "Disclosure boundaries", "Review loops"] : ["Frameworks", "Testing baselines", "Disclosure boundaries", "Review loops"]}
       accent="lavender"
       actions={[

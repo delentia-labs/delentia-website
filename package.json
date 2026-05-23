@@ -17,13 +17,11 @@
     "dev:host": "next dev -H 0.0.0.0 --port 3005",
     "lint": "eslint .",
     "smoke:pages": "node ./scripts/smoke-pages.mjs",
-    "audit:claims": "node ./scripts/audit-claim-drift.mjs",
-    "audit:claims:corpus": "node ./scripts/audit-claim-drift.mjs --corpus",
     "perf:lcp:trace": "node ./scripts/lcp-trace.mjs",
     "perf:lcp:guard": "node ./scripts/lcp-trace.mjs",
     "start": "next start",
     "start:host": "next start -H 0.0.0.0 -p 3010",
-    "verify:public": "node ./scripts/verify-public-truth.mjs"
+    "verify:public": "bash ./scripts/verify-public-truth.sh"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.2.2",
