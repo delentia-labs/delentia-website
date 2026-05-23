@@ -4,7 +4,7 @@ export const SITE_DESCRIPTION = "Enterprise AI architecture and verification pla
 export const SITE_OG_IMAGE = `${SITE_URL}/opengraph-image`
 export const SITE_VERSION = "2026.05 Snapshot"
 export const SITE_TEST_COUNT = 4849 // Enterprise full suite (private)
-export const SITE_PUBLIC_SDK_VERSION = "1.0.4b0"
+export const SITE_PUBLIC_SDK_VERSION = "1.0.4b2"
 export const SITE_PUBLIC_SDK_TESTS = 1297 // Public SDK full suite: 1297 passed · 0 skipped · 0 failed · 0 warnings · mypy clean · ruff clean · 94%+ coverage (rctlabs/rct-platform)
 // Compatibility evidence labels reused across public pages, metadata, and blog stat cards.
 export const SITE_PUBLIC_SDK_EVIDENCE_LABEL = "Public SDK verification lane"

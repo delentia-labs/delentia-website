@@ -42,12 +42,51 @@ function HeroArchitectureVisual() {
   const [pointer, setPointer] = useState(defaultPointer)
   // rAF throttle refs: cap setPointer (re-render + useMemo + CSS custom props) to
   // one update per animation frame regardless of pointermove fire rate (60-120/s).
-  // Eliminates the Style & Layout thrash measured at 2,287ms in main-thread breakdown.
   const rafRef = useRef<number | null>(null)
   const pendingPointer = useRef<typeof defaultPointer | null>(null)
+  const [activeTab, setActiveTab] = useState<"map" | "terminal">("map")
+  const [bootState, setBootState] = useState<"off" | "booting" | "ready">("off")
+  const [bootLines, setBootLines] = useState<string[]>([])
+  const [D, setD] = useState<number>(75)
+  const [I, setI] = useState<number>(3)
+  const [A, setA] = useState<number>(90)
+
+  const bootTimersRef = useRef<NodeJS.Timeout[]>([])
+
+  const clearBootTimers = () => {
+    bootTimersRef.current.forEach(clearTimeout)
+    bootTimersRef.current = []
+  }
+
+  const startBooting = () => {
+    clearBootTimers()
+    setBootState("booting")
+    setBootLines([])
+
+    const lines = [
+      isTH ? "> กำลังเตรียมจำลองระบบ RCT OS CLI... (v1.0.4b2)" : "> Initializing RCT OS CLI Simulator... (v1.0.4b2)",
+      isTH ? "> ตรวจสอบความถูกต้องของระบบ: ผ่านการทดสอบ 1,297/1,297 รายการ [100% GREEN]" : "> Integrity check: 1,297/1,297 tests passed [100% GREEN]",
+      isTH ? "> เชื่อมโยงโมดูลควบคุมหลัก: Intent, Verify, Memory, Kernel" : "> Binding core components: Intent, Verify, Memory, Kernel",
+      isTH ? "> ประมวลผลและเปิดใช้งานชุดคำสั่งสมการ FDIA..." : "> Instantiating Constitutional FDIA Engine v2.0...",
+      isTH ? "> สำเร็จ: สมการวิเคราะห์ระบบพร้อมรับข้อมูลแล้ว" : "> Success: Interactive CLI Console ready."
+    ]
+
+    lines.forEach((line, index) => {
+      const timer = setTimeout(() => {
+        setBootLines((prev) => [...prev, line])
+        if (index === lines.length - 1) {
+          setBootState("ready")
+        }
+      }, (index + 1) * 300)
+      bootTimersRef.current.push(timer)
+    })
+  }
+
+
 
   useEffect(() => {
     return () => {
+      clearBootTimers()
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
     }
   }, [])
@@ -121,103 +160,284 @@ function HeroArchitectureVisual() {
         </div>
 
         <div className="relative z-10 flex h-full flex-col p-3.5 sm:p-5">
-          <div className="flex items-center justify-between gap-2.5 sm:gap-3">
-            <div className="text-[9px] font-medium text-warm-gray dark:text-warm-subtle sm:text-[10px]">
-              Architecture Signal
+          <div className="flex items-center justify-between gap-2.5 sm:gap-3 select-none">
+            <div className="text-[9px] font-medium text-warm-gray dark:text-warm-subtle sm:text-[10px] uppercase tracking-wider">
+              {activeTab === "map" ? (isTH ? "สัญญาณโครงสร้างระบบ" : "Architecture Signal") : (isTH ? "คอนโซลจำลองระบบ" : "System Console")}
             </div>
-            <div className="flex items-center gap-1 rounded-full border border-warm-amber/20 bg-warm-amber/8 px-2 py-1 text-[8px] font-medium text-warm-amber sm:gap-1.5 sm:text-[9px]">
-              <span className="inline-flex h-1.5 w-1.5 rounded-full bg-warm-amber" />
-              {isTH ? "แผนที่นำทาง" : "Navigation Map"}
+            <div className="flex items-center p-0.5 rounded-full border border-warm-amber/15 bg-warm-amber/4 dark:bg-black/25">
+              <button
+                type="button"
+                onClick={() => setActiveTab("map")}
+                className={`px-2.5 py-0.5 rounded-full text-[8px] sm:text-[9px] font-semibold transition-all duration-300 cursor-pointer ${
+                  activeTab === "map"
+                    ? "bg-warm-amber text-white shadow-sm"
+                    : "text-warm-gray hover:text-warm-amber dark:text-warm-subtle"
+                }`}
+              >
+                {isTH ? "แผนที่" : "Map"}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveTab("terminal")
+                  if (bootState === "off") {
+                    startBooting()
+                  }
+                }}
+                className={`px-2.5 py-0.5 rounded-full text-[8px] sm:text-[9px] font-semibold transition-all duration-300 cursor-pointer ${
+                  activeTab === "terminal"
+                    ? "bg-warm-amber text-white shadow-sm"
+                    : "text-warm-gray hover:text-warm-amber dark:text-warm-subtle"
+                }`}
+              >
+                {isTH ? "เทอร์มินัล" : "Terminal"}
+              </button>
             </div>
           </div>
 
           <div className="relative flex-1">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="hero-architecture-cluster relative h-[74%] w-[74%] max-h-72 max-w-72 sm:h-[78%] sm:w-[78%] sm:max-h-88 sm:max-w-88">
-                <div className="absolute inset-[11%] rounded-full border border-[#eadfce] dark:border-white/8 sm:inset-[12%]" />
-                {enhancedVisualReady ? <div className="absolute inset-[24%] rounded-full border border-[#eadfce] dark:border-white/8" /> : null}
-                {enhancedVisualReady ? <div className="absolute left-1/2 top-[12%] h-[76%] w-px -translate-x-1/2 bg-[#eadfce] dark:bg-white/8 sm:top-[10%] sm:h-[80%]" /> : null}
-                <div className="absolute left-[12%] top-1/2 h-px w-[76%] -translate-y-1/2 bg-[#eadfce] dark:bg-white/8 sm:left-[10%] sm:w-[80%]" />
+            {activeTab === "map" ? (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="hero-architecture-cluster relative h-[74%] w-[74%] max-h-72 max-w-72 sm:h-[78%] sm:w-[78%] sm:max-h-88 sm:max-w-88">
+                  <div className="absolute inset-[11%] rounded-full border border-[#eadfce] dark:border-white/8 sm:inset-[12%]" />
+                  {enhancedVisualReady ? <div className="absolute inset-[24%] rounded-full border border-[#eadfce] dark:border-white/8" /> : null}
+                  {enhancedVisualReady ? <div className="absolute left-1/2 top-[12%] h-[76%] w-px -translate-x-1/2 bg-[#eadfce] dark:bg-white/8 sm:top-[10%] sm:h-[80%]" /> : null}
+                  <div className="absolute left-[12%] top-1/2 h-px w-[76%] -translate-y-1/2 bg-[#eadfce] dark:bg-white/8 sm:left-[10%] sm:w-[80%]" />
 
-                <div
-                  className="hero-architecture-aura absolute inset-[31%] rounded-full"
-                  style={{
-                    background: isDark
-                      ? "radial-gradient(circle, rgba(212,168,83,0.18), rgba(212,168,83,0.02) 62%, transparent 78%)"
-                      : "radial-gradient(circle, rgba(212,168,83,0.24), rgba(212,168,83,0.04) 62%, transparent 78%)",
-                  }}
-                />
-
-                <Link
-                  href={`${localePrefix}/fdia`}
-                  className={`absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-white/80 bg-white/78 dark:border-warm-amber/25 dark:bg-[#161616]/88 sm:h-32 sm:w-32 hero-architecture-core z-20 overflow-hidden shadow-[0_0_34px_rgba(212,168,83,0.18)] backdrop-blur-md outline-none transition-colors hover:border-warm-amber/45`}
-                >
-                  <div className="hero-architecture-core__body flex h-full w-full flex-col items-center justify-center">
-                    <div className="text-[9px] font-medium text-warm-gray dark:text-warm-subtle sm:text-[10px]">FDIA</div>
-                    <div className="mt-1 font-mono text-[11px] font-bold leading-none sm:text-[13px]">
-                      <span className="text-warm-amber">F</span>
-                      <span className="text-warm-charcoal dark:text-warm-light-gray"> = </span>
-                      <span className="text-warm-terracotta">D</span>
-                      <sup className="text-[8px] text-warm-terracotta sm:text-[9px]">I</sup>
-                      <span className="text-warm-charcoal dark:text-warm-light-gray"> × </span>
-                      <span className="text-warm-sage">A</span>
-                    </div>
-                    <div className="mt-1.5 text-[8px] font-semibold uppercase tracking-[0.12em] text-warm-amber sm:mt-2 sm:text-[9px] sm:tracking-[0.14em]">
-                      {isTH ? "เปิดสมการ" : "Open Formula"}
-                    </div>
-                  </div>
-                </Link>
-
-                {(enhancedVisualReady ? orbitNodes : orbitNodes.slice(0, 2)).map((node, index) => (
                   <div
-                    key={node.id}
-                    className={`hero-architecture-node hero-architecture-node--${(index % 3) + 1} absolute -translate-x-1/2 -translate-y-1/2 ${node.positionClass}`}
-                  >
-                    <Link
-                      href={`${localePrefix}#${node.target.replace(/^#/, "")}`}
-                      className="hero-architecture-node__body flex flex-col items-center gap-1 outline-none sm:gap-1.5"
-                    >
-                      <div
-                        className="flex h-9 w-9 items-center justify-center rounded-full border text-[10px] font-bold font-mono shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:scale-105 sm:h-11 sm:w-11 sm:text-[11px]"
-                        style={{
-                          color: node.accent,
-                          borderColor: `${node.accent}33`,
-                          backgroundColor: isDark ? `${node.accent}1A` : `${node.accent}16`,
-                        }}
-                      >
-                        {node.short}
-                      </div>
-                      <span className="text-[9px] font-medium text-warm-charcoal dark:text-warm-pale/85 sm:text-[10px]">
-                        {isTH ? node.th : node.en}
-                      </span>
-                    </Link>
-                  </div>
-                ))}
+                    className="hero-architecture-aura absolute inset-[31%] rounded-full"
+                    style={{
+                      background: isDark
+                        ? "radial-gradient(circle, rgba(212,168,83,0.18), rgba(212,168,83,0.02) 62%, transparent 78%)"
+                        : "radial-gradient(circle, rgba(212,168,83,0.24), rgba(212,168,83,0.04) 62%, transparent 78%)",
+                    }}
+                  />
 
-                {(enhancedVisualReady ? microBadges : microBadges.slice(0, 1)).map((badge, index) => (
-                  <div
-                    key={badge.id}
-                    className={`hero-architecture-badge hero-architecture-badge--${(index % 3) + 1} absolute ${badge.positionClass}`}
+                  <Link
+                    href={`${localePrefix}/fdia`}
+                    className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-white/80 bg-white/78 dark:border-warm-amber/25 dark:bg-[#161616]/88 sm:h-32 sm:w-32 hero-architecture-core z-20 overflow-hidden shadow-[0_0_34px_rgba(212,168,83,0.18)] backdrop-blur-md outline-none transition-colors hover:border-warm-amber/45"
                   >
-                    <Link
-                      href={`${localePrefix}${badge.href}`}
-                      className="hero-architecture-badge__body block outline-none"
-                    >
-                      <div
-                        className="rounded-full border px-2 py-1 min-h-6 flex items-center font-mono text-[9px] font-semibold shadow-[0_8px_18px_rgba(0,0,0,0.06)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-2.5 sm:text-[10px]"
-                        style={{
-                          color: isDark ? badge.accent : badge.lightAccent,
-                          borderColor: `${badge.accent}2F`,
-                          backgroundColor: isDark ? "rgba(22,22,22,0.78)" : "rgba(255,255,255,0.76)",
-                        }}
-                      >
-                        {badge.label}
+                    <div className="hero-architecture-core__body flex h-full w-full flex-col items-center justify-center">
+                      <div className="text-[9px] font-medium text-warm-gray dark:text-warm-subtle sm:text-[10px]">FDIA</div>
+                      <div className="mt-1 font-mono text-[11px] font-bold leading-none sm:text-[13px]">
+                        <span className="text-warm-amber">F</span>
+                        <span className="text-warm-charcoal dark:text-warm-light-gray"> = </span>
+                        <span className="text-warm-terracotta">D</span>
+                        <sup className="text-[8px] text-warm-terracotta sm:text-[9px]">I</sup>
+                        <span className="text-warm-charcoal dark:text-warm-light-gray"> × </span>
+                        <span className="text-warm-sage">A</span>
                       </div>
-                    </Link>
-                  </div>
-                ))}
+                      <div className="mt-1.5 text-[8px] font-semibold uppercase tracking-[0.12em] text-warm-amber sm:mt-2 sm:text-[9px] sm:tracking-[0.14em]">
+                        {isTH ? "เปิดสมการ" : "Open Formula"}
+                      </div>
+                    </div>
+                  </Link>
+
+                  {(enhancedVisualReady ? orbitNodes : orbitNodes.slice(0, 2)).map((node, index) => (
+                    <div
+                      key={node.id}
+                      className={`hero-architecture-node hero-architecture-node--${(index % 3) + 1} absolute -translate-x-1/2 -translate-y-1/2 ${node.positionClass}`}
+                    >
+                      <Link
+                        href={`${localePrefix}#${node.target.replace(/^#/, "")}`}
+                        className="hero-architecture-node__body flex flex-col items-center gap-1 outline-none sm:gap-1.5"
+                      >
+                        <div
+                          className="flex h-9 w-9 items-center justify-center rounded-full border text-[10px] font-bold font-mono shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:scale-105 sm:h-11 sm:w-11 sm:text-[11px]"
+                          style={{
+                            color: node.accent,
+                            borderColor: `${node.accent}33`,
+                            backgroundColor: isDark ? `${node.accent}1A` : `${node.accent}16`,
+                          }}
+                        >
+                          {node.short}
+                        </div>
+                        <span className="text-[9px] font-medium text-warm-charcoal dark:text-warm-pale/85 sm:text-[10px]">
+                          {isTH ? node.th : node.en}
+                        </span>
+                      </Link>
+                    </div>
+                  ))}
+
+                  {(enhancedVisualReady ? microBadges : microBadges.slice(0, 1)).map((badge, index) => (
+                    <div
+                      key={badge.id}
+                      className={`hero-architecture-badge hero-architecture-badge--${(index % 3) + 1} absolute ${badge.positionClass}`}
+                    >
+                      <Link
+                        href={`${localePrefix}${badge.href}`}
+                        className="hero-architecture-badge__body block outline-none"
+                      >
+                        <div
+                          className="rounded-full border px-2 py-1 min-h-6 flex items-center font-mono text-[9px] font-semibold shadow-[0_8px_18px_rgba(0,0,0,0.06)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-2.5 sm:text-[10px]"
+                          style={{
+                            color: isDark ? badge.accent : badge.lightAccent,
+                            borderColor: `${badge.accent}2F`,
+                            backgroundColor: isDark ? "rgba(22,22,22,0.78)" : "rgba(255,255,255,0.76)",
+                          }}
+                        >
+                          {badge.label}
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="absolute inset-0 flex flex-col rounded-2xl border border-[#eadfce]/70 bg-zinc-950/92 dark:border-white/5 dark:bg-black/92 shadow-inner overflow-hidden font-mono text-left select-none text-[#33ff33] text-[9px] sm:text-[11px]">
+                {/* macOS top control bar */}
+                <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-3 py-1.5 select-none">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
+                  </div>
+                  <div className="text-[8px] text-zinc-400 font-semibold sm:text-[9px]">
+                    rct-cli-v1.0.4b2.sh
+                  </div>
+                  <button
+                    type="button"
+                    onClick={startBooting}
+                    className="text-[8px] text-zinc-500 hover:text-zinc-300 font-bold transition-colors uppercase sm:text-[9px] cursor-pointer"
+                  >
+                    {isTH ? "รีบูต" : "Reboot"}
+                  </button>
+                </div>
+
+                {/* Terminal Body */}
+                <div className="flex-1 flex flex-col p-3.5 overflow-y-auto space-y-2.5">
+                  {bootState !== "ready" ? (
+                    <div className="space-y-1">
+                      {bootLines.map((line, idx) => (
+                        <div key={idx} className="leading-relaxed">
+                          {line}
+                        </div>
+                      ))}
+                      {bootState === "booting" && (
+                        <div className="flex items-center gap-1">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#33ff33] animate-pulse" />
+                          <span className="animate-blink">_</span>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col h-full justify-between space-y-2 sm:space-y-3">
+                      {/* Active Formula Card */}
+                      <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-2 sm:p-2.5 text-zinc-200">
+                        <div className="text-warm-amber font-bold text-[9px] sm:text-[11px] uppercase tracking-wide">
+                          {isTH ? "FDIA Equation สมการคำนวณ/ควบคุม ผลลัพธ์อนาคต" : "FDIA Equation: Predict & Control Future Outcomes"}
+                        </div>
+                        <div className="mt-1 flex items-center justify-between font-mono text-[9px] sm:text-[11px]">
+                          <span className="text-zinc-400">F = D^I * A</span>
+                          <span className="font-bold text-[#33ff33]">
+                            F = {((D / 100) ** I * (A / 100)).toFixed(4)}
+                          </span>
+                        </div>
+                        {/* Threat Gauge */}
+                        <div className="mt-2 flex items-center gap-1.5 text-[8px] sm:text-[9px]">
+                          <span className="text-zinc-500">{isTH ? "ระดับภัย:" : "Threat:"}</span>
+                          <div className="flex-1 h-2 bg-zinc-800 rounded overflow-hidden flex">
+                            {Array.from({ length: 10 }).map((_, idx) => {
+                              const threatScore = ((D / 100) ** I * (A / 100));
+                              const fillCount = Math.ceil(threatScore * 10);
+                              const isVetoed = A === 0;
+                              let color = "bg-[#27c93f]"; // green
+                              if (threatScore > 0.4) color = "bg-[#ffbd2e]"; // yellow
+                              if (threatScore > 0.7) color = "bg-[#ff5f56]"; // red
+                              if (isVetoed) color = "bg-[#ff5f56] animate-pulse";
+                              const isFilled = idx < fillCount && !isVetoed;
+                              return (
+                                <div
+                                  key={idx}
+                                  className={`flex-1 border-r border-zinc-950/20 transition-all duration-300 ${
+                                    isFilled ? color : "bg-transparent"
+                                  }`}
+                                />
+                              );
+                            })}
+                          </div>
+                          <span className={`font-bold ${
+                            A === 0 ? "text-[#ff5f56] animate-pulse" :
+                            ((D / 100) ** I * (A / 100)) > 0.7 ? "text-[#ff5f56]" :
+                            ((D / 100) ** I * (A / 100)) > 0.4 ? "text-[#ffbd2e]" : "text-[#27c93f]"
+                          }`}>
+                            {A === 0 ? "VETOED" : `${Math.round(((D / 100) ** I * (A / 100)) * 100)}%`}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Sliders Container */}
+                      <div className="space-y-2 select-none text-zinc-300">
+                        {/* Slider D */}
+                        <div className="flex flex-col gap-0.5">
+                          <div className="flex items-center justify-between text-[8px] sm:text-[10px]">
+                            <span>D: {isTH ? "ข้อมูลระบบ (Data)" : "Encoded Data"}</span>
+                            <span className="font-mono font-bold text-[#33ff33]">{(D / 100).toFixed(2)}</span>
+                          </div>
+                          <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={D}
+                            onChange={(e) => setD(Number(e.target.value))}
+                            className="w-full accent-warm-amber h-1 bg-zinc-800 rounded-lg cursor-pointer"
+                          />
+                        </div>
+
+                        {/* Slider I */}
+                        <div className="flex flex-col gap-0.5">
+                          <div className="flex items-center justify-between text-[8px] sm:text-[10px]">
+                            <span>I: {isTH ? "เจตจำนง (Intent)" : "System Intent"}</span>
+                            <span className="font-mono font-bold text-[#33ff33]">{I}</span>
+                          </div>
+                          <input
+                            type="range"
+                            min="1"
+                            max="5"
+                            value={I}
+                            onChange={(e) => setI(Number(e.target.value))}
+                            className="w-full accent-warm-amber h-1 bg-zinc-800 rounded-lg cursor-pointer"
+                          />
+                        </div>
+
+                        {/* Slider A */}
+                        <div className="flex flex-col gap-0.5">
+                          <div className="flex items-center justify-between text-[8px] sm:text-[10px]">
+                            <span>A: {isTH ? "สถาปนิกควบคุม (Architect)" : "Architect (Human-in-the-Loop)"}</span>
+                            <span className="font-mono font-bold text-[#33ff33]">{(A / 100).toFixed(2)}</span>
+                          </div>
+                          <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={A}
+                            onChange={(e) => setA(Number(e.target.value))}
+                            className="w-full accent-warm-amber h-1 bg-zinc-800 rounded-lg cursor-pointer"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Warning Indicator */}
+                      <div className="h-6 flex items-center justify-center font-mono font-bold text-[8px] sm:text-[10px] bg-zinc-900/30 rounded border border-zinc-800/40">
+                        {A === 0 ? (
+                          <span className="text-[#ff5f56] animate-pulse flex items-center gap-1">
+                            ⚠ {isTH ? "ตรวจพบการยับยั้งสถาปนิก! (Architect Veto)" : "Architect Veto Triggered! F = 0.00"}
+                          </span>
+                        ) : ((D / 100) ** I * (A / 100)) > 0.7 ? (
+                          <span className="text-[#ff5f56] flex items-center gap-1 animate-pulse">
+                            ⚡ {isTH ? "คำเตือน: ความขัดแย้งระบบสูงมาก!" : "CRITICAL: Friction is high!"}
+                          </span>
+                        ) : (
+                          <span className="text-[#27c93f] flex items-center gap-1">
+                            ✓ {isTH ? "ระบบทำงานอย่างปลอดภัย" : "System operates in stable state"}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="hero-architecture-metrics grid grid-cols-3 gap-1.5 rounded-[1.15rem] border border-white/70 bg-white/52 px-2.5 py-2 dark:border-white/8 dark:bg-black/16 sm:gap-2 sm:rounded-2xl sm:px-3 sm:py-2.5">
