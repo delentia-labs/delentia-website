@@ -325,7 +325,7 @@ function HeroArchitectureVisual() {
                       {/* Active Formula Card */}
                       <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-2 sm:p-2.5 text-zinc-200">
                         <div className="text-warm-amber font-bold text-[9px] sm:text-[11px] uppercase tracking-wide">
-                          {isTH ? "สมการวิเคราะห์ความลวงเชิงรัฐธรรมนูญ" : "Constitutional FDIA Equation"}
+                          {isTH ? "FDIA Equation สมการคำนวณ/ควบคุม ผลลัพธ์อนาคต" : "FDIA Equation: Predict & Control Future Outcomes"}
                         </div>
                         <div className="mt-1 flex items-center justify-between font-mono text-[9px] sm:text-[11px]">
                           <span className="text-zinc-400">F = D^I * A</span>
@@ -371,7 +371,7 @@ function HeroArchitectureVisual() {
                         {/* Slider D */}
                         <div className="flex flex-col gap-0.5">
                           <div className="flex items-center justify-between text-[8px] sm:text-[10px]">
-                            <span>D: {isTH ? "ค่าความลวง (Deception)" : "Deception Index"}</span>
+                            <span>D: {isTH ? "ข้อมูลระบบ (Data)" : "Encoded Data"}</span>
                             <span className="font-mono font-bold text-[#33ff33]">{(D / 100).toFixed(2)}</span>
                           </div>
                           <input
@@ -387,7 +387,7 @@ function HeroArchitectureVisual() {
                         {/* Slider I */}
                         <div className="flex flex-col gap-0.5">
                           <div className="flex items-center justify-between text-[8px] sm:text-[10px]">
-                            <span>I: {isTH ? "ขอบเขตผลกระทบ (Impact)" : "Impact Scope"}</span>
+                            <span>I: {isTH ? "เจตจำนง (Intent)" : "System Intent"}</span>
                             <span className="font-mono font-bold text-[#33ff33]">{I}</span>
                           </div>
                           <input
@@ -403,7 +403,7 @@ function HeroArchitectureVisual() {
                         {/* Slider A */}
                         <div className="flex flex-col gap-0.5">
                           <div className="flex items-center justify-between text-[8px] sm:text-[10px]">
-                            <span>A: {isTH ? "ความสอดคล้อง (Alignment)" : "Alignment Index"}</span>
+                            <span>A: {isTH ? "สถาปนิกควบคุม (Architect)" : "Architect (Human-in-the-Loop)"}</span>
                             <span className="font-mono font-bold text-[#33ff33]">{(A / 100).toFixed(2)}</span>
                           </div>
                           <input
