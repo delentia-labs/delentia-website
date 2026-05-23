@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { BarChart3, BookOpen, Globe, Layers, Rocket, Sparkles, Zap } from "lucide-react"
+import { BarChart3, BookOpen, Globe, Layers, Rocket, Sparkles, Terminal, Zap } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 import { ResourcePageShell, ResourceSection } from "@/components/resource/resource-shell"
 import { getLocalePrefix, resolveLocale } from "@/lib/i18n"
@@ -22,6 +22,15 @@ export default function ChangelogClient() {
   const localePrefix = getLocalePrefix(resolveLocale(pathname, language))
 
   const releases: ReleaseEntry[] = [
+    {
+      version: "SDK v1.0.4b2",
+      date: "2026-05-23",
+      title: language === "th" ? "Interactive Terminal Simulator & Complete Bilingual Synced Release" : "Interactive Terminal Simulator & Complete Bilingual Synced Release",
+      description: language === "th" ? "เปิดตัวเวอร์ชัน v1.0.4b2 โดดเด่นด้วย Interactive Terminal Simulator หน้าแรกของเว็บไซต์จำลองการบูตเครื่องและคำนวณสมการ FDIA (F = D^I * A) ด้วยแถบสไลด์ปรับเปลี่ยนค่าแบบเรียลไทม์ พร้อมการออกแบบเชิง Glassmorphism หรูหรา ไร้รอยต่อ และรองรับทั้งภาษาไทยและภาษาอังกฤษอย่างสมบูรณ์แบบ 100%" : "Released version v1.0.4b2 featuring an Interactive Terminal Simulator built with elegant CSS Glassmorphism directly on the homepage hero fold. Simulates the CLI boot sequence and processes the Constitutional FDIA formula (F = D^I * A) in real-time via interactive sliders, complete with visual threat meters and bilingual support.",
+      icon: Terminal,
+      highlights: language === "th" ? ["Interactive Terminal Simulator (CSS Glassmorphism) ✅", "Real-time FDIA Calculator (F = D^I * A) ✅", "Architect Veto alarm & warning indicator states ✅", "Staggered boot-up logs (1,297/1,297 tests verified) ✅", "Complete bilingual alignment (TH/EN parity) ✅", "System version bump to v1.0.4b2 across ecosystem ✅"] : ["Interactive Terminal Simulator (CSS Glassmorphism) ✅", "Real-time FDIA Calculator (F = D^I * A) ✅", "Architect Veto alarm & warning indicator states ✅", "Staggered boot-up logs (1,297/1,297 tests verified) ✅", "Complete bilingual alignment (TH/EN parity) ✅", "System version bump to v1.0.4b2 across ecosystem ✅"],
+      tone: "border-emerald-500/25 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+    },
     {
       version: "SDK v1.0.4b1",
       date: "2026-05-23",
