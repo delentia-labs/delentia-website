@@ -23,6 +23,15 @@ export default function ChangelogClient() {
 
   const releases: ReleaseEntry[] = [
     {
+      version: "SDK v1.0.4b1",
+      date: "2026-05-23",
+      title: language === "th" ? "Beta Release — 3D Drop Shadow · Rounded Version Badge · --no-animation flag · rct.config.json support · PyPI Description Refreshed" : "Beta Release — 3D Drop Shadow · Rounded Version Badge · --no-animation flag · rct.config.json support · PyPI Description Refreshed",
+      description: language === "th" ? "เปิดตัวเวอร์ชัน v1.0.4b1 บน PyPI ยกระดับความพรีเมียมของ CLI ในทุกมิติ: เพิ่ม 3D Drop Shadow offset เยื้อง 1 คอลัมน์สร้างความลึก, ระบบกรอบแสดงผลเวอร์ชันแบบขอบโค้งมน (Pill Box) พร้อม Glowing Active Indicator, เพิ่มสวิตช์ --no-animation และไฟล์คอนฟิก rct.config.json เพื่อปรับเปลี่ยน thresholds/ความเร็วตามต้องการ และอัปเดตหน้าแสดงผลบน PyPI ให้ถูกต้อง 100%" : "Released version v1.0.4b1 on PyPI, bringing next-gen CLI enhancements: 3D offset drop shadows for immersive depth, rounded pill-box version badges with active glowing status indicators, `--no-animation` performance flags, `rct.config.json` threshold overrides, and a fully refreshed PyPI project description.",
+      icon: Rocket,
+      highlights: language === "th" ? ["pypi.org/project/rct-platform v1.0.4b1 ✅", "3D Drop Shadow column-shifted offset ✅", "Rounded modern Pill-Box version badge ✅", "--no-animation switch (zero latency) ✅", "rct.config.json local configuration overrides ✅", "PyPI Description render fix (CSP-compliant) ✅", "1,297 tests verified passed (100% green) ✅"] : ["pypi.org/project/rct-platform v1.0.4b1 ✅", "3D Drop Shadow column-shifted offset ✅", "Rounded modern Pill-Box version badge ✅", "--no-animation switch (zero latency) ✅", "rct.config.json local configuration overrides ✅", "PyPI Description render fix (CSP-compliant) ✅", "1,297 tests verified passed (100% green) ✅"],
+      tone: "border-violet-500/25 bg-violet-500/10 text-violet-600 dark:text-violet-400",
+    },
+    {
       version: "SDK v1.0.4b0",
       date: "2026-05-23",
       title: language === "th" ? "Beta Preview Release — Enterprise CLI Design System · FDIA Formula Card · Boot Sound · 1297 tests · PyPI Live" : "Beta Preview Release — Enterprise CLI Design System · FDIA Formula Card · Boot Sound · 1297 tests · PyPI Live",
