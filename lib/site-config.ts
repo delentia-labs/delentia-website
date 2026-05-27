@@ -4,19 +4,19 @@ export const SITE_DESCRIPTION = "Enterprise AI architecture and verification pla
 export const SITE_OG_IMAGE = `${SITE_URL}/opengraph-image`
 export const SITE_VERSION = "2026.05 Snapshot"
 export const SITE_TEST_COUNT = 4849 // Enterprise full suite (private)
-export const SITE_PUBLIC_SDK_VERSION = "1.0.4b2"
-export const SITE_PUBLIC_SDK_TESTS = 1297 // Public SDK full suite: 1297 passed · 0 skipped · 0 failed · 0 warnings · mypy clean · ruff clean · 94%+ coverage (rctlabs/rct-platform)
+export const SITE_PUBLIC_SDK_VERSION = "2.0.0"
+export const SITE_PUBLIC_SDK_TESTS = 1791 // Public SDK full suite: 1791 passed · 0 skipped · 0 failed · 0 warnings · mypy clean · ruff clean · 91% coverage (rctlabs/rct-platform)
 // Compatibility evidence labels reused across public pages, metadata, and blog stat cards.
 export const SITE_PUBLIC_SDK_EVIDENCE_LABEL = "Public SDK verification lane"
 export const SITE_ENTERPRISE_EVIDENCE_LABEL = "Enterprise runtime snapshot"
 export const SITE_RESEARCH_EVIDENCE_LABEL = "Research evaluation lane"
-export const SITE_PUBLIC_SDK_COVERAGE = "94%+"
-export const SITE_EVIDENCE_LAST_UPDATED = "2026-05-23"
+export const SITE_PUBLIC_SDK_COVERAGE = "91%"
+export const SITE_EVIDENCE_LAST_UPDATED = "2026-05-27"
 export const SITE_MICROSERVICE_COUNT = 62
 export const SITE_ALGORITHM_COUNT = 41
 export const SITE_LAYER_COUNT = 10 // Product layers L1-L10; L11 = CI/CD pipeline layer (internal only)
-export const SITE_HEXACORE_COUNT = 7
-export const SITE_CONSENSUS_MODELS = 7 // HexaCore roster: 3W (Claude/Gemini/Grok) + 3E (Kimi/MiniMax/DeepSeek) + 1TH (Typhoon); mirrors SITE_HEXACORE_COUNT
+export const SITE_HEXACORE_COUNT = 9
+export const SITE_CONSENSUS_MODELS = 9 // HexaCore roster: 3W (Claude/Gemini/Grok) + 3E (Kimi/MiniMax/DeepSeek) + 1TH (Typhoon) + 1Local (Ollama) + 1LPU (Groq LPU); mirrors SITE_HEXACORE_COUNT
 export const SITE_UPTIME = "99.98% SLA"
 export const SITE_HALLUCINATION_RATE = "0.3% benchmark"
 
