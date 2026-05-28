@@ -112,7 +112,7 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ── Blog Page ─────────────────────────────────────────────────────────────
   "blog.badge":          { en: "Research & Insights",    th: "งานวิจัยและข้อมูลเชิงลึก" },
-  "blog.title":          { en: "RCT Labs AI Research & Insights", th: "บทความวิจัย AI และข้อมูลเชิงลึก" },
+  "blog.title":          { en: "Delentia Labs AI Research & Insights", th: "บทความวิจัย AI และข้อมูลเชิงลึก" },
   "blog.subtitle":       { en: "Deep dives into constitutional AI, enterprise architecture, hallucination prevention, and the technology powering the future of AI.", th: "บทความเชิงลึกเกี่ยวกับ Constitutional AI, สถาปัตยกรรมระดับองค์กร, การป้องกัน AI Hallucination และเทคโนโลยีที่ขับเคลื่อนอนาคตของ AI" },
   "blog.stat.articles":  { en: "articles",               th: "บทความ" },
   "blog.stat.topics":    { en: "topics covered",         th: "หัวข้อที่ครอบคลุม" },
@@ -135,7 +135,7 @@ const translations: Record<string, Record<Language, string>> = {
   "blog.in":             { en: "in",                     th: "ใน" },
   "blog.all.articles":   { en: "All Articles",           th: "บทความทั้งหมด" },
   "blog.cta.title":      { en: "Stay Informed on AI Research", th: "ติดตามงานวิจัย AI ล่าสุด" },
-  "blog.cta.desc":       { en: "Get the latest deep-dives on constitutional AI, enterprise architecture, and the FDIA framework from RCT Labs.", th: "รับข้อมูลเชิงลึกล่าสุดเกี่ยวกับ Constitutional AI, สถาปัตยกรรมองค์กร และ FDIA Framework จาก RCT Labs" },
+  "blog.cta.desc":       { en: "Get the latest deep-dives on constitutional AI, enterprise architecture, and the FDIA framework from Delentia Labs.", th: "รับข้อมูลเชิงลึกล่าสุดเกี่ยวกับ Constitutional AI, สถาปัตยกรรมองค์กร และ FDIA Framework จาก Delentia Labs" },
   "blog.cta.button":     { en: "Meet the Author",        th: "พบกับผู้เขียน" },
   "blog.share":          { en: "Share",                  th: "แชร์" },
   "blog.copy.link":      { en: "Copy link",              th: "คัดลอกลิงก์" },

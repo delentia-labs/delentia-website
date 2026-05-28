@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -16,10 +16,10 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "G1 — Architect's Genome: Narrative & Consciousness",
     "G1 — Architect's Genome: เรื่องราวและจิตสำนึก",
-    "The foundational 'WHY' genome of the RCT Ecosystem. The Architect's Genome encodes the narrative, consciousness, and 5-phase origin story behind RCT Labs — from Khlong Toei to constitutional AI.",
-    "Genome รากฐาน 'WHY' ของ RCT Ecosystem เข้ารหัสเรื่องราว จิตสำนึก และประวัติ 5 เฟสของผู้สร้าง RCT Labs",
+    "The foundational 'WHY' genome of the RCT Ecosystem. The Architect's Genome encodes the narrative, consciousness, and 5-phase origin story behind Delentia Labs — from Khlong Toei to constitutional AI.",
+    "Genome รากฐาน 'WHY' ของ RCT Ecosystem เข้ารหัสเรื่องราว จิตสำนึก และประวัติ 5 เฟสของผู้สร้าง Delentia Labs",
     "/genome/architect",
-    ["Architect's Genome", "RCT Labs origin story", "constitutional AI WHY", "AI founder story Thailand"]
+    ["Architect's Genome", "Delentia Labs origin story", "constitutional AI WHY", "AI founder story Thailand"]
   )
 }
 
@@ -67,9 +67,9 @@ export default async function GenomeArchitectPage() {
   const localePrefix = isTh ? "/th" : "/en"
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: isTh ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "7 Genome System", url: `https://rctlabs.co${localePrefix}/genome` },
-    { name: isTh ? "Architect's Genome" : "Architect's Genome", url: `https://rctlabs.co${localePrefix}/genome/architect` },
+    { name: isTh ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "7 Genome System", url: `https://delentia.com${localePrefix}/genome` },
+    { name: isTh ? "Architect's Genome" : "Architect's Genome", url: `https://delentia.com${localePrefix}/genome/architect` },
   ])
 
   const faq = getFAQSchema([
@@ -225,7 +225,7 @@ export default async function GenomeArchitectPage() {
               items={[
                 { href: `${localePrefix}/protocols`, title: isTh ? "ข้อกำหนด Protocol" : "Protocol Specifications", description: isTh ? "โปรโตคอลทางเทคนิคที่ขับเคลื่อน RCT Ecosystem" : "The technical protocols powering the RCT Ecosystem.", category: "Protocols" },
                 { href: `${localePrefix}/genome`, title: isTh ? "7 Genome System" : "7 Genome System", description: isTh ? "สำรวจ Genome ทั้ง 7 ตัวของ RCT Ecosystem" : "Explore all 7 Genomes of the RCT Ecosystem.", category: "Genome" },
-                { href: `${localePrefix}/blog`, title: isTh ? "บทความวิจัย" : "Research & Blog", description: isTh ? "งานวิจัยและบทความเกี่ยวกับ AI จาก RCT Labs" : "Research papers and AI articles from RCT Labs.", category: "Research" },
+                { href: `${localePrefix}/blog`, title: isTh ? "บทความวิจัย" : "Research & Blog", description: isTh ? "งานวิจัยและบทความเกี่ยวกับ AI จาก Delentia Labs" : "Research papers and AI articles from Delentia Labs.", category: "Research" },
               ]}
             />
             <AuthorBlock authorSlug="ittirit-saengow" locale={locale} />
@@ -237,3 +237,4 @@ export default async function GenomeArchitectPage() {
     </>
   )
 }
+

@@ -1,7 +1,7 @@
-import { ImageResponse } from "next/og"
+﻿import { ImageResponse } from "next/og"
 import { SITE_ENTERPRISE_EVIDENCE_LABEL, SITE_PUBLIC_SDK_EVIDENCE_LABEL, SITE_PUBLIC_SDK_TESTS, SITE_TEST_COUNT } from "@/lib/site-config"
 
-export const alt = "About RCT Labs — Constitutional AI platform with separate public SDK and enterprise evidence lanes"
+export const alt = "About Delentia Labs — Constitutional AI platform with separate public SDK and enterprise evidence lanes"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -80,7 +80,7 @@ export default function AboutOgImage() {
             >
               <span style={{ fontSize: 26, fontWeight: 800, color: "#0a0a0a" }}>R</span>
             </div>
-            <span style={{ fontSize: 22, fontWeight: 600, color: "#d1d5db" }}>RCT Labs</span>
+            <span style={{ fontSize: 22, fontWeight: 600, color: "#d1d5db" }}>Delentia Labs</span>
             <span style={{ color: "#4b5563", fontSize: 22, marginLeft: 6 }}>/ About</span>
           </div>
 
@@ -129,7 +129,7 @@ export default function AboutOgImage() {
             ))}
             <div style={{ flex: 1 }} />
             <span style={{ fontSize: 15, color: "#4b5563", fontStyle: "italic" }}>
-              rctlabs.co/about
+              delentia.com/about
             </span>
           </div>
         </div>
@@ -138,3 +138,4 @@ export default function AboutOgImage() {
     { ...size }
   )
 }
+

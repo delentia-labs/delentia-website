@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -26,9 +26,9 @@ export default async function BuildVsBuyGovernedAiPage() {
   const isTh = locale === "th"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Evaluation", url: `https://rctlabs.co${localePrefix}/evaluation` },
-    { name: "Build vs Buy for Governed AI Systems", url: `https://rctlabs.co${localePrefix}/evaluation/build-vs-buy-governed-ai-systems` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Evaluation", url: `https://delentia.com${localePrefix}/evaluation` },
+    { name: "Build vs Buy for Governed AI Systems", url: `https://delentia.com${localePrefix}/evaluation/build-vs-buy-governed-ai-systems` },
   ])
 
   const faqSchema = getFAQSchema([

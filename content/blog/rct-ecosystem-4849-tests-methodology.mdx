@@ -1,5 +1,5 @@
 ﻿---
-title: "4,849 Tests, 0 Failures: How RCT Labs Verifies Everything"
+title: "4,849 Tests, 0 Failures: How Delentia Labs Verifies Everything"
 author: "Ittirit Saengow"
 authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
@@ -7,7 +7,7 @@ date: "2026-03-28"
 lastReviewed: "2026-05-07"
 category: "research"
 excerpt: "This article documents the methodology behind the RCT Ecosystem's enterprise-private 4,849-test snapshot. It should be read as architecture and evidence-process documentation, not as the public proof lane for the open SDK."
-tags: ["Testing", "Quality", "Microservices", "Enterprise AI", "RCT Labs", "Verification"]
+tags: ["Testing", "Quality", "Microservices", "Enterprise AI", "Delentia Labs", "Verification"]
 readTime: 7
 references:
   - "https://martinfowler.com/articles/practical-test-pyramid.html"
@@ -18,13 +18,13 @@ evidenceLane: "Enterprise private snapshot"
 lastEvidenceReview: "2026-05-21"
 ---
 
-# 4,849 Tests, 0 Failures: How RCT Labs Verifies Everything
+# 4,849 Tests, 0 Failures: How Delentia Labs Verifies Everything
 
 When someone claims their AI platform is reliable, you should ask one question: **How do they know?**
 
 Most AI platforms answer vaguely. They point to uptime percentages, response time dashboards, or qualitative assurances. Few can show you a complete, auditable record of every behavioral verification that has been run against every component of their system.
 
-RCT Labs can document an **enterprise-private 4,849-test snapshot** — verified on v5.4.5 (March 21, 2026).
+Delentia Labs can document an **enterprise-private 4,849-test snapshot** — verified on v5.4.5 (March 21, 2026).
 
 This article explains what those 4,849 tests cover, how the 8-level test pyramid is structured, and why this testing discipline matters. Public readers should treat it as enterprise methodology documentation; the open SDK has its own separate public proof lane.
 
@@ -49,7 +49,7 @@ Every algorithm in the 41-algorithm library has its own unit test suite. Combine
 Integration tests verify that components work correctly when combined. Key integration suites:
 
 - **FDIA + JITNA:** Does a JITNA packet correctly trigger FDIA validation?
-- **Delta Engine + RCTDB:** Does a delta write correctly reconstruct to full state on read?
+- **Delta Engine + DelentiaDB:** Does a delta write correctly reconstruct to full state on read?
 - **HexaCore + SignedAI:** Does the consensus system correctly aggregate 7-model outputs?
 - **Intent Loop + Memory:** Does warm recall correctly bypass LLM computation?
 
@@ -103,7 +103,7 @@ Property tests verify mathematical invariants using Hypothesis-style automatic i
 ## Why This Matters for Enterprise Buyers
 
 ### Verifiable Claims
-When RCT Labs discusses **0.3% benchmark scope** or **99.98% uptime targets** in enterprise contexts, those claims are expected to map back to auditable evidence. An enterprise buyer can ask "show me the method" — and the answer exists.
+When Delentia Labs discusses **0.3% benchmark scope** or **99.98% uptime targets** in enterprise contexts, those claims are expected to map back to auditable evidence. An enterprise buyer can ask "show me the method" — and the answer exists.
 
 Most AI vendors cannot do this. They offer benchmarks run on cherry-picked datasets, not continuous verification of their production systems.
 
@@ -144,4 +144,4 @@ If you cannot show the method, you should not make the claim. This article docum
 
 ---
 
-*This article was written by Ittirit Saengow, founder and sole developer of RCT Labs.*
+*This article was written by Ittirit Saengow, founder and sole developer of Delentia Labs.*

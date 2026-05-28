@@ -1,4 +1,4 @@
-import type React from "react"
+﻿import type React from "react"
 import type { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
@@ -22,9 +22,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function FDIALayout({ children }: { children: React.ReactNode }) {
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: "https://rctlabs.co/en" },
-    { name: "Philosophy", url: "https://rctlabs.co/en/philosophy" },
-    { name: "FDIA Formula", url: "https://rctlabs.co/en/philosophy/fdia" },
+    { name: "Home", url: "https://delentia.com/en" },
+    { name: "Philosophy", url: "https://delentia.com/en/philosophy" },
+    { name: "FDIA Formula", url: "https://delentia.com/en/philosophy/fdia" },
   ])
   const definedTerm = {
     "@context": "https://schema.org",
@@ -32,11 +32,11 @@ export default async function FDIALayout({ children }: { children: React.ReactNo
     name: "FDIA",
     alternateName: "Future Data Intent Action",
     description: "F = (D^I) × A — A framework quantifying how Data amplified by Intent and shaped by Action produces verifiable future outcomes in AI systems.",
-    url: "https://rctlabs.co/en/philosophy/fdia",
+    url: "https://delentia.com/en/philosophy/fdia",
     inDefinedTermSet: {
       "@type": "DefinedTermSet",
-      name: "RCT Labs Glossary",
-      url: "https://rctlabs.co/en/glossary",
+      name: "Delentia Labs Glossary",
+      url: "https://delentia.com/en/glossary",
     },
   }
   return (

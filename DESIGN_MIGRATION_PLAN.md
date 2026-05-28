@@ -1,4 +1,4 @@
-# RCT Labs v0 → Manus Frontend Design Migration Plan
+# Delentia Labs v0 → Manus Frontend Design Migration Plan
 ## Complete Design System Alignment Strategy
 
 **Created:** March 24, 2026  
@@ -227,8 +227,8 @@
 
 **Products (5):**
 - `/products` - Hub page
-- `/products/rctlabs`
-- `/products/artent-ai`
+- `/products/delentia-platform`
+- `/products/delentia-ai`
 - `/products/signed-ai`
 - `/pricing`
 
@@ -497,8 +497,8 @@
 
 **Products Pages:**
 - [ ] `/products/page.tsx` - Hub page
-- [ ] `/products/rctlabs/page.tsx`
-- [ ] `/products/artent-ai/page.tsx`
+- [ ] `/products/delentia-platform/page.tsx`
+- [ ] `/products/delentia-ai/page.tsx`
 - [ ] `/products/signed-ai/page.tsx`
 - [ ] `/pricing/page.tsx`
 

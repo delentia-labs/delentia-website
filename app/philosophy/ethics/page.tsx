@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,10 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Ethics — How RCT Labs Builds Responsibly",
-    "จริยธรรม — แนวทางพัฒนา AI อย่างรับผิดชอบของ RCT Labs",
-    "RCT Labs ethical principles: benchmark-qualified claims, PDPA-native architecture, constitutional AI enforcement, transparent rollout, and no-singularity honesty.",
-    "หลักจริยธรรมของ RCT Labs: ยืนยันด้วย benchmark, สถาปัตยกรรม PDPA-native, Constitutional AI, rollout โปร่งใส และไม่มีการตลาดแบบ singularity",
+    "Ethics — How Delentia Labs Builds Responsibly",
+    "จริยธรรม — แนวทางพัฒนา AI อย่างรับผิดชอบของ Delentia Labs",
+    "Delentia Labs ethical principles: benchmark-qualified claims, PDPA-native architecture, constitutional AI enforcement, transparent rollout, and no-singularity honesty.",
+    "หลักจริยธรรมของ Delentia Labs: ยืนยันด้วย benchmark, สถาปัตยกรรม PDPA-native, Constitutional AI, rollout โปร่งใส และไม่มีการตลาดแบบ singularity",
     "/philosophy/ethics"
   )
 }
@@ -25,13 +25,13 @@ export default async function EthicsPage() {
   const isEn = locale === "en"
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Philosophy", url: `https://rctlabs.co${localePrefix}/philosophy` },
-    { name: "Ethics", url: `https://rctlabs.co${localePrefix}/philosophy/ethics` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Philosophy", url: `https://delentia.com${localePrefix}/philosophy` },
+    { name: "Ethics", url: `https://delentia.com${localePrefix}/philosophy/ethics` },
   ])
   const faq = getFAQSchema([
     {
-      question: isEn ? "How does RCT Labs keep AI claims credible?" : "RCT Labs รักษาความน่าเชื่อถือของ AI claims อย่างไร?",
+      question: isEn ? "How does Delentia Labs keep AI claims credible?" : "Delentia Labs รักษาความน่าเชื่อถือของ AI claims อย่างไร?",
       answer: isEn
         ? "By attaching benchmark qualifiers and validation evidence to public claims rather than using unqualified marketing statements."
         : "โดยผูกทุกคำอ้างสาธารณะกับ benchmark qualifier และหลักฐานการตรวจสอบ แทนการตลาดแบบไม่มีหลักฐาน",
@@ -85,9 +85,9 @@ export default async function EthicsPage() {
       titleEn: "Transparent Staged Rollout",
       titleTh: "การ Rollout แบบโปร่งใสเป็นขั้นตอน",
       descEn:
-        "RCT Labs does not ship features without validation gates. Backend-validated coverage currently stands at 66.7%, with a public target of 100%. Each stage is documented and rollout metrics are visible. We prefer slower, validated delivery over fast, unverified shipping.",
+        "Delentia Labs does not ship features without validation gates. Backend-validated coverage currently stands at 66.7%, with a public target of 100%. Each stage is documented and rollout metrics are visible. We prefer slower, validated delivery over fast, unverified shipping.",
       descTh:
-        "RCT Labs ไม่ปล่อย feature ใดๆ โดยไม่ผ่าน validation gate ปัจจุบัน backend-validated coverage อยู่ที่ 66.7% โดยมีเป้าหมาย 100% สาธารณะ แต่ละขั้นตอนถูกบันทึก และ rollout metric มองเห็นได้ เราเลือก delivery ที่ช้าแต่ validated มากกว่าการส่งที่รวดเร็วแต่ไม่ตรวจสอบ",
+        "Delentia Labs ไม่ปล่อย feature ใดๆ โดยไม่ผ่าน validation gate ปัจจุบัน backend-validated coverage อยู่ที่ 66.7% โดยมีเป้าหมาย 100% สาธารณะ แต่ละขั้นตอนถูกบันทึก และ rollout metric มองเห็นได้ เราเลือก delivery ที่ช้าแต่ validated มากกว่าการส่งที่รวดเร็วแต่ไม่ตรวจสอบ",
     },
     {
       icon: AlertTriangle,
@@ -118,7 +118,7 @@ export default async function EthicsPage() {
         </Link>
 
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-          {isEn ? "Ethics at RCT Labs" : "จริยธรรมของ RCT Labs"}
+          {isEn ? "Ethics at Delentia Labs" : "จริยธรรมของ Delentia Labs"}
         </h1>
         <p className="text-xl text-muted-foreground mb-16 max-w-3xl">
           {isEn
@@ -170,3 +170,4 @@ export default async function EthicsPage() {
     </>
   )
 }
+

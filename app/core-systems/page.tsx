@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getDefinedTermSchema } from "@/lib/schema"
@@ -28,7 +28,7 @@ export default async function Page() {
 
   const definedTermSchema = getDefinedTermSchema(
     "RCT Kernel",
-    "The RCT Kernel is the constitutional AI operating core of RCT Labs, comprising four primary systems: HexaCore (multi-model routing), Intent Loop (intent continuity), Analysearch (multi-depth analysis), and Delta Memory (enterprise AI memory).",
+    "The RCT Kernel is the constitutional AI operating core of Delentia Labs, comprising four primary systems: HexaCore (multi-model routing), Intent Loop (intent continuity), Analysearch (multi-depth analysis), and Delta Memory (enterprise AI memory).",
     `${SITE_URL}/${locale}/core-systems`
   )
 
@@ -40,3 +40,4 @@ export default async function Page() {
     </>
   )
 }
+

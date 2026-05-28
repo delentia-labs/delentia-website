@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
@@ -14,12 +14,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "Collaboration — Work With RCT Labs",
-    "Collaboration — ร่วมงานกับ RCT Labs",
-    "Collaboration pathways for advisory, research, implementation, and future opportunities with RCT Labs as a solo-built constitutional AI platform.",
-    "ช่องทางความร่วมมือด้าน advisory, research, implementation และ future opportunities กับ RCT Labs ในฐานะแพลตฟอร์ม constitutional AI ที่สร้างโดยผู้ก่อตั้งเพียงคนเดียว",
+    "Collaboration — Work With Delentia Labs",
+    "Collaboration — ร่วมงานกับ Delentia Labs",
+    "Collaboration pathways for advisory, research, implementation, and future opportunities with Delentia Labs as a solo-built constitutional AI platform.",
+    "ช่องทางความร่วมมือด้าน advisory, research, implementation และ future opportunities กับ Delentia Labs ในฐานะแพลตฟอร์ม constitutional AI ที่สร้างโดยผู้ก่อตั้งเพียงคนเดียว",
     "/company/careers",
-    ["RCT Labs collaboration", "AI advisory", "research partnership", "future opportunities"]
+    ["Delentia Labs collaboration", "AI advisory", "research partnership", "future opportunities"]
   )
 }
 
@@ -29,16 +29,16 @@ export default async function CareersPage() {
   const localePrefix = isTh ? "/th" : "/en"
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: isTh ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: isTh ? "บริษัท" : "Company", url: `https://rctlabs.co${localePrefix}/company` },
-    { name: isTh ? "Collaboration" : "Collaboration", url: `https://rctlabs.co${localePrefix}/company/careers` },
+    { name: isTh ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: isTh ? "บริษัท" : "Company", url: `https://delentia.com${localePrefix}/company` },
+    { name: isTh ? "Collaboration" : "Collaboration", url: `https://delentia.com${localePrefix}/company/careers` },
   ])
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: isTh ? "Collaboration — ร่วมงานกับ RCT Labs" : "Collaboration — Work With RCT Labs",
-    description: "Collaboration pathways for advisory, research, implementation, and future opportunities with RCT Labs.",
-    url: `https://rctlabs.co${localePrefix}/company/careers`,
+    name: isTh ? "Collaboration — ร่วมงานกับ Delentia Labs" : "Collaboration — Work With Delentia Labs",
+    description: "Collaboration pathways for advisory, research, implementation, and future opportunities with Delentia Labs.",
+    url: `https://delentia.com${localePrefix}/company/careers`,
   }
 
   const collaborationTracks = [
@@ -67,12 +67,12 @@ export default async function CareersPage() {
 
   const expectations = isTh
     ? [
-        "เข้าใจว่าปัจจุบัน RCT Labs เป็นแพลตฟอร์มที่สร้างโดยผู้ก่อตั้งเพียงคนเดียว ไม่ใช่องค์กรขนาดใหญ่",
+        "เข้าใจว่าปัจจุบัน Delentia Labs เป็นแพลตฟอร์มที่สร้างโดยผู้ก่อตั้งเพียงคนเดียว ไม่ใช่องค์กรขนาดใหญ่",
         "สนใจทำงานที่ต้องพิสูจน์ได้ มี evidence และรับผิดชอบต่อ claim ที่เผยแพร่สาธารณะ",
         "สื่อสารเชิงระบบได้ทั้งระดับ architecture, product, trust, และ deployment",
       ]
     : [
-        "Understands that RCT Labs is currently a solo-built platform, not a large operating company.",
+        "Understands that Delentia Labs is currently a solo-built platform, not a large operating company.",
         "Values verifiable work, evidence-backed claims, and disciplined public communication.",
         "Can think across architecture, product, trust, and deployment rather than in a narrow feature silo.",
       ]
@@ -91,7 +91,7 @@ export default async function CareersPage() {
             <span>{isTh ? "Collaboration & Future Opportunities" : "Collaboration & Future Opportunities"}</span>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-foreground text-balance leading-tight">
-            {isTh ? "ร่วมงานกับ RCT Labs อย่างตรงกับความจริงของบริษัท" : "Work With RCT Labs in a Way That Matches the Company Reality"}
+            {isTh ? "ร่วมงานกับ Delentia Labs อย่างตรงกับความจริงของบริษัท" : "Work With Delentia Labs in a Way That Matches the Company Reality"}
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-balance">
             {isTh
@@ -140,8 +140,8 @@ export default async function CareersPage() {
             <div className="space-y-3 text-muted-foreground leading-relaxed">
               <p>
                 {isTh
-                  ? "RCT Labs ยังอยู่ใน stage ที่ขับเคลื่อนโดยผู้ก่อตั้งเพียงคนเดียว ดังนั้นหน้า collaboration นี้ถูกออกแบบให้ตรงกับสภาพจริง ไม่ใช่สร้างภาพว่ามีทีมขนาดใหญ่หรือเปิดรับหลายตำแหน่งพร้อมกัน"
-                  : "RCT Labs is still in a founder-led, solo-built stage. This page is intentionally scoped to that reality instead of implying a large operating team or a broad active hiring pipeline."}
+                  ? "Delentia Labs ยังอยู่ใน stage ที่ขับเคลื่อนโดยผู้ก่อตั้งเพียงคนเดียว ดังนั้นหน้า collaboration นี้ถูกออกแบบให้ตรงกับสภาพจริง ไม่ใช่สร้างภาพว่ามีทีมขนาดใหญ่หรือเปิดรับหลายตำแหน่งพร้อมกัน"
+                  : "Delentia Labs is still in a founder-led, solo-built stage. This page is intentionally scoped to that reality instead of implying a large operating team or a broad active hiring pipeline."}
               </p>
               <p>
                 {isTh
@@ -205,3 +205,4 @@ export default async function CareersPage() {
     </>
   )
 }
+

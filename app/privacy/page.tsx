@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -12,12 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Privacy Policy — RCT Labs",
-    "นโยบายความเป็นส่วนตัว — RCT Labs",
-    "Privacy policy for RCT Labs website and services. PDPA-compliant data handling for Thailand and international users.",
-    "นโยบายความเป็นส่วนตัวของ RCT Labs เว็บไซต์และบริการ สอดคล้องกับ PDPA สำหรับผู้ใช้ในประเทศไทยและต่างประเทศ",
+    "Privacy Policy — Delentia Labs",
+    "นโยบายความเป็นส่วนตัว — Delentia Labs",
+    "Privacy policy for Delentia Labs website and services. PDPA-compliant data handling for Thailand and international users.",
+    "นโยบายความเป็นส่วนตัวของ Delentia Labs เว็บไซต์และบริการ สอดคล้องกับ PDPA สำหรับผู้ใช้ในประเทศไทยและต่างประเทศ",
     "/privacy",
-    ["privacy policy", "PDPA", "data protection", "RCT Labs privacy"]
+    ["privacy policy", "PDPA", "data protection", "Delentia Labs privacy"]
   )
 }
 
@@ -25,15 +25,15 @@ export default async function PrivacyPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "นโยบายความเป็นส่วนตัว" : "Privacy Policy", url: `https://rctlabs.co${localePrefix}/privacy` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "นโยบายความเป็นส่วนตัว" : "Privacy Policy", url: `https://delentia.com${localePrefix}/privacy` },
   ])
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: locale === "th" ? "นโยบายความเป็นส่วนตัว — RCT Labs" : "Privacy Policy — RCT Labs",
-    description: "PDPA-compliant privacy policy for RCT Labs website and services. Covers data collection, use, sharing, and Thailand users' rights.",
-    url: `https://rctlabs.co${localePrefix}/privacy`,
+    name: locale === "th" ? "นโยบายความเป็นส่วนตัว — Delentia Labs" : "Privacy Policy — Delentia Labs",
+    description: "PDPA-compliant privacy policy for Delentia Labs website and services. Covers data collection, use, sharing, and Thailand users' rights.",
+    url: `https://delentia.com${localePrefix}/privacy`,
     genre: "LegalDocument",
   }
 
@@ -41,7 +41,7 @@ export default async function PrivacyPage() {
     {
       title: "1. Introduction",
       content:
-        "RCT Labs is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your personal information when you visit our website or use our services.",
+        "Delentia Labs is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your personal information when you visit our website or use our services.",
     },
     {
       title: "2. Information We Collect",
@@ -81,7 +81,7 @@ export default async function PrivacyPage() {
     {
       title: "9. PDPA Compliance (Thailand)",
       content:
-        `For users in Thailand, RCT Labs complies with the Personal Data Protection Act (PDPA) B.E. 2562 (2019). We collect and process personal data only with your consent or when permitted by law. You have the right to access, rectify, erase, restrict processing, and port your data. To exercise these rights, contact our Data Protection Officer at ${GENERAL_CONTACT_EMAIL}.`,
+        `For users in Thailand, Delentia Labs complies with the Personal Data Protection Act (PDPA) B.E. 2562 (2019). We collect and process personal data only with your consent or when permitted by law. You have the right to access, rectify, erase, restrict processing, and port your data. To exercise these rights, contact our Data Protection Officer at ${GENERAL_CONTACT_EMAIL}.`,
     },
     {
       title: "10. Contact Us",
@@ -124,3 +124,4 @@ export default async function PrivacyPage() {
     </>
   )
 }
+

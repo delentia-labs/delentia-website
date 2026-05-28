@@ -85,7 +85,7 @@ export const FOOTER_LINKS = {
   ],
   community: [
     { label: "Discord", href: "https://discord.gg/rctlabs" },
-    { label: "GitHub", href: "https://github.com/rctlabs" },
+    { label: "GitHub", href: "https://github.com/delentia-labs" },
     { label: "Twitter", href: "https://twitter.com/rctlabs" },
   ],
   company: [

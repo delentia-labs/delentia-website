@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -24,8 +24,8 @@ export default function ProtocolPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://rctlabs.co${localePrefix}` },
-      { "@type": "ListItem", position: 2, name: "Open Protocol", item: `https://rctlabs.co${localePrefix}/open-protocol` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://delentia.com${localePrefix}` },
+      { "@type": "ListItem", position: 2, name: "Open Protocol", item: `https://delentia.com${localePrefix}/open-protocol` },
     ],
   }
   const faqSchema = {
@@ -128,12 +128,12 @@ export default function ProtocolPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-8">
               <Button size="lg" asChild>
-                <Link href="https://github.com/rctlabs/rct-platform" target="_blank" rel="noopener noreferrer" className="gap-2">
+                <Link href="https://github.com/delentia-labs/delentia-os" target="_blank" rel="noopener noreferrer" className="gap-2">
                   {isTh ? "ดูบน GitHub" : "View on GitHub"} <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="https://github.com/rctlabs/rct-platform" target="_blank" rel="noopener noreferrer" className="gap-2">
+                <Link href="https://github.com/delentia-labs/delentia-os" target="_blank" rel="noopener noreferrer" className="gap-2">
                   <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
                   {isTh ? "เพิ่ม Star บน GitHub" : "Star on GitHub"}
                 </Link>
@@ -342,7 +342,7 @@ export default function ProtocolPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button size="lg" variant="secondary" asChild>
-              <Link href="https://github.com/rctlabs/rct-platform" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/delentia-labs/delentia-os" target="_blank" rel="noopener noreferrer">
                 {isTh ? "GitHub Repository" : "GitHub Repository"}
               </Link>
             </Button>
@@ -358,3 +358,4 @@ export default function ProtocolPage() {
     </>
   )
 }
+

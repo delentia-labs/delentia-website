@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,12 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Core Values — RCT Labs",
-    "คุณค่าหลัก — RCT Labs",
-    "The five principles that guide every decision at RCT Labs: Radical Honesty, Survivor's Empathy, Verifiable Truth, Human-Centric Power, and Long-Term Stewardship.",
-    "หลักการ 5 ข้อที่นำทางทุกการตัดสินใจของ RCT Labs: ความซื่อสัตย์อย่างถอนราก, ความเห็นอกเห็นใจผู้รอดชีวิต, ความจริงที่พิสูจน์ได้, พลังยึดมนุษย์เป็นศูนย์กลาง, และการดูแลรักษาระยะยาว",
+    "Core Values — Delentia Labs",
+    "คุณค่าหลัก — Delentia Labs",
+    "The five principles that guide every decision at Delentia Labs: Radical Honesty, Survivor's Empathy, Verifiable Truth, Human-Centric Power, and Long-Term Stewardship.",
+    "หลักการ 5 ข้อที่นำทางทุกการตัดสินใจของ Delentia Labs: ความซื่อสัตย์อย่างถอนราก, ความเห็นอกเห็นใจผู้รอดชีวิต, ความจริงที่พิสูจน์ได้, พลังยึดมนุษย์เป็นศูนย์กลาง, และการดูแลรักษาระยะยาว",
     "/philosophy/values",
-    ["RCT Labs values", "constitutional AI principles", "AI ethics Thailand"]
+    ["Delentia Labs values", "constitutional AI principles", "AI ethics Thailand"]
   )
 }
 
@@ -122,9 +122,9 @@ export default async function ValuesPage() {
   const isTh = locale === "th"
   const localePrefix = isTh ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Philosophy", url: `https://rctlabs.co${localePrefix}/philosophy` },
-    { name: "Values", url: `https://rctlabs.co${localePrefix}/philosophy/values` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Philosophy", url: `https://delentia.com${localePrefix}/philosophy` },
+    { name: "Values", url: `https://delentia.com${localePrefix}/philosophy/values` },
   ])
   const faq = getFAQSchema([
     {
@@ -166,8 +166,8 @@ export default async function ValuesPage() {
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl">
               {isTh
-                ? "หลักการ 5 ข้อที่นำทางทุกการตัดสินใจ ทุกการออกแบบ และทุกการอ้างสิทธิ์ที่ RCT Labs เผยแพร่ต่อสาธารณะ"
-                : "Five principles that guide every decision, every design choice, and every public claim RCT Labs makes."}
+                ? "หลักการ 5 ข้อที่นำทางทุกการตัดสินใจ ทุกการออกแบบ และทุกการอ้างสิทธิ์ที่ Delentia Labs เผยแพร่ต่อสาธารณะ"
+                : "Five principles that guide every decision, every design choice, and every public claim Delentia Labs makes."}
             </p>
           </div>
 
@@ -204,7 +204,7 @@ export default async function ValuesPage() {
             <p className="text-foreground/70 leading-relaxed">
               {isTh
                 ? "คุณค่าหลักแต่ละข้อมีการนำไปใช้งานที่ตรวจสอบได้ในโค้ด ในการทดสอบ และในการสื่อสารสาธารณะ"
-                : "Each core value has a verifiable implementation in code, in tests, and in public communications. If RCT Labs violates any principle, the public record will show it."}
+                : "Each core value has a verifiable implementation in code, in tests, and in public communications. If Delentia Labs violates any principle, the public record will show it."}
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link href={`${localePrefix}/benchmark`} className="text-sm text-warm-amber hover:underline">
@@ -214,7 +214,7 @@ export default async function ValuesPage() {
                 {isTh ? "สำรวจ FDIA →" : "Explore FDIA →"}
               </Link>
               <Link href={`${localePrefix}/about`} className="text-sm text-warm-amber hover:underline">
-                {isTh ? "เกี่ยวกับ RCT Labs →" : "About RCT Labs →"}
+                {isTh ? "เกี่ยวกับ Delentia Labs →" : "About Delentia Labs →"}
               </Link>
             </div>
           </div>

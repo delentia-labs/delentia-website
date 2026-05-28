@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
@@ -22,9 +22,9 @@ export default async function Page() {
   const localePrefix = locale === "th" ? "/th" : ""
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "โซลูชั่น" : "Solutions", url: `https://rctlabs.co${localePrefix}/solutions` },
-    { name: locale === "th" ? "Dynamic AI Routing" : "Dynamic AI Routing", url: `https://rctlabs.co${localePrefix}/solutions/dynamic-ai-routing` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "โซลูชั่น" : "Solutions", url: `https://delentia.com${localePrefix}/solutions` },
+    { name: locale === "th" ? "Dynamic AI Routing" : "Dynamic AI Routing", url: `https://delentia.com${localePrefix}/solutions/dynamic-ai-routing` },
   ])
 
   const faqSchema = getFAQSchema([
@@ -34,7 +34,7 @@ export default async function Page() {
     },
     {
       question: "How does JITNA achieve sub-50ms routing decisions?",
-      answer: "JITNA evaluates 6 primitives (Intent, Data, Delta, Approach, Reflection, Memory) simultaneously using pre-computed proficiency scores and cached routing weights in RCTDB 7D.",
+      answer: "JITNA evaluates 6 primitives (Intent, Data, Delta, Approach, Reflection, Memory) simultaneously using pre-computed proficiency scores and cached routing weights in DelentiaDB 7D.",
     },
   ])
 
@@ -46,3 +46,4 @@ export default async function Page() {
     </>
   )
 }
+

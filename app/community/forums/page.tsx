@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,10 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Community Forums — Coming Soon | RCT Labs",
-    "ฟอรัมชุมชน — เร็วๆ นี้ | RCT Labs",
-    "RCT Labs community forums are under construction. A space for developers and researchers to discuss AI infrastructure, FDIA, and the HexaCore platform.",
-    "ฟอรัมชุมชนของ RCT Labs อยู่ระหว่างการพัฒนา พื้นที่สำหรับนักพัฒนาและนักวิจัยสนทนาเรื่อง AI infrastructure, FDIA และ HexaCore platform",
+    "Community Forums — Coming Soon | Delentia Labs",
+    "ฟอรัมชุมชน — เร็วๆ นี้ | Delentia Labs",
+    "Delentia Labs community forums are under construction. A space for developers and researchers to discuss AI infrastructure, FDIA, and the HexaCore platform.",
+    "ฟอรัมชุมชนของ Delentia Labs อยู่ระหว่างการพัฒนา พื้นที่สำหรับนักพัฒนาและนักวิจัยสนทนาเรื่อง AI infrastructure, FDIA และ HexaCore platform",
     "/community/forums"
   )
 }
@@ -25,9 +25,9 @@ export default async function CommunityForumsPage() {
   const isEn = locale === "en"
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Community", url: `https://rctlabs.co${localePrefix}/community` },
-    { name: "Forums", url: `https://rctlabs.co${localePrefix}/community/forums` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Community", url: `https://delentia.com${localePrefix}/community` },
+    { name: "Forums", url: `https://delentia.com${localePrefix}/community/forums` },
   ])
   const faq = getFAQSchema([
     {
@@ -102,3 +102,4 @@ export default async function CommunityForumsPage() {
     </>
   )
 }
+

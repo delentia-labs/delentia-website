@@ -1,4 +1,4 @@
-# RCT Labs — Pixel Art Visual Governance
+# Delentia Labs — Pixel Art Visual Governance
 
 ## 1. Intent & Purpose
 Pixel art assets within the RCT Ecosystem serve as symbolic representations of our constitutional alignment roots. They are deliberately low-fidelity to natively contrast with the high-fidelity enterprise 10-layer architecture, signifying the human intent at the core of the heavy compute.

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -18,12 +18,12 @@ const PIXEL_SIGNED = pixelIcons.shield
 
 const products = [
   {
-    id: "rctlabs",
-    href: "/products/rctlabs",
+    id: "delentia-platform",
+    href: "/products/delentia-platform",
     icon: Cpu,
     color: "#D4A853",
-    titleEn: "RCTLabs",
-    titleTh: "RCTLabs",
+    titleEn: "Delentia Platform",
+    titleTh: "Delentia Platform",
     tagEn: "AI Operating Environment",
     tagTh: "AI Operating Environment",
     descEn: `Constitutional AI Operating Environment where 7 Genomes converge. Public pages use ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} for ${SITE_PUBLIC_SDK_TESTS} open-release tests and keep the broader runtime under ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
@@ -37,19 +37,19 @@ const products = [
     accentSrc: PIXEL_LABS,
   },
   {
-    id: "artent",
-    href: "/products/artent-ai",
+    id: "delentia-ai",
+    href: "/products/delentia-ai",
     icon: Palette,
     color: "#B8A9C9",
-    titleEn: "Artent AI",
-    titleTh: "Artent AI",
+    titleEn: "Delentia AI",
+    titleTh: "Delentia AI",
     tagEn: "Personal Agent OS",
     tagTh: "Personal Agent OS",
-    descEn: "Personal Agent OS powered by L1-L5 Intelligence Ladder, RCTDB 8-Dimensional memory, and WF00-META 7-phase protocol — FDIA constitutional scoring on every output.",
-    descTh: "Personal Agent OS ขับเคลื่อนด้วย L1-L5 Intelligence Ladder, RCTDB 8-Dimensional Memory และ WF00-META 7-Phase Protocol พร้อม FDIA Constitutional Scoring",
+    descEn: "Personal Agent OS powered by L1-L5 Intelligence Ladder, DelentiaDB 8-Dimensional memory, and WF00-META 7-phase protocol — FDIA constitutional scoring on every output.",
+    descTh: "Personal Agent OS ขับเคลื่อนด้วย L1-L5 Intelligence Ladder, DelentiaDB 8-Dimensional Memory และ WF00-META 7-Phase Protocol พร้อม FDIA Constitutional Scoring",
     features: [
       { en: "L1-L5 Intelligence Ladder", th: "L1-L5 Intelligence Ladder" },
-      { en: "RCTDB 8-Dimensional Memory", th: "RCTDB 8-Dimensional Memory" },
+      { en: "DelentiaDB 8-Dimensional Memory", th: "DelentiaDB 8-Dimensional Memory" },
       { en: "WF00-META 7-Phase Protocol", th: "WF00-META 7-Phase Protocol" },
       { en: "FDIA Constitutional Scoring", th: "FDIA Constitutional Scoring" },
     ],
@@ -94,7 +94,7 @@ export default function ProductsPage() {
         {
           question: "ถ้าจะเริ่มจากผลิตภัณฑ์เดียว ควรเริ่มตัวไหนก่อน",
           answer:
-            "เริ่มจาก RCTLabs หากโจทย์หลักคือการทดสอบและ benchmark ระบบ AI เริ่มจาก SignedAI หากกังวลเรื่อง hallucination, trust หรือ auditability และเริ่มจาก ARTENT AI หากโจทย์หลักคือ creative workflow ที่ต้องคุมทิศทางให้ตรง intent",
+            "เริ่มจาก Delentia Platform หากโจทย์หลักคือการทดสอบและ benchmark ระบบ AI เริ่มจาก SignedAI หากกังวลเรื่อง hallucination, trust หรือ auditability และเริ่มจาก Delentia AI หากโจทย์หลักคือ creative workflow ที่ต้องคุมทิศทางให้ตรง intent",
         },
         {
           question: "ผลิตภัณฑ์เหล่านี้แชร์ infrastructure ร่วมกันหรือไม่",
@@ -111,12 +111,12 @@ export default function ProductsPage() {
         {
           question: "If a team starts with one product, which should it choose first?",
           answer:
-            "Start with RCTLabs if the main need is testing and benchmarking AI systems. Start with SignedAI if hallucination, trust, or auditability is the blocker. Start with ARTENT AI if the main challenge is creative workflow execution aligned to intent.",
+            "Start with Delentia Platform if the main need is testing and benchmarking AI systems. Start with SignedAI if hallucination, trust, or auditability is the blocker. Start with Delentia AI if the main challenge is creative workflow execution aligned to intent.",
         },
         {
           question: "Do the products share the same infrastructure foundation?",
           answer:
-            "Yes. All three products run on the same RCT operating system foundation, including the 10-layer architecture, FDIA Equation, JITNA Protocol, and shared trust infrastructure.",
+            "Yes. All three products run on the same Delentia OS foundation, including the 10-layer architecture, FDIA Equation, JITNA Protocol, and shared trust infrastructure.",
         },
         {
           question: "How are Products different from Solutions?",
@@ -217,8 +217,8 @@ export default function ProductsPage() {
             </div>
             <div className="space-y-4">
               {[
-                { title: "RCTLabs", body: isTh ? "แพลตฟอร์มทดสอบ, benchmark, regression และ certification สำหรับ workflow AI" : "Testing, benchmarking, regression, and certification platform for AI workflows." },
-                { title: "ARTENT AI", body: isTh ? "creative engine ที่แปลง intent ให้เป็น output ที่ยังคุมทิศทางเชิงกลยุทธ์ได้" : "A creative engine that turns intent into output without losing strategic direction." },
+                { title: "Delentia Platform", body: isTh ? "แพลตฟอร์มทดสอบ, benchmark, regression และ certification สำหรับ workflow AI" : "Testing, benchmarking, regression, and certification platform for AI workflows." },
+                { title: "Delentia AI", body: isTh ? "creative engine ที่แปลง intent ให้เป็น output ที่ยังคุมทิศทางเชิงกลยุทธ์ได้" : "A creative engine that turns intent into output without losing strategic direction." },
                 { title: "SignedAI", body: isTh ? "verification layer สำหรับกรณีใช้ AI ในงานที่ต้องมี trust, traceability และ auditability" : "A verification layer for AI use cases that require trust, traceability, and auditability." },
               ].map((item) => (
                 <div key={item.title} className="rounded-2xl border border-border bg-background/70 p-4">
@@ -354,8 +354,8 @@ export default function ProductsPage() {
           </h2>
           <p className="text-muted-foreground">
             {isTh
-              ? "ขอ Early Access สำหรับ RCTLabs, Artent AI หรือ SignedAI ทีมงานจะจัด Onboarding ส่วนตัวให้คุณ"
-              : "Request early access to RCTLabs, Artent AI, or SignedAI. We'll set up a personalized onboarding experience."}
+              ? "ขอ Early Access สำหรับ Delentia Platform, Delentia AI หรือ SignedAI ทีมงานจะจัด Onboarding ส่วนตัวให้คุณ"
+              : "Request early access to Delentia Platform, Delentia AI, or SignedAI. We'll set up a personalized onboarding experience."}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href={localHref("/contact")} className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-warm-amber hover:bg-[#C49A48] text-white font-medium text-sm transition-colors">
@@ -372,8 +372,8 @@ export default function ProductsPage() {
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             {isTh
-              ? "เลือก RCTLabs หากคุณต้องการ platform สำหรับทดสอบและ benchmark AI เลือก Artent AI หากโจทย์หลักคือ creative workflow และเลือก SignedAI หากคุณต้องการ verification, audit trail และการลด hallucination ในงานที่มีความเสี่ยงสูง"
-              : "Choose RCTLabs if you need a platform for testing and benchmarking AI systems. Choose Artent AI if your main challenge is creative workflow execution. Choose SignedAI if you need verification, audit trails, and hallucination reduction for high-risk AI outputs."}
+              ? "เลือก Delentia Platform หากคุณต้องการ platform สำหรับทดสอบและ benchmark AI เลือก Delentia AI หากโจทย์หลักคือ creative workflow และเลือก SignedAI หากคุณต้องการ verification, audit trail และการลด hallucination ในงานที่มีความเสี่ยงสูง"
+              : "Choose Delentia Platform if you need a platform for testing and benchmarking AI systems. Choose Delentia AI if your main challenge is creative workflow execution. Choose SignedAI if you need verification, audit trails, and hallucination reduction for high-risk AI outputs."}
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Link href={localHref("/pricing")} className="inline-flex items-center justify-center rounded-xl bg-warm-amber px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#C49A48]">
@@ -418,3 +418,4 @@ export default function ProductsPage() {
     </>
   )
 }
+

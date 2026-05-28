@@ -5,11 +5,11 @@ const root = process.cwd()
 const blogRoot = join(root, "content", "blog")
 
 const reviewedFiles = new Set([
-  "content/blog/rct-platform-open-source-launch.mdx",
-  "content/blog/rct-platform-open-source-launch.th.mdx",
-  "content/blog/rct-platform-roadmap-preview.mdx",
-  "content/blog/rct-platform-roadmap-preview.th.mdx",
-  "content/blog/artentai-autonomous-enterprise-agent.mdx",
+  "content/blog/delentia-os-open-source-launch.mdx",
+  "content/blog/delentia-os-open-source-launch.th.mdx",
+  "content/blog/delentia-os-roadmap-preview.mdx",
+  "content/blog/delentia-os-roadmap-preview.th.mdx",
+  "content/blog/delentia-ai-autonomous-enterprise-agent.mdx",
   "content/blog/asean-enterprise-ai-deployment-guide.mdx",
   "content/blog/evaluation-harnesses-enterprise-llm.mdx",
   "content/blog/evaluation-harnesses-enterprise-llm.th.mdx",

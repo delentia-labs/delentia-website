@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import MethodologyClient from "./MethodologyClient"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
@@ -9,12 +9,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "Methodology — How RCT Labs Uses Frameworks, Testing, and Disclosure Controls",
-    "Methodology — วิธีที่ RCT Labs ใช้กรอบภายนอก การทดสอบ และขอบเขตการเปิดเผยข้อมูล",
-    "Methodology page describing how RCT Labs uses external governance frameworks, internal testing, disclosure boundaries, and review loops across public research and platform claims.",
-    "หน้า methodology ที่อธิบายว่า RCT Labs ใช้กรอบกำกับดูแลภายนอก การทดสอบภายใน ขอบเขตการเปิดเผยข้อมูล และวงรอบการตรวจทานอย่างไร",
+    "Methodology — How Delentia Labs Uses Frameworks, Testing, and Disclosure Controls",
+    "Methodology — วิธีที่ Delentia Labs ใช้กรอบภายนอก การทดสอบ และขอบเขตการเปิดเผยข้อมูล",
+    "Methodology page describing how Delentia Labs uses external governance frameworks, internal testing, disclosure boundaries, and review loops across public research and platform claims.",
+    "หน้า methodology ที่อธิบายว่า Delentia Labs ใช้กรอบกำกับดูแลภายนอก การทดสอบภายใน ขอบเขตการเปิดเผยข้อมูล และวงรอบการตรวจทานอย่างไร",
     "/methodology",
-    ["AI methodology", "enterprise AI evaluation methodology", "RCT Labs methodology"]
+    ["AI methodology", "enterprise AI evaluation methodology", "Delentia Labs methodology"]
   )
 }
 
@@ -24,16 +24,16 @@ export default async function MethodologyPage() {
   const isTh = locale === "th"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: isTh ? "หน้าแรก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: isTh ? "วิธีวิทยา" : "Methodology", url: `https://rctlabs.co${localePrefix}/methodology` },
+    { name: isTh ? "หน้าแรก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: isTh ? "วิธีวิทยา" : "Methodology", url: `https://delentia.com${localePrefix}/methodology` },
   ])
 
   const faqSchema = getFAQSchema([
     {
       question: isTh ? "หน้า Methodology มีไว้เพื่ออะไร" : "What is the methodology page for?",
       answer: isTh
-        ? "เพื่ออธิบายว่าการอ้างอิง การทดสอบ การเปิดเผยข้อมูล และการตรวจทานบนเว็บไซต์ RCT Labs มีกรอบและขอบเขตอย่างไร"
-        : "It explains the framework behind how RCT Labs handles references, testing, disclosure, and review across the public site.",
+        ? "เพื่ออธิบายว่าการอ้างอิง การทดสอบ การเปิดเผยข้อมูล และการตรวจทานบนเว็บไซต์ Delentia Labs มีกรอบและขอบเขตอย่างไร"
+        : "It explains the framework behind how Delentia Labs handles references, testing, disclosure, and review across the public site.",
     },
     {
       question: isTh ? "Methodology นี้เท่ากับเอกสาร compliance หรือไม่" : "Is this methodology the same as compliance documentation?",

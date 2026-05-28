@@ -83,7 +83,7 @@ const SCENARIOS_TH = [
   { emoji: "✅", label: "SignedAI ตรวจสอบอย่างไร?", query: "SignedAI ทำงานอย่างไร?" },
   { emoji: "🧠", label: "HexaCore ทำงานอย่างไร?", query: "HexaCore ใช้โมเดล AI อะไรบ้าง?" },
   { emoji: "👤", label: "ใครสร้าง RCT?", query: "ใครสร้าง RCT?" },
-  { emoji: "🏢", label: "RCT ต่างจาก ChatGPT อย่างไร?", query: "RCT Labs แตกต่างจาก ChatGPT อย่างไร?" },
+  { emoji: "🏢", label: "RCT ต่างจาก ChatGPT อย่างไร?", query: "Delentia Labs แตกต่างจาก ChatGPT อย่างไร?" },
   { emoji: "💰", label: "ราคาและแพลน Tier", query: "RCT มี pricing plan อะไรบ้าง?" },
   { emoji: "🔐", label: "Data Sovereignty คืออะไร?", query: "Data Sovereignty และ Sovereignty Vault คืออะไร?" },
 ]
@@ -303,7 +303,7 @@ export function FloatingAI() {
                     ...m,
                     content: isAuth
                       ? "กรุณาล็อกอินก่อนใช้งาน RCT AI Assistant"
-                      : "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\nสามารถติดต่อทีมงานได้ที่ contact@rctlabs.co",
+                      : "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\nสามารถติดต่อทีมงานได้ที่ contact@delentia.com",
                     verified: false,
                     source: "fallback" as const,
                     isStreaming: false,
@@ -396,7 +396,7 @@ export function FloatingAI() {
               ? {
                   ...m,
                   content:
-                    "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\nสามารถติดต่อทีมงานได้ที่ contact@rctlabs.co หรือดูข้อมูลเพิ่มเติมได้ที่ /docs",
+                    "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\nสามารถติดต่อทีมงานได้ที่ contact@delentia.com หรือดูข้อมูลเพิ่มเติมได้ที่ /docs",
                   verified: false,
                   source: "fallback" as const,
                   isStreaming: false,

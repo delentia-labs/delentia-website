@@ -25,7 +25,7 @@ function resolveLocale(locale: Locale | string | null | undefined): Locale {
 }
 
 function normalizeLocalePath(locale: Locale, path: string) {
-  return path === "/" ? `https://rctlabs.co/${locale}` : `https://rctlabs.co/${locale}${path}`
+  return path === "/" ? `https://delentia.com/${locale}` : `https://delentia.com/${locale}${path}`
 }
 
 export const baseKeywords: Record<Locale, string[]> = {
@@ -37,12 +37,12 @@ export const baseKeywords: Record<Locale, string[]> = {
     "intent-driven AI",
     "AI operating system",
     "JITNA protocol",
-    "RCTDB",
+    "DelentiaDB",
     "enterprise AI platform",
     "10-layer architecture",
     "AI hallucination prevention",
     "Thailand AI",
-    "RCT Labs",
+    "Delentia Labs",
     "AI infrastructure",
     "data sovereignty",
     "AI compliance",
@@ -77,8 +77,8 @@ export const baseKeywords: Record<Locale, string[]> = {
     "AI ที่ปลอดภัย",
     "SignedAI",
     "JITNA",
-    "RCTDB",
-    "RCT Labs",
+    "DelentiaDB",
+    "Delentia Labs",
     "Constitutional AI",
     "Multi-LLM",
     "Enterprise AI",
@@ -140,16 +140,16 @@ export const createBilingualMetadata = (
       }
     },
     openGraph: {
-      title: `${title} | RCT Labs`,
+      title: `${title} | Delentia Labs`,
       description,
       url: normalizeLocalePath(safeLocale, path),
-      siteName: "RCT Labs",
+      siteName: "Delentia Labs",
       locale: safeLocale === "th" ? "th_TH" : "en_US",
       alternateLocale: safeLocale === "th" ? ["en_US"] : ["th_TH"],
       type: "website",
       images: [
         {
-          url: "https://rctlabs.co/opengraph-image",
+          url: "https://delentia.com/opengraph-image",
           width: 1200,
           height: 630,
           alt: title,
@@ -158,11 +158,11 @@ export const createBilingualMetadata = (
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | RCT Labs`,
+      title: `${title} | Delentia Labs`,
       description,
-      images: ["https://rctlabs.co/opengraph-image"],
-      creator: "@rctlabs",
-      site: "@rctlabs"
+      images: ["https://delentia.com/opengraph-image"],
+      creator: "@delentialabs",
+      site: "@delentialabs"
     },
     robots: {
       index: true,

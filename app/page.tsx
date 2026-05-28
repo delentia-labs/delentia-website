@@ -13,7 +13,7 @@ export default async function RootPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://rctlabs.co${target}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://delentia.com${target}` },
     ],
   }
 

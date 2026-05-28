@@ -28,7 +28,7 @@ function NavbarShell({ locale }: { locale: "en" | "th" }) {
             <Link href={`${localePrefix}/`} className="flex shrink-0 items-center gap-2" aria-label="RCT Ecosystem Home">
               <Image src="/RCTicon-lightVer.svg" alt="RCT" width={32} height={32} className="h-8 w-8 object-contain dark:hidden" />
               <Image src="/RCTicon.svg" alt="RCT" width={32} height={32} className="hidden h-8 w-8 object-contain dark:block" />
-              <span className="hidden text-sm font-semibold tracking-tight leading-none text-neutral-900 sm:inline-block dark:text-white">RCT Labs</span>
+              <span className="hidden text-sm font-semibold tracking-tight leading-none text-neutral-900 sm:inline-block dark:text-white">Delentia Labs</span>
             </Link>
 
             <div className="hidden items-center gap-5 lg:flex">

@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -11,12 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Terms of Service — RCT Labs",
-    "ข้อกำหนดการให้บริการ — RCT Labs",
-    "Terms of Service for RCT Labs website and services. Open-source components under Apache 2.0.",
-    "ข้อกำหนดการให้บริการของ RCT Labs เว็บไซต์และบริการ ส่วนประกอบ Open-source ภายใต้ Apache 2.0",
+    "Terms of Service — Delentia Labs",
+    "ข้อกำหนดการให้บริการ — Delentia Labs",
+    "Terms of Service for Delentia Labs website and services. Open-source components under Apache 2.0.",
+    "ข้อกำหนดการให้บริการของ Delentia Labs เว็บไซต์และบริการ ส่วนประกอบ Open-source ภายใต้ Apache 2.0",
     "/terms",
-    ["terms of service", "RCT Labs terms", "Apache 2.0", "open source license"]
+    ["terms of service", "Delentia Labs terms", "Apache 2.0", "open source license"]
   )
 }
 
@@ -24,15 +24,15 @@ export default async function TermsPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "ข้อกำหนดการให้บริการ" : "Terms of Service", url: `https://rctlabs.co${localePrefix}/terms` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "ข้อกำหนดการให้บริการ" : "Terms of Service", url: `https://delentia.com${localePrefix}/terms` },
   ])
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: locale === "th" ? "ข้อกำหนดการให้บริการ — RCT Labs" : "Terms of Service — RCT Labs",
-    description: "Terms of Service for RCT Labs website and services. JITNA Protocol and core algorithms licensed under Apache 2.0.",
-    url: `https://rctlabs.co${localePrefix}/terms`,
+    name: locale === "th" ? "ข้อกำหนดการให้บริการ — Delentia Labs" : "Terms of Service — Delentia Labs",
+    description: "Terms of Service for Delentia Labs website and services. JITNA Protocol and core algorithms licensed under Apache 2.0.",
+    url: `https://delentia.com${localePrefix}/terms`,
     genre: "LegalDocument",
   }
 
@@ -45,7 +45,7 @@ export default async function TermsPage() {
     {
       title: "2. License to Use Website",
       content:
-        "RCT Labs grants you a limited, non-exclusive, revocable license to access and use the website for personal, non-commercial purposes. You may not modify, copy, or distribute the website or its contents without our prior written permission.",
+        "Delentia Labs grants you a limited, non-exclusive, revocable license to access and use the website for personal, non-commercial purposes. You may not modify, copy, or distribute the website or its contents without our prior written permission.",
     },
     {
       title: "3. User Responsibilities",
@@ -55,27 +55,27 @@ export default async function TermsPage() {
     {
       title: "4. Intellectual Property Rights",
       content:
-        "All content on this website, including text, graphics, logos, images, and software, is the property of RCT Labs or its content suppliers and is protected by international copyright laws. Unauthorized use is prohibited.",
+        "All content on this website, including text, graphics, logos, images, and software, is the property of Delentia Labs or its content suppliers and is protected by international copyright laws. Unauthorized use is prohibited.",
     },
     {
       title: "5. Disclaimer of Warranties",
       content:
-        "This website is provided on an 'as-is' basis without warranties of any kind, either express or implied. RCT Labs does not warrant that the website will be uninterrupted or error-free.",
+        "This website is provided on an 'as-is' basis without warranties of any kind, either express or implied. Delentia Labs does not warrant that the website will be uninterrupted or error-free.",
     },
     {
       title: "6. Limitation of Liability",
       content:
-        "To the fullest extent permitted by law, RCT Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the website.",
+        "To the fullest extent permitted by law, Delentia Labs shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the website.",
     },
     {
       title: "7. Third-Party Content",
       content:
-        "Our website may include content from third parties. RCT Labs is not responsible for the accuracy or legality of such third-party content.",
+        "Our website may include content from third parties. Delentia Labs is not responsible for the accuracy or legality of such third-party content.",
     },
     {
       title: "8. Indemnification",
       content:
-        "You agree to indemnify and hold harmless RCT Labs from any claims, damages, or costs arising from your use of the website or violation of these terms.",
+        "You agree to indemnify and hold harmless Delentia Labs from any claims, damages, or costs arising from your use of the website or violation of these terms.",
     },
     {
       title: "9. Modifications to Terms",
@@ -129,3 +129,4 @@ export default async function TermsPage() {
     </>
   )
 }
+

@@ -14,40 +14,40 @@ const funnelIntentMap: Record<string, FunnelIntentDefinition> = {
     key: "pricing:rctlabs:sales",
     context: "pricing:rctlabs:sales",
     title: {
-      en: "RCTLabs pricing inquiry",
-      th: "สอบถามราคา RCTLabs",
+      en: "Delentia Platform pricing inquiry",
+      th: "สอบถามราคา Delentia Platform",
     },
     description: {
-      en: "This contact came from the pricing page for the RCTLabs platform. Use this flow for enterprise quotes, procurement discussion, and technical qualification.",
-      th: "คำขอนี้มาจากหน้า pricing ของแพลตฟอร์ม RCTLabs ใช้สำหรับคุยเรื่องใบเสนอราคา กระบวนการจัดซื้อ และการประเมินเชิงเทคนิคระดับองค์กร",
+      en: "This contact came from the pricing page for the Delentia Platform platform. Use this flow for enterprise quotes, procurement discussion, and technical qualification.",
+      th: "คำขอนี้มาจากหน้า pricing ของแพลตฟอร์ม Delentia Platform ใช้สำหรับคุยเรื่องใบเสนอราคา กระบวนการจัดซื้อ และการประเมินเชิงเทคนิคระดับองค์กร",
     },
     subject: {
-      en: "RCTLabs enterprise pricing request",
-      th: "ขอข้อมูลราคา RCTLabs สำหรับองค์กร",
+      en: "Delentia Platform enterprise pricing request",
+      th: "ขอข้อมูลราคา Delentia Platform สำหรับองค์กร",
     },
     message: {
-      en: "We are evaluating RCTLabs and would like pricing, deployment options, implementation scope, and enterprise onboarding details.",
-      th: "เรากำลังประเมิน RCTLabs และต้องการข้อมูลด้านราคา รูปแบบการ deploy ขอบเขต implementation และรายละเอียด onboarding สำหรับองค์กร",
+      en: "We are evaluating Delentia Platform and would like pricing, deployment options, implementation scope, and enterprise onboarding details.",
+      th: "เรากำลังประเมิน Delentia Platform และต้องการข้อมูลด้านราคา รูปแบบการ deploy ขอบเขต implementation และรายละเอียด onboarding สำหรับองค์กร",
     },
   },
-  "pricing:artent-ai:sales": {
-    key: "pricing:artent-ai:sales",
-    context: "pricing:artent-ai:sales",
+  "pricing:delentia-ai:sales": {
+    key: "pricing:delentia-ai:sales",
+    context: "pricing:delentia-ai:sales",
     title: {
-      en: "Artent AI pricing inquiry",
-      th: "สอบถามราคา Artent AI",
+      en: "Delentia AI pricing inquiry",
+      th: "สอบถามราคา Delentia AI",
     },
     description: {
-      en: "This contact came from the pricing page for Artent AI. Use this flow for creative automation evaluation, volume assumptions, and team workflow fit.",
-      th: "คำขอนี้มาจากหน้า pricing ของ Artent AI ใช้สำหรับคุยเรื่องการประเมิน creative automation ปริมาณการใช้งาน และความเหมาะสมกับ workflow ของทีม",
+      en: "This contact came from the pricing page for Delentia AI. Use this flow for creative automation evaluation, volume assumptions, and team workflow fit.",
+      th: "คำขอนี้มาจากหน้า pricing ของ Delentia AI ใช้สำหรับคุยเรื่องการประเมิน creative automation ปริมาณการใช้งาน และความเหมาะสมกับ workflow ของทีม",
     },
     subject: {
-      en: "Artent AI enterprise pricing request",
-      th: "ขอข้อมูลราคา Artent AI สำหรับองค์กร",
+      en: "Delentia AI enterprise pricing request",
+      th: "ขอข้อมูลราคา Delentia AI สำหรับองค์กร",
     },
     message: {
-      en: "We are evaluating Artent AI and would like pricing, workflow integration details, usage assumptions, and support options.",
-      th: "เรากำลังประเมิน Artent AI และต้องการข้อมูลด้านราคา การเชื่อม workflow สมมติฐานการใช้งาน และตัวเลือกการสนับสนุน",
+      en: "We are evaluating Delentia AI and would like pricing, workflow integration details, usage assumptions, and support options.",
+      th: "เรากำลังประเมิน Delentia AI และต้องการข้อมูลด้านราคา การเชื่อม workflow สมมติฐานการใช้งาน และตัวเลือกการสนับสนุน",
     },
   },
   "pricing:signed-ai:sales": {
@@ -102,12 +102,12 @@ const funnelIntentMap: Record<string, FunnelIntentDefinition> = {
       th: "คำขอนี้มาจาก navbar ของเว็บ public launch ใช้สำหรับทีมที่ต้องการขอสิทธิ์เข้าถึง นัด brief การเปิดตัว หรือขอเส้นทางประเมินระบบแบบมีผู้ดูแล",
     },
     subject: {
-      en: "Request early access to RCT Labs",
-      th: "ขอสิทธิ์เข้าถึง RCT Labs ล่วงหน้า",
+      en: "Request early access to Delentia Labs",
+      th: "ขอสิทธิ์เข้าถึง Delentia Labs ล่วงหน้า",
     },
     message: {
-      en: "We are reviewing the public RCT Labs launch materials and would like early access, an evaluation path, and the next recommended steps for our team.",
-      th: "เรากำลังตรวจสอบข้อมูล public launch ของ RCT Labs และต้องการขอสิทธิ์เข้าถึงล่วงหน้า แนวทางการประเมินระบบ และขั้นตอนถัดไปที่เหมาะกับทีมของเรา",
+      en: "We are reviewing the public Delentia Labs launch materials and would like early access, an evaluation path, and the next recommended steps for our team.",
+      th: "เรากำลังตรวจสอบข้อมูล public launch ของ Delentia Labs และต้องการขอสิทธิ์เข้าถึงล่วงหน้า แนวทางการประเมินระบบ และขั้นตอนถัดไปที่เหมาะกับทีมของเรา",
     },
   },
 }

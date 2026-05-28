@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
@@ -22,9 +22,9 @@ export default async function Page() {
   const localePrefix = locale === "th" ? "/th" : ""
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "โซลูชั่น" : "Solutions", url: `https://rctlabs.co${localePrefix}/solutions` },
-    { name: locale === "th" ? "ป้องกัน AI Hallucination" : "AI Hallucination Prevention", url: `https://rctlabs.co${localePrefix}/solutions/ai-hallucination-prevention` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "โซลูชั่น" : "Solutions", url: `https://delentia.com${localePrefix}/solutions` },
+    { name: locale === "th" ? "ป้องกัน AI Hallucination" : "AI Hallucination Prevention", url: `https://delentia.com${localePrefix}/solutions/ai-hallucination-prevention` },
   ])
 
   const faqSchema = getFAQSchema([
@@ -33,7 +33,7 @@ export default async function Page() {
       answer: "AI hallucination occurs when a language model generates plausible-sounding but factually incorrect content. It happens due to statistical pattern matching without ground-truth verification.",
     },
     {
-      question: "How does RCT Labs reduce hallucination to 0.3%?",
+      question: "How does Delentia Labs reduce hallucination to 0.3%?",
       answer: "RCT's SignedAI uses multi-LLM consensus — multiple models independently process the same query, and results are cryptographically signed only when consensus exceeds threshold across 8 quality dimensions.",
     },
   ])
@@ -46,3 +46,4 @@ export default async function Page() {
     </>
   )
 }
+

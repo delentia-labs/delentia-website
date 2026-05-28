@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -26,9 +26,9 @@ export default async function EnterpriseAiChecklistPage() {
   const isTh = locale === "th"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Evaluation", url: `https://rctlabs.co${localePrefix}/evaluation` },
-    { name: "Enterprise AI Platform Evaluation Checklist", url: `https://rctlabs.co${localePrefix}/evaluation/enterprise-ai-platform-evaluation-checklist` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Evaluation", url: `https://delentia.com${localePrefix}/evaluation` },
+    { name: "Enterprise AI Platform Evaluation Checklist", url: `https://delentia.com${localePrefix}/evaluation/enterprise-ai-platform-evaluation-checklist` },
   ])
 
   const faqSchema = getFAQSchema([

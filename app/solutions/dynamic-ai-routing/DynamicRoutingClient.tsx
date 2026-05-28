@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -89,9 +89,9 @@ export default function DynamicAIRoutingPage() {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbSchema([
-        { name: isEn ? "Home" : "หน้าหลัก", url: `https://rctlabs.co${localePrefix}` },
-        { name: isEn ? "Solutions" : "โซลูชัน", url: `https://rctlabs.co${localePrefix}/solutions` },
-        { name: isEn ? "Dynamic AI Routing" : "Dynamic AI Routing", url: `https://rctlabs.co${localePrefix}/solutions/dynamic-ai-routing` },
+        { name: isEn ? "Home" : "หน้าหลัก", url: `https://delentia.com${localePrefix}` },
+        { name: isEn ? "Solutions" : "โซลูชัน", url: `https://delentia.com${localePrefix}/solutions` },
+        { name: isEn ? "Dynamic AI Routing" : "Dynamic AI Routing", url: `https://delentia.com${localePrefix}/solutions/dynamic-ai-routing` },
       ])) }} />
       <Navbar />
       <main id="main-content" className="min-h-screen bg-background">
@@ -329,8 +329,8 @@ export default function DynamicAIRoutingPage() {
               {
                 title: isEn ? "Enterprise AI Memory" : "Enterprise AI Memory",
                 description: isEn
-                  ? "RCTDB persistent memory layer that gives routed models context-awareness across long-running sessions."
-                  : "RCTDB Memory Layer ที่ให้โมเดลที่ Route มามีความสามารถจำ Context ได้นาน",
+                  ? "DelentiaDB persistent memory layer that gives routed models context-awareness across long-running sessions."
+                  : "DelentiaDB Memory Layer ที่ให้โมเดลที่ Route มามีความสามารถจำ Context ได้นาน",
                 href: "/solutions/enterprise-ai-memory",
                 category: isEn ? "Solution" : "โซลูชัน",
               },
@@ -352,3 +352,4 @@ export default function DynamicAIRoutingPage() {
     </>
   )
 }
+

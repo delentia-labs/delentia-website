@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -47,8 +47,8 @@ export default function PhilosophyPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://rctlabs.co/en" },
-      { "@type": "ListItem", position: 2, name: "Philosophy", item: "https://rctlabs.co/en/philosophy" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://delentia.com/en" },
+      { "@type": "ListItem", position: 2, name: "Philosophy", item: "https://delentia.com/en/philosophy" },
     ],
   }
   const itemList = {
@@ -57,12 +57,12 @@ export default function PhilosophyPage() {
     name: "RCT Philosophy Concepts",
     numberOfItems: 6,
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "FDIA", url: "https://rctlabs.co/en/philosophy/fdia" },
-      { "@type": "ListItem", position: 2, name: "JITNA", url: "https://rctlabs.co/en/philosophy/jitna" },
-      { "@type": "ListItem", position: 3, name: "RCT-7", url: "https://rctlabs.co/en/philosophy/rct-7" },
-      { "@type": "ListItem", position: 4, name: "Intent OS", url: "https://rctlabs.co/en/philosophy/intent-os" },
-      { "@type": "ListItem", position: 5, name: "Approach", url: "https://rctlabs.co/en/philosophy/approach" },
-      { "@type": "ListItem", position: 6, name: "Ethics", url: "https://rctlabs.co/en/philosophy/ethics" },
+      { "@type": "ListItem", position: 1, name: "FDIA", url: "https://delentia.com/en/philosophy/fdia" },
+      { "@type": "ListItem", position: 2, name: "JITNA", url: "https://delentia.com/en/philosophy/jitna" },
+      { "@type": "ListItem", position: 3, name: "RCT-7", url: "https://delentia.com/en/philosophy/rct-7" },
+      { "@type": "ListItem", position: 4, name: "Intent OS", url: "https://delentia.com/en/philosophy/intent-os" },
+      { "@type": "ListItem", position: 5, name: "Approach", url: "https://delentia.com/en/philosophy/approach" },
+      { "@type": "ListItem", position: 6, name: "Ethics", url: "https://delentia.com/en/philosophy/ethics" },
     ],
   }
   const faqSchema = {
@@ -140,7 +140,7 @@ export default function PhilosophyPage() {
             <h2 className="text-4xl font-bold mb-6 text-foreground">The Intent Revolution</h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                RCT Labs is pioneering a fundamental shift in how humans and AI interact. Rather than following rigid
+                Delentia Labs is pioneering a fundamental shift in how humans and AI interact. Rather than following rigid
                 procedures or isolated instructions, we envision systems that understand and align with human intent at
                 the deepest level.
               </p>
@@ -184,3 +184,4 @@ export default function PhilosophyPage() {
     </>
   )
 }
+

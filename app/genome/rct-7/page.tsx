@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "G7 — RCT-7 Genome: Continuous Improvement Framework",
     "G7 — RCT-7 Genome: ระบบปรับปรุงต่อเนื่อง",
-    "The RCT-7 Genome is the Mental OS and self-evolution engine of RCT Labs — 4 improvement variants (RCT-S, RCT-I, RCT-V, RCT-F) that feed system-wide learning back to G1 (Architect's Genome).",
-    "RCT-7 Genome คือ Mental OS และ Self-Evolution Engine ของ RCT Labs — 4 Variants (RCT-S, RCT-I, RCT-V, RCT-F) ที่ป้อน Learning กลับไปยัง G1",
+    "The RCT-7 Genome is the Mental OS and self-evolution engine of Delentia Labs — 4 improvement variants (RCT-S, RCT-I, RCT-V, RCT-F) that feed system-wide learning back to G1 (Architect's Genome).",
+    "RCT-7 Genome คือ Mental OS และ Self-Evolution Engine ของ Delentia Labs — 4 Variants (RCT-S, RCT-I, RCT-V, RCT-F) ที่ป้อน Learning กลับไปยัง G1",
     "/genome/rct-7",
     ["RCT-7", "continuous improvement AI", "RCT-S RCT-I RCT-V RCT-F", "AI self-evolution", "mental OS", "IntentLoop"]
   )
@@ -116,9 +116,9 @@ export default async function GenomeRCT7Page() {
   const localePrefix = isTh ? "/th" : "/en"
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: isTh ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "7 Genome System", url: `https://rctlabs.co${localePrefix}/genome` },
-    { name: "RCT-7 Genome", url: `https://rctlabs.co${localePrefix}/genome/rct-7` },
+    { name: isTh ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "7 Genome System", url: `https://delentia.com${localePrefix}/genome` },
+    { name: "RCT-7 Genome", url: `https://delentia.com${localePrefix}/genome/rct-7` },
   ])
 
   const faq = getFAQSchema([
@@ -275,7 +275,7 @@ export default async function GenomeRCT7Page() {
               items={[
                 { href: `${localePrefix}/protocols`, title: isTh ? "ข้อกำหนด Protocol" : "Protocol Specifications", description: isTh ? "โปรโตคอลทางเทคนิคที่ขับเคลื่อน RCT Ecosystem" : "The technical protocols powering the RCT Ecosystem.", category: "Protocols" },
                 { href: `${localePrefix}/genome`, title: isTh ? "7 Genome System" : "7 Genome System", description: isTh ? "สำรวจ Genome ทั้ง 7 ตัวของ RCT Ecosystem" : "Explore all 7 Genomes of the RCT Ecosystem.", category: "Genome" },
-                { href: `${localePrefix}/blog`, title: isTh ? "บทความวิจัย" : "Research & Blog", description: isTh ? "งานวิจัยและบทความเกี่ยวกับ AI จาก RCT Labs" : "Research papers and AI articles from RCT Labs.", category: "Research" },
+                { href: `${localePrefix}/blog`, title: isTh ? "บทความวิจัย" : "Research & Blog", description: isTh ? "งานวิจัยและบทความเกี่ยวกับ AI จาก Delentia Labs" : "Research papers and AI articles from Delentia Labs.", category: "Research" },
               ]}
             />
             <AuthorBlock authorSlug="ittirit-saengow" locale={locale} />
@@ -287,3 +287,4 @@ export default async function GenomeRCT7Page() {
     </>
   )
 }
+

@@ -31,32 +31,32 @@ const entities: Record<string, {
       { title: "Constitutional AI vs RAG", href: "/en/compare/constitutional-ai-vs-rag" },
       { title: "Verification vs Prompt Engineering", href: "/en/compare/verification-vs-prompt-engineering" },
     ],
-    sourceUrl: "https://rctlabs.co/en/blog/fdia-equation-explained",
+    sourceUrl: "https://delentia.com/en/blog/fdia-equation-explained",
   },
   "jitna-protocol": {
     name: "JITNA Protocol",
     type: "Open Communication Standard",
     definition: "Just In Time Nodal Assembly — an open agent-to-agent communication protocol (RFC-001 v2.0) that defines how AI agents discover, negotiate tasks, execute work, and verify results.",
     description: "JITNA (Just In Time Nodal Assembly) is the protocol layer of the RCT Ecosystem — sometimes described as 'the HTTP of Agentic AI.' It defines a standardized packet format (JITNAPacket) with Ed25519 cryptographic signatures, a negotiation flow (PROPOSE → COUNTER → ACCEPT/REJECT), and a SHA-256 checkpoint replay chain. Unlike tool-calling APIs that treat AI as passive executors, JITNA treats agents as autonomous collaborators who can negotiate and refuse tasks. Defined in RFC-001 v2.0, a 52-page open specification.",
-    relatedTerms: ["FDIA Equation", "SignedAI", "RCTDB", "HexaCore", "RFC-001 v2.0"],
+    relatedTerms: ["FDIA Equation", "SignedAI", "DelentiaDB", "HexaCore", "RFC-001 v2.0"],
     relatedArticles: [
       { title: "JITNA — Just In Time Nodal Assembly", href: "/en/blog/jitna-language-release" },
       { title: "SignedAI Multi-LLM Consensus", href: "/en/blog/signedai-multi-llm-consensus-explained" },
     ],
-    sourceUrl: "https://rctlabs.co/en/blog/jitna-language-release",
+    sourceUrl: "https://delentia.com/en/blog/jitna-language-release",
   },
   "rct-kernel": {
     name: "RCT Kernel",
     type: "AI Operating System Core",
-    definition: "The central orchestration module of the RCT Ecosystem — coordinates the FDIA gating, JITNA protocol, HexaCore routing, SignedAI consensus, and RCTDB memory across the broader runtime service graph.",
+    definition: "The central orchestration module of the RCT Ecosystem — coordinates the FDIA gating, JITNA protocol, HexaCore routing, SignedAI consensus, and DelentiaDB memory across the broader runtime service graph.",
     description: "The RCT Kernel is the core runtime of the RCT (Reverse Component Thinking) Ecosystem. It implements the 7-State Intent Loop Pipeline (RECEIVED → VALIDATED → MEMORY_CHECK → COMPUTING → VERIFYING → COMMITTING → COMPLETED) and coordinates all subsystems. Built on constitutional constraints — every component of the kernel has defined invariants that cannot be violated. Implemented in Python (`core/kernel/fdia.py`) with 41 algorithms across Tier 1–9 complexity levels.",
-    relatedTerms: ["FDIA Equation", "Intent Loop Engine", "Delta Engine", "RCTDB", "HexaCore"],
+    relatedTerms: ["FDIA Equation", "Intent Loop Engine", "Delta Engine", "DelentiaDB", "HexaCore"],
     relatedArticles: [
       { title: "The RCT-7 Process Explained", href: "/en/blog/rct-7-process-explained" },
       { title: "Enterprise Snapshot Testing Methodology", href: "/en/blog/rct-ecosystem-4849-tests-methodology" },
       { title: "Delta Engine 74% Compression", href: "/en/blog/delta-engine-74-percent-compression" },
     ],
-    sourceUrl: "https://rctlabs.co/en/about",
+    sourceUrl: "https://delentia.com/en/about",
   },
   "intent-profiles": {
     name: "Intent Profiles",
@@ -68,32 +68,32 @@ const entities: Record<string, {
       { title: "The FDIA Equation Explained", href: "/en/blog/fdia-equation-explained" },
       { title: "Understanding Intent Operations", href: "/en/blog/understanding-intent-operations" },
     ],
-    sourceUrl: "https://rctlabs.co/en/blog/fdia-equation-explained",
+    sourceUrl: "https://delentia.com/en/blog/fdia-equation-explained",
   },
   "governance-layer": {
     name: "Governance Layer",
     type: "Constitutional AI Component",
     definition: "The set of constitutional constraints, authorization policies, and audit trail systems that collectively ensure every AI output in the RCT Ecosystem is authorized, traceable, and compliant.",
-    description: "The Governance Layer of the RCT Ecosystem encompasses: the FDIA Architect gate (A variable), SignedAI consensus tiers (S/4/6/8), RCTDB provenance tracking (dimension 8: provenance), JITNA jurisdiction zone enforcement, and the PDPA-compliant right-to-erasure mechanism (UUID tombstone pattern). Together, these components ensure that every AI action in the system has a documented lawful basis, a verifiable authorization chain, and a complete audit trail. The Governance Layer is what converts the RCT Ecosystem from a capable AI platform into a constitutionally compliant enterprise infrastructure.",
-    relatedTerms: ["FDIA Equation", "SignedAI", "RCTDB", "PDPA Compliance", "Architect Gate"],
+    description: "The Governance Layer of the RCT Ecosystem encompasses: the FDIA Architect gate (A variable), SignedAI consensus tiers (S/4/6/8), DelentiaDB provenance tracking (dimension 8: provenance), JITNA jurisdiction zone enforcement, and the PDPA-compliant right-to-erasure mechanism (UUID tombstone pattern). Together, these components ensure that every AI action in the system has a documented lawful basis, a verifiable authorization chain, and a complete audit trail. The Governance Layer is what converts the RCT Ecosystem from a capable AI platform into a constitutionally compliant enterprise infrastructure.",
+    relatedTerms: ["FDIA Equation", "SignedAI", "DelentiaDB", "PDPA Compliance", "Architect Gate"],
     relatedArticles: [
       { title: "PDPA AI Compliance Thailand", href: "/en/blog/pdpa-ai-compliance-thailand" },
       { title: "Benchmark Summary", href: "/en/benchmark-summary" },
       { title: "Editorial Policy", href: "/en/editorial-policy" },
     ],
-    sourceUrl: "https://rctlabs.co/en/benchmark-summary",
+    sourceUrl: "https://delentia.com/en/benchmark-summary",
   },
   "memory-architecture": {
     name: "Memory Architecture",
     type: "AI Infrastructure Component",
-    definition: "The three-tier persistent memory system of the RCT Ecosystem — comprising RCTDB (8-dimensional schema), the Delta Engine (74% compression via delta-only storage), and a Hot/Warm/Cold zone structure enabling sub-50ms warm recall.",
-    description: "The RCT Ecosystem's memory architecture is composed of three interconnected systems: (1) RCTDB v2.0 — an 8-dimensional universal schema that stores every AI decision with full provenance; (2) the Delta Engine — which compresses stored state by 74% by storing only incremental changes (deltas) rather than full state snapshots; and (3) the three-zone storage system (Hot: <1ms, Warm: 1–5ms, Cold: 10ms+) that intelligently places records based on access frequency. This architecture enables warm recall in <50ms for repeated queries, reducing AI inference cost to near-zero for stable patterns over time.",
-    relatedTerms: ["RCTDB", "Delta Engine", "JITNA Protocol", "FDIA Equation"],
+    definition: "The three-tier persistent memory system of the RCT Ecosystem — comprising DelentiaDB (8-dimensional schema), the Delta Engine (74% compression via delta-only storage), and a Hot/Warm/Cold zone structure enabling sub-50ms warm recall.",
+    description: "The RCT Ecosystem's memory architecture is composed of three interconnected systems: (1) DelentiaDB v2.0 — an 8-dimensional universal schema that stores every AI decision with full provenance; (2) the Delta Engine — which compresses stored state by 74% by storing only incremental changes (deltas) rather than full state snapshots; and (3) the three-zone storage system (Hot: <1ms, Warm: 1–5ms, Cold: 10ms+) that intelligently places records based on access frequency. This architecture enables warm recall in <50ms for repeated queries, reducing AI inference cost to near-zero for stable patterns over time.",
+    relatedTerms: ["DelentiaDB", "Delta Engine", "JITNA Protocol", "FDIA Equation"],
     relatedArticles: [
-      { title: "RCTDB 8-Dimensional Memory Schema", href: "/en/blog/rctdb-8-dimensional-memory-schema" },
+      { title: "DelentiaDB 8-Dimensional Memory Schema", href: "/en/blog/rctdb-8-dimensional-memory-schema" },
       { title: "Delta Engine 74% Compression", href: "/en/blog/delta-engine-74-percent-compression" },
     ],
-    sourceUrl: "https://rctlabs.co/en/blog/rctdb-8-dimensional-memory-schema",
+    sourceUrl: "https://delentia.com/en/blog/rctdb-8-dimensional-memory-schema",
   },
 }
 
@@ -109,7 +109,7 @@ export async function generateMetadata({ params }: EntityPageProps): Promise<Met
   return {
     title: `${entity.name} — Defined`,
     description: entity.definition,
-    alternates: { canonical: `https://rctlabs.co/en/entity/${term}` },
+    alternates: { canonical: `https://delentia.com/en/entity/${term}` },
   }
 }
 
@@ -128,16 +128,16 @@ export default async function EntityPage({ params }: EntityPageProps) {
     "description": entity.definition,
     "inDefinedTermSet": {
       "@type": "DefinedTermSet",
-      "name": "RCT Labs Glossary",
-      "url": `https://rctlabs.co${localePrefix}/glossary`,
+      "name": "Delentia Labs Glossary",
+      "url": `https://delentia.com${localePrefix}/glossary`,
     },
-    "url": `https://rctlabs.co${localePrefix}/entity/${term}`,
+    "url": `https://delentia.com${localePrefix}/entity/${term}`,
   }
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Glossary", url: `https://rctlabs.co${localePrefix}/glossary` },
-    { name: entity.name, url: `https://rctlabs.co${localePrefix}/entity/${term}` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Glossary", url: `https://delentia.com${localePrefix}/glossary` },
+    { name: entity.name, url: `https://delentia.com${localePrefix}/entity/${term}` },
   ])
 
   return (
@@ -208,7 +208,7 @@ export default async function EntityPage({ params }: EntityPageProps) {
             <div className="rounded-xl border border-white/8 bg-white/3 p-4 flex items-center justify-between">
               <div>
                 <p className="text-xs text-warm-dim font-semibold uppercase mb-0.5">Primary Source</p>
-                <p className="text-sm text-warm-light-gray">RCT Labs official documentation</p>
+                <p className="text-sm text-warm-light-gray">Delentia Labs official documentation</p>
               </div>
               <a href={entity.sourceUrl} className="flex items-center gap-1.5 text-warm-amber text-sm hover:underline">
                 View source <ExternalLink className="w-3.5 h-3.5" />

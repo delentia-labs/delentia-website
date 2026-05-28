@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getDefinedTermSchema, getFAQSchema } from "@/lib/schema"
@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "FDIA Equation — F = (D^I) × A",
     "สมการ FDIA — F = (D^I) × A",
-    "Deep-dive into the FDIA equation: Future = (Data raised to the power of Intent) multiplied by Architect. The governing principle behind RCT Labs' constitutional AI operating system.",
-    "ลงลึกสมการ FDIA: Future = (Data ยกกำลัง Intent) คูณ Architect หลักการกำกับดูแลเบื้องหลังระบบปฏิบัติการ AI แบบ constitutional ของ RCT Labs",
+    "Deep-dive into the FDIA equation: Future = (Data raised to the power of Intent) multiplied by Architect. The governing principle behind Delentia Labs' constitutional AI operating system.",
+    "ลงลึกสมการ FDIA: Future = (Data ยกกำลัง Intent) คูณ Architect หลักการกำกับดูแลเบื้องหลังระบบปฏิบัติการ AI แบบ constitutional ของ Delentia Labs",
     "/fdia",
     ["FDIA equation", "constitutional AI", "intent amplification", "F = (D^I) × A", "AI governance framework"]
   )
@@ -64,3 +64,4 @@ export default async function FdiaPage() {
     </>
   )
 }
+

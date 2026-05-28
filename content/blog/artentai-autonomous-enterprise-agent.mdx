@@ -1,13 +1,13 @@
 ---
-title: "ArtentAI: The Autonomous Enterprise Agent"
+title: "Delentia AI: The Autonomous Enterprise Agent"
 author: "Ittirit Saengow"
 authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
 date: "2026-05-23"
 lastReviewed: "2026-05-23"
 category: "product"
-excerpt: "ArtentAI is not a chatbot with an agentic wrapper. It is an enterprise-grade autonomous agent built on FDIA-gated intent routing, JITNA-bounded execution, and SignedAI-verified decision chains — designed to operate in production without requiring human approval for every step while remaining auditable, stoppable, and constitutionally governed at all times."
-tags: ["ArtentAI", "Autonomous Agent", "Enterprise AI", "FDIA", "JITNA", "Agentic AI", "RCT Platform", "Multi-LLM Consensus"]
+excerpt: "Delentia AI is not a chatbot with an agentic wrapper. It is an enterprise-grade autonomous agent built on FDIA-gated intent routing, JITNA-bounded execution, and SignedAI-verified decision chains — designed to operate in production without requiring human approval for every step while remaining auditable, stoppable, and constitutionally governed at all times."
+tags: ["Delentia AI", "Autonomous Agent", "Enterprise AI", "FDIA", "JITNA", "Agentic AI", "RCT Platform", "Multi-LLM Consensus"]
 readTime: 13
 references:
   - "https://arxiv.org/abs/2210.03629"
@@ -17,7 +17,7 @@ references:
 
 Most "autonomous agents" are demos. They work on toy tasks in controlled environments, require careful prompt engineering, and fall apart when they encounter real enterprise data, compliance requirements, or multi-step workflows that span more than one API call.
 
-ArtentAI is built differently. It is the autonomous enterprise agent tier of the RCT Ecosystem — not a product that runs on top of the platform, but an agent architecture that is constitutionally governed by the platform at every execution step.
+Delentia AI is built differently. It is the autonomous enterprise agent tier of the RCT Ecosystem — not a product that runs on top of the platform, but an agent architecture that is constitutionally governed by the platform at every execution step.
 
 ---
 
@@ -33,11 +33,11 @@ The term "autonomous agent" in enterprise AI carries a specific meaning: the age
 
 **4. Multi-step coherence** — An agent that handles a 15-step workflow cannot be stateless. It needs a memory architecture that preserves intent context across steps without hallucinating prior states.
 
-ArtentAI addresses all four through the RCT Platform's core primitives — FDIA scoring, JITNA protocol, SignedAI verification, and Delta Engine context management.
+Delentia AI addresses all four through the RCT Platform's core primitives — FDIA scoring, JITNA protocol, SignedAI verification, and Delta Engine context management.
 
 ---
 
-## Architecture: The Four Pillars of ArtentAI
+## Architecture: The Four Pillars of Delentia AI
 
 ### Pillar 1 — FDIA-Gated Intent Routing
 
@@ -51,9 +51,9 @@ Every agent action begins with an intent classification step. The FDIA (Federate
 An action only proceeds if its FDIA score clears the configured threshold. For routine data retrieval, the threshold is low (0.6). For irreversible actions — sending external messages, writing to production databases, triggering financial transactions — the threshold is high (0.92) and requires SignedAI multi-model consensus.
 
 ```python
-from rct_platform.artent import ArtentAgent
+from rct_platform.artent import DelentiaAgent
 
-agent = ArtentAgent(
+agent = DelentiaAgent(
     name="finance_report_agent",
     genome=["G1_analytical", "G4_financial"],  # Specialist Studio genomes
     fdia_thresholds={
@@ -80,7 +80,7 @@ JITNA (Just-in-Time Intent Normalization Architecture) provides execution slot m
 - **Retry limit**: Maximum number of retries before the step is escalated to human review
 - **Fallback behavior**: What to do if the primary action fails within budget
 
-JITNA's slot management means ArtentAI cannot silently exceed enterprise cost budgets or latency SLAs — budget violations are caught at the protocol level, not discovered in billing reports.
+JITNA's slot management means Delentia AI cannot silently exceed enterprise cost budgets or latency SLAs — budget violations are caught at the protocol level, not discovered in billing reports.
 
 ```
 Goal: "Generate Q2 2026 variance analysis and send to CFO"
@@ -92,12 +92,12 @@ Step 4: Generate variance analysis [JITNA slot: 2000ms, 8000 tokens]
 Step 5: FDIA score: "Send to CFO email" → 0.94 (PASS, requires SignedAI)
 Step 6: SignedAI consensus: 4/7 models agree → verified
 Step 7: Send report [JITNA slot: 500ms, irreversible action]
-Step 8: Generate audit trail → stored in RCTDB
+Step 8: Generate audit trail → stored in DelentiaDB
 ```
 
 ### Pillar 3 — SignedAI-Verified Decision Chains
 
-For consequential agent decisions, ArtentAI requires multi-model consensus through the SignedAI registry. This is not optional — it is a constitutional enforcement point.
+For consequential agent decisions, Delentia AI requires multi-model consensus through the SignedAI registry. This is not optional — it is a constitutional enforcement point.
 
 The HexaCore 7-model roster evaluates the proposed action:
 - **3W (Western tier)**: Claude Sonnet, Gemini Pro, Grok
@@ -113,7 +113,7 @@ Each model signs its verdict with an Ed25519 key. The consensus tier (TIER_S, TI
 | TIER_6 | 6/7 models | High-value decisions, external communications |
 | TIER_8 | 7/7 models | Irreversible actions, compliance-sensitive operations |
 
-The signed consensus record is stored in RCTDB permanently. If a regulator asks "which models agreed that this action was appropriate?" the answer is available with cryptographic proof, not a statistical inference.
+The signed consensus record is stored in DelentiaDB permanently. If a regulator asks "which models agreed that this action was appropriate?" the answer is available with cryptographic proof, not a statistical inference.
 
 ### Pillar 4 — Delta Engine Context Management
 
@@ -129,7 +129,7 @@ Without Delta Engine context management, a 15-step agent workflow would accumula
 
 ## The Specialist Studio Connection
 
-ArtentAI does not use a single generalist model. It uses the [Specialist Studio](/en/blog/specialist-studio-explained) genome orchestration layer to route each step to the appropriate domain specialist:
+Delentia AI does not use a single generalist model. It uses the [Specialist Studio](/en/blog/specialist-studio-explained) genome orchestration layer to route each step to the appropriate domain specialist:
 
 | Step Type | Genome | Rationale |
 |---|---|---|
@@ -143,7 +143,7 @@ This genome routing happens automatically based on the FDIA step classification 
 
 ---
 
-## What ArtentAI Can and Cannot Do
+## What Delentia AI Can and Cannot Do
 
 ### What it can do
 
@@ -162,7 +162,7 @@ This genome routing happens automatically based on the FDIA step classification 
 - Operate outside the declared constitutional permission boundary
 - Modify its own governance configuration at runtime
 
-The second list is as important as the first. An autonomous agent that *can* be instructed to bypass its governance layer is not a trustworthy enterprise agent — it is a prompt injection risk with an autonomous execution layer. ArtentAI's constitutional boundaries are enforced by the Control Plane, not suggested by the system prompt.
+The second list is as important as the first. An autonomous agent that *can* be instructed to bypass its governance layer is not a trustworthy enterprise agent — it is a prompt injection risk with an autonomous execution layer. Delentia AI's constitutional boundaries are enforced by the Control Plane, not suggested by the system prompt.
 
 ---
 
@@ -182,9 +182,9 @@ At v1.0.2a0 CI baseline (1,272 tests passing):
 
 ---
 
-## Comparison: ArtentAI vs Generic Agentic Wrappers
+## Comparison: Delentia AI vs Generic Agentic Wrappers
 
-| Capability | Generic Agent Framework | ArtentAI |
+| Capability | Generic Agent Framework | Delentia AI |
 |---|---|---|
 | Auditability | Log-based (post-hoc) | Cryptographic (real-time) |
 | Governance enforcement | Prompt-based (bypassable) | Control Plane (not bypassable) |
@@ -199,17 +199,17 @@ At v1.0.2a0 CI baseline (1,272 tests passing):
 
 ## Integration
 
-ArtentAI is integrated with the `rct-platform` core SDK. A minimal enterprise agent requires:
+Delentia AI is integrated with the `delentia-os` core SDK. A minimal enterprise agent requires:
 
 ```python
-from rct_platform.artent import ArtentAgent
+from rct_platform.artent import DelentiaAgent
 from rct_platform.control_plane import ControlPlane
 
 # Initialize Control Plane with enterprise governance config
 cp = ControlPlane.from_config("rct_governance.yaml")
 
-# Create ArtentAI agent with domain-specific configuration
-agent = ArtentAgent(
+# Create Delentia AI agent with domain-specific configuration
+agent = DelentiaAgent(
     name="hr_onboarding_agent",
     genome=["G2_communication", "G3_operational"],
     constitution="enterprise_hr",
@@ -230,7 +230,7 @@ print(result.audit_hash)        # SHA-256 of full decision chain
 
 ## Summary
 
-ArtentAI is the enterprise answer to the question: "Can we deploy autonomous AI agents that we trust?" The trust comes not from the agent being limited, but from the agent being governed — by FDIA scoring that gates every action, JITNA protocol that bounds every resource, SignedAI consensus that verifies every consequential decision, and Delta Engine context that preserves coherence across the full workflow.
+Delentia AI is the enterprise answer to the question: "Can we deploy autonomous AI agents that we trust?" The trust comes not from the agent being limited, but from the agent being governed — by FDIA scoring that gates every action, JITNA protocol that bounds every resource, SignedAI consensus that verifies every consequential decision, and Delta Engine context that preserves coherence across the full workflow.
 
 The goal is not to build an agent that never makes mistakes. It is to build an agent where every decision is traceable, every boundary is enforced, and every step is auditable — so when mistakes happen, they can be found, explained, and corrected.
 

@@ -12,35 +12,35 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "RCT Labs vs LLM APIs โ€” Constitutional AI vs Bare API Access",
-    "RCT Labs vs LLM APIs โ€” Constitutional AI เน€เธ—เธตเธขเธเธเธฑเธ Bare API",
-    "Bare LLM API access gives you raw model power with no governance, no compliance, and no memory. RCT Labs adds constitutional AI constraints, multi-model consensus, PDPA-compliant memory, and deterministic safety guarantees.",
-    "เธเธฒเธฃเนเธเน LLM API เธ•เธฃเธเนเธซเนเธเธฅเธฑเธเธเธญเธเนเธกเน€เธ”เธฅเธ”เธดเธเนเธ”เธขเนเธกเนเธกเธต governance, compliance เนเธฅเธฐ memory เธชเนเธงเธ RCT Labs เน€เธเธดเนเธก constitutional AI, multi-model consensus, memory เธ—เธตเนเธฃเธญเธเธฃเธฑเธ PDPA เนเธฅเธฐ deterministic safety guarantee",
-    "/compare/rct-labs-vs-llm-apis",
-    ["RCT Labs vs LLM APIs", "constitutional AI platform", "enterprise AI governance"]
+    "Delentia Labs vs LLM APIs โ€” Constitutional AI vs Bare API Access",
+    "Delentia Labs vs LLM APIs โ€” Constitutional AI เน€เธ—เธตเธขเธเธเธฑเธ Bare API",
+    "Bare LLM API access gives you raw model power with no governance, no compliance, and no memory. Delentia Labs adds constitutional AI constraints, multi-model consensus, PDPA-compliant memory, and deterministic safety guarantees.",
+    "เธเธฒเธฃเนเธเน LLM API เธ•เธฃเธเนเธซเนเธเธฅเธฑเธเธเธญเธเนเธกเน€เธ”เธฅเธ”เธดเธเนเธ”เธขเนเธกเนเธกเธต governance, compliance เนเธฅเธฐ memory เธชเนเธงเธ Delentia Labs เน€เธเธดเนเธก constitutional AI, multi-model consensus, memory เธ—เธตเนเธฃเธญเธเธฃเธฑเธ PDPA เนเธฅเธฐ deterministic safety guarantee",
+    "/compare/delentia-labs-vs-llm-apis",
+    ["Delentia Labs vs LLM APIs", "constitutional AI platform", "enterprise AI governance"]
   )
 }
 
 const LLM_API_FAQS = [
   {
-    question: "What is the difference between RCT Labs and a bare LLM API?",
-    answer: "A bare LLM API (OpenAI, Claude, Gemini) gives you raw model access with no governance, no persistent memory, and no compliance guarantees. You are responsible for all safety, audit, and PDPA compliance yourself. RCT Labs is a constitutional AI operating system that adds the FDIA framework (deterministic safety), RCTDB (PDPA-compliant persistent memory), JITNA Protocol (agent orchestration), and HexaCore routing (cost optimization) on top of any LLM.",
+    question: "What is the difference between Delentia Labs and a bare LLM API?",
+    answer: "A bare LLM API (OpenAI, Claude, Gemini) gives you raw model access with no governance, no persistent memory, and no compliance guarantees. You are responsible for all safety, audit, and PDPA compliance yourself. Delentia Labs is a constitutional AI operating system that adds the FDIA framework (deterministic safety), DelentiaDB (PDPA-compliant persistent memory), JITNA Protocol (agent orchestration), and HexaCore routing (cost optimization) on top of any LLM.",
   },
   {
-    question: "Does RCT Labs replace the LLM API or sit on top of it?",
-    answer: "RCT Labs sits on top of multiple LLM APIs. The HexaCore router includes 7 models (Claude Opus, Kimi K2.5, MiniMax, Gemini Flash, Grok, DeepSeek, and Typhoon v2 for Thai). RCT Labs intelligently routes each query to the appropriate model โ€” you do not need to manage individual API calls. This produces a 3.74x cost reduction compared to always using a premium model.",
+    question: "Does Delentia Labs replace the LLM API or sit on top of it?",
+    answer: "Delentia Labs sits on top of multiple LLM APIs. The HexaCore router includes 7 models (Claude Opus, Kimi K2.5, MiniMax, Gemini Flash, Grok, DeepSeek, and Typhoon v2 for Thai). Delentia Labs intelligently routes each query to the appropriate model โ€” you do not need to manage individual API calls. This produces a 3.74x cost reduction compared to always using a premium model.",
   },
   {
-    question: "How does RCT Labs achieve PDPA compliance that bare LLM APIs cannot?",
-    answer: "Bare LLM APIs are stateless โ€” they process a request and forget it. PDPA compliance requires persistence: the ability to prove what data was used, when, and why (Section 33), and the ability to permanently delete a person's data on request (Section 34). RCTDB stores every query as an 8-dimensional record with full provenance. When a data subject requests erasure, their subject_uuid is tombstoned โ€” ensuring no retrievable data remains.",
+    question: "How does Delentia Labs achieve PDPA compliance that bare LLM APIs cannot?",
+    answer: "Bare LLM APIs are stateless โ€” they process a request and forget it. PDPA compliance requires persistence: the ability to prove what data was used, when, and why (Section 33), and the ability to permanently delete a person's data on request (Section 34). DelentiaDB stores every query as an 8-dimensional record with full provenance. When a data subject requests erasure, their subject_uuid is tombstoned โ€” ensuring no retrievable data remains.",
   },
   {
     question: "What is the 3.74x cost reduction from HexaCore routing?",
     answer: "Instead of routing every query to Claude Opus (the most expensive model), HexaCore analyzes each task and selects the optimal model. Simple retrieval tasks go to faster, cheaper models. Complex synthesis tasks go to premium models only when required. Over a 10,000-query enterprise workload, this produces a 3.74x average cost reduction versus always using Claude Opus.",
   },
   {
-    question: "Is vendor lock-in a concern with RCT Labs?",
-    answer: "No. RCT Labs is vendor-neutral by design. The HexaCore router abstracts all 7 models behind a unified interface. If you want to swap Claude Opus for a new model, you update the router configuration โ€” no application code changes required. This is in contrast to building directly on a single LLM API, where switching providers requires significant refactoring.",
+    question: "Is vendor lock-in a concern with Delentia Labs?",
+    answer: "No. Delentia Labs is vendor-neutral by design. The HexaCore router abstracts all 7 models behind a unified interface. If you want to swap Claude Opus for a new model, you update the router configuration โ€” no application code changes required. This is in contrast to building directly on a single LLM API, where switching providers requires significant refactoring.",
   },
 ]
 
@@ -71,7 +71,7 @@ const useCases = [
     scenario: "Enterprise regulated AI (PDPA, finance, healthcare)",
     llm: "โ",
     rct: "โ…",
-    reason: "Requires audit trail, right to erasure, and Section 33 explainability โ€” all provided by RCT's RCTDB + JITNA.",
+    reason: "Requires audit trail, right to erasure, and Section 33 explainability โ€” all provided by RCT's DelentiaDB + JITNA.",
   },
   {
     scenario: "Quick prototyping / developer experiments",
@@ -89,13 +89,13 @@ const useCases = [
     scenario: "Thai enterprise AI deployment",
     llm: "โ ๏ธ",
     rct: "โ…",
-    reason: "HexaCore includes Typhoon v2 (Thai model). PDPA compliance is built-in. RCT Labs is Thailand-native.",
+    reason: "HexaCore includes Typhoon v2 (Thai model). PDPA compliance is built-in. Delentia Labs is Thailand-native.",
   },
   {
     scenario: "Research / academic use",
     llm: "โ…",
     rct: "โ…",
-    reason: "Both work. RCT adds reproducibility via signed, verifiable outputs (SignedAI + RCTDB).",
+    reason: "Both work. RCT adds reproducibility via signed, verifiable outputs (SignedAI + DelentiaDB).",
   },
 ]
 
@@ -103,9 +103,9 @@ export default async function RCTvsLLMAPIs() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Compare", url: `https://rctlabs.co${localePrefix}/compare` },
-    { name: "RCT Labs vs LLM APIs", url: `https://rctlabs.co${localePrefix}/compare/rct-labs-vs-llm-apis` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Compare", url: `https://delentia.com${localePrefix}/compare` },
+    { name: "Delentia Labs vs LLM APIs", url: `https://delentia.com${localePrefix}/compare/delentia-labs-vs-llm-apis` },
   ])
   const faq = getFAQSchema(LLM_API_FAQS)
 
@@ -124,10 +124,10 @@ export default async function RCTvsLLMAPIs() {
               <Globe className="w-4 h-4" /> Platform Comparison
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4 text-balance">
-              RCT Labs vs Bare LLM APIs
+              Delentia Labs vs Bare LLM APIs
             </h1>
             <p className="text-xl text-warm-dim max-w-2xl mx-auto mb-8">
-              A bare LLM API is a model. RCT Labs is a constitutional AI operating system. The difference is not performance โ€” it is governance, compliance, and memory.
+              A bare LLM API is a model. Delentia Labs is a constitutional AI operating system. The difference is not performance โ€” it is governance, compliance, and memory.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-warm-dim">Enterprise Governance</span>
@@ -161,12 +161,12 @@ export default async function RCTvsLLMAPIs() {
               },
               {
                 icon: Shield,
-                title: "RCT Labs Constitutional AI Ecosystem",
+                title: "Delentia Labs Constitutional AI Ecosystem",
                 color: "border-warm-amber/30 from-warm-amber/8",
                 titleColor: "text-warm-amber",
                 points: [
                   "7 HexaCore models, intelligently routed",
-                  "RCTDB: 8-dimensional persistent memory across sessions",
+                  "DelentiaDB: 8-dimensional persistent memory across sessions",
                   "FDIA kill switch: A=0 โ’ output=0, always",
                   "Full audit trail: every decision cryptographically logged",
                   "PDPA compliance: UUID tombstone right-to-erasure",
@@ -202,7 +202,7 @@ export default async function RCTvsLLMAPIs() {
               <div>
                 <p className="font-bold text-foreground mb-1">The Hidden Cost of Bare API Access</p>
                 <p className="text-warm-dim text-sm leading-relaxed">
-                  A bare LLM API charges you premium rates for every token โ€” even tokens that retrieve information you already paid for last week. RCT&apos;s Delta Engine + RCTDB warm recall ({"<"}50ms) means repeated queries are served from memory, not from an LLM API call. Over a typical enterprise workload, this produces a <strong className="text-warm-amber">3.74x cost reduction</strong> vs always calling Claude Opus directly.
+                  A bare LLM API charges you premium rates for every token โ€” even tokens that retrieve information you already paid for last week. RCT&apos;s Delta Engine + DelentiaDB warm recall ({"<"}50ms) means repeated queries are served from memory, not from an LLM API call. Over a typical enterprise workload, this produces a <strong className="text-warm-amber">3.74x cost reduction</strong> vs always calling Claude Opus directly.
                 </p>
               </div>
             </div>
@@ -253,7 +253,7 @@ export default async function RCTvsLLMAPIs() {
                 <tr className="border-b border-white/10 bg-white/5">
                   <th className="text-left px-6 py-4 text-warm-dim font-semibold">Scenario</th>
                   <th className="text-center px-4 py-4 text-blue-400 font-semibold">Bare LLM API</th>
-                  <th className="text-center px-4 py-4 text-warm-amber font-semibold">RCT Labs</th>
+                  <th className="text-center px-4 py-4 text-warm-amber font-semibold">Delentia Labs</th>
                   <th className="text-left px-4 py-4 text-warm-dim font-semibold hidden md:table-cell">Reason</th>
                 </tr>
               </thead>
@@ -276,7 +276,7 @@ export default async function RCTvsLLMAPIs() {
           <div className="rounded-2xl border border-warm-amber/20 bg-warm-amber/5 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h2 className="text-xl font-bold text-foreground mb-2">Explore the Architecture</h2>
-              <p className="text-warm-dim">Read how FDIA, JITNA, and RCTDB work together to provide constitutional AI guarantees</p>
+              <p className="text-warm-dim">Read how FDIA, JITNA, and DelentiaDB work together to provide constitutional AI guarantees</p>
             </div>
             <div className="flex gap-3 shrink-0">
               <Link
@@ -300,4 +300,5 @@ export default async function RCTvsLLMAPIs() {
     </>
   )
 }
+
 

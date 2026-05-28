@@ -82,18 +82,60 @@ const nextConfig = {
       // SDK docs redirect — /docs and /th/docs both point to GitHub Pages
       {
         source: "/docs",
-        destination: "https://rctlabs.github.io/rct-platform/",
+        destination: "https://delentia-labs.github.io/delentia-os/",
         permanent: false,
       },
       {
         source: "/en/docs",
-        destination: "https://rctlabs.github.io/rct-platform/",
+        destination: "https://delentia-labs.github.io/delentia-os/",
         permanent: false,
       },
       {
         source: "/th/docs",
-        destination: "https://rctlabs.github.io/rct-platform/",
+        destination: "https://delentia-labs.github.io/delentia-os/",
         permanent: false,
+      },
+      // Product page redirects: old brand URLs → new brand URLs
+      {
+        source: "/products/artent-ai",
+        destination: "/products/delentia-ai",
+        permanent: true,
+      },
+      {
+        source: "/en/products/artent-ai",
+        destination: "/en/products/delentia-ai",
+        permanent: true,
+      },
+      {
+        source: "/th/products/artent-ai",
+        destination: "/th/products/delentia-ai",
+        permanent: true,
+      },
+      {
+        source: "/products/rctlabs",
+        destination: "/products/delentia-platform",
+        permanent: true,
+      },
+      {
+        source: "/en/products/rctlabs",
+        destination: "/en/products/delentia-platform",
+        permanent: true,
+      },
+      {
+        source: "/th/products/rctlabs",
+        destination: "/th/products/delentia-platform",
+        permanent: true,
+      },
+      // Compare page redirects
+      {
+        source: "/compare/rctdb-vs-vector-databases",
+        destination: "/compare/delentiadb-vs-vector-databases",
+        permanent: true,
+      },
+      {
+        source: "/compare/rct-labs-vs-llm-apis",
+        destination: "/compare/delentia-labs-vs-llm-apis",
+        permanent: true,
       },
 
     ]
@@ -126,9 +168,9 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               // www.google.com needed for GA4 attribution pixel (1×1 tracking image)
-              "img-src 'self' data: blob: https://d2xsxph8kpxj0f.cloudfront.net https://rctlabs.co https://www.googletagmanager.com https://www.google.com",
+              "img-src 'self' data: blob: https://d2xsxph8kpxj0f.cloudfront.net https://delentia.com https://www.googletagmanager.com https://www.google.com",
               // stats.g.doubleclick.net needed for GA4 attribution and conversion tracking
-              "connect-src 'self' https://*.supabase.co https://vercel.live wss://*.supabase.co https://api.rctlabs.co https://vitals.vercel-insights.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://www.google.com",
+              "connect-src 'self' https://*.supabase.co https://vercel.live wss://*.supabase.co https://api.delentia.com https://vitals.vercel-insights.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://www.google.com",
               "frame-ancestors 'none'",
             ].join("; "),
           },

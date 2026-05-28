@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "AI Benchmark Results",
     "ผลลัพธ์ Benchmark AI",
-    `Benchmark framing for RCT Labs vs common orchestration patterns. This page should be read with methodology disclosures and separates ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} from ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
-    `หน้าสรุป benchmark ของ RCT Labs เทียบกับแนวทาง orchestration ทั่วไป โดยต้องอ่านคู่กับ methodology disclosures และแยก ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} และ ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+    `Benchmark framing for Delentia Labs vs common orchestration patterns. This page should be read with methodology disclosures and separates ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} from ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
+    `หน้าสรุป benchmark ของ Delentia Labs เทียบกับแนวทาง orchestration ทั่วไป โดยต้องอ่านคู่กับ methodology disclosures และแยก ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} ออกจาก ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} และ ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}.`,
     "/benchmark",
     ["AI benchmark", "LangChain vs RCT", "LlamaIndex comparison", "hallucination benchmark", "AI accuracy benchmark", "enterprise AI performance"]
   )
@@ -25,10 +25,10 @@ export default async function BenchmarkPage() {
   const benchmarkSchema = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    "name": "RCT Labs AI Reliability Benchmark — 2025 Results",
-    "description": `Benchmark framing that explains how RCT Labs evaluates hallucination, accuracy, latency, and routing quality. Public readers should distinguish ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} from ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and larger ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} statements.`,
-    "url": `https://rctlabs.co${localePrefix}/benchmark`,
-    "creator": { "@type": "Organization", "name": "RCT Labs", "url": "https://rctlabs.co" },
+    "name": "Delentia Labs AI Reliability Benchmark — 2025 Results",
+    "description": `Benchmark framing that explains how Delentia Labs evaluates hallucination, accuracy, latency, and routing quality. Public readers should distinguish ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()} from ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and larger ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()} statements.`,
+    "url": `https://delentia.com${localePrefix}/benchmark`,
+    "creator": { "@type": "Organization", "name": "Delentia Labs", "url": "https://delentia.com" },
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
     "variableMeasured": [
       { "@type": "PropertyValue", "name": "Hallucination Rate", "value": "0.3%", "unitText": "percent" },
@@ -38,8 +38,8 @@ export default async function BenchmarkPage() {
   }
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Benchmark", url: `https://rctlabs.co${localePrefix}/benchmark` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Benchmark", url: `https://delentia.com${localePrefix}/benchmark` },
   ])
 
   return (
@@ -50,3 +50,4 @@ export default async function BenchmarkPage() {
     </>
   )
 }
+

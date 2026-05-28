@@ -28,7 +28,7 @@ interface LayerItem {
 
 const layersData: Record<"en" | "th", LayerItem[]> = {
   en: [
-    { id: 10, name: "Solutions & Services", icon: Cloud, desc: "SaaS, enterprise applications, and packaged solutions delivered to end users.", microservices: ["RCT Labs Platform", "Specialist Studio", "Marketplace", "Enterprise Apps"], tech: ["Next.js", "React", "Vercel"] },
+    { id: 10, name: "Solutions & Services", icon: Cloud, desc: "SaaS, enterprise applications, and packaged solutions delivered to end users.", microservices: ["Delentia Labs Platform", "Specialist Studio", "Marketplace", "Enterprise Apps"], tech: ["Next.js", "React", "Vercel"] },
     { id: 9, name: "Business Logic & Workflow", icon: Briefcase, desc: "Workflow orchestration, process automation, and domain logic coordination.", microservices: ["Workflow Orchestrator", "MOIP Planner", "Constraint Solver", "Reflexion Agent"], tech: ["BPMN", "State Machines", "Event-Driven"] },
     { id: 8, name: "User Interface & Experience", icon: Layout, desc: "Dashboards, control surfaces, and interaction systems across channels.", microservices: ["Hydra Browser", "Console Integration", "UIA Integrations"], tech: ["React 19", "Tailwind CSS", "Framer Motion"] },
     { id: 7, name: "AI & Machine Learning", icon: Brain, desc: "Inference, cognition, generation, and model coordination at the intelligence core.", microservices: ["Reasoning Engine", "Intent Router", "Planning Systems", "Adaptive Learning"], tech: ["Global Models", "Regional Models", "Thai Models", "PyTorch"] },
@@ -36,11 +36,11 @@ const layersData: Record<"en" | "th", LayerItem[]> = {
     { id: 5, name: "Application & Middleware", icon: Layers, desc: "Gateways, APIs, and service-to-service coordination across the platform.", microservices: ["Gateway API", "Kernel API", "Slack Gateway", "API Proxy"], tech: ["FastAPI", "Express", "gRPC", "MCP"] },
     { id: 4, name: "Operating Systems", icon: Cpu, desc: "Runtime control, autoscaling, and execution environment management.", microservices: ["Kernel", "HRM Controller", "Adaptive Timeout", "Halting Detection"], tech: ["Docker", "Kubernetes", "Linux"] },
     { id: 3, name: "Network & Security", icon: Shield, desc: "Verification, IAM, encryption, and policy enforcement across the stack.", microservices: ["SignedAI", "GIGO Protection", "Observability"], tech: ["SHA-256", "JWT", "OAuth 2.0"] },
-    { id: 2, name: "Data Management", icon: Database, desc: "Persistent memory, vector search, graph retrieval, and structured storage.", microservices: ["RCTDB", "Vector Search", "GraphRAG", "MemoryRAG"], tech: ["PostgreSQL", "Pinecone", "Neo4j"] },
+    { id: 2, name: "Data Management", icon: Database, desc: "Persistent memory, vector search, graph retrieval, and structured storage.", microservices: ["DelentiaDB", "Vector Search", "GraphRAG", "MemoryRAG"], tech: ["PostgreSQL", "Pinecone", "Neo4j"] },
     { id: 1, name: "Infrastructure & Hardware", icon: Server, desc: "Compute, storage, load balancing, and edge delivery foundations.", microservices: ["Compute Cluster", "Object Storage", "CDN Edge", "Load Balancer"], tech: ["AWS", "Cloudflare", "Vercel Edge"] },
   ],
   th: [
-    { id: 10, name: "Solutions & Services", icon: Cloud, desc: "SaaS, แอปองค์กร และโซลูชันสำเร็จรูปที่ผู้ใช้ปลายทางใช้งานจริง", microservices: ["RCT Labs Platform", "Specialist Studio", "Marketplace", "Enterprise Apps"], tech: ["Next.js", "React", "Vercel"] },
+    { id: 10, name: "Solutions & Services", icon: Cloud, desc: "SaaS, แอปองค์กร และโซลูชันสำเร็จรูปที่ผู้ใช้ปลายทางใช้งานจริง", microservices: ["Delentia Labs Platform", "Specialist Studio", "Marketplace", "Enterprise Apps"], tech: ["Next.js", "React", "Vercel"] },
     { id: 9, name: "Business Logic & Workflow", icon: Briefcase, desc: "การประสาน workflow, process automation และตรรกะโดเมนธุรกิจ", microservices: ["Workflow Orchestrator", "MOIP Planner", "Constraint Solver", "Reflexion Agent"], tech: ["BPMN", "State Machines", "Event-Driven"] },
     { id: 8, name: "User Interface & Experience", icon: Layout, desc: "แดชบอร์ด พื้นที่ควบคุม และระบบปฏิสัมพันธ์ข้ามหลายช่องทาง", microservices: ["Hydra Browser", "Console Integration", "UIA Integrations"], tech: ["React 19", "Tailwind CSS", "Framer Motion"] },
     { id: 7, name: "AI & Machine Learning", icon: Brain, desc: "Inference, cognition, generation และการประสาน model ที่เป็นแกนปัญญาของระบบ", microservices: ["Reasoning Engine", "Intent Router", "Planning Systems", "Adaptive Learning"], tech: ["Global Models", "Regional Models", "Thai Models", "PyTorch"] },
@@ -48,7 +48,7 @@ const layersData: Record<"en" | "th", LayerItem[]> = {
     { id: 5, name: "Application & Middleware", icon: Layers, desc: "Gateways, APIs และการเชื่อมต่อ service-to-service ของแพลตฟอร์ม", microservices: ["Gateway API", "Kernel API", "Slack Gateway", "API Proxy"], tech: ["FastAPI", "Express", "gRPC", "MCP"] },
     { id: 4, name: "Operating Systems", icon: Cpu, desc: "การควบคุม runtime, autoscaling และสภาพแวดล้อมการประมวลผล", microservices: ["Kernel", "HRM Controller", "Adaptive Timeout", "Halting Detection"], tech: ["Docker", "Kubernetes", "Linux"] },
     { id: 3, name: "Network & Security", icon: Shield, desc: "Verification, IAM, encryption และการบังคับใช้นโยบายความปลอดภัยทั้งระบบ", microservices: ["SignedAI", "GIGO Protection", "Observability"], tech: ["SHA-256", "JWT", "OAuth 2.0"] },
-    { id: 2, name: "Data Management", icon: Database, desc: "Persistent memory, vector search, graph retrieval และ structured storage", microservices: ["RCTDB", "Vector Search", "GraphRAG", "MemoryRAG"], tech: ["PostgreSQL", "Pinecone", "Neo4j"] },
+    { id: 2, name: "Data Management", icon: Database, desc: "Persistent memory, vector search, graph retrieval และ structured storage", microservices: ["DelentiaDB", "Vector Search", "GraphRAG", "MemoryRAG"], tech: ["PostgreSQL", "Pinecone", "Neo4j"] },
     { id: 1, name: "Infrastructure & Hardware", icon: Server, desc: "Compute, storage, load balancing และ edge delivery ที่เป็นรากฐานทั้งหมด", microservices: ["Compute Cluster", "Object Storage", "CDN Edge", "Load Balancer"], tech: ["AWS", "Cloudflare", "Vercel Edge"] },
   ],
 }

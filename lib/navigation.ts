@@ -96,17 +96,17 @@ const solutionsItems: NavLeafItem[] = [
 const productsItems: NavLeafItem[] = [
   {
     id: "rctlabs",
-    href: "/products/rctlabs",
-    label: { en: "RCT Labs Platform", th: "RCT Labs Platform" },
+    href: "/products/delentia-platform",
+    label: { en: "Delentia Labs Platform", th: "Delentia Labs Platform" },
     description: {
       en: "The governed AI operating layer for enterprise deployment.",
       th: "ชั้นปฏิบัติการ AI แบบ governed สำหรับการนำไปใช้งานระดับองค์กร",
     },
   },
   {
-    id: "artentai",
-    href: "/products/artent-ai",
-    label: { en: "ArtentAI", th: "ArtentAI" },
+    id: "delentiaai",
+    href: "/products/delentia-ai",
+    label: { en: "DelentiaAI", th: "DelentiaAI" },
     description: {
       en: "Autonomous reasoning surfaces for workflow execution.",
       th: "พื้นผิวการใช้เหตุผลอัตโนมัติสำหรับงาน execution ของทีม",

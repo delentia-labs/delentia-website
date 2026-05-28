@@ -89,8 +89,8 @@ const subscriptionPlans = [
 const tiers = [
   {
     id: "rctlabs",
-    nameEn: "RCTLabs",
-    nameTh: "RCTLabs",
+    nameEn: "Delentia Platform",
+    nameTh: "Delentia Platform",
     tagEn: "Research & Development",
     tagTh: "วิจัยและพัฒนา",
     descEn:
@@ -119,9 +119,9 @@ const tiers = [
     ],
   },
   {
-    id: "artent-ai",
-    nameEn: "Artent AI",
-    nameTh: "Artent AI",
+    id: "delentia-ai",
+    nameEn: "Delentia AI",
+    nameTh: "Delentia AI",
     tagEn: "Creative Intelligence",
     tagTh: "ปัญญาสร้างสรรค์",
     descEn:
@@ -455,8 +455,8 @@ export default function PricingPage() {
             {/* Table header */}
             <div className="grid grid-cols-4 text-center text-xs font-semibold uppercase tracking-wider py-4 px-4 bg-warm-cream dark:bg-[#1E1E1E] text-warm-gray dark:text-[#888]">
               <div className="text-left">{isTh ? "ฟีเจอร์" : "Feature"}</div>
-              <div style={{ color: "#7B9E87" }}>RCTLabs</div>
-              <div style={{ color: "#D4A853" }}>Artent AI</div>
+              <div style={{ color: "#7B9E87" }}>Delentia Platform</div>
+              <div style={{ color: "#D4A853" }}>Delentia AI</div>
               <div style={{ color: "#89B4C8" }}>SignedAI</div>
             </div>
 

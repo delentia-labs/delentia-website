@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -16,7 +16,7 @@ import {
   GitBranch,
 } from "lucide-react"
 
-// Static leaderboard data (source: rct-platform/benchmark/industry_standard/results/leaderboard.json)
+// Static leaderboard data (source: delentia-os/benchmark/industry_standard/results/leaderboard.json)
 // Updated by: python benchmark/industry_standard/compare_baseline.py --update-leaderboard
 const leaderboardData = {
   version: "1.0",
@@ -38,7 +38,7 @@ const leaderboardData = {
       name: "RCT Platform",
       tier: "constitutional-os",
       params: "7 models (HexaCore)",
-      provider: "RCT Labs",
+      provider: "Delentia Labs",
       truthfulqa_mc2: 0.4703,  // heuristic proxy via run_truthfulqa.py (100 samples, 2026-05-19)
       halueval_f1: 0.5714,    // measured: precision 1.0, recall 0.40 (adversarial-first filter)
       fdia_accuracy: 0.9167,
@@ -280,7 +280,7 @@ export default async function LeaderboardPage() {
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="outline" size="sm" className="font-mono text-xs">
               <Link
-                href="https://github.com/rctlabs/rct-platform/blob/main/benchmark/industry_standard/compare_baseline.py"
+                href="https://github.com/delentia-labs/delentia-os/blob/main/benchmark/industry_standard/compare_baseline.py"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -291,7 +291,7 @@ export default async function LeaderboardPage() {
             </Button>
             <Button asChild variant="outline" size="sm" className="font-mono text-xs">
               <Link
-                href="https://github.com/rctlabs/rct-platform/tree/main/adversarial_tests"
+                href="https://github.com/delentia-labs/delentia-os/tree/main/adversarial_tests"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -540,3 +540,4 @@ export default async function LeaderboardPage() {
     </>
   )
 }
+

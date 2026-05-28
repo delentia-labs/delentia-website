@@ -1,4 +1,4 @@
-// Central content data for RCT Labs
+// Central content data for Delentia Labs
 import type { ResearchPaper, BlogPost, TeamMember } from "./types"
 
 export const researchPapers: ResearchPaper[] = [
@@ -26,14 +26,14 @@ export const researchPapers: ResearchPaper[] = [
   },
   {
     id: "3",
-    title: "RCTDB v2.0 and Delta Engine: Persistent Memory with 91.5% Measured Compression (Design Floor ≥74%)",
+    title: "DelentiaDB v2.0 and Delta Engine: Persistent Memory with 91.5% Measured Compression (Design Floor ≥74%)",
     authors: ["Ittirit Saengow"],
     date: "2026-03-21",
     category: "ethics",
     abstract: "A technical paper describing how persistent enterprise memory, provenance tracking, and Delta Engine compression support governed AI workloads.",
-    tags: ["RCTDB", "Memory", "Compression"],
+    tags: ["DelentiaDB", "Memory", "Compression"],
     downloadUrl: "/blog/rctdb-8-dimensional-memory-architecture",
-    citationText: "Saengow, I. (2026). RCTDB v2.0 and Delta Engine: Persistent Memory with 91.5% Measured Compression (Design Floor ≥74%).",
+    citationText: "Saengow, I. (2026). DelentiaDB v2.0 and Delta Engine: Persistent Memory with 91.5% Measured Compression (Design Floor ≥74%).",
   },
 ]
 
@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
     author: "Ittirit Saengow",
     date: "2026-03-21",
     category: "news",
-    excerpt: "Why sovereign constitutional AI infrastructure matters for Thailand and how RCT Labs frames the path to national AI capability.",
+    excerpt: "Why sovereign constitutional AI infrastructure matters for Thailand and how Delentia Labs frames the path to national AI capability.",
     content: "See the public article archive for the maintained long-form version of this topic.",
     tags: ["Thailand", "AI Infrastructure", "Strategy"],
     readTime: 7,

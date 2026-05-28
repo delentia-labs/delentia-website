@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
@@ -9,12 +9,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "Research & Releases — RCT Labs Architecture, Algorithms, and Protocol Papers",
-    "งานวิจัยและรีลีส — เอกสารสถาปัตยกรรม อัลกอริทึม และโปรโตคอลของ RCT Labs",
-    "Explore RCT Labs research, version history, architecture papers, algorithm releases, SignedAI verification, RCTDB memory design, and JITNA protocol specifications for enterprise constitutional AI.",
-    "สำรวจงานวิจัยและประวัติรีลีสของ RCT Labs ครอบคลุมสถาปัตยกรรม อัลกอริทึม SignedAI การออกแบบ RCTDB และข้อกำหนดโปรโตคอล JITNA สำหรับ constitutional AI ระดับองค์กร",
+    "Research & Releases — Delentia Labs Architecture, Algorithms, and Protocol Papers",
+    "งานวิจัยและรีลีส — เอกสารสถาปัตยกรรม อัลกอริทึม และโปรโตคอลของ Delentia Labs",
+    "Explore Delentia Labs research, version history, architecture papers, algorithm releases, SignedAI verification, DelentiaDB memory design, and JITNA protocol specifications for enterprise constitutional AI.",
+    "สำรวจงานวิจัยและประวัติรีลีสของ Delentia Labs ครอบคลุมสถาปัตยกรรม อัลกอริทึม SignedAI การออกแบบ DelentiaDB และข้อกำหนดโปรโตคอล JITNA สำหรับ constitutional AI ระดับองค์กร",
     "/research",
-    ["RCT research", "constitutional AI research", "JITNA RFC", "RCTDB paper", "SignedAI verification research"]
+    ["RCT research", "constitutional AI research", "JITNA RFC", "DelentiaDB paper", "SignedAI verification research"]
   )
 }
 
@@ -22,8 +22,8 @@ export default async function ResearchPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Research", url: `https://rctlabs.co${localePrefix}/research` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Research", url: `https://delentia.com${localePrefix}/research` },
   ])
 
   const faqSchema = getFAQSchema([
@@ -35,7 +35,7 @@ export default async function ResearchPage() {
     {
       question: "Is the research page useful for technical evaluation?",
       answer:
-        "Yes. The research page is intended for engineering, architecture, and evaluation teams reviewing RCT Labs methods, release history, and technical foundations.",
+        "Yes. The research page is intended for engineering, architecture, and evaluation teams reviewing Delentia Labs methods, release history, and technical foundations.",
     },
   ])
 
@@ -47,3 +47,4 @@ export default async function ResearchPage() {
     </>
   )
 }
+

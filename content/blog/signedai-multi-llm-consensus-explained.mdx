@@ -10,7 +10,7 @@ evidenceLane: "Research / benchmark scope"
 lastEvidenceReview: "2026-05-21"
 category: "research"
 excerpt: "SignedAI is the multi-model consensus verification system of the RCT Ecosystem. Instead of trusting a single AI model's output, SignedAI routes critical queries through 4-8 models simultaneously and requires formal agreement before any result is released — reducing hallucination by 95% vs single-model systems."
-tags: ["SignedAI", "Multi-LLM", "Consensus", "Hallucination Prevention", "Constitutional AI", "RCT Labs"]
+tags: ["SignedAI", "Multi-LLM", "Consensus", "Hallucination Prevention", "Constitutional AI", "Delentia Labs"]
 readTime: 9
 references:
   - "https://arxiv.org/abs/2308.08155"
@@ -125,8 +125,8 @@ JITNA packets with intent criticality > 0.7 (high-stakes queries) automatically 
 ### With FDIA
 The SignedAI consensus result is the primary input to the **I (Intent verification)** component of FDIA scoring. When SignedAI achieves Tier 8 consensus (75% agreement across 8 models), the Intent verification score is set to maximum — maximizing the F output score.
 
-### With RCTDB
-Every SignedAI consensus round is committed to RCTDB with:
+### With DelentiaDB
+Every SignedAI consensus round is committed to DelentiaDB with:
 - Which models participated
 - Each model's individual output (signed with Ed25519)
 - The voting method used
@@ -186,11 +186,11 @@ SignedAI brings enterprise-grade reliability to AI output through:
 - **4 voting methods:** Majority, Weighted, Ranked Choice, Jaccard Similarity
 - **4 consensus tiers:** S / 4 / 6 / 8 (by model count and agreement threshold)
 - **Geopolitical balance:** 3W:3E ensures cultural bias cannot dominate consensus
-- **Full audit trail:** Every consensus round committed to RCTDB with Ed25519 signatures
+- **Full audit trail:** Every consensus round committed to DelentiaDB with Ed25519 signatures
 - **0.3% hallucination rate:** vs industry 12–15% (95% reduction)
 
 Because SignedAI consensus results are cached in the Delta Engine, the first consensus computation is the expensive one. Every subsequent semantically similar query costs near zero in <50ms.
 
 ---
 
-*This article was written by Ittirit Saengow, founder and sole developer of RCT Labs.*
+*This article was written by Ittirit Saengow, founder and sole developer of Delentia Labs.*

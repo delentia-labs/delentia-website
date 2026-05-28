@@ -16,7 +16,7 @@ export function getPublicApiBaseUrl(): string {
  *    ASSISTANT_BASE_PATH = /rctlabs/assistant   ← DEFAULT (no env var needed)
  *
  * B) Via Hono Gateway (production VPS):
- *    API_BASE_URL = https://gateway.rctlabs.co
+ *    API_BASE_URL = https://gateway.delentia.com
  *    ASSISTANT_BASE_PATH = /api/v1/kernel/assistant  ← set in Vercel env vars
  */
 export function getAssistantBasePath(): string {

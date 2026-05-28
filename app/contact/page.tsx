@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -11,12 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "Contact RCT Labs — Enterprise AI Partnership & Technical Support",
-    "ติดต่อ RCT Labs — พันธมิตร AI ระดับองค์กร และการสนับสนุนทางเทคนิค",
-    `Contact RCT Labs for enterprise AI partnerships, technical inquiries, and collaboration opportunities. Public-facing claims are organized around ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()}.`,
-    `ติดต่อ RCT Labs สำหรับพันธมิตรทาง AI ระดับองค์กร สอบถามข้อมูลทางเทคนิค และโอกาสความร่วมมือ โดยข้อความสาธารณะถูกจัดตาม ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} และ ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()}.`,
+    "Contact Delentia Labs — Enterprise AI Partnership & Technical Support",
+    "ติดต่อ Delentia Labs — พันธมิตร AI ระดับองค์กร และการสนับสนุนทางเทคนิค",
+    `Contact Delentia Labs for enterprise AI partnerships, technical inquiries, and collaboration opportunities. Public-facing claims are organized around ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} and ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()}.`,
+    `ติดต่อ Delentia Labs สำหรับพันธมิตรทาง AI ระดับองค์กร สอบถามข้อมูลทางเทคนิค และโอกาสความร่วมมือ โดยข้อความสาธารณะถูกจัดตาม ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} และ ${SITE_RESEARCH_EVIDENCE_LABEL.toLowerCase()}.`,
     "/contact",
-    ["contact RCT Labs", "enterprise AI partnership", "AI technical support"]
+    ["contact Delentia Labs", "enterprise AI partnership", "AI technical support"]
   )
 }
 
@@ -27,12 +27,12 @@ export default async function ContactPage() {
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact RCT Labs",
+    "name": "Contact Delentia Labs",
     "url": `${SITE_URL}${localePrefix}/contact`,
-    "description": "Contact RCT Labs for enterprise AI partnerships, technical inquiries, and collaboration opportunities.",
+    "description": "Contact Delentia Labs for enterprise AI partnerships, technical inquiries, and collaboration opportunities.",
     "mainEntity": {
       "@type": "Organization",
-      "name": "RCT Labs",
+      "name": "Delentia Labs",
       "email": GENERAL_CONTACT_EMAIL,
       "url": SITE_URL
     }
@@ -51,3 +51,4 @@ export default async function ContactPage() {
     </>
   )
 }
+

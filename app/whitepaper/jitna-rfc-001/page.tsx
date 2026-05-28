@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Navbar } from "@/components/navbar"
@@ -12,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "JITNA RFC-001 Whitepaper | Agent Communication Protocol | RCT Labs",
-    "JITNA RFC-001 เอกสารทางเทคนิค | โปรโตคอลสื่อสาร Agent | RCT Labs",
+    "JITNA RFC-001 Whitepaper | Agent Communication Protocol | Delentia Labs",
+    "JITNA RFC-001 เอกสารทางเทคนิค | โปรโตคอลสื่อสาร Agent | Delentia Labs",
     "JITNA RFC-001 specification — the universal AI agent communication protocol. Just-In-Time Nodal Assembly with 6 primitives, Ed25519 signing, and PROPOSE→COUNTER→ACCEPT negotiation flow.",
     "JITNA RFC-001 specification — โปรโตคอลสื่อสาร AI Agent แบบสากล Just-In-Time Nodal Assembly พร้อม 6 primitives, Ed25519 signing และ PROPOSE→COUNTER→ACCEPT negotiation flow",
     "/whitepaper/jitna-rfc-001",
@@ -37,7 +37,7 @@ export default async function JitnaRFC001Page() {
     "@type": "TechArticle",
     "headline": "JITNA RFC-001 — Universal AI Agent Communication Protocol",
     "description": "Just-In-Time Nodal Assembly (JITNA) RFC-001 v2.0 — the open standard for AI agent-to-agent communication. Defines 6 primitives (I/D/Δ/A/R/M), PROPOSE→COUNTER→ACCEPT negotiation, and Ed25519 cryptographic verification.",
-    "author": { "@type": "Organization", "name": "RCT Labs", "url": SITE_URL },
+    "author": { "@type": "Organization", "name": "Delentia Labs", "url": SITE_URL },
     "datePublished": "2026-02-01",
     "keywords": ["JITNA", "RFC-001", "agentic AI", "multi-agent", "Ed25519", "open protocol"],
   }
@@ -162,3 +162,4 @@ export default async function JitnaRFC001Page() {
     </>
   )
 }
+

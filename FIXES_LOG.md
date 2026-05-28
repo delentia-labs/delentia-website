@@ -16,7 +16,7 @@
 - **Bug:** `headers()` was called twice (once in `generateMetadata`, once in `RootLayout`) — both reading `x-locale` independently. A mismatch could cause the HTML `lang` attribute and metadata locale to diverge.
 - **Fix:** Extracted a shared `getLocale()` async helper that both functions call, ensuring a single consistent resolution path.
 - **Fixed:** `generator: "v0.app"` removed from metadata — this exposed internal scaffolding tooling publicly and has no SEO value.
-- **Improved:** `title` now uses template format `{ default, template: "%s | RCT Labs" }` for per-page title suffixes.
+- **Improved:** `title` now uses template format `{ default, template: "%s | Delentia Labs" }` for per-page title suffixes.
 - **Improved:** `authors` now includes URL pointing to the author page for E-E-A-T signal.
 - **Improved:** Added `twitter.site` field alongside `twitter.creator`.
 - **Added:** `preconnect` for Vercel Analytics domain (`va.vercel-scripts.com`).

@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import BenchmarkSummaryClient from "./BenchmarkSummaryClient"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
@@ -12,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Benchmark Summary — Controlled Benchmark Scope and Method Notes",
     "สรุป Benchmark — Controlled Benchmark Scope และ Method Notes",
-    "Detailed explanation of RCT Labs benchmark methodology with explicit scope. This page separates public SDK verified evidence from enterprise private snapshot evidence and pairs the 0.3% benchmark figure with caveats and method notes.",
-    "คำอธิบาย benchmark methodology ของ RCT Labs พร้อมการระบุ scope อย่างชัดเจน โดยหน้านี้แยก public SDK verified evidence ออกจาก enterprise private snapshot evidence และผูกตัวเลข 0.3% เข้ากับ caveats และ method notes.",
+    "Detailed explanation of Delentia Labs benchmark methodology with explicit scope. This page separates public SDK verified evidence from enterprise private snapshot evidence and pairs the 0.3% benchmark figure with caveats and method notes.",
+    "คำอธิบาย benchmark methodology ของ Delentia Labs พร้อมการระบุ scope อย่างชัดเจน โดยหน้านี้แยก public SDK verified evidence ออกจาก enterprise private snapshot evidence และผูกตัวเลข 0.3% เข้ากับ caveats และ method notes.",
     "/benchmark-summary",
     ["AI benchmark summary", "FDIA accuracy", "hallucination benchmark", "enterprise AI evaluation"]
   )
@@ -21,8 +21,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const BENCHMARK_FAQS = [
   {
-    question: "What is RCT Labs' hallucination rate?",
-    answer: "RCT Labs measures a 0.3% hallucination rate on controlled enterprise workloads, compared to an industry average of 12–15%. This is achieved through SignedAI multi-model consensus verification and the FDIA constitutional gating system. The measurement methodology is: content verification across controlled test workloads, cross-referenced against SignedAI consensus disagreement logs and manual validation sample (n=500).",
+    question: "What is Delentia Labs' hallucination rate?",
+    answer: "Delentia Labs measures a 0.3% hallucination rate on controlled enterprise workloads, compared to an industry average of 12–15%. This is achieved through SignedAI multi-model consensus verification and the FDIA constitutional gating system. The measurement methodology is: content verification across controlled test workloads, cross-referenced against SignedAI consensus disagreement logs and manual validation sample (n=500).",
   },
   {
     question: "What is the FDIA accuracy score of 0.92?",
@@ -50,8 +50,8 @@ export default async function BenchmarkSummaryPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Benchmark Summary", url: `https://rctlabs.co${localePrefix}/benchmark-summary` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Benchmark Summary", url: `https://delentia.com${localePrefix}/benchmark-summary` },
   ])
   const faq = getFAQSchema(BENCHMARK_FAQS)
 

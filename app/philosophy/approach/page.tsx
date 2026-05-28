@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,10 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Approach — How RCT Labs Designs AI Systems",
-    "แนวทาง — วิธีออกแบบระบบ AI ของ RCT Labs",
-    "RCT Labs engineering approach: reverse component thinking, constraint-as-discipline, FDIA-first design, benchmark-gated delivery, and open protocol philosophy.",
-    "แนวทางวิศวกรรมของ RCT Labs: reverse component thinking, constraint-as-discipline, FDIA-first, benchmark-gated delivery และ open protocol",
+    "Approach — How Delentia Labs Designs AI Systems",
+    "แนวทาง — วิธีออกแบบระบบ AI ของ Delentia Labs",
+    "Delentia Labs engineering approach: reverse component thinking, constraint-as-discipline, FDIA-first design, benchmark-gated delivery, and open protocol philosophy.",
+    "แนวทางวิศวกรรมของ Delentia Labs: reverse component thinking, constraint-as-discipline, FDIA-first, benchmark-gated delivery และ open protocol",
     "/philosophy/approach"
   )
 }
@@ -25,9 +25,9 @@ export default async function ApproachPage() {
   const isEn = locale === "en"
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Philosophy", url: `https://rctlabs.co${localePrefix}/philosophy` },
-    { name: "Approach", url: `https://rctlabs.co${localePrefix}/philosophy/approach` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Philosophy", url: `https://delentia.com${localePrefix}/philosophy` },
+    { name: "Approach", url: `https://delentia.com${localePrefix}/philosophy/approach` },
   ])
   const faq = getFAQSchema([
     {
@@ -37,7 +37,7 @@ export default async function ApproachPage() {
         : "เป็นแนวคิดที่เริ่มจากผลลัพธ์ปลายทางที่ผ่านการยืนยันแล้ว และถอยกลับมาหาชุดคอมโพเนนต์ขั้นต่ำที่จำเป็น",
     },
     {
-      question: isEn ? "Why does RCT Labs use benchmark-gated delivery?" : "ทำไม RCT Labs ใช้ benchmark-gated delivery?",
+      question: isEn ? "Why does Delentia Labs use benchmark-gated delivery?" : "ทำไม Delentia Labs ใช้ benchmark-gated delivery?",
       answer: isEn
         ? "To ensure capability claims are tied to measurable evidence before deployment decisions are made."
         : "เพื่อให้การอ้างความสามารถทุกข้อผูกกับหลักฐานที่วัดผลได้ก่อนตัดสินใจปล่อยใช้งาน",
@@ -122,8 +122,8 @@ export default async function ApproachPage() {
         </h1>
         <p className="text-xl text-muted-foreground mb-16 max-w-3xl">
           {isEn
-            ? "Five engineering principles that define how RCT Labs designs, builds, and delivers AI infrastructure."
-            : "5 หลักการวิศวกรรมที่กำหนดวิธีที่ RCT Labs ออกแบบ สร้าง และส่งมอบ AI infrastructure"}
+            ? "Five engineering principles that define how Delentia Labs designs, builds, and delivers AI infrastructure."
+            : "5 หลักการวิศวกรรมที่กำหนดวิธีที่ Delentia Labs ออกแบบ สร้าง และส่งมอบ AI infrastructure"}
         </p>
 
         <div className="grid gap-8 md:gap-10">
@@ -170,3 +170,4 @@ export default async function ApproachPage() {
     </>
   )
 }
+

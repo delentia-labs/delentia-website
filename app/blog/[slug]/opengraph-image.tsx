@@ -21,9 +21,9 @@ export default async function BlogOgImage({ params }: OgImageProps) {
   const { slug } = await params
   const post = getBlogPostBySlug(slug, "en")
 
-  const title = post?.title ?? "RCT Labs Blog"
+  const title = post?.title ?? "Delentia Labs Blog"
   const category = post?.category ?? "research"
-  const excerpt = post?.excerpt ?? "Enterprise AI research and insights from RCT Labs."
+  const excerpt = post?.excerpt ?? "Enterprise AI research and insights from Delentia Labs."
   const accentColor = CATEGORY_COLORS[category] ?? "#f59e0b"
   const categoryLabel = getBlogCategoryLabel(category, "en")
 
@@ -79,7 +79,7 @@ export default async function BlogOgImage({ params }: OgImageProps) {
             padding: "48px 60px 44px",
           }}
         >
-          {/* Top: RCT Labs brand + category */}
+          {/* Top: Delentia Labs brand + category */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <div
@@ -95,7 +95,7 @@ export default async function BlogOgImage({ params }: OgImageProps) {
               >
                 <span style={{ fontSize: 22, fontWeight: 800, color: "#0a0a0a" }}>R</span>
               </div>
-              <span style={{ fontSize: 20, fontWeight: 600, color: "#d1d5db" }}>RCT Labs</span>
+              <span style={{ fontSize: 20, fontWeight: 600, color: "#d1d5db" }}>Delentia Labs</span>
               <span style={{ color: "#4b5563", fontSize: 20, marginLeft: 4 }}>/ Blog</span>
             </div>
             <div
@@ -142,7 +142,7 @@ export default async function BlogOgImage({ params }: OgImageProps) {
             </p>
           </div>
 
-          {/* Bottom: RCT Labs + tagline */}
+          {/* Bottom: Delentia Labs + tagline */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <span
               style={{
@@ -151,7 +151,7 @@ export default async function BlogOgImage({ params }: OgImageProps) {
                 letterSpacing: "0.02em",
               }}
             >
-              rctlabs.co
+              delentia.com
             </span>
             <span
               style={{

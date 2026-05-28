@@ -63,7 +63,7 @@ kb_queries = [
     ("How does JITNA work?", "jitna"),
     ("What is SignedAI?", "signedai"),
     ("What is FDIA?", "fdia"),
-    ("What is ArtentAI?", "artentai"),
+    ("What is DelentiaAI?", "delentiaai"),
 ]
 for q, expected_topic in kb_queries:
     r = api_chat(q)

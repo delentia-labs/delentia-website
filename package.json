@@ -1,13 +1,13 @@
 {
-  "name": "rctlabs-website",
+  "name": "delentia-website",
   "version": "1.0.0",
-  "description": "RCT Labs — Constitutional AI Operating System",
+  "description": "Delentia Labs — Constitutional AI Operating System",
   "author": "Ittirit Saengow",
   "license": "UNLICENSED",
-  "homepage": "https://rctlabs.co",
+  "homepage": "https://delentia.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rctlabs/rctlabs-website"
+    "url": "https://github.com/delentia-labs/delentia-website"
   },
   "private": true,
   "scripts": {

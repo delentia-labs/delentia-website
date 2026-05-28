@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { m } from "framer-motion"
 import {
@@ -225,7 +225,7 @@ const related = [
   { href: "/technology/jitna", label: "JITNA Protocol" },
   { href: "/technology/rct-7-thinking", label: "RCT-7 Thinking" },
   { href: "/products/signed-ai", label: "SignedAI" },
-  { href: "/solutions/enterprise-ai-memory", label: "Vault (RCTDB)" },
+  { href: "/solutions/enterprise-ai-memory", label: "Vault (DelentiaDB)" },
   { href: "/algorithms", label: "Algorithm Registry" },
 ]
 
@@ -270,8 +270,8 @@ export default function ConstitutionalAIClient({ locale: propLocale }: { locale?
       <section className="sr-only">
         <p>
           {isTH
-            ? "Constitutional AI ของ RCT Labs บังคับใช้ข้อจำกัดทางจริยธรรมในระดับสมการ F = (D^I) × A — เมื่อ A = 0 ไม่มี Output ใดถูกส่งออก ทำให้ human oversight กลายเป็นข้อกำหนดทางคณิตศาสตร์ ไม่ใช่เพียงนโยบายที่ปรับได้"
-            : "RCT Labs Constitutional AI enforces ethical constraints at the equation level: F = (D^I) × A — when A = 0 no output is dispatched, making human oversight a mathematical requirement rather than a configurable policy."}
+            ? "Constitutional AI ของ Delentia Labs บังคับใช้ข้อจำกัดทางจริยธรรมในระดับสมการ F = (D^I) × A — เมื่อ A = 0 ไม่มี Output ใดถูกส่งออก ทำให้ human oversight กลายเป็นข้อกำหนดทางคณิตศาสตร์ ไม่ใช่เพียงนโยบายที่ปรับได้"
+            : "Delentia Labs Constitutional AI enforces ethical constraints at the equation level: F = (D^I) × A — when A = 0 no output is dispatched, making human oversight a mathematical requirement rather than a configurable policy."}
         </p>
       </section>
 
@@ -451,3 +451,4 @@ export default function ConstitutionalAIClient({ locale: propLocale }: { locale?
     </main>
   )
 }
+

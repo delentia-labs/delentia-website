@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
     locale,
     `${author.name} — Author Profile`,
     `${author.name} — โปรไฟล์ผู้เขียน`,
-    `Profile, expertise, and related research content for ${author.name} at RCT Labs.`,
-    `โปรไฟล์ ความเชี่ยวชาญ และบทความที่เกี่ยวข้องของ ${author.name} ใน RCT Labs`,
+    `Profile, expertise, and related research content for ${author.name} at Delentia Labs.`,
+    `โปรไฟล์ ความเชี่ยวชาญ และบทความที่เกี่ยวข้องของ ${author.name} ใน Delentia Labs`,
     `/authors/${author.id}`,
     [author.name, ...author.expertise]
   )

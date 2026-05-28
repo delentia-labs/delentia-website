@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { headers } from "next/headers"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -25,9 +25,9 @@ export default async function Page() {
   const localePrefix = locale === "th" ? "/th" : ""
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "เทคโนโลยี" : "Technology", url: `https://rctlabs.co${localePrefix}/technology/rct-7-thinking` },
-    { name: "RCT-7 Thinking", url: `https://rctlabs.co${localePrefix}/technology/rct-7-thinking` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "เทคโนโลยี" : "Technology", url: `https://delentia.com${localePrefix}/technology/rct-7-thinking` },
+    { name: "RCT-7 Thinking", url: `https://delentia.com${localePrefix}/technology/rct-7-thinking` },
   ])
 
   const techArticleSchema = {
@@ -39,13 +39,13 @@ export default async function Page() {
     description: locale === "th"
       ? "RCT-7 Thinking คือ Metacognitive Protocol 7 ขั้นตอนที่ RCT-7 Mental OS ใช้ก่อน Execute Task ที่ซับซ้อน"
       : "RCT-7 Thinking is the 7-step metacognitive reasoning protocol used by RCT-7 Mental OS before executing any complex task.",
-    author: { "@type": "Organization", name: "RCT Labs" },
+    author: { "@type": "Organization", name: "Delentia Labs" },
     publisher: {
       "@type": "Organization",
-      name: "RCT Labs",
-      logo: { "@type": "ImageObject", url: "https://rctlabs.co/RCTLogo-horizontal.svg" },
+      name: "Delentia Labs",
+      logo: { "@type": "ImageObject", url: "https://delentia.com/RCTLogo-horizontal.svg" },
     },
-    url: `https://rctlabs.co${localePrefix}/technology/rct-7-thinking`,
+    url: `https://delentia.com${localePrefix}/technology/rct-7-thinking`,
     inLanguage: locale,
     keywords: "RCT-7 Thinking, cognitive reasoning protocol, metacognitive AI, 7-step reasoning, reverse reasoning, Observe Analyze Deconstruct Reconstruct",
   }
@@ -58,3 +58,4 @@ export default async function Page() {
     </>
   )
 }
+

@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { getRequestLocale } from "@/lib/request-locale"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -13,10 +13,10 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Authors and Reviewers",
     "ผู้เขียนและผู้ตรวจทาน",
-    "Meet the authors and reviewers shaping the public research, editorial guidance, and trust signals across RCT Labs.",
-    "รู้จักผู้เขียนและผู้ตรวจทานที่ช่วยสร้างงานวิจัย สื่อ และสัญญาณความน่าเชื่อถือของ RCT Labs",
+    "Meet the authors and reviewers shaping the public research, editorial guidance, and trust signals across Delentia Labs.",
+    "รู้จักผู้เขียนและผู้ตรวจทานที่ช่วยสร้างงานวิจัย สื่อ และสัญญาณความน่าเชื่อถือของ Delentia Labs",
     "/authors",
-    ["RCT Labs authors", "AI research reviewers", "editorial policy authors"]
+    ["Delentia Labs authors", "AI research reviewers", "editorial policy authors"]
   )
 }
 
@@ -27,18 +27,18 @@ export default async function AuthorsPage() {
   const authors = getAllAuthorProfiles()
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "ผู้เขียนและผู้ตรวจทาน" : "Authors and Reviewers", url: `https://rctlabs.co${localePrefix}/authors` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "ผู้เขียนและผู้ตรวจทาน" : "Authors and Reviewers", url: `https://delentia.com${localePrefix}/authors` },
   ])
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: locale === "th" ? "ผู้เขียนและผู้ตรวจทาน RCT Labs" : "RCT Labs Authors and Reviewers",
+    name: locale === "th" ? "ผู้เขียนและผู้ตรวจทาน Delentia Labs" : "Delentia Labs Authors and Reviewers",
     numberOfItems: authors.length,
     itemListElement: authors.map((author, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
-      item: { "@type": "Person", name: author.name, url: `https://rctlabs.co${localePrefix}/authors/${author.id}` },
+      item: { "@type": "Person", name: author.name, url: `https://delentia.com${localePrefix}/authors/${author.id}` },
     })),
   }
 

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -122,9 +122,9 @@ export default function FDIAEquationPage() {
   const locale = getLocaleFromPathname(pathname) ?? "en"
   const isEn = locale === "en"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: isEn ? "Home" : "หน้าหลัก", url: `https://rctlabs.co/${locale}` },
-    { name: isEn ? "Protocols" : "โปรโตคอล", url: `https://rctlabs.co/${locale}/protocols` },
-    { name: isEn ? "FDIA Equation" : "สมการ FDIA", url: `https://rctlabs.co/${locale}/protocols/fdia-equation` },
+    { name: isEn ? "Home" : "หน้าหลัก", url: `https://delentia.com/${locale}` },
+    { name: isEn ? "Protocols" : "โปรโตคอล", url: `https://delentia.com/${locale}/protocols` },
+    { name: isEn ? "FDIA Equation" : "สมการ FDIA", url: `https://delentia.com/${locale}/protocols/fdia-equation` },
   ])
 
   const jsonLd = {
@@ -139,7 +139,7 @@ export default function FDIAEquationPage() {
   const faqSchema = getFAQSchema([
     {
       question: "What does FDIA stand for?",
-      answer: "FDIA stands for Future, Data, Intent, Architect — the four variables in the equation F = (D^I) × A that governs intent-centric AI decision making at RCT Labs.",
+      answer: "FDIA stands for Future, Data, Intent, Architect — the four variables in the equation F = (D^I) × A that governs intent-centric AI decision making at Delentia Labs.",
     },
     {
       question: "Why is the Architect variable non-negotiable in FDIA?",
@@ -421,3 +421,4 @@ export default function FDIAEquationPage() {
     </>
   )
 }
+

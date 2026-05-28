@@ -24,7 +24,7 @@ export default async function Page() {
     { name: "Products", url: `/products` },
     { name: "SignedAI", url: `/products/signed-ai` },
   ])
-  const productSchema = { "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SignedAI — 5th Genome Verification API", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "description": "5th Genome in the RCT 7-Genome System. HexaCore 7-Model consensus with ED25519 RFC 8032 signing, 4 geopolitical voting zones, and Constitutional Accuracy AI governance.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "featureList": "HexaCore 7-Model Consensus, ED25519 RFC 8032 Signing, Constitutional Accuracy, 4 Geopolitical Voting Zones (3W/3E/1R), Deterministic Replay Engine, 5th Genome in 7-Genome System", "url": `/products/signed-ai`, "publisher": { "@type": "Organization", "name": "RCT Labs", "url": SITE_URL } }
+  const productSchema = { "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SignedAI — 5th Genome Verification API", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "description": "5th Genome in the RCT 7-Genome System. HexaCore 7-Model consensus with ED25519 RFC 8032 signing, 4 geopolitical voting zones, and Constitutional Accuracy AI governance.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "featureList": "HexaCore 7-Model Consensus, ED25519 RFC 8032 Signing, Constitutional Accuracy, 4 Geopolitical Voting Zones (3W/3E/1R), Deterministic Replay Engine, 5th Genome in 7-Genome System", "url": `/products/signed-ai`, "publisher": { "@type": "Organization", "name": "Delentia Labs", "url": SITE_URL } }
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -49,3 +49,4 @@ export default async function Page() {
     </>
   )
 }
+

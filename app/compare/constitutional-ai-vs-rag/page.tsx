@@ -28,7 +28,7 @@ const COMPARE_FAQS = [
   },
   {
     question: "Can you use RAG and Constitutional AI together?",
-    answer: "Yes. The RCT Ecosystem combines both approaches. RAG provides factual grounding through RCTDB retrieval, while Constitutional AI (FDIA framework) provides deterministic safety constraints. Together, they achieve a 0.3% hallucination rate โ€” compared to ~3โ€“5% for RAG alone and ~12โ€“15% for unguarded LLMs.",
+    answer: "Yes. The RCT Ecosystem combines both approaches. RAG provides factual grounding through DelentiaDB retrieval, while Constitutional AI (FDIA framework) provides deterministic safety constraints. Together, they achieve a 0.3% hallucination rate โ€” compared to ~3โ€“5% for RAG alone and ~12โ€“15% for unguarded LLMs.",
   },
   {
     question: "Does RAG prevent hallucinations?",
@@ -40,7 +40,7 @@ const COMPARE_FAQS = [
   },
   {
     question: "How does Constitutional AI provide a PDPA audit trail?",
-    answer: "Every RCT Ecosystem query writes its full provenance chain to RCTDB โ€” an 8-dimensional memory schema that records the query hash, FDIA scores (D, I, A, F), model chain, consensus result, and provenance trail. This automatically generates the audit evidence required for PDPA Section 33 (right to explanation) and Section 34 (right to object).",
+    answer: "Every RCT Ecosystem query writes its full provenance chain to DelentiaDB โ€” an 8-dimensional memory schema that records the query hash, FDIA scores (D, I, A, F), model chain, consensus result, and provenance trail. This automatically generates the audit evidence required for PDPA Section 33 (right to explanation) and Section 34 (right to object).",
   },
 ]
 
@@ -67,9 +67,9 @@ export default async function CompareConstitutionalAIvsRAG() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Compare", url: `https://rctlabs.co${localePrefix}/compare` },
-    { name: "Constitutional AI vs RAG", url: `https://rctlabs.co${localePrefix}/compare/constitutional-ai-vs-rag` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Compare", url: `https://delentia.com${localePrefix}/compare` },
+    { name: "Constitutional AI vs RAG", url: `https://delentia.com${localePrefix}/compare/constitutional-ai-vs-rag` },
   ])
   const faq = getFAQSchema(COMPARE_FAQS)
 
@@ -141,7 +141,7 @@ export default async function CompareConstitutionalAIvsRAG() {
                   "Factual grounding AND structural safety constraints",
                   "0.3% hallucination rate (vs 12โ€“15% industry)",
                   "Warm recall <50ms for repeated patterns",
-                  "Complete PDPA audit trail from RCTDB",
+                  "Complete PDPA audit trail from DelentiaDB",
                   "Architect gate mandatory for critical decisions",
                 ],
                 verdict: "Best for: enterprise AI at scale",
@@ -217,4 +217,5 @@ export default async function CompareConstitutionalAIvsRAG() {
     </>
   )
 }
+
 

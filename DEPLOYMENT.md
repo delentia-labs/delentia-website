@@ -1,8 +1,8 @@
-﻿# RCT Labs Deployment Guide
+﻿# Delentia Labs Deployment Guide
 
 ## Deployment Overview
 
-rctlabs.co is configured for seamless deployment on Vercel with optimized performance, SEO, and security settings.
+delentia.com is configured for seamless deployment on Vercel with optimized performance, SEO, and security settings.
 
 ## Pre-Deployment Checklist
 
@@ -20,7 +20,7 @@ rctlabs.co is configured for seamless deployment on Vercel with optimized perfor
 ### Step 1: Push to GitHub
 \`\`\`bash
 git add .
-git commit -m "Complete rctlabs.co deployment setup"
+git commit -m "Complete delentia.com deployment setup"
 git push origin main
 \`\`\`
 
@@ -33,7 +33,7 @@ git push origin main
 
 ### Step 3: Configure Custom Domain
 1. In Vercel dashboard: Settings โ’ Domains
-2. Add domain: rctlabs.co
+2. Add domain: delentia.com
 3. Update DNS records at your domain registrar:
    - Point to Vercel nameservers or
    - Add CNAME record pointing to your Vercel deployment
@@ -59,14 +59,14 @@ BING_SITE_VERIFICATION=...                   # Bing Webmaster Tools msvalidate.0
 
 
 # Production values
-# NEXT_PUBLIC_SITE_URL=https://rctlabs.co     # Production frontend
+# NEXT_PUBLIC_SITE_URL=https://delentia.com     # Production frontend
 \`\`\`
 
 Add these in Vercel Settings โ’ Environment Variables
 
 ### CORS
 
-If integrating with an external API, ensure the backend allows the frontend origin (`rctlabs.co`).
+If integrating with an external API, ensure the backend allows the frontend origin (`delentia.com`).
 
 ## Performance Optimization
 
@@ -81,10 +81,10 @@ Current optimizations:
 
 ### External Dashboard Checks
 - [ ] Vercel deployment is green on the production domain
-- [ ] Domain DNS resolves correctly for `rctlabs.co` and `www` (if used)
+- [ ] Domain DNS resolves correctly for `delentia.com` and `www` (if used)
 - [ ] Google Search Console verification code is added in Vercel env and visible in page source
 - [ ] Bing Webmaster Tools verification code is added in Vercel env and visible in page source
-- [ ] Submit `https://rctlabs.co/sitemap.xml` to GSC and Bing
+- [ ] Submit `https://delentia.com/sitemap.xml` to GSC and Bing
 - [ ] Confirm Vercel Analytics is receiving production pageview data
 
 ### Trust / UX Checks
@@ -100,7 +100,7 @@ Current optimizations:
 - [ ] EN and TH routes preserve the intended funnel context and prefilled copy
 
 ### Metadata / OG Checks
-- [ ] `https://rctlabs.co/opengraph-image` returns a valid image response
+- [ ] `https://delentia.com/opengraph-image` returns a valid image response
 - [ ] Homepage source contains canonical + hreflang tags for `/en` and `/th`
 - [ ] Open Graph title, description, and image are correct on the deployed site
 - [ ] Share preview is tested in at least one validator or messaging surface before announcement
@@ -143,4 +143,4 @@ To rollback to previous deployment:
 For deployment support:
 - [Vercel Documentation](https://vercel.com/docs)
 - [Next.js Deployment](https://nextjs.org/docs/deployment)
-- Contact: founder@rctlabs.co
+- Contact: founder@delentia.com

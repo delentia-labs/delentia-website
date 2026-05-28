@@ -93,8 +93,8 @@ const layers: Layer[] = [
   },
   {
     id: 4,
-    name: "RCTDB",
-    nameTh: "RCTDB",
+    name: "DelentiaDB",
+    nameTh: "DelentiaDB",
     description: "8-dimensional universal memory schema with Delta Engine compression and quantum-resistant encryption.",
     descriptionTh: "8-dimensional universal memory schema พร้อม Delta Engine compression และ quantum-resistant encryption",
     icon: "Database",

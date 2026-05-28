@@ -1,25 +1,25 @@
 ﻿---
-title: "rct-platform v1.0.2a0: Public Alpha บน GitHub ภายใต้ Apache 2.0"
+title: "delentia-os v1.0.2a0: Public Alpha บน GitHub ภายใต้ Apache 2.0"
 author: "Ittirit Saengow"
 authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
 date: "2026-04-22"
 lastReviewed: "2026-05-07"
 category: "engineering"
-excerpt: "rct-platform v1.0.2a0 พร้อมให้ดาวน์โหลดบน GitHub ภายใต้ Apache 2.0 แล้ว SDK มาพร้อม 723 tests ที่ผ่านทั้งหมด coverage 89% microservice อ้างอิง 5 รายการ และ FDIA + JITNA reference implementation แบบเต็ม — ไม่ต้องใช้ API key ในการเริ่มต้น"
-tags: ["Open Source", "SDK", "Apache 2.0", "rct-platform", "GitHub", "FDIA", "JITNA", "Constitutional AI", "Public Alpha"]
+excerpt: "delentia-os v1.0.2a0 พร้อมให้ดาวน์โหลดบน GitHub ภายใต้ Apache 2.0 แล้ว SDK มาพร้อม 723 tests ที่ผ่านทั้งหมด coverage 89% microservice อ้างอิง 5 รายการ และ FDIA + JITNA reference implementation แบบเต็ม — ไม่ต้องใช้ API key ในการเริ่มต้น"
+tags: ["Open Source", "SDK", "Apache 2.0", "delentia-os", "GitHub", "FDIA", "JITNA", "Constitutional AI", "Public Alpha"]
 readTime: 8
 references:
-  - "https://github.com/rctlabs/rct-platform"
-  - "https://rctlabs.co/products/rctlabs"
+  - "https://github.com/delentia-labs/delentia-os"
+  - "https://delentia.com/products/delentia-platform"
   - "https://choosealicense.com/licenses/apache-2.0/"
 ---
 
-# rct-platform v1.0.2a0: Public Alpha บน GitHub ภายใต้ Apache 2.0
+# delentia-os v1.0.2a0: Public Alpha บน GitHub ภายใต้ Apache 2.0
 
 RCT Platform SDK เป็น open source แล้ว
 
-[rct-platform v1.0.2a0](https://github.com/rctlabs/rct-platform) คือ Public Alpha release ของ core SDK ของ RCT Ecosystem — layer ที่ implement สมการ FDIA, JITNA Protocol RFC-001, SignedAI multi-LLM consensus, Delta Engine และ microservice อ้างอิง 5 รายการ มาพร้อม Apache 2.0 license, 723 tests ที่ผ่านทั้งหมด, coverage 89% และ demo offline แบบเต็มที่ไม่ต้องใช้ API key
+[delentia-os v1.0.2a0](https://github.com/delentia-labs/delentia-os) คือ Public Alpha release ของ core SDK ของ RCT Ecosystem — layer ที่ implement สมการ FDIA, JITNA Protocol RFC-001, SignedAI multi-LLM consensus, Delta Engine และ microservice อ้างอิง 5 รายการ มาพร้อม Apache 2.0 license, 723 tests ที่ผ่านทั้งหมด, coverage 89% และ demo offline แบบเต็มที่ไม่ต้องใช้ API key
 
 นี่ไม่ใช่ demo มันคือ algorithm implementation จริงที่ขับเคลื่อน constitutional AI layer ของ RCT Ecosystem ใน production
 
@@ -42,8 +42,8 @@ RCT Platform SDK เป็น open source แล้ว
 
 ```bash
 # Clone และติดตั้ง
-git clone https://github.com/rctlabs/rct-platform.git
-cd rct-platform
+git clone https://github.com/delentia-labs/delentia-os.git
+cd delentia-os
 pip install -e .
 
 # รัน offline demo
@@ -91,12 +91,12 @@ Delta vs Baseline    : +0.2667 (+41.0%)
 
 ## Apache 2.0 หมายความว่าอะไรสำหรับคุณ
 
-- **ใช้เชิงพาณิชย์ได้** คุณสามารถใช้ แก้ไข และ distribute `rct-platform` ในผลิตภัณฑ์ proprietary โดยไม่ต้องเผยแพร่การแก้ไขของคุณ
+- **ใช้เชิงพาณิชย์ได้** คุณสามารถใช้ แก้ไข และ distribute `delentia-os` ในผลิตภัณฑ์ proprietary โดยไม่ต้องเผยแพร่การแก้ไขของคุณ
 - **ต้องให้ attribution** รวมไฟล์ `NOTICE` และ copyright header ในทุก distribution
 - **มี patent grant** Contributors ให้ royalty-free, worldwide patent license ครอบคลุม contributions ของพวกเขา
 - **ไม่มี copyleft** ต่างจาก GPL Apache 2.0 ไม่กำหนดให้ derivative works เป็น open source
 
-Enterprise layer — 62 microservices, HexaCore inference cluster, RCTDB, MEE production pipeline — ยังคงเป็น proprietary SDK คือ public interface ที่เชื่อมต่อกับ layer นั้น
+Enterprise layer — 62 microservices, HexaCore inference cluster, DelentiaDB, MEE production pipeline — ยังคงเป็น proprietary SDK คือ public interface ที่เชื่อมต่อกับ layer นั้น
 
 ## รายละเอียด Test Coverage
 
@@ -122,21 +122,21 @@ Coverage แยกตาม subsystem:
 
 - **GitHub Discussions** — async community Q&A, design discussions และ RFC feedback
 - **MOIP reference implementation** — Multi-Objective Intent Planning algorithm เป็น standalone module
-- **PyPI alpha publish** — `pip install rct-platform==1.0.3a0`
+- **PyPI alpha publish** — `pip install delentia-os==1.0.3a0`
 - **MEE v2 integration** — Meta-Evolution Engine growth formula ใน public SDK
 
 ## ความสัมพันธ์กับ Enterprise Layer
 
 ```
-rct-platform (Apache 2.0, public)
+delentia-os (Apache 2.0, public)
     └── core/          ← FDIA, Delta Engine, Regional Adapter
     └── signedai/      ← Multi-LLM consensus
     └── rct_control_plane/  ← JITNA RFC-001
     └── microservices/ ← 5 reference implementations
 
-RCT Enterprise (proprietary, rctlabs.co)
+RCT Enterprise (proprietary, delentia.com)
     └── 62 microservices
-    └── RCTDB (8-dimensional memory schema)
+    └── DelentiaDB (8-dimensional memory schema)
     └── HexaCore 7-model inference cluster
     └── MEE production pipeline
     └── 4,849 enterprise test suite

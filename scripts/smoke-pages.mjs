@@ -4,27 +4,27 @@ const articleSlug = process.env.SMOKE_ARTICLE_SLUG ?? "verification-vs-prompt-en
 const checks = [
   {
     path: "/",
-    expect: ["RCT Labs", "Constitutional AI"],
+    expect: ["Delentia Labs", "Constitutional AI"],
   },
   {
     path: "/th",
-    expect: ["RCT Labs", "ระบบปฏิบัติการ AI แบบรัฐธรรมนูญ"],
+    expect: ["Delentia Labs", "ระบบปฏิบัติการ AI แบบรัฐธรรมนูญ"],
   },
   {
     path: "/blog",
-    expect: ["Blog", "RCT Labs"],
+    expect: ["Blog", "Delentia Labs"],
   },
   {
     path: "/th/blog",
-    expect: ["บล็อก", "RCT Labs"],
+    expect: ["บล็อก", "Delentia Labs"],
   },
   {
     path: `/blog/${articleSlug}`,
-    expect: ["Verification vs Prompt Engineering", "RCT Labs"],
+    expect: ["Verification vs Prompt Engineering", "Delentia Labs"],
   },
   {
     path: `/th/blog/${articleSlug}`,
-    expect: ["Verification vs Prompt Engineering", "RCT Labs"],
+    expect: ["Verification vs Prompt Engineering", "Delentia Labs"],
   },
 ]
 

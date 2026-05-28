@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server"
+﻿import { NextRequest, NextResponse } from "next/server"
 import { getServerApiBaseUrl, getAssistantBasePath } from "@/lib/api-config"
 import { resolveAssistantAuth } from "@/lib/auth/assistant-guard"
 
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     return applyCookies(NextResponse.json(
       {
         reply:
-          "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนาและปรับแต่ง — ทีมงานกำลังเตรียมพร้อม Backend สำหรับ production\n\nสำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
+          "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนาและปรับแต่ง — ทีมงานกำลังเตรียมพร้อม Backend สำหรับ production\n\nสำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ founder@delentia.com หรือดูเอกสารได้ที่ /docs",
         source: "fallback",
         verified: false,
         suggestions: [
@@ -61,3 +61,4 @@ export async function POST(request: NextRequest) {
     ))
   }
 }
+

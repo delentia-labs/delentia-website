@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server"
+﻿import { NextRequest, NextResponse } from "next/server"
 import { getServerApiBaseUrl, getAssistantBasePath } from "@/lib/api-config"
 import { resolveAssistantAuth } from "@/lib/auth/assistant-guard"
 
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
         status: "fallback",
         analysis: {
           reply:
-            "ขณะนี้ระบบ Mirror Mode กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\nสำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
+            "ขณะนี้ระบบ Mirror Mode กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\nสำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ founder@delentia.com หรือดูเอกสารได้ที่ /docs",
           intent: "general",
           confidence: 0,
           iterations: 0,
@@ -67,3 +67,4 @@ export async function POST(request: NextRequest) {
     ))
   }
 }
+

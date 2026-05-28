@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
@@ -11,10 +11,10 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Products",
     "ผลิตภัณฑ์",
-    "RCT Labs products: RCTLabs testing platform, ARTENT AI creative engine, and Signed AI verification system. Enterprise AI solutions built on constitutional AI principles.",
-    "ผลิตภัณฑ์ RCT Labs: แพลตฟอร์มทดสอบ RCTLabs, ARTENT AI และระบบตรวจสอบ Signed AI สำหรับองค์กร",
+    "Delentia Labs products: Delentia Platform testing platform, Delentia AI creative engine, and Signed AI verification system. Enterprise AI solutions built on constitutional AI principles.",
+    "ผลิตภัณฑ์ Delentia Labs: แพลตฟอร์มทดสอบ Delentia Platform, Delentia AI และระบบตรวจสอบ Signed AI สำหรับองค์กร",
     "/products",
-    ["RCTLabs platform", "ARTENT AI", "Signed AI", "AI verification", "AI testing platform"]
+    ["Delentia Platform platform", "Delentia AI", "Signed AI", "AI verification", "AI testing platform"]
   )
 }
 
@@ -22,15 +22,15 @@ export default async function ProductsPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Products", url: `https://rctlabs.co${localePrefix}/products` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Products", url: `https://delentia.com${localePrefix}/products` },
   ])
 
   const faqSchema = getFAQSchema([
     {
-      question: "What products does RCT Labs currently offer?",
+      question: "What products does Delentia Labs currently offer?",
       answer:
-        "RCT Labs currently presents three core products: RCTLabs for AI testing and benchmarking, ARTENT AI for intent-aligned creative generation, and SignedAI for verification, traceability, and hallucination reduction.",
+        "Delentia Labs currently presents three core products: Delentia Platform for AI testing and benchmarking, Delentia AI for intent-aligned creative generation, and SignedAI for verification, traceability, and hallucination reduction.",
     },
     {
       question: "How are the products related to the RCT platform?",
@@ -42,11 +42,11 @@ export default async function ProductsPage() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "RCT Labs Products",
+    name: "Delentia Labs Products",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "RCTLabs", url: `https://rctlabs.co${localePrefix}/products/rctlabs` },
-      { "@type": "ListItem", position: 2, name: "ARTENT AI", url: `https://rctlabs.co${localePrefix}/products/artent-ai` },
-      { "@type": "ListItem", position: 3, name: "SignedAI", url: `https://rctlabs.co${localePrefix}/products/signed-ai` },
+      { "@type": "ListItem", position: 1, name: "Delentia Platform", url: `https://delentia.com${localePrefix}/products/delentia-platform` },
+      { "@type": "ListItem", position: 2, name: "Delentia AI", url: `https://delentia.com${localePrefix}/products/delentia-ai` },
+      { "@type": "ListItem", position: 3, name: "SignedAI", url: `https://delentia.com${localePrefix}/products/signed-ai` },
     ],
   }
 
@@ -59,3 +59,4 @@ export default async function ProductsPage() {
     </>
   )
 }
+

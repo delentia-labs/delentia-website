@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getDefinedTermSchema, getFAQSchema } from "@/lib/schema"
@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "JITNA RFC-001 — Just-In-Time Network Architecture",
     "JITNA RFC-001 — สถาปัตยกรรมเครือข่ายแบบ Just-In-Time",
-    "Full specification of JITNA RFC-001: the Just-In-Time Network Architecture protocol governing dynamic AI agent routing, intent preservation, and multi-LLM consensus in the RCT Labs constitutional AI stack.",
-    "ข้อกำหนดฉบับสมบูรณ์ของ JITNA RFC-001: โปรโตคอล Just-In-Time Network Architecture ที่กำกับ Dynamic AI Agent Routing การรักษา Intent และ Multi-LLM Consensus ใน constitutional AI stack ของ RCT Labs",
+    "Full specification of JITNA RFC-001: the Just-In-Time Network Architecture protocol governing dynamic AI agent routing, intent preservation, and multi-LLM consensus in the Delentia Labs constitutional AI stack.",
+    "ข้อกำหนดฉบับสมบูรณ์ของ JITNA RFC-001: โปรโตคอล Just-In-Time Network Architecture ที่กำกับ Dynamic AI Agent Routing การรักษา Intent และ Multi-LLM Consensus ใน constitutional AI stack ของ Delentia Labs",
     "/protocols/jitna-rfc-001",
     ["JITNA", "RFC-001", "just-in-time network architecture", "dynamic AI routing", "multi-LLM consensus", "constitutional AI protocol"]
   )
@@ -36,7 +36,7 @@ export default async function JitnaRFC001Page() {
     {
       question: "What is JITNA RFC-001?",
       answer:
-        "JITNA RFC-001 is the Just-In-Time Network Architecture protocol specification published by RCT Labs. It defines how AI agents are dynamically routed, how intent is preserved across multi-LLM pipelines, and how consensus is verified in enterprise constitutional AI deployments.",
+        "JITNA RFC-001 is the Just-In-Time Network Architecture protocol specification published by Delentia Labs. It defines how AI agents are dynamically routed, how intent is preserved across multi-LLM pipelines, and how consensus is verified in enterprise constitutional AI deployments.",
     },
     {
       question: "How does JITNA differ from static LLM orchestration?",
@@ -51,7 +51,7 @@ export default async function JitnaRFC001Page() {
     {
       question: "JITNA RFC-001 คืออะไร?",
       answer:
-        "JITNA RFC-001 คือข้อกำหนดโปรโตคอล Just-In-Time Network Architecture ที่เผยแพร่โดย RCT Labs กำหนดวิธีการ route AI agents แบบ dynamic การรักษา intent ผ่าน Multi-LLM pipeline และการตรวจสอบ consensus ในการ deploy AI แบบ constitutional ระดับองค์กร",
+        "JITNA RFC-001 คือข้อกำหนดโปรโตคอล Just-In-Time Network Architecture ที่เผยแพร่โดย Delentia Labs กำหนดวิธีการ route AI agents แบบ dynamic การรักษา intent ผ่าน Multi-LLM pipeline และการตรวจสอบ consensus ในการ deploy AI แบบ constitutional ระดับองค์กร",
     },
   ])
 
@@ -64,3 +64,4 @@ export default async function JitnaRFC001Page() {
     </>
   )
 }
+

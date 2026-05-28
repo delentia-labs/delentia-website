@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -34,7 +34,7 @@ const fdiaFaqItemsEn = [
   {
     question: "Is FDIA an open protocol?",
     answer:
-      "Yes. FDIA is documented as an open protocol under the RCT Labs protocol series. The equation, methodology, and implementation guidelines are publicly available for review, critique, and adoption by the AI research and engineering community.",
+      "Yes. FDIA is documented as an open protocol under the Delentia Labs protocol series. The equation, methodology, and implementation guidelines are publicly available for review, critique, and adoption by the AI research and engineering community.",
   },
 ]
 
@@ -62,7 +62,7 @@ const fdiaFaqItemsTh = [
   {
     question: "FDIA เป็น Open Protocol หรือไม่?",
     answer:
-      "ใช่ FDIA ถูกจัดทำเอกสารเป็น Open Protocol ภายใต้ชุดโปรโตคอลของ RCT Labs สมการ วิธีการ และแนวทางการนำไปใช้เปิดเผยต่อสาธารณะสำหรับการตรวจสอบและนำไปใช้งาน",
+      "ใช่ FDIA ถูกจัดทำเอกสารเป็น Open Protocol ภายใต้ชุดโปรโตคอลของ Delentia Labs สมการ วิธีการ และแนวทางการนำไปใช้เปิดเผยต่อสาธารณะสำหรับการตรวจสอบและนำไปใช้งาน",
   },
 ]
 
@@ -412,3 +412,4 @@ export default function FdiaClient() {
     </>
   )
 }
+

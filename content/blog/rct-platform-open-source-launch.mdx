@@ -1,28 +1,28 @@
 ﻿---
-title: "rct-platform v1.0.2a0: Apache 2.0 Public Alpha Now Available on GitHub"
+title: "delentia-os v1.0.2a0: Apache 2.0 Public Alpha Now Available on GitHub"
 author: "Ittirit Saengow"
 authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
 date: "2026-04-22"
 lastReviewed: "2026-05-07"
 category: "engineering"
-excerpt: "rct-platform v1.0.2a0 is now publicly available on GitHub under Apache 2.0. The SDK ships 723 passing tests, 89% coverage, five reference microservices, and the full FDIA + JITNA reference implementation — no API keys required to get started."
-tags: ["Open Source", "SDK", "Apache 2.0", "rct-platform", "GitHub", "FDIA", "JITNA", "Constitutional AI", "Public Alpha"]
+excerpt: "delentia-os v1.0.2a0 is now publicly available on GitHub under Apache 2.0. The SDK ships 723 passing tests, 89% coverage, five reference microservices, and the full FDIA + JITNA reference implementation — no API keys required to get started."
+tags: ["Open Source", "SDK", "Apache 2.0", "delentia-os", "GitHub", "FDIA", "JITNA", "Constitutional AI", "Public Alpha"]
 readTime: 8
 references:
-  - "https://github.com/rctlabs/rct-platform"
-  - "https://rctlabs.co/products/rctlabs"
-  - "https://rctlabs.co/protocols/fdia-equation"
-  - "https://rctlabs.co/open-protocol"
+  - "https://github.com/delentia-labs/delentia-os"
+  - "https://delentia.com/products/delentia-platform"
+  - "https://delentia.com/protocols/fdia-equation"
+  - "https://delentia.com/open-protocol"
   - "https://choosealicense.com/licenses/apache-2.0/"
-  - "https://rctlabs.co/benchmark-summary"
+  - "https://delentia.com/benchmark-summary"
 ---
 
-# rct-platform v1.0.2a0: Apache 2.0 Public Alpha Now Available on GitHub
+# delentia-os v1.0.2a0: Apache 2.0 Public Alpha Now Available on GitHub
 
 The RCT Platform SDK is now open source.
 
-[rct-platform v1.0.2a0](https://github.com/rctlabs/rct-platform) is a Public Alpha release of the RCT Ecosystem's core SDK — the layer that implements the [FDIA equation](/protocols/fdia-equation), JITNA Protocol RFC-001, SignedAI multi-LLM consensus, the Delta Engine, and five reference microservices. It ships under the Apache 2.0 license with 723 passing tests, 89% coverage, and a full offline demo that requires no API keys.
+[delentia-os v1.0.2a0](https://github.com/delentia-labs/delentia-os) is a Public Alpha release of the RCT Ecosystem's core SDK — the layer that implements the [FDIA equation](/protocols/fdia-equation), JITNA Protocol RFC-001, SignedAI multi-LLM consensus, the Delta Engine, and five reference microservices. It ships under the Apache 2.0 license with 723 passing tests, 89% coverage, and a full offline demo that requires no API keys.
 
 This is not a demo. It is the actual algorithm implementation that powers the RCT Ecosystem's production constitutional AI layer.
 
@@ -47,8 +47,8 @@ All 723 tests pass across Python 3.10, 3.11, and 3.12. No Docker required to run
 
 ```bash
 # Clone and install
-git clone https://github.com/rctlabs/rct-platform.git
-cd rct-platform
+git clone https://github.com/delentia-labs/delentia-os.git
+cd delentia-os
 pip install -e .
 
 # Run the offline demo
@@ -98,12 +98,12 @@ Three specific reasons drove the timing of v1.0.2a0:
 
 Apache 2.0 is a permissive license with patent protection. In practice:
 
-- **Commercial use is allowed.** You can use, modify, and distribute `rct-platform` in proprietary products without publishing your modifications.
+- **Commercial use is allowed.** You can use, modify, and distribute `delentia-os` in proprietary products without publishing your modifications.
 - **Attribution is required.** Include the `NOTICE` file and the copyright header in any distribution.
 - **Patent grant included.** Contributors grant you a royalty-free, worldwide patent license covering their contributions.
 - **No copyleft.** Unlike GPL, Apache 2.0 does not require derivative works to be open source.
 
-The enterprise layer — 62 microservices, the HexaCore inference cluster, RCTDB, the MEE production pipeline — remains proprietary. The SDK is the public interface that connects to that layer.
+The enterprise layer — 62 microservices, the HexaCore inference cluster, DelentiaDB, the MEE production pipeline — remains proprietary. The SDK is the public interface that connects to that layer.
 
 ## Test coverage details
 
@@ -135,7 +135,7 @@ The next milestone is planned for May 2026. Key additions:
 
 - **GitHub Discussions** — async community Q&A, design discussions, and RFC feedback. Now live — join the conversation at [github.com/orgs/rctlabs/discussions](https://github.com/orgs/rctlabs/discussions).
 - **MOIP reference implementation** — the [Multi-Objective Intent Planning algorithm](/blog/moip-multi-objective-intent-planning) as a standalone module with documented complexity bounds and test coverage.
-- **PyPI alpha publish** — `pip install rct-platform==1.0.3a0` as a first-step PyPI presence, separate from the stable v1.0.0 target.
+- **PyPI alpha publish** — `pip install delentia-os==1.0.3a0` as a first-step PyPI presence, separate from the stable v1.0.0 target.
 - **MEE v2 integration** — [Meta-Evolution Engine](/blog/mee-meta-evolution-engine-explained) growth formula wired into the public SDK for observable algorithm evolution.
 
 ## Relationship to the enterprise layer
@@ -143,15 +143,15 @@ The next milestone is planned for May 2026. Key additions:
 The SDK and the enterprise layer have a deliberate interface boundary:
 
 ```
-rct-platform (Apache 2.0, public)
+delentia-os (Apache 2.0, public)
     └── core/          ← FDIA, Delta Engine, Regional Adapter
     └── signedai/      ← Multi-LLM consensus
     └── rct_control_plane/  ← JITNA RFC-001
     └── microservices/ ← 5 reference implementations
 
-RCT Enterprise (proprietary, rctlabs.co)
+RCT Enterprise (proprietary, delentia.com)
     └── 62 microservices
-    └── RCTDB (8-dimensional memory schema)
+    └── DelentiaDB (8-dimensional memory schema)
     └── HexaCore 7-model inference cluster
     └── MEE production pipeline
     └── 4,849 enterprise test suite
@@ -176,4 +176,4 @@ GitHub Discussions for design-level conversations opens with v1.0.3a0.
 - [FDIA Equation Explained](/blog/fdia-equation-explained) — the mathematical foundation
 - [MOIP: Multi-Objective Intent Planning](/blog/moip-multi-objective-intent-planning) — Pareto-optimal decision framework
 - [MEE: Meta-Evolution Engine Explained](/blog/mee-meta-evolution-engine-explained) — algorithm self-improvement
-- [rct-platform on GitHub](https://github.com/rctlabs/rct-platform) — source, docs, issues
+- [delentia-os on GitHub](https://github.com/delentia-labs/delentia-os) — source, docs, issues

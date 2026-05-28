@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata, getFAQSchema, getSoftwareApplicationSchema, type Locale } from "@/lib/seo-bilingual"
 import { getBreadcrumbSchema } from "@/lib/schema"
 import { Navbar } from "@/components/navbar"
@@ -38,8 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "Platform - RCT Labs",
-    "แพลตฟอร์ม - RCT Labs",
+    "Platform - Delentia Labs",
+    "แพลตฟอร์ม - Delentia Labs",
     // Lengthened meta descriptions for SEO (150-160 chars)
     "RCT Ecosystem March 2026 snapshot — 10-layer Constitutional AI architecture, 41-algorithm framework, verified backend tests, and public-safe governance evidence.",
     "RCT Ecosystem March 2026 snapshot — สถาปัตยกรรม Constitutional AI 10 ชั้น กรอบอัลกอริทึม 41 รายการ backend tests ที่ยืนยันแล้ว และหลักฐาน governance แบบ public-safe",
@@ -106,7 +106,7 @@ export default async function PlatformPage() {
   const faqItems = locale === "th"
     ? [
         {
-          question: "แพลตฟอร์ม RCT Labs คืออะไร",
+          question: "แพลตฟอร์ม Delentia Labs คืออะไร",
           answer:
             "RCT Ecosystem คือ Constitutional AI Operating System สำหรับงานระดับองค์กรที่รวม 10-layer architecture, multi-LLM verification, memory infrastructure, routing, governance และ compliance-aware deployment ไว้ในระบบเดียว",
         },
@@ -123,7 +123,7 @@ export default async function PlatformPage() {
       ]
     : [
         {
-          question: "What is the RCT Labs platform?",
+          question: "What is the Delentia Labs platform?",
           answer:
             "RCT Ecosystem is a constitutional AI operating system that combines a 10-layer architecture, multi-LLM verification, persistent memory, intelligent routing, governance, and compliance-aware deployment into one platform.",
         },
@@ -141,8 +141,8 @@ export default async function PlatformPage() {
   const faqSchema = getFAQSchema(locale, faqItems)
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Platform", url: `https://rctlabs.co${localePrefix}/platform` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Platform", url: `https://delentia.com${localePrefix}/platform` },
   ])
   const relatedResources = locale === "th"
     ? [
@@ -302,8 +302,8 @@ export default async function PlatformPage() {
         </div>
       </section>
 
-      {/* RCTDB Section */}
-      <section id="rctdb" className="mx-auto max-w-6xl px-4 py-24">
+      {/* DelentiaDB Section */}
+      <section id="DelentiaDB" className="mx-auto max-w-6xl px-4 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 bg-card border border-border rounded-lg p-6 space-y-4">
             <div className="grid grid-cols-3 gap-4">
@@ -327,12 +327,12 @@ export default async function PlatformPage() {
             <div className="p-3 rounded-lg bg-warm-amber/10 w-fit">
               <Database className="w-6 h-6 text-warm-amber" />
             </div>
-            <h2 className="text-foreground">{p("rctdb_title")}</h2>
+            <h2 className="text-foreground">{p("DelentiaDB_title")}</h2>
             <p className="text-muted-foreground leading-relaxed">
-              {p("rctdb_desc")}
+              {p("DelentiaDB_desc")}
             </p>
             <ul className="space-y-3">
-              {[p("rctdb_feature_1"), p("rctdb_feature_2"), p("rctdb_feature_3"), p("rctdb_feature_4")].map((item, i) => (
+              {[p("DelentiaDB_feature_1"), p("DelentiaDB_feature_2"), p("DelentiaDB_feature_3"), p("DelentiaDB_feature_4")].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
                   <Zap className="w-4 h-4 text-warm-amber shrink-0" />
                   {item}
@@ -600,3 +600,4 @@ export default async function PlatformPage() {
     </>
   )
 }
+

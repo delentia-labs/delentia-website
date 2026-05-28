@@ -6,8 +6,8 @@ reviewerId: "rct-research-desk"
 date: "2026-03-28"
 lastReviewed: "2026-05-06"
 category: "research"
-excerpt: "FDIA is the mathematical foundation of RCT Labs — a four-variable equation that governs how AI systems produce trustworthy output. This article explains every component, why Intent acts as an exponent, and how FDIA achieves 0.92 accuracy vs the industry baseline of ~0.65."
-tags: ["FDIA", "Constitutional AI", "Equation", "AI Safety", "Framework", "RCT Labs"]
+excerpt: "FDIA is the mathematical foundation of Delentia Labs — a four-variable equation that governs how AI systems produce trustworthy output. This article explains every component, why Intent acts as an exponent, and how FDIA achieves 0.92 accuracy vs the industry baseline of ~0.65."
+tags: ["FDIA", "Constitutional AI", "Equation", "AI Safety", "Framework", "Delentia Labs"]
 readTime: 14
 references:
   - "https://www.nist.gov/artificial-intelligence"
@@ -100,7 +100,7 @@ This is by design. High Intent means the system demands more from its inputs. A 
 The 7-State Pipeline processes every query through this classification:
 
 ```
-RECEIVED → VALIDATED (FDIA) → MEMORY_CHECK → COMPUTING → VERIFYING (SignedAI) → COMMITTING (RCTDB) → COMPLETED
+RECEIVED → VALIDATED (FDIA) → MEMORY_CHECK → COMPUTING → VERIFYING (SignedAI) → COMMITTING (DelentiaDB) → COMPLETED
 ```
 
 ### A — Architect (สถาปนิก) — The Kill Switch
@@ -152,7 +152,7 @@ The **FDIAGatekeeper** evaluates D, I, and A:
 If F falls below the minimum threshold, the query is **rejected** before any LLM call — saving cost and preventing hallucination.
 
 ### State 3: MEMORY_CHECK
-The Delta Engine checks RCTDB for cached responses with semantic similarity > 0.95. If found, the system returns a **warm recall** response in under 50 milliseconds, at near-zero cost.
+The Delta Engine checks DelentiaDB for cached responses with semantic similarity > 0.95. If found, the system returns a **warm recall** response in under 50 milliseconds, at near-zero cost.
 
 ### State 4: COMPUTING
 The HexaCore router selects the optimal model(s) from 7 available AI models based on task type, complexity, and cost priority. The system uses geopolitically balanced selection (3 Western + 3 Eastern + 1 Regional Thai).
@@ -165,8 +165,8 @@ For production-critical queries (SignedAI Tier 4/6/8), multiple models independe
 
 Consensus threshold depends on tier: Tier 4 = 75% (3/4), Tier 6 = 67%, Tier 8 = 75%.
 
-### State 6: COMMITTING (RCTDB)
-The verified response and its full provenance chain are stored in RCTDB — the 8-dimensional universal memory schema. This includes: the original query, D/I/A scores, model selections, consensus results, and timestamps.
+### State 6: COMMITTING (DelentiaDB)
+The verified response and its full provenance chain are stored in DelentiaDB — the 8-dimensional universal memory schema. This includes: the original query, D/I/A scores, model selections, consensus results, and timestamps.
 
 ### State 7: COMPLETED
 The response is delivered to the user. The Delta Engine stores only the differential state change (74% compression vs full-state storage).
@@ -229,7 +229,7 @@ The low F score means the system produces analysis but under heavy supervision. 
 FDIA stands for **F**uture = (**D**ata ^ **I**ntent) × **A**rchitect. It is the constitutional equation governing AI output quality in the RCT Ecosystem.
 
 ### Who created the FDIA equation?
-FDIA was conceived and developed by **Ittirit Saengow** (อิทธิฤทธิ์ แซ่โง้ว), founder and sole developer of RCT Labs, as part of the RCT (Reverse Component Thinking) Ecosystem.
+FDIA was conceived and developed by **Ittirit Saengow** (อิทธิฤทธิ์ แซ่โง้ว), founder and sole developer of Delentia Labs, as part of the RCT (Reverse Component Thinking) Ecosystem.
 
 ### How is FDIA different from RLHF (Reinforcement Learning from Human Feedback)?
 RLHF trains models to prefer certain outputs. FDIA does not train models — it constrains the **system** around any model. RLHF is probabilistic; FDIA's Architect gate (A=0) is deterministic.
@@ -265,8 +265,8 @@ With a measured accuracy of **0.92** against an industry baseline of **~0.65**, 
 - 📊 [FDIA Entity Page — structured definition with JSON-LD schema](/en/entity/fdia-equation)
 - 🔬 [Benchmark Summary — full methodology for 0.92 accuracy measurement](/en/benchmark-summary)
 - ⚖️ [Constitutional AI vs RAG — architectural comparison](/en/compare/constitutional-ai-vs-rag)
-- 🤖 [RCT Labs vs LLM APIs — why bare APIs cannot match constitutional governance](/en/compare/rct-labs-vs-llm-apis)
+- 🤖 [Delentia Labs vs LLM APIs — why bare APIs cannot match constitutional governance](/en/compare/delentia-labs-vs-llm-apis)
 
 ---
 
-*This article was written by Ittirit Saengow, founder and sole developer of RCT Labs. FDIA is part of the RCT (Reverse Component Thinking) Ecosystem — a constitutional AI operating system built independently in Bangkok, Thailand.*
+*This article was written by Ittirit Saengow, founder and sole developer of Delentia Labs. FDIA is part of the RCT (Reverse Component Thinking) Ecosystem — a constitutional AI operating system built independently in Bangkok, Thailand.*

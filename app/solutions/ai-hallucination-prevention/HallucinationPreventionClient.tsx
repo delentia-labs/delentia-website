@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -107,9 +107,9 @@ export default function HallucinationPreventionPage() {
   return (
     <>
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbSchema([
-        { name: isEn ? "Home" : "หน้าหลัก", url: `https://rctlabs.co${localePrefix}` },
-        { name: isEn ? "Solutions" : "โซลูชัน", url: `https://rctlabs.co${localePrefix}/solutions` },
-        { name: isEn ? "AI Hallucination Prevention" : "ป้องกัน AI Hallucination", url: `https://rctlabs.co${localePrefix}/solutions/ai-hallucination-prevention` },
+        { name: isEn ? "Home" : "หน้าหลัก", url: `https://delentia.com${localePrefix}` },
+        { name: isEn ? "Solutions" : "โซลูชัน", url: `https://delentia.com${localePrefix}/solutions` },
+        { name: isEn ? "AI Hallucination Prevention" : "ป้องกัน AI Hallucination", url: `https://delentia.com${localePrefix}/solutions/ai-hallucination-prevention` },
       ])) }} />
       <Navbar />
       <main id="main-content" className="min-h-screen bg-background">
@@ -373,8 +373,8 @@ export default function HallucinationPreventionPage() {
               {
                 title: isEn ? "Enterprise AI Memory" : "Enterprise AI Memory",
                 description: isEn
-                  ? "RCTDB persistent memory layer for long-running enterprise AI workloads."
-                  : "ชั้น Memory ถาวร RCTDB สำหรับงาน AI ระดับองค์กรระยะยาว",
+                  ? "DelentiaDB persistent memory layer for long-running enterprise AI workloads."
+                  : "ชั้น Memory ถาวร DelentiaDB สำหรับงาน AI ระดับองค์กรระยะยาว",
                 href: "/solutions/enterprise-ai-memory",
                 category: isEn ? "Solution" : "โซลูชัน",
               },
@@ -396,3 +396,4 @@ export default function HallucinationPreventionPage() {
     </>
   )
 }
+

@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -26,9 +26,9 @@ export default async function MemoryVsContextWindowsPage() {
   const isTh = locale === "th"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Evaluation", url: `https://rctlabs.co${localePrefix}/evaluation` },
-    { name: "Enterprise AI Memory vs Large Context Windows", url: `https://rctlabs.co${localePrefix}/evaluation/enterprise-ai-memory-vs-large-context-windows` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Evaluation", url: `https://delentia.com${localePrefix}/evaluation` },
+    { name: "Enterprise AI Memory vs Large Context Windows", url: `https://delentia.com${localePrefix}/evaluation/enterprise-ai-memory-vs-large-context-windows` },
   ])
 
   const faqSchema = getFAQSchema([

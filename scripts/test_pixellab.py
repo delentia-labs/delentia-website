@@ -60,7 +60,7 @@ if __name__ == "__main__":
     if API_KEY == "ใส่_API_KEY_ของคุณที่นี่":
         print("💡 อย่าลืมใส่ API Key ของ Pixellab.ai ก่อนรันสคริปต์นะครับ!")
     
-    # ทดลองสร้างรูป Mascot สำหรับ RCT Labs
+    # ทดลองสร้างรูป Mascot สำหรับ Delentia Labs
     test_prompt = "A futuristic mascot robot in pixel art style, high quality, dark tech theme with amber accents, standalone, clean design"
     
     test_pixellab_generation(test_prompt, API_KEY)

@@ -300,7 +300,7 @@ export function Navbar({ variant = "default", locale: forcedLocale }: NavbarProp
               <Image src="/RCTicon-lightVer.svg" alt="RCT" width={32} height={32} className="h-8 w-8 object-contain dark:hidden" />
               <Image src="/RCTicon.svg" alt="RCT" width={32} height={32} className="hidden h-8 w-8 object-contain dark:block" />
               <span className={`hidden sm:inline-block text-sm font-semibold tracking-tight leading-none ${isDark ? "text-white" : "text-neutral-900"}`}>
-                RCT Labs
+                Delentia Labs
               </span>
             </Link>
 

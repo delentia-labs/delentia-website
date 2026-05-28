@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,10 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Community Events — Coming Soon | RCT Labs",
-    "กิจกรรมชุมชน — เร็วๆ นี้ | RCT Labs",
-    "RCT Labs community events page is under construction. Join our community to be notified when events are announced.",
-    "หน้ากิจกรรมชุมชนของ RCT Labs อยู่ระหว่างการพัฒนา เข้าร่วมชุมชนเพื่อรับการแจ้งเตือนเมื่อมีการประกาศกิจกรรม",
+    "Community Events — Coming Soon | Delentia Labs",
+    "กิจกรรมชุมชน — เร็วๆ นี้ | Delentia Labs",
+    "Delentia Labs community events page is under construction. Join our community to be notified when events are announced.",
+    "หน้ากิจกรรมชุมชนของ Delentia Labs อยู่ระหว่างการพัฒนา เข้าร่วมชุมชนเพื่อรับการแจ้งเตือนเมื่อมีการประกาศกิจกรรม",
     "/community/events"
   )
 }
@@ -25,9 +25,9 @@ export default async function CommunityEventsPage() {
   const isEn = locale === "en"
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Community", url: `https://rctlabs.co${localePrefix}/community` },
-    { name: "Events", url: `https://rctlabs.co${localePrefix}/community/events` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Community", url: `https://delentia.com${localePrefix}/community` },
+    { name: "Events", url: `https://delentia.com${localePrefix}/community/events` },
   ])
   const faq = getFAQSchema([
     {
@@ -84,8 +84,8 @@ export default async function CommunityEventsPage() {
         </p>
         <p className="text-muted-foreground max-w-lg mx-auto mb-12">
           {isEn
-            ? "We now run a minimum production track: monthly office hours, technical deep-dives, and early regional meetup planning for the RCT Labs ecosystem."
-            : "ตอนนี้เราเปิดแทร็กขั้นต่ำสำหรับโปรดักชันแล้ว: office hours รายเดือน, technical deep-dive และแผนมีตอัประดับภูมิภาคสำหรับระบบนิเวศ RCT Labs"}
+            ? "We now run a minimum production track: monthly office hours, technical deep-dives, and early regional meetup planning for the Delentia Labs ecosystem."
+            : "ตอนนี้เราเปิดแทร็กขั้นต่ำสำหรับโปรดักชันแล้ว: office hours รายเดือน, technical deep-dive และแผนมีตอัประดับภูมิภาคสำหรับระบบนิเวศ Delentia Labs"}
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
@@ -105,7 +105,7 @@ export default async function CommunityEventsPage() {
           </article>
           <article className="rounded-xl border border-border bg-card p-5">
             <h2 className="text-base font-semibold text-foreground mb-2">{isEn ? "Technical Deep-Dive" : "Technical Deep-Dive"}</h2>
-            <p className="text-sm text-muted-foreground">{isEn ? "Focused sessions on FDIA, JITNA, RCTDB, and production readiness patterns." : "เซสชันเฉพาะทางด้าน FDIA, JITNA, RCTDB และแนวทาง production readiness"}</p>
+            <p className="text-sm text-muted-foreground">{isEn ? "Focused sessions on FDIA, JITNA, DelentiaDB, and production readiness patterns." : "เซสชันเฉพาะทางด้าน FDIA, JITNA, DelentiaDB และแนวทาง production readiness"}</p>
           </article>
           <article className="rounded-xl border border-border bg-card p-5">
             <h2 className="text-base font-semibold text-foreground mb-2">{isEn ? "Regional Meetup" : "Regional Meetup"}</h2>
@@ -118,3 +118,4 @@ export default async function CommunityEventsPage() {
     </>
   )
 }
+

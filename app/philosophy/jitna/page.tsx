@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -89,9 +89,9 @@ export default function JITNAPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://rctlabs.co${localePrefix}` },
-      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://rctlabs.co${localePrefix}/philosophy` },
-      { "@type": "ListItem", position: 3, name: "JITNA", item: `https://rctlabs.co${localePrefix}/philosophy/jitna` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://delentia.com${localePrefix}` },
+      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://delentia.com${localePrefix}/philosophy` },
+      { "@type": "ListItem", position: 3, name: "JITNA", item: `https://delentia.com${localePrefix}/philosophy/jitna` },
     ],
   }
   const faqSchema = {
@@ -236,8 +236,8 @@ export default function JITNAPage() {
             </h3>
             <p className="text-sm text-muted-foreground">
               {language === "th"
-                ? "หน้า Philosophy นี้อธิบายหลักการเชิงแนวคิดของ JITNA หน้า Technology อธิบาย 6 Primitives (I, D, Δ, A, R, M), routing logic, proficiency scoring และ RCTDB integration"
-                : "This Philosophy page covers JITNA's conceptual principles. The Technology page covers the 6 Primitives (I, D, Δ, A, R, M), routing logic, proficiency scoring, and RCTDB integration."}
+                ? "หน้า Philosophy นี้อธิบายหลักการเชิงแนวคิดของ JITNA หน้า Technology อธิบาย 6 Primitives (I, D, Δ, A, R, M), routing logic, proficiency scoring และ DelentiaDB integration"
+                : "This Philosophy page covers JITNA's conceptual principles. The Technology page covers the 6 Primitives (I, D, Δ, A, R, M), routing logic, proficiency scoring, and DelentiaDB integration."}
             </p>
           </div>
           <Link
@@ -255,3 +255,4 @@ export default function JITNAPage() {
     </>
   )
 }
+

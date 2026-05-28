@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -71,9 +71,9 @@ export default function FDIAPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://rctlabs.co${localePrefix}` },
-      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://rctlabs.co${localePrefix}/philosophy` },
-      { "@type": "ListItem", position: 3, name: "FDIA", item: `https://rctlabs.co${localePrefix}/philosophy/fdia` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://delentia.com${localePrefix}` },
+      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://delentia.com${localePrefix}/philosophy` },
+      { "@type": "ListItem", position: 3, name: "FDIA", item: `https://delentia.com${localePrefix}/philosophy/fdia` },
     ],
   }
   const faqSchema = {
@@ -220,3 +220,4 @@ export default function FDIAPage() {
     </>
   )
 }
+
