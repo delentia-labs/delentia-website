@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server"
+﻿import { NextRequest } from "next/server"
 import { getServerApiBaseUrl, getAssistantBasePath } from "@/lib/api-config"
 import { resolveAssistantAuth } from "@/lib/auth/assistant-guard"
 
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       return new Response(
         fallbackSSE(
           "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\n" +
-            "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
+            "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ founder@delentia.com หรือดูเอกสารได้ที่ /docs",
         ),
         {
           status: 200,
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
     return new Response(
       fallbackSSE(
         "ขณะนี้ระบบ AI กำลังอยู่ในช่วงพัฒนา — ทีมงานกำลังเตรียม Backend สำหรับ production\n\n" +
-          "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ contact@rctlabs.co หรือดูเอกสารได้ที่ /docs",
+          "สำหรับข้อมูลเพิ่มเติม สามารถติดต่อได้ที่ founder@delentia.com หรือดูเอกสารได้ที่ /docs",
       ),
       {
         status: 200,
@@ -122,3 +122,4 @@ export async function POST(request: NextRequest) {
     )
   }
 }
+

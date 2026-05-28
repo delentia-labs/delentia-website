@@ -1,10 +1,10 @@
-import type { MetadataRoute } from "next"
+﻿import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "RCT Labs - Intent Operating System",
-    short_name: "RCT Labs",
-    description: "Public-facing RCT Labs snapshot for enterprise AI architecture, verification, and benchmark framing.",
+    name: "Delentia Labs - Intent Operating System",
+    short_name: "Delentia Labs",
+    description: "Public-facing Delentia Labs snapshot for enterprise AI architecture, verification, and benchmark framing.",
     start_url: "/",
     display: "standalone",
     background_color: "#FAF6F0",
@@ -38,3 +38,4 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
   }
 }
+

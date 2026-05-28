@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -13,8 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Editorial Policy — AI Disclosure, Review Process & Update Cadence",
     "นโยบายบรรณาธิการ — การเปิดเผยการใช้ AI กระบวนการรีวิว และรอบการอัปเดต",
-    "RCT Labs editorial policy: all articles written by verified authors with first-hand expertise. Includes AI disclosure policy, review process, update cadence, and factual accuracy commitment.",
-    "นโยบายบรรณาธิการของ RCT Labs: ทุกบทความเขียนโดยผู้เขียนที่ยืนยันตัวตนและมีประสบการณ์ตรง ครอบคลุมการเปิดเผยการใช้ AI กระบวนการรีวิว รอบการอัปเดต และความมุ่งมั่นด้านความถูกต้องของข้อมูล",
+    "Delentia Labs editorial policy: all articles written by verified authors with first-hand expertise. Includes AI disclosure policy, review process, update cadence, and factual accuracy commitment.",
+    "นโยบายบรรณาธิการของ Delentia Labs: ทุกบทความเขียนโดยผู้เขียนที่ยืนยันตัวตนและมีประสบการณ์ตรง ครอบคลุมการเปิดเผยการใช้ AI กระบวนการรีวิว รอบการอัปเดต และความมุ่งมั่นด้านความถูกต้องของข้อมูล",
     "/editorial-policy",
     ["editorial policy", "AI disclosure", "review process", "content governance"]
   )
@@ -24,17 +24,17 @@ export default async function EditorialPolicyPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Editorial Policy", url: `https://rctlabs.co${localePrefix}/editorial-policy` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Editorial Policy", url: `https://delentia.com${localePrefix}/editorial-policy` },
   ])
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Editorial Policy — AI Disclosure, Review Process & Update Cadence",
-    description: "RCT Labs editorial policy: all articles written by verified authors with first-hand expertise. Covers AI disclosure policy, review process, update cadence, and factual accuracy commitment.",
-    author: { "@type": "Person", name: "Ittirit Saengow", url: `https://rctlabs.co${localePrefix}/authors/ittirit-saengow` },
-    publisher: { "@type": "Organization", name: "RCT Labs", logo: { "@type": "ImageObject", url: "https://rctlabs.co/RCTLogo-horizontal.svg" } },
-    url: `https://rctlabs.co${localePrefix}/editorial-policy`,
+    description: "Delentia Labs editorial policy: all articles written by verified authors with first-hand expertise. Covers AI disclosure policy, review process, update cadence, and factual accuracy commitment.",
+    author: { "@type": "Person", name: "Ittirit Saengow", url: `https://delentia.com${localePrefix}/authors/ittirit-saengow` },
+    publisher: { "@type": "Organization", name: "Delentia Labs", logo: { "@type": "ImageObject", url: "https://delentia.com/RCTLogo-horizontal.svg" } },
+    url: `https://delentia.com${localePrefix}/editorial-policy`,
     datePublished: "2025-08-11",
     dateModified: "2026-03-01",
     inLanguage: localePrefix === "/th" ? "th" : "en",
@@ -58,7 +58,7 @@ export default async function EditorialPolicyPage() {
               How We Write, Review, and Maintain Content
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl">
-              RCT Labs is committed to factual accuracy, first-hand expertise, and transparent disclosure on all published content.
+              Delentia Labs is committed to factual accuracy, first-hand expertise, and transparent disclosure on all published content.
             </p>
           </div>
         </section>
@@ -75,10 +75,10 @@ export default async function EditorialPolicyPage() {
             </div>
             <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
               <p>
-                <strong className="text-foreground">All RCT Labs articles are written by authors with direct, first-hand experience</strong> in the topics they cover. This is not a guest blog platform.
+                <strong className="text-foreground">All Delentia Labs articles are written by authors with direct, first-hand experience</strong> in the topics they cover. This is not a guest blog platform.
               </p>
               <p>
-                <strong className="text-foreground">Ittirit Saengow</strong> (อิทธิฤทธิ์ แซ่โง้ว) authors all core concept articles — FDIA, JITNA, RCT-7, HexaCore, Delta Engine, RCTDB, SignedAI — because these concepts were created by him. Every technical claim is derived from the implementation, not secondary research.
+                <strong className="text-foreground">Ittirit Saengow</strong> (อิทธิฤทธิ์ แซ่โง้ว) authors all core concept articles — FDIA, JITNA, RCT-7, HexaCore, Delta Engine, DelentiaDB, SignedAI — because these concepts were created by him. Every technical claim is derived from the implementation, not secondary research.
               </p>
               <p className="border-l-2 border-warm-amber/40 pl-4">
                 Articles previously attributed to fictional author names (Dr. Alex Patel, Dr. Sarah Chen, Prof. James Wilson) were corrected on 2026-03-28 and reassigned to the verified author.
@@ -121,7 +121,7 @@ export default async function EditorialPolicyPage() {
               {[
                 "Author drafts from first-hand knowledge and verified system documentation",
                 "Technical claims cross-checked against internal source of truth (test results, benchmark data)",
-                "Reviewed by RCT Labs Research Desk for accuracy, clarity, and completeness",
+                "Reviewed by Delentia Labs Research Desk for accuracy, clarity, and completeness",
                 "Approved by primary author before publication",
                 "Published with lastReviewed date visible to readers",
               ].map((step, i) => (
@@ -156,7 +156,7 @@ export default async function EditorialPolicyPage() {
             </div>
             <p className="text-muted-foreground text-sm mt-4">
               Report outdated information to{" "}
-              <a href="mailto:founder@rctlabs.co" className="text-warm-amber hover:underline">founder@rctlabs.co</a>
+              <a href="mailto:founder@delentia.com" className="text-warm-amber hover:underline">founder@delentia.com</a>
             </p>
           </div>
 

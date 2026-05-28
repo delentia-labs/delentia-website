@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -33,12 +33,12 @@ const features = [
   {
     iconSrc: pixelIcons.genome, color: "#89B4C8",
     titleEn: "7 Genome System", titleTh: "7 Genome System",
-    descEn: "SignedAI, ArtentAI, Analysearch, Delta Engine, Farmer, JITNA, Monitor — all 7 Genomes converge at RCTLabs. This is the operating environment, not an app.",
-    descTh: "SignedAI, ArtentAI, Analysearch, Delta Engine, Farmer, JITNA, Monitor — ทั้ง 7 Genome มาบรรจบที่ RCTLabs นี่คือ Operating Environment ไม่ใช่แอป",
+    descEn: "SignedAI, DelentiaAI, Analysearch, Delta Engine, Farmer, JITNA, Monitor — all 7 Genomes converge at Delentia Platform. This is the operating environment, not an app.",
+    descTh: "SignedAI, DelentiaAI, Analysearch, Delta Engine, Farmer, JITNA, Monitor — ทั้ง 7 Genome มาบรรจบที่ Delentia Platform นี่คือ Operating Environment ไม่ใช่แอป",
   },
 ]
 
-export default function RCTLabsPage() {
+export default function DelentiaPlatformPage() {
   const pathname = usePathname()
   const locale = getLocaleFromPathname(pathname)
   const isTh = locale === "th"
@@ -48,9 +48,9 @@ export default function RCTLabsPage() {
   return (
     <main className="min-h-screen bg-background" id="main-content">
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbSchema([
-        { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-        { name: isTh ? "ผลิตภัณฑ์" : "Products", url: `https://rctlabs.co${localePrefix}/products` },
-        { name: "RCTLabs", url: `https://rctlabs.co${localePrefix}/products/rctlabs` },
+        { name: "Home", url: `https://delentia.com${localePrefix}` },
+        { name: isTh ? "ผลิตภัณฑ์" : "Products", url: `https://delentia.com${localePrefix}/products` },
+        { name: "Delentia Platform", url: `https://delentia.com${localePrefix}/products/delentia-platform` },
       ])) }} />
       <Navbar />
 
@@ -60,7 +60,7 @@ export default function RCTLabsPage() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-warm-amber/10 border border-warm-amber/30 text-warm-amber text-sm font-medium">
             <Cpu className="w-4 h-4" /> {isTh ? "AI Operating Environment" : "AI Operating Environment"}
           </span>
-          <h1 className="text-5xl font-bold text-foreground">RCTLabs</h1>
+          <h1 className="text-5xl font-bold text-foreground">Delentia Platform</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             {isTh
               ? "Constitutional AI Operating Environment — ศูนย์กลางของ RCT Ecosystem ที่ 7 Genome มาบรรจบกัน, รัน 41 Production Algorithms และ FDIA ควบคุมทุก Inference"
@@ -94,7 +94,7 @@ export default function RCTLabsPage() {
         {/* SDK open-source note */}
         <div className="mt-6 max-w-4xl mx-auto px-4">
           <a
-            href="https://github.com/rctlabs/rct-platform"
+            href="https://github.com/delentia-labs/delentia-os"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-4 py-2 rounded-lg border border-border bg-card hover:bg-muted text-sm text-muted-foreground transition-colors"
@@ -109,12 +109,12 @@ export default function RCTLabsPage() {
       <section className="bg-muted/30 py-16">
         <div className="max-w-4xl mx-auto px-4 space-y-4 text-muted-foreground leading-relaxed">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-5">
-            {isTh ? "ทำไม RCTLabs ถึงแตกต่าง" : "Why RCTLabs is Different"}
+            {isTh ? "ทำไม Delentia Platform ถึงแตกต่าง" : "Why Delentia Platform is Different"}
           </h2>
           <p>
             {isTh
-              ? "RCTLabs ไม่ใช่เครื่องมือทดสอบที่คุณรันกับ AI ของคุณ — มันคือ Operating Environment ที่ AI ของคุณทำงานอยู่ภายใน ทุก Inference ถูกควบคุมโดยสมการ FDIA ทุก Output มีคะแนน Constitutional ทุก Agent Interaction ผ่าน JITNA Protocol RFC-001 ก่อน Execution"
-              : "RCTLabs is not a testing tool you run against your AI. It is the operating environment your AI runs inside. Every inference is governed by the FDIA equation. Every output carries a constitutional score. Every agent interaction passes through JITNA Protocol RFC-001 before execution."}
+              ? "Delentia Platform ไม่ใช่เครื่องมือทดสอบที่คุณรันกับ AI ของคุณ — มันคือ Operating Environment ที่ AI ของคุณทำงานอยู่ภายใน ทุก Inference ถูกควบคุมโดยสมการ FDIA ทุก Output มีคะแนน Constitutional ทุก Agent Interaction ผ่าน JITNA Protocol RFC-001 ก่อน Execution"
+              : "Delentia Platform is not a testing tool you run against your AI. It is the operating environment your AI runs inside. Every inference is governed by the FDIA equation. Every output carries a constitutional score. Every agent interaction passes through JITNA Protocol RFC-001 before execution."}
           </p>
           <p>
             {isTh
@@ -123,8 +123,8 @@ export default function RCTLabsPage() {
           </p>
           <p>
             {isTh
-              ? "ด้วย Test Cases อัตโนมัติ 4,849 รายการที่ผ่าน / 0 ล้มเหลว RCTLabs ครอบคลุม Unit Testing, Integration Testing, Performance Benchmarking และ Regression Analysis ซึ่งแต่ละ Test Case ถูกสร้างเพื่อให้ Algorithm Tier สามารถทำงานได้อย่างถูกต้องใน Production"
-              : "With 4,849 verified passing tests / 0 failures, RCTLabs covers unit testing, integration testing, performance benchmarking, and regression analysis. Each test is mapped to specific algorithm tiers to ensure every component works correctly in production."}
+              ? "ด้วย Test Cases อัตโนมัติ 4,849 รายการที่ผ่าน / 0 ล้มเหลว Delentia Platform ครอบคลุม Unit Testing, Integration Testing, Performance Benchmarking และ Regression Analysis ซึ่งแต่ละ Test Case ถูกสร้างเพื่อให้ Algorithm Tier สามารถทำงานได้อย่างถูกต้องใน Production"
+              : "With 4,849 verified passing tests / 0 failures, Delentia Platform covers unit testing, integration testing, performance benchmarking, and regression analysis. Each test is mapped to specific algorithm tiers to ensure every component works correctly in production."}
           </p>
           <p>
             {isTh
@@ -175,14 +175,14 @@ export default function RCTLabsPage() {
       <section className="bg-muted/30 py-16">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">
-            {isTh ? "ทำไมจึงเลือก RCTLabs" : "Why Choose RCTLabs"}
+            {isTh ? "ทำไมจึงเลือก Delentia Platform" : "Why Choose Delentia Platform"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
                 titleEn: "Not a Testing Tool", titleTh: "ไม่ใช่เครื่องมือทดสอบ",
-                descEn: "RCTLabs is the operating environment your AI runs inside. Not a tool you point at an existing system — an OS layer that governs it.",
-                descTh: "RCTLabs คือ Operating Environment ที่ AI รันอยู่ภายใน ไม่ใช่เครื่องมือที่คุณชี้ไปที่ระบบที่มีอยู่ — เป็น OS Layer ที่ควบคุมมัน",
+                descEn: "Delentia Platform is the operating environment your AI runs inside. Not a tool you point at an existing system — an OS layer that governs it.",
+                descTh: "Delentia Platform คือ Operating Environment ที่ AI รันอยู่ภายใน ไม่ใช่เครื่องมือที่คุณชี้ไปที่ระบบที่มีอยู่ — เป็น OS Layer ที่ควบคุมมัน",
                 color: "#D4A853",
               },
               {
@@ -216,8 +216,8 @@ export default function RCTLabsPage() {
             {isTh ? "สำรวจผลิตภัณฑ์อื่น" : "Explore Other Products"}
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={localHref("/products/artent-ai")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm transition-colors" style={{ backgroundColor: "#B8A9C9" }}>
-              Artent AI <ArrowRight size={16} />
+            <Link href={localHref("/products/delentia-ai")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm transition-colors" style={{ backgroundColor: "#B8A9C9" }}>
+              Delentia AI <ArrowRight size={16} />
             </Link>
             <Link href={localHref("/products/signed-ai")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors">
               SignedAI
@@ -230,3 +230,4 @@ export default function RCTLabsPage() {
     </main>
   )
 }
+

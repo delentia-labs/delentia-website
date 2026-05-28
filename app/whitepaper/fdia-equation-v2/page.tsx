@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Navbar } from "@/components/navbar"
@@ -12,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "FDIA Equation v2 Whitepaper | F = (D^I) × A | RCT Labs",
-    "FDIA Equation v2 เอกสารทางเทคนิค | F = (D^I) × A | RCT Labs",
+    "FDIA Equation v2 Whitepaper | F = (D^I) × A | Delentia Labs",
+    "FDIA Equation v2 เอกสารทางเทคนิค | F = (D^I) × A | Delentia Labs",
     "The FDIA Equation v2 whitepaper — formal specification of the constitutional AI decision model where Future output is governed by Data quality, Intent, and Architect authorization.",
     "เอกสารทางเทคนิค FDIA Equation v2 — สมการ AI แบบรัฐธรรมนูญที่กำหนดผลลัพธ์จากคุณภาพข้อมูล Intent และการอนุมัติของ Architect",
     "/whitepaper/fdia-equation-v2",
@@ -37,7 +37,7 @@ export default async function FDIAEquationV2Page() {
     "@type": "TechArticle",
     "headline": "FDIA Equation v2 — Constitutional AI Decision Model",
     "description": "Formal specification of the FDIA Equation: F = (D^I) × A. Covers Data quality scaling, Intent amplification, Architect authorization gate, and Constitutional Kill Switch (A=0→F=0).",
-    "author": { "@type": "Organization", "name": "RCT Labs", "url": SITE_URL },
+    "author": { "@type": "Organization", "name": "Delentia Labs", "url": SITE_URL },
     "datePublished": "2026-01-01",
     "keywords": ["FDIA", "constitutional AI", "deterministic AI", "intent operating system"],
   }
@@ -154,3 +154,4 @@ export default async function FDIAEquationV2Page() {
     </>
   )
 }
+

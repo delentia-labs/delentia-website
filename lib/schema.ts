@@ -17,10 +17,10 @@ export function getOrganizationSchema(locale: Locale) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'RCT Labs',
+    name: 'Delentia Labs',
     alternateName: 'Reverse Component Thinking Labs',
-    url: `https://rctlabs.co/${locale}`,
-    logo: 'https://rctlabs.co/RCTLogo-horizontal.svg',
+    url: `https://delentia.com/${locale}`,
+    logo: 'https://delentia.com/RCTLogo-horizontal.svg',
     description: locale === 'th'
       ? 'ระบบปฏิบัติการ AI แบบรัฐธรรมนูญ — สถาปัตยกรรม 10 ชั้น, การตรวจสอบแบบหลาย LLM, และความเป็นเจ้าของข้อมูลอย่างสมบูรณ์'
       : 'Constitutional AI Operating System — 10-Layer architecture, multi-LLM consensus, and absolute data sovereignty',
@@ -92,10 +92,10 @@ export function getArticleSchema(article: {
     url: article.url,
     publisher: {
       '@type': 'Organization',
-      name: 'RCT Labs',
+      name: 'Delentia Labs',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://rctlabs.co/RCTLogo-horizontal.svg',
+        url: 'https://delentia.com/RCTLogo-horizontal.svg',
       },
     },
     inLanguage: article.locale,
@@ -161,7 +161,7 @@ export function getSoftwareApplicationSchema(locale: Locale) {
       `${SITE_MICROSERVICE_COUNT}+ Runtime Components`,
       'Multi-LLM Consensus',
       'SignedAI Verification',
-      'RCTDB v2.0',
+      'DelentiaDB v2.0',
       'JITNA Protocol',
       `${SITE_UPTIME} Availability Target`,
       'Bilingual Support (EN/TH)',
@@ -169,7 +169,7 @@ export function getSoftwareApplicationSchema(locale: Locale) {
     softwareVersion: SITE_VERSION,
     releaseNotes: `${SITE_URL}/en/changelog`,
     url: SITE_URL,
-    codeRepository: "https://github.com/rctlabs/rct-platform",
+    codeRepository: "https://github.com/delentia-labs/delentia-os",
     license: "https://opensource.org/licenses/Apache-2.0",
     author: {
       '@type': 'Organization',
@@ -190,7 +190,7 @@ export function getProductOfferSchema(locale: Locale) {
     '@type': 'Product',
     name,
     description,
-    brand: { '@type': 'Organization', name: 'RCT Labs', url: SITE_URL },
+    brand: { '@type': 'Organization', name: 'Delentia Labs', url: SITE_URL },
     url: `${SITE_URL}/${locale}/pricing`,
     image: `${SITE_URL}/opengraph-image`,
     offers: [
@@ -222,7 +222,7 @@ export function getDefinedTermSchema(term: string, description: string, url: str
     name: term,
     description: description,
     url: url,
-    inDefinedTermSet: 'https://rctlabs.co/glossary'
+    inDefinedTermSet: 'https://delentia.com/glossary'
   }
 }
 
@@ -251,8 +251,8 @@ export function getPersonSchema(
     },
     affiliation: {
       '@type': 'Organization',
-      name: 'RCT Labs',
-      url: 'https://rctlabs.co',
+      name: 'Delentia Labs',
+      url: 'https://delentia.com',
     },
   }
 }

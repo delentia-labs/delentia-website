@@ -1,11 +1,11 @@
-export const SITE_URL = "https://rctlabs.co"
-export const SITE_NAME = "RCT Labs"
+export const SITE_URL = "https://delentia.com"
+export const SITE_NAME = "Delentia Labs"
 export const SITE_DESCRIPTION = "Enterprise AI architecture and verification platform built around FDIA, JITNA, SignedAI, and staged deployment evidence."
 export const SITE_OG_IMAGE = `${SITE_URL}/opengraph-image`
 export const SITE_VERSION = "2026.05 Snapshot"
 export const SITE_TEST_COUNT = 4849 // Enterprise full suite (private)
 export const SITE_PUBLIC_SDK_VERSION = "2.0.0"
-export const SITE_PUBLIC_SDK_TESTS = 1791 // Public SDK full suite: 1791 passed · 0 skipped · 0 failed · 0 warnings · mypy clean · ruff clean · 91% coverage (rctlabs/rct-platform)
+export const SITE_PUBLIC_SDK_TESTS = 1791 // Public SDK full suite: 1791 passed · 0 skipped · 0 failed · 0 warnings · mypy clean · ruff clean · 91% coverage (rctlabs/delentia-os)
 // Compatibility evidence labels reused across public pages, metadata, and blog stat cards.
 export const SITE_PUBLIC_SDK_EVIDENCE_LABEL = "Public SDK verification lane"
 export const SITE_ENTERPRISE_EVIDENCE_LABEL = "Enterprise runtime snapshot"
@@ -21,10 +21,10 @@ export const SITE_UPTIME = "99.98% SLA"
 export const SITE_HALLUCINATION_RATE = "0.3% benchmark"
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com/rctlabs",                         // org
+  github: "https://github.com/delentia-labs",                         // org
   githubPersonal: "https://github.com/ittirit720",             // personal
-  platformGithub: "https://github.com/rctlabs/rct-platform",  // open-source SDK
-  platformDocs: "https://rctlabs.github.io/rct-platform/",    // GitHub Pages docs
+  platformGithub: "https://github.com/delentia-labs/delentia-os",  // open-source SDK
+  platformDocs: "https://delentia-labs.github.io/delentia-os/",    // GitHub Pages docs
   linkedin: "https://www.linkedin.com/in/ittirit-saengow/",   // personal LinkedIn
   twitter: "https://x.com/ittirit_rct",                       // personal X
   twitterHandle: "@ittirit_rct",
@@ -65,9 +65,9 @@ export const PUBLIC_ROUTE_PRIORITIES: Record<string, number> = {
   "/case-studies/stardew-valley": 0.71,
   "/compare": 0.75,
   "/compare/constitutional-ai-vs-rag": 0.75,
-  "/compare/rct-labs-vs-llm-apis": 0.75,
+  "/compare/delentia-labs-vs-llm-apis": 0.75,
   "/compare/verification-vs-prompt-engineering": 0.75,
-  "/compare/rctdb-vs-vector-databases": 0.75,
+  "/compare/delentiadb-vs-vector-databases": 0.75,
   "/solutions/regional-ai": 0.78,
   "/technology/constitutional-ai": 0.78,
   "/technology/jitna": 0.78,
@@ -124,8 +124,8 @@ export const PUBLIC_ROUTES = [
   "/about",
   "/pricing",
   "/products",
-  "/products/rctlabs",
-  "/products/artent-ai",
+  "/products/delentia-platform",
+  "/products/delentia-ai",
   "/products/signed-ai",
   "/solutions",
   "/solutions/ai-hallucination-prevention",
@@ -194,9 +194,9 @@ export const PUBLIC_ROUTES = [
   "/case-studies/stardew-valley",
   "/compare",
   "/compare/constitutional-ai-vs-rag",
-  "/compare/rct-labs-vs-llm-apis",
+  "/compare/delentia-labs-vs-llm-apis",
   "/compare/verification-vs-prompt-engineering",
-  "/compare/rctdb-vs-vector-databases",
+  "/compare/delentiadb-vs-vector-databases",
   "/philosophy",
   "/philosophy/fdia",
   "/philosophy/jitna",

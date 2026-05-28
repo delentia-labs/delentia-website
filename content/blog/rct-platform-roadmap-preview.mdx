@@ -6,20 +6,20 @@ reviewerId: "rct-research-desk"
 date: "2026-05-20"
 lastReviewed: "2026-05-12"
 category: "engineering"
-excerpt: "rct-platform v1.0.2a0 is live. Here is what was shipped, what is in progress, and what is coming in v1.0.3a0, v1.0.0 stable, v1.1.0 Observability, and v1.2.0 ASEAN Expansion — and what we are explicitly not building in the open-source tier."
-tags: ["RCT Platform", "Platform Roadmap", "Open Source", "FDIA", "SignedAI", "JITNA", "ASEAN AI", "rct-platform"]
+excerpt: "delentia-os v1.0.2a0 is live. Here is what was shipped, what is in progress, and what is coming in v1.0.3a0, v1.0.0 stable, v1.1.0 Observability, and v1.2.0 ASEAN Expansion — and what we are explicitly not building in the open-source tier."
+tags: ["RCT Platform", "Platform Roadmap", "Open Source", "FDIA", "SignedAI", "JITNA", "ASEAN AI", "delentia-os"]
 readTime: 9
 references:
-  - "https://github.com/rctlabs/rct-platform"
-  - "https://rctlabs.github.io/rct-platform/"
-  - "https://rctlabs.co/en/architecture"
+  - "https://github.com/delentia-labs/delentia-os"
+  - "https://delentia-labs.github.io/delentia-os/"
+  - "https://delentia.com/en/architecture"
 ---
 
 # RCT Platform Roadmap: From Public Alpha to ASEAN Expansion
 
-`rct-platform` v1.0.2a0 (Public Alpha) launched in April 2026. This article is a technical summary of what shipped, what is currently being completed, and what the planned trajectory looks like through 2027 — with explicit scope boundaries for the open-source tier.
+`delentia-os` v1.0.2a0 (Public Alpha) launched in April 2026. This article is a technical summary of what shipped, what is currently being completed, and what the planned trajectory looks like through 2027 — with explicit scope boundaries for the open-source tier.
 
-If you want the raw roadmap document, it lives at [ROADMAP.md](https://github.com/rctlabs/rct-platform/blob/main/ROADMAP.md) in the repository.
+If you want the raw roadmap document, it lives at [ROADMAP.md](https://github.com/delentia-labs/delentia-os/blob/main/ROADMAP.md) in the repository.
 
 ---
 
@@ -70,7 +70,7 @@ The v1.0.3a0 milestone is a usability release with one goal: **zero-friction fir
 The v1.0.0 milestone marks the transition from "public alpha with pinned version required" to "production-ready dependency with stability guarantees."
 
 **What stability means in practice:**
-- `pip install rct-platform` works from PyPI without cloning or building locally
+- `pip install delentia-os` works from PyPI without cloning or building locally
 - Semantic versioning guarantee: no breaking changes without a major version bump
 - Pre-built wheels for Python 3.10, 3.11, 3.12
 - Complete type stubs (`py.typed` marker + full `__init__.pyi`)
@@ -84,7 +84,7 @@ The v1.0.0 milestone marks the transition from "public alpha with pinned version
 
 ## v1.1.0 — Observability and Integrations (Q4 2026)
 
-This is the release that moves `rct-platform` from "SDK you use in your code" to "infrastructure you run alongside your systems."
+This is the release that moves `delentia-os` from "SDK you use in your code" to "infrastructure you run alongside your systems."
 
 **Observability stack:**
 - Prometheus `/metrics` endpoint, live in `rct serve`
@@ -117,7 +117,7 @@ The 2027 release target addresses the gap between the platform's regional langua
 
 **Community infrastructure:**
 - RCT Platform certification program (community-driven) — a framework for organizations to certify that their deployment meets specific constitutional compliance standards
-- JITNA Protocol RFC-002 — cross-platform agent identity standard. This addresses the problem that arises when multiple organizations deploy `rct-platform` instances and need their agents to communicate across organizational boundaries without sharing their underlying knowledge stores
+- JITNA Protocol RFC-002 — cross-platform agent identity standard. This addresses the problem that arises when multiple organizations deploy `delentia-os` instances and need their agents to communicate across organizational boundaries without sharing their underlying knowledge stores
 
 ---
 
@@ -127,13 +127,13 @@ This section sets explicit expectations:
 
 | Not in scope for open source | Where it exists |
 |---|---|
-| Full production microservice stack (62 services) | Enterprise tier — [rctlabs.co](https://rctlabs.co) |
+| Full production microservice stack (62 services) | Enterprise tier — [delentia.com](https://delentia.com) |
 | Genome Creator Profile API | Enterprise proprietary |
 | Hosted inference engine | Hardware/cost constraints outside OSS scope |
-| Hosted API / SaaS endpoint | Runs at rctlabs.co — enterprise licensing |
+| Hosted API / SaaS endpoint | Runs at delentia.com — enterprise licensing |
 | Full Vault-1068 production deployment | Enterprise — requires organizational knowledge governance |
 
-The open-source tier is a **developer SDK** — the algorithmic building blocks. The full production system (62 microservices, genome creator profiles, hosted inference, Vault-1068 as a managed service) is the enterprise platform at rctlabs.co.
+The open-source tier is a **developer SDK** — the algorithmic building blocks. The full production system (62 microservices, genome creator profiles, hosted inference, Vault-1068 as a managed service) is the enterprise platform at delentia.com.
 
 This distinction is not about withholding capability — it is about honesty regarding what an SDK can reasonably provide vs. what requires operational infrastructure, organizational governance, and SLA commitments.
 
@@ -144,7 +144,7 @@ This distinction is not about withholding capability — it is about honesty reg
 - **GitHub Discussions** — once enabled after v1.0.3a0, this is the primary channel for Q&A, RFC Discussion, and Show & Tell. The three categories are structured to capture different kinds of community input.
 - **GitHub Issues** — bugs, specific missing features, and documentation gaps
 - **Issue upvotes** — high-engagement issues move up priority. If a feature matters to you, finding the existing issue and reacting to it is more useful than creating a duplicate.
-- **Enterprise timeline requests** — if your organization needs a specific feature by a specific date, contact [founder@rctlabs.co](mailto:founder@rctlabs.co). Enterprise commitments can accelerate specific items.
+- **Enterprise timeline requests** — if your organization needs a specific feature by a specific date, contact [founder@delentia.com](mailto:founder@delentia.com). Enterprise commitments can accelerate specific items.
 
 One explicit note on timeline realism: v1.0.3a0 is a May 2026 target with most items already shipped. v1.0.0 stable is a Q3 2026 target — the PyPI packaging and API stability documentation are well-understood work items. v1.1.0 (Q4 2026) and v1.2.0 (2027) are planned with less certainty — community input and enterprise commitments will influence prioritization within those milestones.
 
@@ -152,18 +152,18 @@ One explicit note on timeline realism: v1.0.3a0 is a May 2026 target with most i
 
 ## Where to Start Today
 
-If you want to use `rct-platform` now:
+If you want to use `delentia-os` now:
 
 ```bash
-git clone https://github.com/rctlabs/rct-platform.git
-cd rct-platform
+git clone https://github.com/delentia-labs/delentia-os.git
+cd delentia-os
 pip install -e ".[dev]"
 pytest  # 1,272 tests should pass
 ```
 
 Or open the Colab notebook directly for a no-install exploration of FDIA, SignedAI, and Delta Engine:
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rctlabs/rct-platform/blob/main/notebooks/rct_playground.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rctlabs/delentia-os/blob/main/notebooks/rct_playground.ipynb)
 
 ---
 

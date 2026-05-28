@@ -1,4 +1,4 @@
-// Custom lightweight i18n solution for RCT Labs
+// Custom lightweight i18n solution for Delentia Labs
 // No external dependencies - works with Next.js 16 App Router
 
 export type Locale = 'en' | 'th'

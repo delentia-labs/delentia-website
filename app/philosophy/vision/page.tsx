@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,12 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Vision 2030 — RCT Labs",
-    "วิสัยทัศน์ 2030 — RCT Labs",
-    "RCT Labs vision: Thailand AI infrastructure independence by 2030, creating 50-100B THB in national value. Constitutional AI as the verifiable global standard for enterprise AI governance.",
-    "วิสัยทัศน์ RCT Labs: ความเป็นอิสระด้านโครงสร้างพื้นฐาน AI ของไทยภายในปี 2030 สร้างมูลค่าแห่งชาติ 5 หมื่น-1 แสนล้านบาท Constitutional AI เป็นมาตรฐานสากลที่ตรวจสอบได้",
+    "Vision 2030 — Delentia Labs",
+    "วิสัยทัศน์ 2030 — Delentia Labs",
+    "Delentia Labs vision: Thailand AI infrastructure independence by 2030, creating 50-100B THB in national value. Constitutional AI as the verifiable global standard for enterprise AI governance.",
+    "วิสัยทัศน์ Delentia Labs: ความเป็นอิสระด้านโครงสร้างพื้นฐาน AI ของไทยภายในปี 2030 สร้างมูลค่าแห่งชาติ 5 หมื่น-1 แสนล้านบาท Constitutional AI เป็นมาตรฐานสากลที่ตรวจสอบได้",
     "/philosophy/vision",
-    ["Thailand AI 2030", "constitutional AI vision", "RCT Labs roadmap", "AI independence Thailand"]
+    ["Thailand AI 2030", "constitutional AI vision", "Delentia Labs roadmap", "AI independence Thailand"]
   )
 }
 
@@ -59,12 +59,12 @@ const pillars = [
     en: {
       title: "Solo-Developer Proof of Possibility",
       subtitle: "Enterprise AI without enterprise capital",
-      body: "RCT Labs is proof that a single developer without external funding can build a production-grade constitutional AI operating system. That proof matters because it changes what emerging-market teams believe is possible. Our 30-day bootstrap — 62 runtime components, 41 algorithms, and an enterprise private snapshot with 4,849 passing tests — is not a tech demo. It is a reproducible blueprint for AI sovereignty at any resource level.",
+      body: "Delentia Labs is proof that a single developer without external funding can build a production-grade constitutional AI operating system. That proof matters because it changes what emerging-market teams believe is possible. Our 30-day bootstrap — 62 runtime components, 41 algorithms, and an enterprise private snapshot with 4,849 passing tests — is not a tech demo. It is a reproducible blueprint for AI sovereignty at any resource level.",
     },
     th: {
       title: "การพิสูจน์ความเป็นไปได้ของนักพัฒนาคนเดียว",
       subtitle: "Enterprise AI โดยไม่ต้องมีทุน Enterprise",
-      body: "RCT Labs คือหลักฐานว่านักพัฒนาคนเดียวโดยไม่มีเงินทุนภายนอกสามารถสร้าง Constitutional AI OS ระดับ production ได้ การ bootstrap 30 วันของเรา — 62 runtime components, 41 algorithms และ enterprise private snapshot ที่มี 4,849 passing tests — ไม่ใช่การสาธิตเทคโนโลยี แต่เป็นแบบพิมพ์เขียวที่ทำซ้ำได้สำหรับ AI sovereignty ในทุกระดับทรัพยากร",
+      body: "Delentia Labs คือหลักฐานว่านักพัฒนาคนเดียวโดยไม่มีเงินทุนภายนอกสามารถสร้าง Constitutional AI OS ระดับ production ได้ การ bootstrap 30 วันของเรา — 62 runtime components, 41 algorithms และ enterprise private snapshot ที่มี 4,849 passing tests — ไม่ใช่การสาธิตเทคโนโลยี แต่เป็นแบบพิมพ์เขียวที่ทำซ้ำได้สำหรับ AI sovereignty ในทุกระดับทรัพยากร",
     },
   },
   {
@@ -89,9 +89,9 @@ export default async function VisionPage() {
   const isTh = locale === "th"
   const localePrefix = isTh ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Philosophy", url: `https://rctlabs.co${localePrefix}/philosophy` },
-    { name: "Vision", url: `https://rctlabs.co${localePrefix}/philosophy/vision` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Philosophy", url: `https://delentia.com${localePrefix}/philosophy` },
+    { name: "Vision", url: `https://delentia.com${localePrefix}/philosophy/vision` },
   ])
   const faq = getFAQSchema([
     {
@@ -133,8 +133,8 @@ export default async function VisionPage() {
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl">
               {isTh
-                ? "สิ่งที่ RCT Labs กำลังสร้างและเหตุผลที่มันสำคัญสำหรับ AI ของประเทศไทยและ Asia-Pacific"
-                : "What RCT Labs is building and why it matters for Thailand and Asia-Pacific AI sovereignty."}
+                ? "สิ่งที่ Delentia Labs กำลังสร้างและเหตุผลที่มันสำคัญสำหรับ AI ของประเทศไทยและ Asia-Pacific"
+                : "What Delentia Labs is building and why it matters for Thailand and Asia-Pacific AI sovereignty."}
             </p>
           </div>
 
@@ -185,3 +185,4 @@ export default async function VisionPage() {
     </>
   )
 }
+

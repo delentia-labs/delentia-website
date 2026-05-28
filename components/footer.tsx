@@ -44,8 +44,8 @@ export function Footer({ locale: forcedLocale }: FooterProps) {
       { label: "Dynamic AI Routing", href: "/solutions/dynamic-ai-routing" },
     ],
     [isTh ? "ผลิตภัณฑ์" : "Products"]: [
-      { label: "RCTLabs", href: "/products/rctlabs" },
-      { label: "ArtentAI", href: "/products/artent-ai" },
+      { label: "Delentia Platform", href: "/products/delentia-platform" },
+      { label: "DelentiaAI", href: "/products/delentia-ai" },
       { label: "SignedAI", href: "/products/signed-ai" },
       { label: isTh ? "ราคา" : "Pricing", href: "/pricing" },
     ],
@@ -322,7 +322,7 @@ export function Footer({ locale: forcedLocale }: FooterProps) {
               ))}
               </div>
               <a
-                href="https://status.rctlabs.com"
+                href="https://status.delentia.comm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:flex items-center gap-1.5 text-[11px] transition-colors text-warm-secondary hover:text-warm-charcoal dark:text-[#555] dark:hover:text-[#888]"

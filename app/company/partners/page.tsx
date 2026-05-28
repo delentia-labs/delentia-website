@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
@@ -15,8 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Partners — Technology, Consulting, and Channel Ecosystem",
     "พันธมิตร — ระบบนิเวศด้านเทคโนโลยี ที่ปรึกษา และช่องทางการขาย",
-    "Learn how RCT Labs partners with technology providers, consulting firms, and channel teams to deploy constitutional AI systems in enterprise environments.",
-    "ดูแนวทางที่ RCT Labs ทำงานร่วมกับพันธมิตรด้านเทคโนโลยี บริษัทที่ปรึกษา และทีม channel เพื่อขับเคลื่อน constitutional AI ในองค์กร",
+    "Learn how Delentia Labs partners with technology providers, consulting firms, and channel teams to deploy constitutional AI systems in enterprise environments.",
+    "ดูแนวทางที่ Delentia Labs ทำงานร่วมกับพันธมิตรด้านเทคโนโลยี บริษัทที่ปรึกษา และทีม channel เพื่อขับเคลื่อน constitutional AI ในองค์กร",
     "/company/partners",
     ["technology partners", "AI channel partners", "consulting partners", "enterprise AI partnership"]
   )
@@ -27,16 +27,16 @@ export default async function PartnersPage() {
   const localePrefix = locale === "th" ? "/th" : "/en"
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "บริษัท" : "Company", url: `https://rctlabs.co${localePrefix}/company` },
-    { name: locale === "th" ? "พันธมิตร" : "Partners", url: `https://rctlabs.co${localePrefix}/company/partners` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "บริษัท" : "Company", url: `https://delentia.com${localePrefix}/company` },
+    { name: locale === "th" ? "พันธมิตร" : "Partners", url: `https://delentia.com${localePrefix}/company/partners` },
   ])
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: locale === "th" ? "พันธมิตร — ระบบนิเวศเทคโนโลยี ที่ปรึกษา และ Channel" : "Partners — Technology, Consulting, and Channel Ecosystem",
-    description: "Learn how RCT Labs partners with technology providers, consulting firms, and channel teams to deploy constitutional AI systems in enterprise environments.",
-    url: `https://rctlabs.co${localePrefix}/company/partners`,
+    description: "Learn how Delentia Labs partners with technology providers, consulting firms, and channel teams to deploy constitutional AI systems in enterprise environments.",
+    url: `https://delentia.com${localePrefix}/company/partners`,
   }
 
   const partnerTypes = [
@@ -82,7 +82,7 @@ export default async function PartnersPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance">Partners</h1>
           <p className="max-w-2xl text-lg text-muted-foreground">
-            Work with RCT Labs across technology integrations, consulting delivery, and enterprise channels to bring constitutional AI systems into production.
+            Work with Delentia Labs across technology integrations, consulting delivery, and enterprise channels to bring constitutional AI systems into production.
           </p>
           <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5"><Globe2 className="h-4 w-4 text-warm-amber" />Technology alliances</span>
@@ -130,3 +130,4 @@ export default async function PartnersPage() {
     </>
   )
 }
+

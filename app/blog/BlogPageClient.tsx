@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useDeferredValue, useMemo, useState } from "react"
 import Link from "next/link"
@@ -96,7 +96,7 @@ function ArticleCard({
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <Users className="w-3.5 h-3.5" />
-                {post.author ?? post.authorId ?? "RCT Labs"}
+                {post.author ?? post.authorId ?? "Delentia Labs"}
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5" />
@@ -150,7 +150,7 @@ function ArticleCard({
         )}
 
         <div className="flex items-center justify-between pt-3 border-t border-border mt-auto">
-          <span className="text-xs text-muted-foreground">{(post.author ?? post.authorId ?? "RCT Labs").split(" ").slice(0, 2).join(" ")}</span>
+          <span className="text-xs text-muted-foreground">{(post.author ?? post.authorId ?? "Delentia Labs").split(" ").slice(0, 2).join(" ")}</span>
           {post.date && (
             <span className="text-xs text-muted-foreground/60 tabular-nums">
               {new Date(post.date).toLocaleDateString(dateLocale, { month: "short", day: "numeric", year: "numeric" })}
@@ -377,3 +377,4 @@ export function BlogPageClient({ posts, localePrefix }: BlogPageClientProps) {
     </main>
   )
 }
+

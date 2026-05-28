@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Use Cases",
     "กรณีการใช้งาน",
-    "Real-world AI use cases powered by RCT Labs: fintech compliance, healthcare AI, legal document analysis, creative automation, and enterprise workflow intelligence. Proven across 11 industries.",
-    "กรณีการใช้งาน AI จาก RCT Labs: การเงิน สุขภาพ กฎหมาย ครีเอทีฟ และกระบวนการทำงานระดับองค์กร ผ่านการพิสูจน์ใน 11 อุตสาหกรรม",
+    "Real-world AI use cases powered by Delentia Labs: fintech compliance, healthcare AI, legal document analysis, creative automation, and enterprise workflow intelligence. Proven across 11 industries.",
+    "กรณีการใช้งาน AI จาก Delentia Labs: การเงิน สุขภาพ กฎหมาย ครีเอทีฟ และกระบวนการทำงานระดับองค์กร ผ่านการพิสูจน์ใน 11 อุตสาหกรรม",
     "/use-cases",
     ["AI use cases", "fintech AI", "healthcare AI", "legal AI", "enterprise automation", "AI compliance"]
   )
@@ -26,9 +26,9 @@ export default async function UseCasesPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "RCT Labs AI Use Cases",
-    "description": "Real-world AI use cases powered by RCT Labs across 11 industries: fintech, healthcare, legal, creative, and enterprise automation.",
-    "provider": { "@type": "Organization", "name": "RCT Labs", "url": SITE_URL },
+    "name": "Delentia Labs AI Use Cases",
+    "description": "Real-world AI use cases powered by Delentia Labs across 11 industries: fintech, healthcare, legal, creative, and enterprise automation.",
+    "provider": { "@type": "Organization", "name": "Delentia Labs", "url": SITE_URL },
     "areaServed": ["TH", "SG", "US", "GB"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -50,3 +50,4 @@ export default async function UseCasesPage() {
     </>
   )
 }
+

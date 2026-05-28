@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useState, useEffect, useMemo, useRef } from "react"
 import { Navbar } from "@/components/navbar"
@@ -75,14 +75,14 @@ function calculateFDIA(data: number, intent: number, architect: number): FDIARes
     suggestedPages = [
       { title: "RCT-7 Mental Model", titleTh: "RCT-7 Mental Model", path: "/protocols/rct-7-mental-model" },
       { title: "AI Hallucination Prevention", titleTh: "ป้องกัน AI Hallucination", path: "/solutions/ai-hallucination-prevention" },
-      { title: "RCTLabs", titleTh: "RCTLabs", path: "/products/rctlabs" },
+      { title: "Delentia Platform", titleTh: "Delentia Platform", path: "/products/delentia-platform" },
     ]
   } else if (score >= 50) {
     grade = "B"
-    recommendation = "Moderate readiness. The equation reveals gaps in your data quality or intent clarity. RCTLabs can help optimize your multi-LLM orchestration."
-    recommendationTh = "ความพร้อมปานกลาง สมการเผยให้เห็นช่องว่างในคุณภาพข้อมูลหรือความชัดเจนของ intent RCTLabs สามารถช่วยปรับปรุง multi-LLM orchestration"
+    recommendation = "Moderate readiness. The equation reveals gaps in your data quality or intent clarity. Delentia Platform can help optimize your multi-LLM orchestration."
+    recommendationTh = "ความพร้อมปานกลาง สมการเผยให้เห็นช่องว่างในคุณภาพข้อมูลหรือความชัดเจนของ intent Delentia Platform สามารถช่วยปรับปรุง multi-LLM orchestration"
     suggestedPages = [
-      { title: "RCTLabs", titleTh: "RCTLabs", path: "/products/rctlabs" },
+      { title: "Delentia Platform", titleTh: "Delentia Platform", path: "/products/delentia-platform" },
       { title: "Enterprise AI Memory", titleTh: "AI Memory องค์กร", path: "/solutions/enterprise-ai-memory" },
       { title: "Dynamic AI Routing", titleTh: "Dynamic AI Routing", path: "/solutions/dynamic-ai-routing" },
     ]
@@ -201,15 +201,15 @@ export default function FDIADemoPage() {
     "description": isEn
       ? "Interactive FDIA equation demo: Calculate and visualize AI hallucination risk in real time."
       : "เดโมสมการ FDIA แบบอินเทอร์แอคทีฟ: คำนวณและดูความเสี่ยง AI Hallucination แบบเรียลไทม์",
-    "url": `https://rctlabs.co/${locale}/demo/fdia`,
+    "url": `https://delentia.com/${locale}/demo/fdia`,
     "applicationCategory": "CalculatorApplication",
     "operatingSystem": "Cross-platform",
-    "publisher": { "@type": "Organization", "name": "RCT Labs", "url": "https://rctlabs.co" }
+    "publisher": { "@type": "Organization", "name": "Delentia Labs", "url": "https://delentia.com" }
   }
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co/${locale}` },
-    { name: "Demo", url: `https://rctlabs.co/${locale}/demo` },
-    { name: "FDIA", url: `https://rctlabs.co/${locale}/demo/fdia` },
+    { name: "Home", url: `https://delentia.com/${locale}` },
+    { name: "Demo", url: `https://delentia.com/${locale}/demo` },
+    { name: "FDIA", url: `https://delentia.com/${locale}/demo/fdia` },
   ])
   const faqSchema = {
     "@context": "https://schema.org",
@@ -579,3 +579,4 @@ export default function FDIADemoPage() {
     </>
   )
 }
+

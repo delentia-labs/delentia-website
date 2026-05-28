@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { usePathname } from "next/navigation"
 import { BookOpen, FileText, Github, MessageCircle, Sparkles, Users } from "lucide-react"
@@ -15,7 +15,7 @@ export default function CommunityClient() {
     {
       title: "GitHub",
       description: language === "th" ? "รีโพสาธารณะ ตัวอย่างโค้ด การสนทนาเรื่อง implementation และ issue workflow สำหรับทีมเทคนิค." : "Public repositories, implementation examples, issue workflows, and technical discussion for builders.",
-      href: "https://github.com/rctlabs",
+      href: "https://github.com/delentia-labs",
       icon: Github,
       badge: language === "th" ? "Open source" : "Open source",
       meta: language === "th" ? "Code, issues, discussions" : "Code, issues, discussions",
@@ -77,7 +77,7 @@ export default function CommunityClient() {
       accent="amber"
       actions={[
         { href: `${localePrefix}/docs`, label: language === "th" ? "เปิด docs" : "Open docs", variant: "primary" },
-        { href: "https://github.com/rctlabs", label: "GitHub", variant: "secondary", external: true },
+        { href: "https://github.com/delentia-labs", label: "GitHub", variant: "secondary", external: true },
         { href: `${localePrefix}/contact`, label: language === "th" ? "ติดต่อทีม" : "Contact the team", variant: "secondary" },
       ]}
       stats={[

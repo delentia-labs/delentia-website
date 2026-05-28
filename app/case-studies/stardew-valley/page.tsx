@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { headers } from "next/headers"
 import { ArrowLeft, ArrowRight } from "lucide-react"
@@ -40,7 +40,7 @@ const content: Record<Locale, LocaleContent> = {
   en: {
     pageTitle: "Stardew Valley Case Study",
     pageDescription:
-      "How RCT Labs turned Stardew Valley NPCs into autonomous AI agents with FDIA, JITNA, governance controls, and deterministic game-event processing.",
+      "How Delentia Labs turned Stardew Valley NPCs into autonomous AI agents with FDIA, JITNA, governance controls, and deterministic game-event processing.",
     badge: "Case Study - Game AI Integration",
     eyebrow: "Stardew Valley x RCT Ecosystem",
     heroDescription:
@@ -79,7 +79,7 @@ const content: Record<Locale, LocaleContent> = {
   th: {
     pageTitle: "กรณีศึกษา Stardew Valley",
     pageDescription:
-      "กรณีศึกษาที่แสดงวิธีที่ RCT Labs เปลี่ยน NPC ใน Stardew Valley ให้เป็น AI Agents อัตโนมัติด้วย FDIA, JITNA, governance และ deterministic event processing.",
+      "กรณีศึกษาที่แสดงวิธีที่ Delentia Labs เปลี่ยน NPC ใน Stardew Valley ให้เป็น AI Agents อัตโนมัติด้วย FDIA, JITNA, governance และ deterministic event processing.",
     badge: "กรณีศึกษา - Game AI Integration",
     eyebrow: "Stardew Valley x RCT Ecosystem",
     heroDescription:
@@ -306,8 +306,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Stardew Valley Case Study | Game AI Integration",
     "กรณีศึกษา Stardew Valley | Game AI Integration",
-    "A technical case study showing how RCT Labs applies FDIA, JITNA Protocol, and deterministic governance to turn Stardew Valley NPCs into explainable AI agents.",
-    "กรณีศึกษาเชิงเทคนิคที่แสดงวิธีที่ RCT Labs ใช้ FDIA, JITNA Protocol และ deterministic governance เพื่อเปลี่ยน NPC ใน Stardew Valley ให้เป็น AI agents ที่อธิบายได้",
+    "A technical case study showing how Delentia Labs applies FDIA, JITNA Protocol, and deterministic governance to turn Stardew Valley NPCs into explainable AI agents.",
+    "กรณีศึกษาเชิงเทคนิคที่แสดงวิธีที่ Delentia Labs ใช้ FDIA, JITNA Protocol และ deterministic governance เพื่อเปลี่ยน NPC ใน Stardew Valley ให้เป็น AI agents ที่อธิบายได้",
     "/case-studies/stardew-valley",
     ["game AI case study", "Stardew Valley AI", "JITNA Protocol", "FDIA game integration", "deterministic agent architecture"]
   )
@@ -324,24 +324,24 @@ export default async function StardewValleyCaseStudyPage() {
     "@type": "Dataset",
     name: locale === "en" ? "Dataset: Stardew Valley AI Simulation" : "ชุดข้อมูล: Stardew Valley AI Simulation",
     description: copy.pageDescription,
-    url: `https://rctlabs.co${localePrefix}/case-studies/stardew-valley`,
-    creator: { "@type": "Organization", name: "RCT Labs", url: "https://rctlabs.co" },
-    keywords: ["AI memory", "FDIA", "Stardew Valley", "case study", "RCT Labs", "game AI"],
+    url: `https://delentia.com${localePrefix}/case-studies/stardew-valley`,
+    creator: { "@type": "Organization", name: "Delentia Labs", url: "https://delentia.com" },
+    keywords: ["AI memory", "FDIA", "Stardew Valley", "case study", "Delentia Labs", "game AI"],
   }
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     headline: copy.pageTitle,
     description: copy.pageDescription,
-    author: { "@type": "Organization", name: "RCT Labs" },
-    publisher: { "@type": "Organization", name: "RCT Labs", url: "https://rctlabs.co" },
+    author: { "@type": "Organization", name: "Delentia Labs" },
+    publisher: { "@type": "Organization", name: "Delentia Labs", url: "https://delentia.com" },
     about: ["FDIA", "JITNA Protocol", "Game AI", "Deterministic agent systems"],
-    url: `https://rctlabs.co${localePrefix}/case-studies/stardew-valley`,
+    url: `https://delentia.com${localePrefix}/case-studies/stardew-valley`,
   }
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "กรณีศึกษา" : "Case Studies", url: `https://rctlabs.co${localePrefix}/case-studies` },
-    { name: "Stardew Valley", url: `https://rctlabs.co${localePrefix}/case-studies/stardew-valley` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "กรณีศึกษา" : "Case Studies", url: `https://delentia.com${localePrefix}/case-studies` },
+    { name: "Stardew Valley", url: `https://delentia.com${localePrefix}/case-studies/stardew-valley` },
   ])
 
   return (
@@ -645,3 +645,4 @@ export default async function StardewValleyCaseStudyPage() {
     </>
   )
 }
+

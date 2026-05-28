@@ -23,11 +23,11 @@ export function FloatingAIComingSoon() {
   const { language } = useLanguage()
 
   const t = {
-    title: language === 'th' ? 'ผู้ช่วย ArtentAI' : 'ArtentAI Assistant',
+    title: language === 'th' ? 'ผู้ช่วย DelentiaAI' : 'DelentiaAI Assistant',
     comingSoon: language === 'th' ? 'เร็วๆ นี้' : 'Coming Soon',
     message: language === 'th' 
-      ? 'ArtentAI กำลังอยู่ระหว่างการพัฒนา เวอร์ชันเปิดตัวจะเน้นการนำทางผลิตภัณฑ์ การตอบคำถามด้านแพลตฟอร์ม และการประเมินโซลูชันองค์กรใต้โหมด Analysearch Intent'
-      : 'ArtentAI is currently in development. The first public release will focus on product guidance, platform Q&A, and workflow triage powered by Analysearch Intent Mode.',
+      ? 'DelentiaAI กำลังอยู่ระหว่างการพัฒนา เวอร์ชันเปิดตัวจะเน้นการนำทางผลิตภัณฑ์ การตอบคำถามด้านแพลตฟอร์ม และการประเมินโซลูชันองค์กรใต้โหมด Analysearch Intent'
+      : 'DelentiaAI is currently in development. The first public release will focus on product guidance, platform Q&A, and workflow triage powered by Analysearch Intent Mode.',
     featuresTitle: language === 'th' ? 'สิ่งที่คาดหวังได้:' : 'What to Expect:',
     feature1: language === 'th' ? 'แนะนำเส้นทางผลิตภัณฑ์และสถาปัตยกรรม' : 'Guided product and architecture discovery',
     feature2: language === 'th' ? 'ตอบคำถามด้านแพลตฟอร์มและ use case' : 'Platform and use-case Q&A',
@@ -77,7 +77,7 @@ export function FloatingAIComingSoon() {
             exit={{ scale: 0 }}
             onClick={() => setIsOpen(true)}
             className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 flex items-center justify-center animate-glow-pulse hover:scale-110 transition-transform duration-200"
-            aria-label={language === 'th' ? 'เปิดตัวช่วย ArtentAI แบบกำลังพัฒนา' : 'Open coming-soon ArtentAI assistant'}
+            aria-label={language === 'th' ? 'เปิดตัวช่วย DelentiaAI แบบกำลังพัฒนา' : 'Open coming-soon DelentiaAI assistant'}
           >
             <Sparkles className="w-6 h-6" />
           </m.button>

@@ -1,8 +1,8 @@
-# Pre-Launch Checklist — rctlabs.co
+# Pre-Launch Checklist — delentia.com
 
 ## Claim Boundary & Truth Discipline
 - [ ] `lib/site-config.ts` separates `Public SDK verified`, `Enterprise private snapshot`, and `Research / benchmark scope`
-- [ ] Public SDK numbers match the current canonical proof in `rct-platform/docs/testing/TESTING_CANONICAL.md`
+- [ ] Public SDK numbers match the current canonical proof in `delentia-os/docs/testing/TESTING_CANONICAL.md`
 - [ ] High-visibility pages (`/about`, `/algorithms`, OG images, benchmark surfaces) do not present enterprise-private numbers as public repo proof
 - [ ] Benchmark claims include scope language such as `controlled workload`, `benchmark summary`, or equivalent caveat
 - [ ] Internal/admin/mock surfaces do not present conflicting metrics that could be mistaken for production truth
@@ -10,7 +10,7 @@
 ## DNS & Infrastructure
 - [ ] DNS records configured (A, AAAA, CNAME) pointing to Vercel
 - [ ] SSL/TLS certificate provisioned and valid
-- [ ] `www` redirect configured (`www.rctlabs.co` → `rctlabs.co`)
+- [ ] `www` redirect configured (`www.delentia.com` → `delentia.com`)
 - [ ] DNS TTL lowered before launch (≤300s)
 - [ ] Domain verified in Vercel dashboard
 
@@ -55,7 +55,7 @@
 ## Monitoring & Analytics
 - [ ] Vercel Analytics enabled and tracking
 - [ ] Error monitoring configured (Vercel/Sentry)
-- [ ] Uptime monitoring configured for rctlabs.co
+- [ ] Uptime monitoring configured for delentia.com
 - [ ] Google Search Console property verified
 - [ ] Bing Webmaster Tools property verified
 

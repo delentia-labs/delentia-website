@@ -91,13 +91,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "0.3%", label: "Hallucination rate",
       detail: "RCT dual-layer: RAG + constitutional controls in production",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: "Dual-layer", label: "Recommended architecture",
       detail: "Retrieval-Augmented Generation plus constitutional verification layer",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/methodology", verifiedAt: "2026-04-15",
     },
     {
       value: "<50ms", label: "Warm recall path",
@@ -117,13 +117,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "5 layers", label: "Governance depth",
       detail: "Policy → Orchestration → Verification → Audit → Runtime enforcement",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/architecture", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_HALLUCINATION_RATE, label: "Benchmark hallucination scope",
       detail: "Controlled-workload benchmark framing, not a blanket production guarantee",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "how-to-reduce-ai-hallucination": [
@@ -137,13 +137,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "7 stages", label: "Verification pipeline",
       detail: "FDIA-governed: Input → Classify → Retrieve → Verify → Constrain → Sign → Output",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/fdia-equation", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/fdia-equation", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_HALLUCINATION_RATE, label: "Benchmark hallucination scope",
       detail: "Controlled benchmark framing disclosed with methodology notes",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "verification-vs-prompt-engineering": [
@@ -157,13 +157,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "100%", label: "Policy enforcement rate",
       detail: "Constitutional constraints applied to every output, no bypass path",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/methodology", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_HALLUCINATION_RATE, label: "Benchmark hallucination scope",
       detail: "Public benchmark framing with caveats; deployment outcomes vary by workload",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "designing-low-hallucination-ai-systems": [
@@ -171,13 +171,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "0.3%", label: "Target hallucination rate",
       detail: "Systems-design approach: Retrieve + Verify + Sign architecture",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: "3 defense layers", label: "Architecture pattern",
       detail: "Retrieval accuracy → Constitutional verification → Ed25519 signing",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/architecture", verifiedAt: "2026-04-15",
     },
     {
       value: "<50ms", label: "Overhead budget",
@@ -199,13 +199,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "F=(D^I)×A", label: "Constitutional equation",
       detail: "Intent acts as exponent on Data — amplifies quality, not just scale",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/fdia-equation", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/fdia-equation", verifiedAt: "2026-04-15",
     },
     {
       value: "7 states", label: "Intent loop pipeline",
       detail: "Governed flow: Validate → Parse → Classify → Route → Execute → Verify → Audit",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/fdia-equation", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/fdia-equation", verifiedAt: "2026-04-15",
     },
   ],
 
@@ -215,13 +215,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "0.3%", label: "Consensus hallucination rate",
       detail: "7-model HexaCore consensus; each model independently verifies before signing",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: "7 models", label: "HexaCore consensus roster",
       detail: "3 Western + 3 Eastern + 1 Thai — geopolitical balance in verification",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/products/signed-ai", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/products/signed-ai", verifiedAt: "2026-04-15",
     },
     {
       value: "Ed25519", label: "Signing algorithm",
@@ -241,7 +241,7 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "7 models", label: "Parallel consensus layer",
       detail: "Geopolitically balanced: 3W + 3E + 1TH — independent inference before merge",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/products/signed-ai", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/products/signed-ai", verifiedAt: "2026-04-15",
     },
     {
       value: "99.7%", label: "Consensus accuracy",
@@ -250,19 +250,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       evidenceNote: "Eval set: RCT internal synthetic + production edge cases; external audit pending", verifiedAt: "2026-04-15",
     },
   ],
-  // ── MEMORY / RCTDB CLUSTER ──────────────────────────────────────────────────
+  // ── MEMORY / DelentiaDB CLUSTER ──────────────────────────────────────────────────
   "delta-engine-74-percent-compression": [
     {
       value: "74%", label: "Lossless compression rate",
       detail: "Delta-only state storage — only changed tokens stored, full recall guaranteed",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
     },
     {
       value: "Δ-only writes", label: "Delta Engine mechanism",
       detail: "Content-addressed diff storage: baseline + delta chain, not full snapshots",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
     },
     {
       value: "<50ms", label: "Warm recall latency",
@@ -276,19 +276,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "8 dimensions", label: "Universal schema depth",
       detail: "D1–D8: Episodic, Semantic, Procedural, Temporal, Social, Emotional, Spatial, Predictive",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
     },
     {
       value: "3 storage layers", label: "Hybrid stack",
       detail: "Qdrant (vector) + Neo4j (graph) + PostgreSQL (relational) — query-routed by dimension",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/architecture", verifiedAt: "2026-04-15",
     },
     {
       value: "74%", label: "Delta compression active",
       detail: "Delta Engine lossless compression — write amplification <1.3×",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
     },
   ],
   "enterprise-ai-memory-systems-explained": [
@@ -296,13 +296,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "3 memory zones", label: "Tiered architecture",
       detail: "Hot (Redis/Qdrant) → Warm (Neo4j) → Cold (PostgreSQL) — automated tiering",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
     },
     {
       value: "74%", label: "Delta compression rate",
       detail: "Delta Engine: only diffs written; 0% data loss on arbitrary rollback",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/solutions/enterprise-ai-memory", verifiedAt: "2026-04-15",
     },
     {
       value: "<50ms", label: "Warm recall latency",
@@ -318,13 +318,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "Open standard", label: "Agent-to-agent protocol",
       detail: "RFC-001: first versioned, openly published agent communication specification",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/jitna-rfc-001", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/jitna-rfc-001", verifiedAt: "2026-04-15",
     },
     {
       value: "6-field packet", label: "JITNA structure",
       detail: "Intent (I), Data (D), Delta (Δ), Authority (A), Response (R), Metadata (M)",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/jitna-rfc-001", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/jitna-rfc-001", verifiedAt: "2026-04-15",
     },
     {
       value: "50ms", label: "Target negotiation latency",
@@ -338,19 +338,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "7-model consensus", label: "HexaCore multi-agent result",
       detail: "Each model assigned specific role via JITNA RFC-001 task dispatch",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/products/signed-ai", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/products/signed-ai", verifiedAt: "2026-04-15",
     },
     {
       value: "JITNA RFC-001", label: "Agent communication protocol",
       detail: "Structured 6-field packet governs all inter-agent data and authority delegation",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/jitna-rfc-001", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/jitna-rfc-001", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_HALLUCINATION_RATE, label: "Consensus benchmark scope",
       detail: "Multi-agent verification layer benchmark — all agents must agree before signing",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "intent-operating-system-explained": [
@@ -358,19 +358,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "Intent OS", label: "Enterprise AI governance layer",
       detail: "Manages resources, enforces policy, routes tasks and maintains state across LLMs",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/architecture", verifiedAt: "2026-04-15",
     },
     {
       value: "9-tier kernel", label: "Constitutional OS architecture",
       detail: "Input → Classify → Route → Execute → Verify → Constrain → Sign → Audit → Output",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/architecture", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_ENTERPRISE_EVIDENCE_LABEL, label: "Runtime scope",
       detail: "The broader runtime footprint is disclosed separately from the public SDK proof lane",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "understanding-intent-operations": [
@@ -378,19 +378,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "F=(D^I)×A", label: "Intent operations formula",
       detail: "Function = (Data^Intent) × Action — intent amplifies data quality exponentially",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/fdia-equation", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/fdia-equation", verifiedAt: "2026-04-15",
     },
     {
       value: "7 states", label: "Intent processing loop",
       detail: "Observe → Parse → Classify → Route → Execute → Verify → Audit",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/protocols/fdia-equation", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/protocols/fdia-equation", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_ENTERPRISE_EVIDENCE_LABEL, label: "RCT runtime scope",
       detail: "Intent OS governance spans the broader runtime, which is disclosed separately from public SDK proof",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
 
@@ -400,19 +400,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "7 evaluation questions", label: "Procurement framework",
       detail: "Buyer-side checklist: coverage, fallback, audit trail, latency, compliance, cost, sovereignty",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/methodology", verifiedAt: "2026-04-15",
     },
     {
       value: `${SITE_PUBLIC_SDK_TESTS} tests`, label: SITE_PUBLIC_SDK_EVIDENCE_LABEL,
       detail: `Use the public SDK checkpoint as the open proof lane; ${SITE_TEST_COUNT.toLocaleString()} tests remain a separate ${SITE_ENTERPRISE_EVIDENCE_LABEL.toLowerCase()}`,
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_HALLUCINATION_RATE, label: "Hallucination benchmark scope",
       detail: "Benchmark-scoped rate used in evaluation criteria, paired with methodology disclosures",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "evaluation-harnesses-enterprise-llm": [
@@ -420,13 +420,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: `${SITE_TEST_COUNT.toLocaleString()} tests`, label: "Enterprise snapshot suite",
       detail: `Broader runtime evaluation across the enterprise-private snapshot; public SDK checkpoint is ${SITE_PUBLIC_SDK_TESTS} tests`,
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: "9 algorithm tiers", label: "Evaluation coverage",
       detail: "Tier 1–9: from input validation through output signing — all governed by FDIA",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/methodology", verifiedAt: "2026-04-15",
     },
     {
       value: "0.92", label: "FDIA benchmark score",
@@ -440,19 +440,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: `${SITE_TEST_COUNT.toLocaleString()}`, label: "Tests in enterprise snapshot",
       detail: `0 failures, 0 errors across the larger suite, disclosed separately from the ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()}`,
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: SITE_ENTERPRISE_EVIDENCE_LABEL, label: "Test matrix scope",
       detail: "Broader runtime coverage with multi-layer checks, disclosed as enterprise context rather than public SDK proof",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: "v5.4.5", label: "Verified platform version",
       detail: "Enterprise baseline — full test suite passes on every commit",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "rct-7-process-explained": [
@@ -460,19 +460,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "41 algorithms", label: "Algorithm coverage",
       detail: "9 tiers fully mapped — complete RCT-7 improvement loop",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/algorithms", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/algorithms", verifiedAt: "2026-04-15",
     },
     {
       value: "7 stages", label: "RCT-7 pipeline",
       detail: "Observe → Analyze → Design → Implement → Test → Deploy → Monitor",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/methodology", verifiedAt: "2026-04-15",
     },
     {
       value: `${SITE_TEST_COUNT.toLocaleString()}`, label: "Enterprise test gates per cycle",
       detail: "0 failures allowed to proceed to next stage in the enterprise snapshot; public SDK uses its own smaller verified checkpoint",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
 
@@ -494,7 +494,7 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "0.3%", label: "Hallucination ceiling",
       detail: "Constitutional runtime controls — required to satisfy PDPA accuracy obligations",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "constitutional-ai-thailand-enterprise-guide": [
@@ -528,13 +528,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "Constitutional OS", label: "Platform architecture approach",
       detail: "Intent OS layer governs all national enterprise AI — not model-by-model deployment",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/architecture", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/architecture", verifiedAt: "2026-04-15",
     },
     {
       value: "<4 months", label: "Foundation build time",
       detail: "Zero external capital, one person — from first prototype to v5.4.5 in under 4 months",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/products/rctlabs", verifiedAt: "2026-04-20",
+      evidenceRef: "https://delentia.com/products/delentia-platform", verifiedAt: "2026-04-20",
     },
   ],
 
@@ -544,19 +544,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "30-day build", label: "Full constitutional AI OS",
       detail: "RCT Ecosystem v5.4.5 — zero capital bootstrap from concept to production",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/products/rctlabs", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/products/delentia-platform", verifiedAt: "2026-04-15",
     },
     {
       value: "Reverse-component", label: "Architecture methodology",
       detail: "Define governance contract first, then build components to satisfy it",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/methodology", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/methodology", verifiedAt: "2026-04-15",
     },
     {
       value: `${SITE_TEST_COUNT.toLocaleString()} / 0 fail`, label: "Enterprise quality gate result",
       detail: `Enterprise snapshot passes the larger suite, while ${SITE_PUBLIC_SDK_EVIDENCE_LABEL.toLowerCase()} remains the public proof lane`,
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
   "v2-7-enterprise-integration-suite": [
@@ -564,19 +564,19 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "153 static pages", label: "Website delivery scale",
       detail: "Full Next.js static generation — 0 SSR roundtrips on standard pages",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com", verifiedAt: "2026-04-15",
     },
     {
       value: "TypeScript strict", label: "Integration quality standard",
       detail: "0 errors, 0 lint violations — enterprise integration suite v2.7",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
     {
       value: "2026.03", label: "Platform snapshot version",
       detail: "Baseline for all integration contracts — versioned for enterprise SLA reference",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-15",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-15",
     },
   ],
 
@@ -586,13 +586,13 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "96%", label: "MEE accuracy score",
       detail: "Meta Evolution Engine — measured accuracy on ALGO-07 evaluation set (Score: 9.5/10)",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/algorithms", verifiedAt: "2026-04-21",
+      evidenceRef: "https://delentia.com/algorithms", verifiedAt: "2026-04-21",
     },
     {
       value: "G: 50→90", label: "Intelligence evolution range",
       detail: "dG/dt = α · Δ(M, Π, R(t)) — adaptive evolution from baseline to target G-level",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/algorithms", verifiedAt: "2026-04-21",
+      evidenceRef: "https://delentia.com/algorithms", verifiedAt: "2026-04-21",
     },
     {
       value: ">0.5 dG/dt", label: "Evolution rate target",
@@ -608,33 +608,33 @@ const BLOG_HERO_METRICS: Partial<Record<string, BlogHeroMetric[]>> = {
       value: "100%", label: "Pareto accuracy",
       detail: "All Pareto-optimal solutions correctly identified — MOIP benchmark set (Score: 9.1/10)",
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/algorithms", verifiedAt: "2026-04-23",
+      evidenceRef: "https://delentia.com/algorithms", verifiedAt: "2026-04-23",
     },
     {
       value: "O(n²)", label: "Pareto detection complexity",
       detail: "Deterministic frontier discovery — scales to 50+ solution candidates per planning cycle",
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/algorithms", verifiedAt: "2026-04-23",
+      evidenceRef: "https://delentia.com/algorithms", verifiedAt: "2026-04-23",
     },
     {
       value: "<100ms", label: "Ranking speed",
       detail: "50-solution Pareto ranking with weighted preference scoring — embedded in FDIA intent pipeline",
       type: "operational", evidenceType: "source",
-      evidenceRef: "https://rctlabs.co/benchmark", verifiedAt: "2026-04-23",
+      evidenceRef: "https://delentia.com/benchmark", verifiedAt: "2026-04-23",
     },
   ],
-  "rct-platform-open-source-launch": [
+  "delentia-os-open-source-launch": [
     {
       value: `${SITE_PUBLIC_SDK_TESTS}`, label: "Passing tests",
       detail: `${SITE_PUBLIC_SDK_TESTS} tests pass on the current public SDK checkpoint with ${SITE_PUBLIC_SDK_COVERAGE} coverage`,
       type: "outcome", evidenceType: "source",
-      evidenceRef: "https://github.com/rctlabs/rct-platform", verifiedAt: "2026-04-22",
+      evidenceRef: "https://github.com/delentia-labs/delentia-os", verifiedAt: "2026-04-22",
     },
     {
       value: SITE_PUBLIC_SDK_COVERAGE, label: "Code coverage",
       detail: `${SITE_PUBLIC_SDK_COVERAGE} line coverage across the current public SDK release path`,
       type: "mechanism", evidenceType: "source",
-      evidenceRef: "https://github.com/rctlabs/rct-platform", verifiedAt: "2026-04-22",
+      evidenceRef: "https://github.com/delentia-labs/delentia-os", verifiedAt: "2026-04-22",
     },
     {
       value: SITE_PUBLIC_SDK_VERSION, label: "Public SDK version",
@@ -876,7 +876,7 @@ const BLOG_RELATED_MAP: Record<string, [string, string, string]> = {
     "hexacore-7-model-ai-infrastructure",
   ],
 
-  // ── Memory / RCTDB ───────────────────────────────────────────────────────────
+  // ── Memory / DelentiaDB ───────────────────────────────────────────────────────────
   "delta-engine-74-percent-compression": [
     "rctdb-8-dimensional-memory-schema",
     "enterprise-ai-memory-systems-explained",
@@ -959,7 +959,7 @@ const BLOG_RELATED_MAP: Record<string, [string, string, string]> = {
   ],
 
   // ── Open Source SDK launch ────────────────────────────────────────────
-  "rct-platform-open-source-launch": [
+  "delentia-os-open-source-launch": [
     "rct-ecosystem-4849-tests-methodology",
     "evaluation-harnesses-enterprise-llm",
     "rct-7-process-explained",
@@ -1050,14 +1050,14 @@ export function getPostReviewDate(post: BlogPost) {
 }
 
 export function getPostJourney(post: BlogPost) {
-  // Memory cluster: rctdb | delta (before generic memory check)
-  if (post.slug.includes("rctdb") || post.slug.includes("delta")) {
+  // Memory cluster: delentiadb | delta (before generic memory check)
+  if (post.slug.includes("delentiadb") || post.slug.includes("delta")) {
     return {
       solutionHref: "/solutions/enterprise-ai-memory",
       solutionLabel: "Explore Enterprise AI Memory",
       authorityHref: "/benchmark",
       authorityLabel: "Review Benchmark Data",
-      conversionContext: "pricing:rctlabs:sales",
+      conversionContext: "pricing:delentia:sales",
       conversionLabel: "Request enterprise evaluation",
     }
   }
@@ -1068,7 +1068,7 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Explore Enterprise AI Memory",
       authorityHref: "/benchmark-summary",
       authorityLabel: "Review Benchmark Summary",
-      conversionContext: "pricing:rctlabs:sales",
+      conversionContext: "pricing:delentia:sales",
       conversionLabel: "Request enterprise evaluation",
     }
   }
@@ -1099,7 +1099,7 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Explore RCT Architecture",
       authorityHref: "/protocols/fdia-equation",
       authorityLabel: "Open FDIA Equation",
-      conversionContext: "pricing:rctlabs:evaluation",
+      conversionContext: "pricing:delentia:evaluation",
       conversionLabel: "Request architecture evaluation",
     }
   }
@@ -1237,7 +1237,7 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Review RCT Methodology",
       authorityHref: "/benchmark",
       authorityLabel: "Review Benchmark Data",
-      conversionContext: "pricing:rctlabs:evaluation",
+      conversionContext: "pricing:delentia:evaluation",
       conversionLabel: "Request a platform evaluation",
     }
   }
@@ -1249,7 +1249,7 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Open Benchmark Summary",
       authorityHref: "/methodology",
       authorityLabel: "Review Methodology",
-      conversionContext: "pricing:rctlabs:evaluation",
+      conversionContext: "pricing:delentia:evaluation",
       conversionLabel: "Request a platform evaluation",
     }
   }
@@ -1267,7 +1267,7 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Open Benchmark Summary",
       authorityHref: "/evaluation",
       authorityLabel: "Open Evaluation Hub",
-      conversionContext: "pricing:rctlabs:evaluation",
+      conversionContext: "pricing:delentia:evaluation",
       conversionLabel: "Request a platform evaluation",
     }
   }
@@ -1278,20 +1278,20 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Explore Dynamic AI Routing",
       authorityHref: "/evaluation",
       authorityLabel: "Open Evaluation Hub",
-      conversionContext: "pricing:rctlabs:sales",
+      conversionContext: "pricing:delentia:sales",
       conversionLabel: "Talk to the platform team",
     }
   }
 
   // Open Source SDK launch — route to GitHub/products
   // Must appear BEFORE the algorithm cluster rule.
-  if (post.slug.includes("open-source-launch") || post.slug.includes("rct-platform") || (post.slug.includes("sdk") && post.slug.includes("open"))) {
+  if (post.slug.includes("open-source-launch") || post.slug.includes("delentia-os") || (post.slug.includes("sdk") && post.slug.includes("open"))) {
     return {
-      solutionHref: "/products/rctlabs",
+      solutionHref: "/products/delentia-platform",
       solutionLabel: "Explore RCT Platform SDK",
-      authorityHref: "https://github.com/rctlabs/rct-platform",
+      authorityHref: "https://github.com/delentia-labs/delentia-os",
       authorityLabel: "View on GitHub",
-      conversionContext: "pricing:rctlabs:evaluation",
+      conversionContext: "pricing:delentia:evaluation",
       conversionLabel: "Request enterprise evaluation",
     }
   }
@@ -1304,7 +1304,7 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Explore Dynamic AI Routing",
       authorityHref: "/protocols/fdia-equation",
       authorityLabel: "Open FDIA Equation",
-      conversionContext: "pricing:rctlabs:evaluation",
+      conversionContext: "pricing:delentia:evaluation",
       conversionLabel: "Request MOIP evaluation",
     }
   }
@@ -1316,7 +1316,7 @@ export function getPostJourney(post: BlogPost) {
       solutionLabel: "Explore All 41 Algorithms",
       authorityHref: "/benchmark",
       authorityLabel: "Review Benchmark Results",
-      conversionContext: "pricing:rctlabs:evaluation",
+      conversionContext: "pricing:delentia:evaluation",
       conversionLabel: "Request algorithm evaluation",
     }
   }

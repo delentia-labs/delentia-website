@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -49,9 +49,9 @@ export default function SignedAIPage() {
   return (
     <main className="min-h-screen bg-background" id="main-content">
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbSchema([
-        { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-        { name: isTh ? "ผลิตภัณฑ์" : "Products", url: `https://rctlabs.co${localePrefix}/products` },
-        { name: "SignedAI", url: `https://rctlabs.co${localePrefix}/products/signed-ai` },
+        { name: "Home", url: `https://delentia.com${localePrefix}` },
+        { name: isTh ? "ผลิตภัณฑ์" : "Products", url: `https://delentia.com${localePrefix}/products` },
+        { name: "SignedAI", url: `https://delentia.com${localePrefix}/products/signed-ai` },
       ])) }} />
       <Navbar />
 
@@ -106,8 +106,8 @@ export default function SignedAIPage() {
           </h2>
           <p>
             {isTh
-              ? "SignedAI คือ 5th Genome ในระบบ RCT 7-Genome — ให้ Verification Infrastructure แก่ทุก Genome อื่น ทุก Output ของ ArtentAI, ทุกผลลัพธ์ของ Analysearch, ทุก Delta Engine Compression — ตรวจสอบได้ผ่าน SignedAI"
-              : "SignedAI is the 5th Genome in the RCT 7-Genome System. It provides verification infrastructure for all other Genomes — every ArtentAI output, every Analysearch result, every Delta Engine compression is certifiable through SignedAI."}
+              ? "SignedAI คือ 5th Genome ในระบบ RCT 7-Genome — ให้ Verification Infrastructure แก่ทุก Genome อื่น ทุก Output ของ DelentiaAI, ทุกผลลัพธ์ของ Analysearch, ทุก Delta Engine Compression — ตรวจสอบได้ผ่าน SignedAI"
+              : "SignedAI is the 5th Genome in the RCT 7-Genome System. It provides verification infrastructure for all other Genomes — every DelentiaAI output, every Analysearch result, every Delta Engine compression is certifiable through SignedAI."}
           </p>
           <p>
             {isTh
@@ -331,7 +331,7 @@ export default function SignedAIPage() {
             </h2>
           </div>
           <div className="rounded-2xl border border-border bg-card p-6 overflow-x-auto">
-            <pre className="text-xs font-mono text-muted-foreground">{`import { SignedAI } from '@rctlabs/signed-ai';
+            <pre className="text-xs font-mono text-muted-foreground">{`import { SignedAI } from '@delentia/signed-ai';
 
 const verifier = new SignedAI({
   apiKey: process.env.SIGNED_AI_KEY
@@ -356,11 +356,11 @@ console.log(result);
           {isTh ? "สำรวจผลิตภัณฑ์อื่น" : "Explore Other Products"}
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href={localHref("/products/rctlabs")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-warm-amber text-white font-semibold text-sm hover:bg-[#C49A48] transition-colors">
-            RCTLabs <ArrowRight size={16} />
+          <Link href={localHref("/products/delentia-platform")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-warm-amber text-white font-semibold text-sm hover:bg-[#C49A48] transition-colors">
+            Delentia Platform <ArrowRight size={16} />
           </Link>
-          <Link href={localHref("/products/artent-ai")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors">
-            Artent AI
+          <Link href={localHref("/products/delentia-ai")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors">
+            Delentia AI
           </Link>
         </div>
       </section>
@@ -369,3 +369,4 @@ console.log(result);
     </main>
   )
 }
+

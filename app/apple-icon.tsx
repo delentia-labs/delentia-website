@@ -1,11 +1,11 @@
-import { ImageResponse } from "next/og"
+﻿import { ImageResponse } from "next/og"
 
 export const runtime = "edge"
 export const size = { width: 180, height: 180 }
 export const contentType = "image/png"
 
 /**
- * RCT Labs — Apple Touch Icon (180×180)
+ * Delentia Labs — Apple Touch Icon (180×180)
  * Matches RCTicon-blackbg.svg: gold (#D3A853) orbital mark on black background.
  * Two dominant orbital arcs + white inner fill reflecting the actual brand mark.
  */
@@ -59,4 +59,5 @@ export default function AppleIcon() {
     { ...size },
   )
 }
+
 

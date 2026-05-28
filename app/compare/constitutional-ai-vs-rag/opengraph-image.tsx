@@ -1,6 +1,6 @@
-import { ImageResponse } from "next/og"
+﻿import { ImageResponse } from "next/og"
 
-export const alt = "Constitutional AI vs RAG — Hallucination Prevention Comparison | RCT Labs"
+export const alt = "Constitutional AI vs RAG — Hallucination Prevention Comparison | Delentia Labs"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -25,7 +25,7 @@ export default function OgImage() {
               <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg, #f59e0b, #d97706)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <span style={{ fontSize: 22, fontWeight: 800, color: "#0a0a0a" }}>R</span>
               </div>
-              <span style={{ fontSize: 20, fontWeight: 600, color: "#d1d5db" }}>RCT Labs</span>
+              <span style={{ fontSize: 20, fontWeight: 600, color: "#d1d5db" }}>Delentia Labs</span>
               <span style={{ color: "#4b5563", fontSize: 20, marginLeft: 4 }}>/ Compare</span>
             </div>
             <div style={{ padding: "6px 16px", borderRadius: 20, border: "1px solid rgba(245,158,11,0.4)", background: "rgba(245,158,11,0.12)", fontSize: 14, fontWeight: 600, color: "#f59e0b", letterSpacing: "0.04em", textTransform: "uppercase" }}>
@@ -41,7 +41,7 @@ export default function OgImage() {
             </p>
           </div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span style={{ fontSize: 16, color: "#6b7280" }}>rctlabs.co/compare</span>
+            <span style={{ fontSize: 16, color: "#6b7280" }}>delentia.com/compare</span>
             <span style={{ fontSize: 15, color: "#4b5563", fontStyle: "italic" }}>Evidence-based AI methodology analysis</span>
           </div>
         </div>
@@ -50,3 +50,4 @@ export default function OgImage() {
     { ...size }
   )
 }
+

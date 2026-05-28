@@ -7,7 +7,7 @@ date: "2025-02-01"
 lastReviewed: "2026-05-06"
 category: "research"
 excerpt: "JITNA (Just In Time Nodal Assembly) is the open agent-to-agent communication protocol of the RCT Ecosystem — think of it as the HTTP of Agentic AI. This article explains the RFC-001 specification, negotiation flow, and how JITNA differs from tool-calling APIs."
-tags: ["JITNA", "Protocol", "RFC-001", "Agentic AI", "Constitutional AI", "RCT Labs"]
+tags: ["JITNA", "Protocol", "RFC-001", "Agentic AI", "Constitutional AI", "Delentia Labs"]
 readTime: 11
 references:
   - "https://www.nist.gov/artificial-intelligence"
@@ -63,7 +63,7 @@ Problems:
 
 ### With JITNA (RCT Ecosystem)
 ```
-User Query → FDIA Validation → Agent Assembly (JITNA) → Negotiation → Execution → SignedAI Verification → RCTDB Commit → Output
+User Query → FDIA Validation → Agent Assembly (JITNA) → Negotiation → Execution → SignedAI Verification → DelentiaDB Commit → Output
 ```
 
 Every step is structured, signed, and replayable.
@@ -163,8 +163,8 @@ Every JITNA packet's `intent` field is evaluated by the FDIA gatekeeper. If the 
 ### JITNA + SignedAI
 For high-criticality tasks, JITNA routes execution through the SignedAI consensus system. Multiple models independently process the task and must reach agreement (Tier 4: 75% (3/4), Tier 6: 67%, Tier 8: 75%) before the result is committed.
 
-### JITNA + RCTDB
-Every completed JITNA transaction is committed to RCTDB — the 8-dimensional universal memory schema. This means:
+### JITNA + DelentiaDB
+Every completed JITNA transaction is committed to DelentiaDB — the 8-dimensional universal memory schema. This means:
 - Every agent interaction is permanently recorded
 - Any transaction can be replayed from any point
 - The Delta Engine compresses stored state by 74%
@@ -244,7 +244,7 @@ Key takeaways:
 - **Specification:** RFC-001 v2.0 (52 pages)
 - **Core pattern:** PROPOSE → COUNTER → ACCEPT/REJECT
 - **Security:** Ed25519 signed packets, SHA-256 replay chain
-- **Integration:** FDIA gating, SignedAI consensus, RCTDB memory, HexaCore routing
+- **Integration:** FDIA gating, SignedAI consensus, DelentiaDB memory, HexaCore routing
 - **Philosophy:** Agents are collaborators with agency, not passive tools
 
 If FDIA ensures quality, and SignedAI ensures consensus, then JITNA ensures that every agent in the system can communicate — clearly, securely, and accountably.
@@ -253,9 +253,9 @@ If FDIA ensures quality, and SignedAI ensures consensus, then JITNA ensures that
 
 - 🔗 [JITNA Entity Page — structured definition with JSON-LD schema](/en/entity/jitna-protocol)
 - 🔬 [FDIA Equation — the constitutional layer JITNA builds on](/en/blog/fdia-equation-explained)
-- 🤖 [RCT Labs vs LLM APIs — how JITNA solves the vendor lock-in problem](/en/compare/rct-labs-vs-llm-apis)
+- 🤖 [Delentia Labs vs LLM APIs — how JITNA solves the vendor lock-in problem](/en/compare/delentia-labs-vs-llm-apis)
 - 🧠 [Intent Operating System — the full 4-layer architecture JITNA fits into](/en/blog/intent-operating-system-explained)
 
 ---
 
-*This article was written by Ittirit Saengow, founder and sole developer of RCT Labs. JITNA is part of the RCT (Reverse Component Thinking) Ecosystem — a constitutional AI operating system built independently in Bangkok, Thailand.*
+*This article was written by Ittirit Saengow, founder and sole developer of Delentia Labs. JITNA is part of the RCT (Reverse Component Thinking) Ecosystem — a constitutional AI operating system built independently in Bangkok, Thailand.*

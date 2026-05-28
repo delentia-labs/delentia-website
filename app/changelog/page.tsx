@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getSoftwareApplicationSchema } from "@/lib/schema"
@@ -11,10 +11,10 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Changelog",
     "บันทึกการเปลี่ยนแปลง",
-    "RCT Labs product changelog: version history, feature releases, performance improvements, and breaking changes across all RCT products and protocols.",
-    "บันทึกการเปลี่ยนแปลงผลิตภัณฑ์ RCT Labs: ประวัติเวอร์ชัน การเปิดตัวฟีเจอร์ การปรับปรุงประสิทธิภาพ และการเปลี่ยนแปลงสำคัญ",
+    "Delentia Labs product changelog: version history, feature releases, performance improvements, and breaking changes across all RCT products and protocols.",
+    "บันทึกการเปลี่ยนแปลงผลิตภัณฑ์ Delentia Labs: ประวัติเวอร์ชัน การเปิดตัวฟีเจอร์ การปรับปรุงประสิทธิภาพ และการเปลี่ยนแปลงสำคัญ",
     "/changelog",
-    ["RCT Labs changelog", "version history", "release notes", "product updates", "AI platform updates"]
+    ["Delentia Labs changelog", "version history", "release notes", "product updates", "AI platform updates"]
   )
 }
 
@@ -22,14 +22,14 @@ export default async function ChangelogPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Changelog", url: `https://rctlabs.co${localePrefix}/changelog` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Changelog", url: `https://delentia.com${localePrefix}/changelog` },
   ])
 
   const softwareSchema = {
     ...getSoftwareApplicationSchema(locale),
-    releaseNotes: `https://rctlabs.co${localePrefix}/changelog`,
-    softwareHelp: `https://rctlabs.co${localePrefix}/docs`,
+    releaseNotes: `https://delentia.com${localePrefix}/changelog`,
+    softwareHelp: `https://delentia.com${localePrefix}/docs`,
   }
 
   return (
@@ -40,3 +40,4 @@ export default async function ChangelogPage() {
     </>
   )
 }
+

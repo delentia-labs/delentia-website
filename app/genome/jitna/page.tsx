@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -74,9 +74,9 @@ export default async function GenomeJitnaPage() {
   const localePrefix = isTh ? "/th" : "/en"
 
   const breadcrumb = getBreadcrumbSchema([
-    { name: isTh ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "7 Genome System", url: `https://rctlabs.co${localePrefix}/genome` },
-    { name: "JITNA Genome", url: `https://rctlabs.co${localePrefix}/genome/jitna` },
+    { name: isTh ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "7 Genome System", url: `https://delentia.com${localePrefix}/genome` },
+    { name: "JITNA Genome", url: `https://delentia.com${localePrefix}/genome/jitna` },
   ])
 
   const faq = getFAQSchema([
@@ -225,7 +225,7 @@ export default async function GenomeJitnaPage() {
               items={[
                 { href: `${localePrefix}/protocols`, title: isTh ? "ข้อกำหนด Protocol" : "Protocol Specifications", description: isTh ? "โปรโตคอลทางเทคนิคที่ขับเคลื่อน RCT Ecosystem" : "The technical protocols powering the RCT Ecosystem.", category: "Protocols" },
                 { href: `${localePrefix}/genome`, title: isTh ? "7 Genome System" : "7 Genome System", description: isTh ? "สำรวจ Genome ทั้ง 7 ตัวของ RCT Ecosystem" : "Explore all 7 Genomes of the RCT Ecosystem.", category: "Genome" },
-                { href: `${localePrefix}/blog`, title: isTh ? "บทความวิจัย" : "Research & Blog", description: isTh ? "งานวิจัยและบทความเกี่ยวกับ AI จาก RCT Labs" : "Research papers and AI articles from RCT Labs.", category: "Research" },
+                { href: `${localePrefix}/blog`, title: isTh ? "บทความวิจัย" : "Research & Blog", description: isTh ? "งานวิจัยและบทความเกี่ยวกับ AI จาก Delentia Labs" : "Research papers and AI articles from Delentia Labs.", category: "Research" },
               ]}
             />
             <AuthorBlock authorSlug="ittirit-saengow" locale={locale} />
@@ -237,3 +237,4 @@ export default async function GenomeJitnaPage() {
     </>
   )
 }
+

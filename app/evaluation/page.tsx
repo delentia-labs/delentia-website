@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
 import EvaluationClient from "@/app/evaluation/EvaluationClient"
@@ -26,8 +26,8 @@ export default async function EvaluationPage() {
   const isTh = locale === "th"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: isTh ? "หน้าแรก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: isTh ? "ศูนย์กลางการประเมิน" : "Evaluation", url: `https://rctlabs.co${localePrefix}/evaluation` },
+    { name: isTh ? "หน้าแรก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: isTh ? "ศูนย์กลางการประเมิน" : "Evaluation", url: `https://delentia.com${localePrefix}/evaluation` },
   ])
 
   const faqSchema = getFAQSchema([

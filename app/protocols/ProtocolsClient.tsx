@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -71,7 +71,7 @@ const jsonLd = {
   "@type": "TechArticle",
   "headline": "RCT Protocols — JITNA, FDIA Equation, and RCT-7 Model",
   "description": "Open protocols and mathematical foundations powering the RCT Ecosystem: JITNA communication protocol, FDIA decision equation, and RCT-7 cognitive model.",
-  "author": { "@type": "Organization", "name": "RCT Labs" },
+  "author": { "@type": "Organization", "name": "Delentia Labs" },
   "about": [
     { "@type": "SoftwareApplication", "name": "JITNA Protocol RFC-001", "applicationCategory": "CommunicationProtocol" },
     { "@type": "SoftwareApplication", "name": "FDIA Equation Framework", "applicationCategory": "AIFramework" },
@@ -258,3 +258,4 @@ export default function ProtocolsPage() {
     </>
   )
 }
+

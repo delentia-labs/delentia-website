@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   const metaDescription = post.excerpt && post.excerpt.length < 150
-    ? `${post.excerpt} Read the full article for practical strategies, examples, and best practices from RCT Labs.`
+    ? `${post.excerpt} Read the full article for practical strategies, examples, and best practices from Delentia Labs.`
     : post.excerpt
 
   return createBilingualMetadata(
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     metaDescription || post.title,
     metaDescription || post.title,
     `/blog/${slug}`,
-    ["AI blog", "RCT Labs article"]
+    ["AI blog", "Delentia Labs article"]
   )
 }
 
@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const articleUrl = `${SITE_URL}${localePrefix}/blog/${slug}`
   const summaryId = findHeadingId(headings, ["summary", "executive summary", "what this means"])
   const resourcesId = findHeadingId(headings, ["related resources", "additional links", "sources"])
-  const citation = `${author?.name ?? post.author} (${new Date(post.date).getFullYear()}). ${post.title}. RCT Labs. ${articleUrl}`
+  const citation = `${author?.name ?? post.author} (${new Date(post.date).getFullYear()}). ${post.title}. Delentia Labs. ${articleUrl}`
 
   // --- FAQ schema: extract question-formatted H2 headings for AEO/AI search ---
   // Headings that read as questions (start with What, How, Why, When, Which, Can, Is, Are, Does, Should)
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt && post.excerpt.length < 150
-      ? `${post.excerpt} Read the full article for practical strategies, examples, and best practices from RCT Labs.`
+      ? `${post.excerpt} Read the full article for practical strategies, examples, and best practices from Delentia Labs.`
       : post.excerpt,
     "url": `${SITE_URL}${localePrefix}/blog/${slug}`,
     "datePublished": post.date,
@@ -161,7 +161,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "isPartOf": {
       "@type": "Blog",
       "@id": `${SITE_URL}${localePrefix}/blog`,
-      "name": "RCT Labs Blog",
+      "name": "Delentia Labs Blog",
     },
     "about": post.tags?.map((tag: string) => ({
       "@type": "DefinedTerm",
@@ -187,7 +187,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     } : {}),
     "publisher": {
       "@type": "Organization",
-      "name": "RCT Labs",
+      "name": "Delentia Labs",
       "logo": {
         "@type": "ImageObject",
         "url": `${SITE_URL}/logo.png`
@@ -334,7 +334,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       </span>
                     </div>
                     <p className={`mt-3 text-sm leading-7 text-muted-foreground ${locale === "th" ? "subtitle-th" : ""}`}>
-                      {author?.bio[locale] ?? `${post.author} contributes to the public research and editorial library at RCT Labs.`}
+                      {author?.bio[locale] ?? `${post.author} contributes to the public research and editorial library at Delentia Labs.`}
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {post.tags.slice(0, 3).map((tag) => (

@@ -14,11 +14,11 @@ export const siteConfig = {
 }
 
 export const createPageMetadata = (title: string, description: string, path: string) => ({
-  title: `${title} | RCT Labs`,
+  title: `${title} | Delentia Labs`,
   description,
   canonical: `${siteConfig.url}${path}`,
   openGraph: {
-    title: `${title} | RCT Labs`,
+    title: `${title} | Delentia Labs`,
     description,
     url: `${siteConfig.url}${path}`,
     type: "website" as const,
@@ -33,7 +33,7 @@ export const createPageMetadata = (title: string, description: string, path: str
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: `${title} | RCT Labs`,
+    title: `${title} | Delentia Labs`,
     description,
     images: [siteConfig.ogImage],
   },

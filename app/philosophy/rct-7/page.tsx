@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -65,9 +65,9 @@ export default function RCT7Page() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://rctlabs.co${localePrefix}` },
-      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://rctlabs.co${localePrefix}/philosophy` },
-      { "@type": "ListItem", position: 3, name: "RCT-7", item: `https://rctlabs.co${localePrefix}/philosophy/rct-7` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://delentia.com${localePrefix}` },
+      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://delentia.com${localePrefix}/philosophy` },
+      { "@type": "ListItem", position: 3, name: "RCT-7", item: `https://delentia.com${localePrefix}/philosophy/rct-7` },
     ],
   }
   const faqSchema = {
@@ -206,3 +206,4 @@ export default function RCT7Page() {
     </>
   )
 }
+

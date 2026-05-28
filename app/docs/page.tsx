@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -26,10 +26,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Documentation — RCT Labs Ecosystem 2026.03 Snapshot",
-    "เอกสารประกอบ — RCT Labs Ecosystem 2026.03 Snapshot",
-    "RCT Ecosystem documentation — 10-Layer Architecture, JITNA Protocol RFC-001, 41 Algorithm APIs, RCTDB schema, and deployment guides for enterprise AI governance.",
-    "เอกสาร RCT Ecosystem — สถาปัตยกรรม 10 ชั้น, JITNA Protocol RFC-001, 41 Algorithm APIs, RCTDB schema และคู่มือ Deploy สำหรับ AI Governance ระดับองค์กร",
+    "Documentation — Delentia Labs Ecosystem 2026.03 Snapshot",
+    "เอกสารประกอบ — Delentia Labs Ecosystem 2026.03 Snapshot",
+    "RCT Ecosystem documentation — 10-Layer Architecture, JITNA Protocol RFC-001, 41 Algorithm APIs, DelentiaDB schema, and deployment guides for enterprise AI governance.",
+    "เอกสาร RCT Ecosystem — สถาปัตยกรรม 10 ชั้น, JITNA Protocol RFC-001, 41 Algorithm APIs, DelentiaDB schema และคู่มือ Deploy สำหรับ AI Governance ระดับองค์กร",
     "/docs",
     ["RCT documentation", "AI architecture docs", "JITNA RFC", "API reference", "deployment guide"]
   )
@@ -43,10 +43,10 @@ export default async function DocsPage() {
   const docsSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "RCT Labs Documentation 2026.03 Snapshot",
+    "headline": "Delentia Labs Documentation 2026.03 Snapshot",
     "url": `${SITE_URL}${localePrefix}/docs`,
-    "description": "Technical documentation for the RCT Constitutional AI Operating System — 10-Layer Architecture, JITNA Protocol RFC-001, 41 Algorithm APIs, RCTDB schema, and deployment guides for enterprise AI governance.",
-    "publisher": { "@type": "Organization", "name": "RCT Labs", "url": SITE_URL },
+    "description": "Technical documentation for the RCT Constitutional AI Operating System — 10-Layer Architecture, JITNA Protocol RFC-001, 41 Algorithm APIs, DelentiaDB schema, and deployment guides for enterprise AI governance.",
+    "publisher": { "@type": "Organization", "name": "Delentia Labs", "url": SITE_URL },
     "author": { "@type": "Person", "name": "Ittirit Saengow" }
   }
 
@@ -122,7 +122,7 @@ export default async function DocsPage() {
                 { layer: "L7", name: "Universal Adapters", icon: Workflow, desc: "13 adapters: Home Assistant, Terraform, n8n..." },
                 { layer: "L6", name: "JITNA Protocol", icon: FileText, desc: "RFC-001 v2.0, AI-to-AI communication" },
                 { layer: "L5", name: "SignedAI", icon: CheckCircle, desc: "Multi-LLM consensus, 0.3% hallucination" },
-                { layer: "L4", name: "RCTDB v2.0", icon: Database, desc: "8D memory, Registry/Vault/Governance" },
+                { layer: "L4", name: "DelentiaDB v2.0", icon: Database, desc: "8D memory, Registry/Vault/Governance" },
                 { layer: "L3", name: "41 Algorithms", icon: GitBranch, desc: "9 tiers: Foundation, Intelligence, Consciousness" },
                 { layer: "L2", name: "OS Primitives", icon: Terminal, desc: "Process Model, Scheduler, IPC, 6 RFCs" },
                 { layer: "L1", name: "7 Genome System", icon: Layers, desc: "Architect, ARTENT, JITNA, Codex, SignedAI, Vault, RCT-7" },
@@ -269,8 +269,8 @@ export default async function DocsPage() {
                 <div className="bg-card border border-border rounded-lg p-4">
                   <pre className="text-xs font-mono text-muted-foreground overflow-x-auto">
 {`# Clone the repository
-git clone https://github.com/rctlabs/rct-platform.git
-cd rct-platform
+git clone https://github.com/delentia-labs/delentia-os.git
+cd delentia-os
 
 # Start all services
 docker-compose up -d
@@ -285,7 +285,7 @@ curl http://localhost:8003/health`}
                 <h3 className="text-sm font-semibold text-foreground">2. {isTh ? "การใช้งาน SDK" : "SDK Usage"}</h3>
                 <div className="bg-card border border-border rounded-lg p-4">
                   <pre className="text-xs font-mono text-muted-foreground overflow-x-auto">
-{`import { RCT } from '@rctlabs/sdk';
+{`import { RCT } from '@delentia/sdk';
 
 const client = new RCT({
   apiKey: process.env.RCT_API_KEY
@@ -333,3 +333,4 @@ const result = await client.execute({
     </>
   )
 }
+

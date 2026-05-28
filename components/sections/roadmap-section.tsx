@@ -48,13 +48,13 @@ const roadmapData = {
       phase: "Phase 6", title: "Backend Phase 1 — Full RCT OS", status: "planned" as const,
       color: "#C4745B", bg: "#FEE2E2", darkBg: "#3A1E15",
       summary: "This phase converts the public narrative into a real backend operating state.",
-      tasks: ["ArtentAI connects to live HexaCore backend", "Typhoon integration and GitHub public documentation wave launch"],
+      tasks: ["DelentiaAI connects to live HexaCore backend", "Typhoon integration and GitHub public documentation wave launch"],
     },
     {
       phase: "Phase 7", title: "Product Launches & Adoption", status: "planned" as const,
       color: "#89B4C8", bg: "#DBEAFE", darkBg: "#152A3A",
       summary: "Productization shifts from system readiness to adoption readiness.",
-      tasks: ["ArtentAI and SignedAI platforms launch", "Enterprise onboarding and adoption optimization begin"],
+      tasks: ["DelentiaAI and SignedAI platforms launch", "Enterprise onboarding and adoption optimization begin"],
     },
     {
       phase: "Phase 8", title: "API Layer & Scale-Out", status: "planned" as const,
@@ -104,13 +104,13 @@ const roadmapData = {
       phase: "Phase 6", title: "Backend Phase 1 — Full RCT OS", status: "planned" as const,
       color: "#C4745B", bg: "#FEE2E2", darkBg: "#3A1E15",
       summary: "เฟสนี้คือการย้ายระบบจาก narrative สาธารณะไปสู่ backend operating state ที่ทำงานจริง",
-      tasks: ["ArtentAI เชื่อมต่อ HexaCore backend จริง", "Typhoon integration และคลื่นเอกสาร GitHub Public เปิดตัว"],
+      tasks: ["DelentiaAI เชื่อมต่อ HexaCore backend จริง", "Typhoon integration และคลื่นเอกสาร GitHub Public เปิดตัว"],
     },
     {
       phase: "Phase 7", title: "Product Launches & Adoption", status: "planned" as const,
       color: "#89B4C8", bg: "#DBEAFE", darkBg: "#152A3A",
       summary: "น้ำหนักงานขยับจาก system readiness ไปสู่ adoption readiness",
-      tasks: ["เปิดตัว ArtentAI และ SignedAI Platform", "เริ่ม onboarding และ adoption optimization"],
+      tasks: ["เปิดตัว DelentiaAI และ SignedAI Platform", "เริ่ม onboarding และ adoption optimization"],
     },
     {
       phase: "Phase 8", title: "API Layer & Scale-Out", status: "planned" as const,

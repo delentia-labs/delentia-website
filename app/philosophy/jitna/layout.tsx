@@ -1,4 +1,4 @@
-import type React from "react"
+﻿import type React from "react"
 import type { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
@@ -22,9 +22,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function JITNALayout({ children }: { children: React.ReactNode }) {
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: "https://rctlabs.co/en" },
-    { name: "Philosophy", url: "https://rctlabs.co/en/philosophy" },
-    { name: "JITNA Language", url: "https://rctlabs.co/en/philosophy/jitna" },
+    { name: "Home", url: "https://delentia.com/en" },
+    { name: "Philosophy", url: "https://delentia.com/en/philosophy" },
+    { name: "JITNA Language", url: "https://delentia.com/en/philosophy/jitna" },
   ])
   const techArticle = {
     "@context": "https://schema.org",
@@ -32,10 +32,10 @@ export default async function JITNALayout({ children }: { children: React.ReactN
     name: "JITNA Language",
     headline: "JITNA: The Intent Specification Language for Auditable AI Workflows",
     description: "JITNA is a formal language for precise intent specification, nodal assembly, and auditable workflow execution in enterprise AI systems built on the RCT constitutional architecture.",
-    url: "https://rctlabs.co/en/philosophy/jitna",
-    author: { "@type": "Person", name: "Ittirit Saengow", url: "https://rctlabs.co/en/authors/ittirit-saengow" },
-    publisher: { "@type": "Organization", name: "RCT Labs", url: "https://rctlabs.co" },
-    keywords: "JITNA, intent specification, auditable AI, workflow execution, RCT Labs",
+    url: "https://delentia.com/en/philosophy/jitna",
+    author: { "@type": "Person", name: "Ittirit Saengow", url: "https://delentia.com/en/authors/ittirit-saengow" },
+    publisher: { "@type": "Organization", name: "Delentia Labs", url: "https://delentia.com" },
+    keywords: "JITNA, intent specification, auditable AI, workflow execution, Delentia Labs",
   }
   return (
     <>

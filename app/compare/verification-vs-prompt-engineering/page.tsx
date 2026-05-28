@@ -44,9 +44,9 @@ export default async function VerificationVsPromptEngineering() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Compare", url: `https://rctlabs.co${localePrefix}/compare` },
-    { name: "Verification vs Prompt Engineering", url: `https://rctlabs.co${localePrefix}/compare/verification-vs-prompt-engineering` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Compare", url: `https://delentia.com${localePrefix}/compare` },
+    { name: "Verification vs Prompt Engineering", url: `https://delentia.com${localePrefix}/compare/verification-vs-prompt-engineering` },
   ])
 
   const faqSchema = getFAQSchema([
@@ -128,7 +128,7 @@ export default async function VerificationVsPromptEngineering() {
                   "Works at the system level (around the model)",
                   "Deterministic โ€” mathematically guaranteed",
                   "One constraint set, works across all 7 HexaCore models",
-                  "Full audit trail (RCTDB + JITNA packet log)",
+                  "Full audit trail (DelentiaDB + JITNA packet log)",
                   "Per-packet validation โ€” no context dilution",
                   "JITNA Normalizer strips injection attempts pre-LLM",
                 ],
@@ -196,4 +196,5 @@ export default async function VerificationVsPromptEngineering() {
     </>
   )
 }
+
 

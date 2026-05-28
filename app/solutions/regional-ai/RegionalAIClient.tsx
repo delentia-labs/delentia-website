@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -41,8 +41,8 @@ export default function RegionalAIClient() {
       <section className="sr-only">
         <p>
           {isTh
-            ? "Regional AI รวม LLM ภูมิภาคอย่าง Typhoon G38 (SCB10X) เข้ากับโครงสร้างประสาน JITNA + SignedAI + RCTDB ของ RCT Ecosystem เพื่อมอบ Sovereign AI ที่เข้าใจภาษาและบริบทท้องถิ่น รองรับ PDPA และข้อกำหนดด้านความเป็นอธิปไตย์ของข้อมูลในเอเชียตะวันออกเฉียงใต้"
-            : "Regional AI integrates LLMs like Typhoon G38 (SCB10X) into the JITNA + SignedAI + RCTDB orchestration layer — delivering sovereign AI that understands local language, regulatory context, and cultural nuance while meeting PDPA and Southeast Asia data residency requirements."}
+            ? "Regional AI รวม LLM ภูมิภาคอย่าง Typhoon G38 (SCB10X) เข้ากับโครงสร้างประสาน JITNA + SignedAI + DelentiaDB ของ RCT Ecosystem เพื่อมอบ Sovereign AI ที่เข้าใจภาษาและบริบทท้องถิ่น รองรับ PDPA และข้อกำหนดด้านความเป็นอธิปไตย์ของข้อมูลในเอเชียตะวันออกเฉียงใต้"
+            : "Regional AI integrates LLMs like Typhoon G38 (SCB10X) into the JITNA + SignedAI + DelentiaDB orchestration layer — delivering sovereign AI that understands local language, regulatory context, and cultural nuance while meeting PDPA and Southeast Asia data residency requirements."}
         </p>
       </section>
 
@@ -193,8 +193,8 @@ AdapterRegistry.register(
             <h3 className="font-bold text-foreground mb-2">{isTh ? "RCT ประสานโมเดล" : "RCT orchestrates models"}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {isTh
-                ? "RCT ใช้ JITNA + SignedAI + RCTDB ในการ Route, Verify และ Persist ผลลัพธ์จากโมเดล Typhoon — ทำให้ปัญญา AI ภาษาไทยอยู่ใน Enterprise-grade Infrastructure"
-                : "RCT uses JITNA + SignedAI + RCTDB to route, verify, and persist results from Typhoon — putting Thai-language AI intelligence inside enterprise-grade infrastructure."}
+                ? "RCT ใช้ JITNA + SignedAI + DelentiaDB ในการ Route, Verify และ Persist ผลลัพธ์จากโมเดล Typhoon — ทำให้ปัญญา AI ภาษาไทยอยู่ใน Enterprise-grade Infrastructure"
+                : "RCT uses JITNA + SignedAI + DelentiaDB to route, verify, and persist results from Typhoon — putting Thai-language AI intelligence inside enterprise-grade infrastructure."}
             </p>
           </div>
         </div>
@@ -257,3 +257,4 @@ AdapterRegistry.register(
     </main>
   )
 }
+

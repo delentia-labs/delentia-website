@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getBreadcrumbSchema, getOrganizationSchema } from "@/lib/schema"
@@ -34,13 +34,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "About RCT Labs — Constitutional AI Platform | Thai-Built Enterprise AI Operating System",
-    "เกี่ยวกับ RCT Labs — Constitutional AI Platform ระดับองค์กร สร้างโดยคนไทย",
+    "About Delentia Labs — Constitutional AI Platform | Thai-Built Enterprise AI Operating System",
+    "เกี่ยวกับ Delentia Labs — Constitutional AI Platform ระดับองค์กร สร้างโดยคนไทย",
     // Lengthened meta descriptions for SEO (150-160 chars)
-    "RCT Labs: Constitutional AI platform with a public SDK verification lane and a separate enterprise runtime snapshot — 41 algorithms, public SDK v1.0.4b0, and benchmark disclosures with explicit scope.",
-    "RCT Labs: แพลตฟอร์ม Constitutional AI ที่แยก public SDK verification ออกจาก enterprise runtime snapshot อย่างชัดเจน — 41 algorithms, public SDK v1.0.4b0 และ benchmark disclosures ที่มีการระบุ scope.",
+    "Delentia Labs: Constitutional AI platform with a public SDK verification lane and a separate enterprise runtime snapshot — 41 algorithms, public SDK v1.0.4b0, and benchmark disclosures with explicit scope.",
+    "Delentia Labs: แพลตฟอร์ม Constitutional AI ที่แยก public SDK verification ออกจาก enterprise runtime snapshot อย่างชัดเจน — 41 algorithms, public SDK v1.0.4b0 และ benchmark disclosures ที่มีการระบุ scope.",
     "/about",
-    ["Constitutional AI", "enterprise AI platform", "AI governance", "Thailand AI", "RCT Labs", "Ittirit Saengow", "multi-LLM consensus"]
+    ["Constitutional AI", "enterprise AI platform", "AI governance", "Thailand AI", "Delentia Labs", "Ittirit Saengow", "multi-LLM consensus"]
   )
 }
 
@@ -53,24 +53,24 @@ export default async function AboutPage() {
     "name": "Ittirit Saengow",
     "alternateName": "อิทธิฤทธิ์ แซ่โง้ว",
     "jobTitle": "Architect of Intent",
-    "description": "Solo architect from Khlong Toei, Bangkok. Creator of RCT Labs, FDIA equation, and the 7 Genome System.",
-    "url": "https://rctlabs.co/about",
+    "description": "Solo architect from Khlong Toei, Bangkok. Creator of Delentia Labs, FDIA equation, and the 7 Genome System.",
+    "url": "https://delentia.com/about",
     "sameAs": [
       "https://github.com/ittirit720",
-      "https://github.com/rctlabs",
+      "https://github.com/delentia-labs",
       "https://www.linkedin.com/in/ittirit-saengow/"
     ],
     "affiliation": {
       "@type": "Organization",
-      "name": "RCT Labs",
-      "url": "https://rctlabs.co"
+      "name": "Delentia Labs",
+      "url": "https://delentia.com"
     }
   }
   const locale = await getRequestLocale()
   const isTh = locale === "th"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: isTh ? "หน้าหลัก" : "Home", url: `https://rctlabs.co/${locale}` },
-    { name: isTh ? "เกี่ยวกับ" : "About", url: `https://rctlabs.co/${locale}/about` },
+    { name: isTh ? "หน้าหลัก" : "Home", url: `https://delentia.com/${locale}` },
+    { name: isTh ? "เกี่ยวกับ" : "About", url: `https://delentia.com/${locale}/about` },
   ])
   const orgSchema = getOrganizationSchema(locale)
   const runtimeFootprint = String(SITE_MICROSERVICE_COUNT)
@@ -305,7 +305,7 @@ export default async function AboutPage() {
       phase: isTh ? "Memory and runtime" : "Memory and runtime",
       period: isTh ? "มกราคม 2026" : "January 2026",
       title: isTh ? "เริ่มมีโครงสร้าง runtime ที่ใช้ซ้ำ ขยายต่อ และควบคุมได้" : "Reusable, controllable runtime structure started to appear",
-      capability: isTh ? "RCTDB, universal memory schema และ OS primitives ทำให้ระบบเก็บ state, ดึงกลับ, และจัดเส้นทางการทำงานได้จริง" : "RCTDB, the universal memory schema, and OS primitives made it possible to store state, recall it, and route work operationally.",
+      capability: isTh ? "DelentiaDB, universal memory schema และ OS primitives ทำให้ระบบเก็บ state, ดึงกลับ, และจัดเส้นทางการทำงานได้จริง" : "DelentiaDB, the universal memory schema, and OS primitives made it possible to store state, recall it, and route work operationally.",
       businessImpact: isTh ? "นี่คือจุดที่ RCT เริ่มเปลี่ยนจากเอกสารไปสู่ operating substrate" : "This is where RCT began moving from documentation into an operating substrate.",
       tone: "sage",
     },
@@ -406,10 +406,10 @@ export default async function AboutPage() {
           },
           {
             "@type": "Question",
-            "name": "How does RCT Labs prevent AI hallucination in enterprise deployments?",
+            "name": "How does Delentia Labs prevent AI hallucination in enterprise deployments?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "RCT Labs uses a multi-layer verification architecture: the FDIA equation decomposes intent into auditable components, SignedAI runs multi-LLM consensus scoring, and the memory layer cross-checks outputs against governed knowledge. Public pages disclose benchmark claims only with explicit scope; the current 0.3% hallucination figure is framed as controlled-workload benchmark evidence, not a universal production guarantee."
+              "text": "Delentia Labs uses a multi-layer verification architecture: the FDIA equation decomposes intent into auditable components, SignedAI runs multi-LLM consensus scoring, and the memory layer cross-checks outputs against governed knowledge. Public pages disclose benchmark claims only with explicit scope; the current 0.3% hallucination figure is framed as controlled-workload benchmark evidence, not a universal production guarantee."
             }
           },
           {
@@ -417,15 +417,15 @@ export default async function AboutPage() {
             "name": "What is JITNA RFC-001 and why does it matter for enterprise AI?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "JITNA RFC-001 (Just-In-Time Nodal Assembly Request for Comments 001) is an open protocol published by RCT Labs that defines a language-agnostic standard for expressing AI intent as structured, verifiable node graphs. Enterprises benefit because JITNA-compliant systems produce auditable intent trails, enabling compliance teams to trace every AI decision back to its originating intent specification."
+              "text": "JITNA RFC-001 (Just-In-Time Nodal Assembly Request for Comments 001) is an open protocol published by Delentia Labs that defines a language-agnostic standard for expressing AI intent as structured, verifiable node graphs. Enterprises benefit because JITNA-compliant systems produce auditable intent trails, enabling compliance teams to trace every AI decision back to its originating intent specification."
             }
           },
           {
             "@type": "Question",
-            "name": "Is RCT Labs suitable for large enterprise deployments?",
+            "name": "Is Delentia Labs suitable for large enterprise deployments?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "RCT Labs is being positioned for enterprise requirements through governed routing, persistent memory, verification layers, and a separately disclosed runtime snapshot. Public evidence currently lives in the open SDK and public methodology pages, while larger runtime scale claims are clearly marked as enterprise-private snapshot data."
+              "text": "Delentia Labs is being positioned for enterprise requirements through governed routing, persistent memory, verification layers, and a separately disclosed runtime snapshot. Public evidence currently lives in the open SDK and public methodology pages, while larger runtime scale claims are clearly marked as enterprise-private snapshot data."
             }
           },
           {
@@ -433,7 +433,7 @@ export default async function AboutPage() {
             "name": "What makes Signed AI different from standard AI output verification?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Signed AI is RCT Labs' multi-model consensus engine that attaches a cryptographically-inspired quality signature to every AI output. It evaluates outputs across 8 quality dimensions — accuracy, relevance, coherence, safety, completeness, timeliness, originality, and enterprise-alignment — and only releases outputs that cross a configurable consensus threshold across multiple LLMs. This creates an auditable chain of verification, not a single-model assertion."
+              "text": "Signed AI is Delentia Labs' multi-model consensus engine that attaches a cryptographically-inspired quality signature to every AI output. It evaluates outputs across 8 quality dimensions — accuracy, relevance, coherence, safety, completeness, timeliness, originality, and enterprise-alignment — and only releases outputs that cross a configurable consensus threshold across multiple LLMs. This creates an auditable chain of verification, not a single-model assertion."
             }
           }
         ]
@@ -865,3 +865,4 @@ export default async function AboutPage() {
     </>
   )
 }
+

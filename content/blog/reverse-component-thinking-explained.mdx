@@ -1,5 +1,5 @@
 ﻿---
-title: "Reverse Component Thinking: The Engineering Philosophy Behind RCT Labs"
+title: "Reverse Component Thinking: The Engineering Philosophy Behind Delentia Labs"
 author: "Ittirit Saengow"
 authorId: "ittirit-saengow"
 reviewerId: "rct-research-desk"
@@ -9,7 +9,7 @@ claimScope: "architecture-benchmark"
 evidenceLane: "Research / benchmark scope"
 lastEvidenceReview: "2026-05-21"
 category: "philosophy"
-excerpt: "Reverse Component Thinking (RCT) is the engineering methodology at the core of RCT Labs. Instead of building forward from features, RCT starts from the desired outcome and decomposes backwards to find the smallest verifiable parts. This article explains why this inversion changes what you build — and why it matters for AI safety."
+excerpt: "Reverse Component Thinking (RCT) is the engineering methodology at the core of Delentia Labs. Instead of building forward from features, RCT starts from the desired outcome and decomposes backwards to find the smallest verifiable parts. This article explains why this inversion changes what you build — and why it matters for AI safety."
 tags: ["Reverse Component Thinking", "RCT", "Methodology", "AI Safety", "Philosophy", "Constitutional AI"]
 readTime: 7
 references:
@@ -17,9 +17,9 @@ references:
   - "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback"
 ---
 
-# Reverse Component Thinking: The Engineering Philosophy Behind RCT Labs
+# Reverse Component Thinking: The Engineering Philosophy Behind Delentia Labs
 
-The "RCT" in RCT Labs stands for **Reverse Component Thinking** — a methodology I developed after four failed businesses taught me that building forwards is the wrong direction.
+The "RCT" in Delentia Labs stands for **Reverse Component Thinking** — a methodology I developed after four failed businesses taught me that building forwards is the wrong direction.
 
 Most engineers think forwards: collect requirements → design the system → build features → test the result. This approach makes intuitive sense. It mirrors how products are conceived, funded, and shipped.
 
@@ -74,7 +74,7 @@ Before any code is written, every component defines its invariants — condition
 Examples from the RCT Ecosystem:
 - `A = 0 → F = 0` (FDIA): No AI output without authorization. Always.
 - SHA-256 determinism: The same inputs always produce the same outputs (verified across 10 runs).
-- Append-only memory: RCTDB records can never be modified, only versioned.
+- Append-only memory: DelentiaDB records can never be modified, only versioned.
 
 Constitutional constraints are not preferences. They are proofs. If a component cannot be shown to satisfy its constraint under adversarial conditions, it is redesigned — not patched.
 
@@ -108,7 +108,7 @@ Reverse Component Thinking is a general methodology. I have applied it to:
 
 ## Summary
 
-Reverse Component Thinking — the "RCT" in RCT Labs — is the engineering philosophy that:
+Reverse Component Thinking — the "RCT" in Delentia Labs — is the engineering philosophy that:
 
 1. Starts from the desired outcome
 2. Decomposes backwards to the smallest verifiable components
@@ -119,4 +119,4 @@ It is the reason the RCT Ecosystem achieves **0.3% hallucination** (vs 12–15%)
 
 ---
 
-*This article was written by Ittirit Saengow, founder and sole developer of RCT Labs.*
+*This article was written by Ittirit Saengow, founder and sole developer of Delentia Labs.*

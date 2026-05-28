@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -125,7 +125,7 @@ export default async function DeltaTracePage() {
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="outline" size="sm" className="font-mono text-xs">
               <Link
-                href="https://github.com/rctlabs/rct-platform/blob/main/tools/generate_delta_trace.py"
+                href="https://github.com/delentia-labs/delentia-os/blob/main/tools/generate_delta_trace.py"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -136,7 +136,7 @@ export default async function DeltaTracePage() {
             </Button>
             <Button asChild variant="outline" size="sm" className="font-mono text-xs">
               <Link
-                href="https://github.com/rctlabs/rct-platform/blob/main/core/delta_engine/memory_delta.py"
+                href="https://github.com/delentia-labs/delentia-os/blob/main/core/delta_engine/memory_delta.py"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -270,8 +270,8 @@ export default async function DeltaTracePage() {
             </p>
             <pre className="bg-[#0f172a] border border-[#334155] rounded-lg p-4 text-xs font-mono overflow-x-auto text-[#10b981] leading-relaxed">
               {`# Clone and install
-git clone https://github.com/rctlabs/rct-platform.git
-cd rct-platform
+git clone https://github.com/delentia-labs/delentia-os.git
+cd delentia-os
 pip install -e .
 
 # Run the 60-tick demo simulation
@@ -291,3 +291,4 @@ python tools/generate_delta_trace.py --demo --ticks 200 --output my_trace.html`}
     </>
   )
 }
+

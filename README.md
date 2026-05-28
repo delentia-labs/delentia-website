@@ -1,11 +1,11 @@
 ﻿<div align="center">
 
-# RCT Labs — Constitutional AI Operating System
+# Delentia Labs — Constitutional AI Operating System
 
-Website of [rctlabs.co](https://rctlabs.co) — The Constitutional AI Operating System.
+Website of [delentia.com](https://delentia.com) — The Constitutional AI Operating System.
 Built with Next.js 16 App Router, fully bilingual (EN/TH), ISR-optimized, 152 static pages.
 
-[![Deployed](https://img.shields.io/badge/deployed-rctlabs.co-brightgreen?logo=vercel)](https://rctlabs.co)
+[![Deployed](https://img.shields.io/badge/deployed-delentia.com-brightgreen?logo=vercel)](https://delentia.com)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.4-black?logo=next.js)](next.config.mjs)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript)](tsconfig.json)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38BDF8?logo=tailwindcss)](app/globals.css)
@@ -24,7 +24,7 @@ Built with Next.js 16 App Router, fully bilingual (EN/TH), ISR-optimized, 152 st
 <details>
 <summary><strong>📋 Table of Contents</strong></summary>
 
-- [What is rctlabs.co?](#what-is-rctlabsco)
+- [What is delentia.com?](#what-is-rctlabsco)
 - [FDIA Equation](#fdia-equation)
 - [Key Metrics](#key-metrics)
 - [Architecture](#architecture)
@@ -48,13 +48,13 @@ Built with Next.js 16 App Router, fully bilingual (EN/TH), ISR-optimized, 152 st
 
 ---
 
-## What is rctlabs.co?
+## What is delentia.com?
 
-**rctlabs.co** is the official website for RCT Labs — the team behind the Constitutional AI Operating System (CAIOS). The site serves as the primary interface for communicating RCT Labs' research, products, philosophy, and ecosystem to the world.
+**delentia.com** is the official website for Delentia Labs — the team behind the Constitutional AI Operating System (CAIOS). The site serves as the primary interface for communicating Delentia Labs' research, products, philosophy, and ecosystem to the world.
 
 The website is a high-performance, fully bilingual (English + Thai) Next.js application with Incremental Static Regeneration (ISR), a complete SEO layer (hreflang, Schema.org JSON-LD, auto-sitemap), and a bilingual MDX blog system.
 
-> **Note:** This repo contains the **marketing + documentation website** only. For the Constitutional AI SDK, see [`rct-platform`](https://github.com/rctlabs/rct-platform).
+> **Note:** This repo contains the **marketing + documentation website** only. For the Constitutional AI SDK, see [`delentia-os`](https://github.com/delentia-labs/delentia-os).
 
 [↑ Back to top](#rct-labs--constitutional-ai-operating-system)
 
@@ -62,7 +62,7 @@ The website is a high-performance, fully bilingual (English + Thai) Next.js appl
 
 ## FDIA Equation
 
-The FDIA equation is the foundational concept of RCT Labs — the mathematical model behind Constitutional AI decision-making:
+The FDIA equation is the foundational concept of Delentia Labs — the mathematical model behind Constitutional AI decision-making:
 
 ```
 F = D^I × A
@@ -168,7 +168,7 @@ Performance Guards:
 
 ```bash
 # Clone the repository
-git clone https://github.com/rctlabs/rctlabs-website.git
+git clone https://github.com/delentia-labs/rctlabs-website.git
 cd rctlabs-website
 
 # Install dependencies
@@ -256,8 +256,8 @@ The website is **fully bilingual** — English and Thai served from path-prefixe
 
 | Locale | Path Prefix | Primary Font | Example URL |
 |--------|-------------|--------------|-------------|
-| English | `/en/*` | Space Grotesk | `https://rctlabs.co/en/blog/fdia-equation-explained` |
-| Thai | `/th/*` | Kanit | `https://rctlabs.co/th/blog/fdia-equation-explained` |
+| English | `/en/*` | Space Grotesk | `https://delentia.com/en/blog/fdia-equation-explained` |
+| Thai | `/th/*` | Kanit | `https://delentia.com/th/blog/fdia-equation-explained` |
 
 **How it works:**
 
@@ -386,7 +386,7 @@ NEXT_PUBLIC_SUPABASE_URL=https://xxxxxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
 
 # Site URL (used for sitemap + canonical)
-NEXT_PUBLIC_SITE_URL=https://rctlabs.co
+NEXT_PUBLIC_SITE_URL=https://delentia.com
 
 # Auto-injected by Vercel — no action required
 # VERCEL=1
@@ -402,7 +402,7 @@ NEXT_PUBLIC_SITE_URL=https://rctlabs.co
 | `BING_SITE_VERIFICATION` | Optional | Bing Webmaster token |
 | `NEXT_PUBLIC_SUPABASE_URL` | Optional | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Optional | Supabase anonymous key |
-| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical base URL (default: `https://rctlabs.co`) |
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical base URL (default: `https://delentia.com`) |
 
 [↑ Back to top](#rct-labs--constitutional-ai-operating-system)
 
@@ -426,11 +426,11 @@ NEXT_PUBLIC_SITE_URL=https://rctlabs.co
 
 ## Deployment
 
-Live at **[rctlabs.co](https://rctlabs.co)** — auto-deployed via Vercel on every push to `main`.
+Live at **[delentia.com](https://delentia.com)** — auto-deployed via Vercel on every push to `main`.
 
 | Environment | URL | Trigger |
 |-------------|-----|---------|
-| Production | https://rctlabs.co | Push to `main` |
+| Production | https://delentia.com | Push to `main` |
 | Preview | https://rctlabs-git-*.vercel.app | Pull Request |
 
 **Deploy checklist:**
@@ -473,7 +473,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for full pre-launch checklist.
 
 ## License
 
-© 2026 RCT Labs / Ittirit Saengow. All rights reserved.
+© 2026 Delentia Labs / Ittirit Saengow. All rights reserved.
 This repository's source code is **proprietary and confidential**.
 Unauthorized copying, distribution, or use is strictly prohibited.
 
@@ -483,9 +483,9 @@ Unauthorized copying, distribution, or use is strictly prohibited.
 
 | Channel | Link |
 |---------|------|
-| Website | [rctlabs.co](https://rctlabs.co) |
-| Email | founder@rctlabs.co |
-| GitHub (Org) | [github.com/rctlabs](https://github.com/rctlabs) |
+| Website | [delentia.com](https://delentia.com) |
+| Email | founder@delentia.com |
+| GitHub (Org) | [github.com/delentia-labs](https://github.com/delentia-labs) |
 | GitHub (Personal) | [github.com/ittirit720](https://github.com/ittirit720) |
 | LinkedIn | [ittirit-saengow](https://www.linkedin.com/in/ittirit-saengow/) |
 | X / Twitter | [@ittirit_rct](https://x.com/ittirit_rct) |
@@ -497,17 +497,17 @@ Unauthorized copying, distribution, or use is strictly prohibited.
 
 | Repository | Description | Link |
 |------------|-------------|------|
-| `rct-platform` | Open-source SDK — Constitutional AI runtime (Apache 2.0) | [github.com/rctlabs/rct-platform](https://github.com/rctlabs/rct-platform) |
-| `rct-platform` Docs | GitHub Pages — SDK documentation | [rctlabs.github.io/rct-platform](https://rctlabs.github.io/rct-platform/) |
+| `delentia-os` | Open-source SDK — Constitutional AI runtime (Apache 2.0) | [github.com/delentia-labs/delentia-os](https://github.com/delentia-labs/delentia-os) |
+| `delentia-os` Docs | GitHub Pages — SDK documentation | [delentia-labs.github.io/delentia-os](https://delentia-labs.github.io/delentia-os/) |
 
 ---
 
 ## 🇹🇭 ภาษาไทย / Thai Documentation
 
-### rctlabs.co คืออะไร?
+### delentia.com คืออะไร?
 
-**rctlabs.co** คือเว็บไซต์หลักของ RCT Labs — ทีมผู้สร้าง Constitutional AI Operating System (CAIOS)
-เว็บไซต์ทำหน้าที่เป็นช่องทางหลักในการสื่อสารงานวิจัย ผลิตภัณฑ์ ปรัชญา และ ecosystem ของ RCT Labs
+**delentia.com** คือเว็บไซต์หลักของ Delentia Labs — ทีมผู้สร้าง Constitutional AI Operating System (CAIOS)
+เว็บไซต์ทำหน้าที่เป็นช่องทางหลักในการสื่อสารงานวิจัย ผลิตภัณฑ์ ปรัชญา และ ecosystem ของ Delentia Labs
 
 สร้างด้วย Next.js 16 App Router, รองรับ 2 ภาษา (EN/TH), ISR-optimized, SEO Layer ครบ
 (hreflang, Schema.org JSON-LD, Auto-Sitemap) และระบบ Blog MDX แบบ bilingual
@@ -527,7 +527,7 @@ Unauthorized copying, distribution, or use is strictly prohibited.
 ### เริ่มต้นใช้งาน (Quick Start)
 
 ```bash
-git clone https://github.com/rctlabs/rctlabs-website.git
+git clone https://github.com/delentia-labs/rctlabs-website.git
 cd rctlabs-website
 npm install
 npm run dev   # → http://localhost:3005
@@ -580,9 +580,9 @@ F = D^I × A
 
 | ช่องทาง | ลิงก์ |
 |---------|-------|
-| เว็บไซต์ | [rctlabs.co](https://rctlabs.co) |
-| อีเมล | founder@rctlabs.co |
-| GitHub (Org) | [github.com/rctlabs](https://github.com/rctlabs) |
+| เว็บไซต์ | [delentia.com](https://delentia.com) |
+| อีเมล | founder@delentia.com |
+| GitHub (Org) | [github.com/delentia-labs](https://github.com/delentia-labs) |
 | GitHub (Personal) | [github.com/ittirit720](https://github.com/ittirit720) |
 | LinkedIn | [ittirit-saengow](https://www.linkedin.com/in/ittirit-saengow/) |
 | X/Twitter | [@ittirit_rct](https://x.com/ittirit_rct) |
@@ -590,4 +590,4 @@ F = D^I × A
 
 ---
 
-*© 2026 RCT Labs / Ittirit Saengow — Built with Next.js 16.2.4, Tailwind CSS v4, Framer Motion 12*
+*© 2026 Delentia Labs / Ittirit Saengow — Built with Next.js 16.2.4, Tailwind CSS v4, Framer Motion 12*

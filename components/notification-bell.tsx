@@ -12,7 +12,7 @@ import NotificationDropdown, { type NotificationItem } from "@/components/notifi
 const PLACEHOLDER_NOTIFICATIONS: NotificationItem[] = [
   {
     id: "1",
-    title: "Welcome to RCT Labs",
+    title: "Welcome to Delentia Labs",
     message: "Explore our AI Operating System protocols and start building.",
     time: "Just now",
     read: false,

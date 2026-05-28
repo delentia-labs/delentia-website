@@ -1,6 +1,6 @@
 ﻿---
 title: "How to Reduce AI Hallucination: The FDIA Approach"
-author: "RCT Labs Research Desk"
+author: "Delentia Labs Research Desk"
 authorId: "rct-research-desk"
 reviewerId: "ittirit-saengow"
 date: "2026-02-15"
@@ -21,7 +21,7 @@ references:
 
 # How to Reduce AI Hallucination: The FDIA Approach
 
-AI hallucination — the tendency of large language models to generate confident but factually incorrect output — remains one of the most critical challenges in production AI deployments. At RCT Labs, our approach to hallucination reduction is grounded in the FDIA equation and a commitment to benchmark-verified claims.
+AI hallucination — the tendency of large language models to generate confident but factually incorrect output — remains one of the most critical challenges in production AI deployments. At Delentia Labs, our approach to hallucination reduction is grounded in the FDIA equation and a commitment to benchmark-verified claims.
 
 ## What Is AI Hallucination?
 
@@ -31,7 +31,7 @@ In enterprise contexts, hallucination is not a theoretical risk — it is a meas
 
 ## The FDIA Framework for Hallucination Reduction
 
-RCT Labs uses the FDIA equation as the analytical foundation for hallucination risk assessment:
+Delentia Labs uses the FDIA equation as the analytical foundation for hallucination risk assessment:
 
 **F = D^I × A**
 
@@ -65,7 +65,7 @@ Map your deployment to FDIA variables before choosing a mitigation strategy:
 | I (integration depth) | Multi-source cross-validation | Single LLM call, no grounding |
 | A (autonomy) | Human review required before action | Fully automated downstream action |
 
-When A approaches 1.0 and D is below 0.7, the system is in the high-hallucination-risk zone. In the RCT Labs HexaCore platform, A = 0 is the default for all consequential decisions — the model cannot act unilaterally regardless of confidence score.
+When A approaches 1.0 and D is below 0.7, the system is in the high-hallucination-risk zone. In the Delentia Labs HexaCore platform, A = 0 is the default for all consequential decisions — the model cannot act unilaterally regardless of confidence score.
 
 ### 3. Add Memory Architecture for Critical Information
 
@@ -78,7 +78,7 @@ Key principles for memory-based hallucination reduction:
 
 ### 4. Implement Multi-Model Consensus (HexaCore Pattern)
 
-Single-model output has no error-detection layer. The RCT Labs HexaCore architecture runs 7 LLMs in parallel and requires consensus across a configurable majority before accepting output. When models disagree, the system surfaces the disagreement rather than picking one answer silently.
+Single-model output has no error-detection layer. The Delentia Labs HexaCore architecture runs 7 LLMs in parallel and requires consensus across a configurable majority before accepting output. When models disagree, the system surfaces the disagreement rather than picking one answer silently.
 
 This approach does not eliminate hallucination but creates an adversarial check: a hallucinated answer from one model must also be hallucinated in the same direction by the majority to pass. Our benchmark target is 0.3% hallucination rate — currently under formal validation.
 
@@ -90,13 +90,13 @@ Hallucination reduction is not a one-time configuration. It requires ongoing mea
 - **Benchmark suites**: GAIA, TruthfulQA, and domain-specific evaluation harnesses
 - **Production monitoring**: Log disagreement events, confidence scores, and user correction signals
 
-The RCT Labs test suite currently includes 4,849 automated tests, with backend-validated coverage at 66.7% (target: 100%). Every capability claim is gated by a passing CI benchmark.
+The Delentia Labs test suite currently includes 4,849 automated tests, with backend-validated coverage at 66.7% (target: 100%). Every capability claim is gated by a passing CI benchmark.
 
 ## What the Research Shows
 
 Published research on LLM hallucination rates for general-purpose instruction-following models typically shows hallucination rates in the 12–15% range on factual benchmarks (HellaSwag, TruthfulQA). Constitutional AI enforcement and multi-model consensus architectures show meaningful reductions in several academic evaluations, though results vary by domain and task type.
 
-RCT Labs' benchmark hallucination target is 0.3%. This is a design target under active benchmarking — not a shipped, validated production claim. We will publish formal benchmark results once validation is complete.
+Delentia Labs' benchmark hallucination target is 0.3%. This is a design target under active benchmarking — not a shipped, validated production claim. We will publish formal benchmark results once validation is complete.
 
 ## Summary
 
@@ -107,7 +107,7 @@ Hallucination reduction is an engineering problem, not a prompt-engineering hack
 3. **Lower A** — require human review for consequential autonomous actions
 4. **Measure continuously** — treat hallucination rate as a first-class engineering metric
 
-If you are building on the RCT Labs platform, the HexaCore consensus layer and Constitutional AI enforcement are designed to address all four levers simultaneously.
+If you are building on the Delentia Labs platform, the HexaCore consensus layer and Constitutional AI enforcement are designed to address all four levers simultaneously.
 
 ---
 

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -24,16 +24,16 @@ export default function CompanyClient() {
       icon: Briefcase,
       title: isTh ? "Careers" : "Careers",
       description: isTh
-        ? "เปิดบทสนทนาเรื่อง collaboration, advisory และ future opportunities กับ RCT Labs"
-        : "Open collaboration, advisory, and future-opportunity conversations with RCT Labs.",
+        ? "เปิดบทสนทนาเรื่อง collaboration, advisory และ future opportunities กับ Delentia Labs"
+        : "Open collaboration, advisory, and future-opportunity conversations with Delentia Labs.",
       href: `${localePrefix}/company/careers`,
     },
     {
       icon: FileText,
       title: isTh ? "Press" : "Press",
       description: isTh
-        ? "ดูข่าวสาร company facts และ media references ของ RCT Labs"
-        : "Review news, company facts, and media references about RCT Labs.",
+        ? "ดูข่าวสาร company facts และ media references ของ Delentia Labs"
+        : "Review news, company facts, and media references about Delentia Labs.",
       href: `${localePrefix}/press`,
     },
     {
@@ -49,26 +49,26 @@ export default function CompanyClient() {
   const faqs = isTh
     ? [
         {
-          question: "RCT Labs พร้อมใช้งานใน production จริงหรือไม่",
+          question: "Delentia Labs พร้อมใช้งานใน production จริงหรือไม่",
           answer:
             `ใช่ แต่เราแยก evidence lane ชัดเจน: public SDK proof lane ปัจจุบันยืนยัน ${SITE_PUBLIC_SDK_TESTS} tests ที่ ${SITE_PUBLIC_SDK_COVERAGE} coverage ส่วน enterprise private snapshot ใช้สำหรับ runtime validation วงกว้างกว่า (${SITE_TEST_COUNT} tests) และมี availability target สำหรับโปรแกรมที่ deploy จริง`,
         },
         {
-          question: "อะไรทำให้ RCT Labs แตกต่างจาก LangChain หรือ AutoGPT",
+          question: "อะไรทำให้ Delentia Labs แตกต่างจาก LangChain หรือ AutoGPT",
           answer:
-            "RCT Labs ใช้ constitutional architecture ที่ทุก AI output ต้องผ่าน governance และ policy verification ก่อน ต่างจาก framework อื่นที่เน้นเพียง orchestration โดยเราแสดง benchmark evidence สำหรับ FDIA accuracy 0.92 เทียบกับ baseline อุตสาหกรรม 0.65 พร้อม full audit trail, Delta Engine compression 74% และ PDPA compliance by design",
+            "Delentia Labs ใช้ constitutional architecture ที่ทุก AI output ต้องผ่าน governance และ policy verification ก่อน ต่างจาก framework อื่นที่เน้นเพียง orchestration โดยเราแสดง benchmark evidence สำหรับ FDIA accuracy 0.92 เทียบกับ baseline อุตสาหกรรม 0.65 พร้อม full audit trail, Delta Engine compression 74% และ PDPA compliance by design",
         },
       ]
     : [
         {
-          question: "Is RCT Labs production-ready?",
+          question: "Is Delentia Labs production-ready?",
           answer:
             `Yes, with separated evidence lanes. The current public SDK proof lane verifies ${SITE_PUBLIC_SDK_TESTS} tests at ${SITE_PUBLIC_SDK_COVERAGE} coverage, while the enterprise private snapshot covers broader runtime validation (${SITE_TEST_COUNT} tests) and an availability target for deployed programs.`,
         },
         {
           question: "What makes this different from LangChain or AutoGPT?",
           answer:
-            "RCT Labs uses a constitutional architecture where every AI output must pass governance and policy verification before execution. Unlike orchestration-only frameworks, RCT Labs provides full audit trails, 74% Delta Engine memory compression, PDPA compliance by design, and benchmark evidence for a measured FDIA accuracy of 0.92 versus the 0.65 industry baseline.",
+            "Delentia Labs uses a constitutional architecture where every AI output must pass governance and policy verification before execution. Unlike orchestration-only frameworks, Delentia Labs provides full audit trails, 74% Delta Engine memory compression, PDPA compliance by design, and benchmark evidence for a measured FDIA accuracy of 0.92 versus the 0.65 industry baseline.",
         },
       ]
 
@@ -100,7 +100,7 @@ export default function CompanyClient() {
             <ShieldCheck className="h-4 w-4" />
             <span>Company Overview</span>
           </div>
-          <h1 className="text-5xl font-bold leading-tight text-balance text-foreground md:text-6xl">RCT Labs</h1>
+          <h1 className="text-5xl font-bold leading-tight text-balance text-foreground md:text-6xl">Delentia Labs</h1>
           <p className="mx-auto max-w-3xl text-xl text-balance text-muted-foreground md:text-2xl">
             {isTh
               ? "องค์กรที่กำลังสร้าง Intent Operating System และ constitutional AI infrastructure สำหรับงานระดับองค์กรที่ต้องการ trust, auditability และ deployment discipline"
@@ -115,12 +115,12 @@ export default function CompanyClient() {
             <div>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-warm-amber">Answer-First Summary</div>
               <h2 className="mt-3 text-3xl font-bold text-foreground">
-                {isTh ? "สรุปสั้นที่สุด: RCT Labs คืออะไร" : "Short Answer: What RCT Labs Is"}
+                {isTh ? "สรุปสั้นที่สุด: Delentia Labs คืออะไร" : "Short Answer: What Delentia Labs Is"}
               </h2>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                 {isTh
-                  ? "RCT Labs คือองค์กรที่พัฒนา AI platform, open protocols และ trust infrastructure โดยมอง AI เป็น operating-system problem มากกว่าการต่อ model แบบแยกจุด จึงให้ความสำคัญกับ architecture, governance, memory และ verification พร้อมกัน"
-                  : "RCT Labs builds AI platforms, open protocols, and trust infrastructure by treating AI as an operating-system problem rather than a set of isolated model integrations. That is why the company focuses on architecture, governance, memory, and verification together."}
+                  ? "Delentia Labs คือองค์กรที่พัฒนา AI platform, open protocols และ trust infrastructure โดยมอง AI เป็น operating-system problem มากกว่าการต่อ model แบบแยกจุด จึงให้ความสำคัญกับ architecture, governance, memory และ verification พร้อมกัน"
+                  : "Delentia Labs builds AI platforms, open protocols, and trust infrastructure by treating AI as an operating-system problem rather than a set of isolated model integrations. That is why the company focuses on architecture, governance, memory, and verification together."}
               </p>
             </div>
             <div className="rounded-2xl border border-warm-amber/20 bg-warm-amber/5 p-5">
@@ -285,7 +285,7 @@ export default function CompanyClient() {
       <section className="mx-auto max-w-7xl px-4 py-24">
         <div className="rounded-lg bg-primary p-12 text-primary-foreground md:p-16">
           <div className="space-y-6">
-            <h2 className="text-4xl font-bold">{isTh ? "สนใจ RCT Labs มากขึ้นหรือไม่" : "Interested in RCT Labs?"}</h2>
+            <h2 className="text-4xl font-bold">{isTh ? "สนใจ Delentia Labs มากขึ้นหรือไม่" : "Interested in Delentia Labs?"}</h2>
             <p className="max-w-2xl text-lg opacity-90">
               {isTh
                 ? "หากคุณต้องการประเมินระบบ พูดคุยด้าน partnership หรือทำความเข้าใจ technical direction ของทีมเพิ่มเติม สามารถติดต่อเราได้โดยตรง"
@@ -304,3 +304,4 @@ export default function CompanyClient() {
     </main>
   )
 }
+

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { usePathname } from "next/navigation"
 import { Activity, BookOpen, Brain, Container, FileText, GitBranch, Key, Layers, ScrollText, Shield } from "lucide-react"
@@ -64,8 +64,8 @@ export default function ResearchClient() {
       tags: ["Verification", "Auditability", "Safety"],
     },
     {
-      slug: "rctdb-8d-memory",
-      title: language === "th" ? "RCTDB v2.0: Persistent Enterprise Memory Architecture" : "RCTDB v2.0: Persistent Enterprise Memory Architecture",
+      slug: "DelentiaDB-8d-memory",
+      title: language === "th" ? "DelentiaDB v2.0: Persistent Enterprise Memory Architecture" : "DelentiaDB v2.0: Persistent Enterprise Memory Architecture",
       description: language === "th" ? "งานออกแบบ memory architecture สำหรับ enterprise agents ที่รวม structured context, provenance, compression และ cross-session continuity." : "A persistent memory architecture for enterprise agents, combining structured context, provenance, compression, and cross-session continuity.",
       href: `${localePrefix}/solutions/enterprise-ai-memory`,
       badge: language === "th" ? "Core" : "Core",

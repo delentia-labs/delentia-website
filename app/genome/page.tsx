@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -22,8 +22,8 @@ export default async function GenomePage() {
   const localePrefix = locale === "th" ? "/th" : ""
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "7 Genome System" : "7 Genome System", url: `https://rctlabs.co${localePrefix}/genome` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "7 Genome System" : "7 Genome System", url: `https://delentia.com${localePrefix}/genome` },
   ])
 
   const itemListSchema = {
@@ -31,13 +31,13 @@ export default async function GenomePage() {
     "@type": "ItemList",
     name: locale === "th" ? "RCT 7 Genome System" : "RCT 7 Genome System",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "G1 — Architect's Genome (WHY)", url: `https://rctlabs.co${localePrefix}/genome` },
-      { "@type": "ListItem", position: 2, name: "G2 — Constitutional Genome (WHAT)", url: `https://rctlabs.co${localePrefix}/genome` },
-      { "@type": "ListItem", position: 3, name: "G3 — JITNA Routing Genome (HOW)", url: `https://rctlabs.co${localePrefix}/technology/jitna` },
-      { "@type": "ListItem", position: 4, name: "G4 — Trust Genome (WHO)", url: `https://rctlabs.co${localePrefix}/genome` },
-      { "@type": "ListItem", position: 5, name: "G5 — Temporal Genome (WHEN)", url: `https://rctlabs.co${localePrefix}/genome` },
-      { "@type": "ListItem", position: 6, name: "G6 — Sovereign Genome (WHERE)", url: `https://rctlabs.co${localePrefix}/technology/constitutional-ai` },
-      { "@type": "ListItem", position: 7, name: "G7 — RCT-7 Mental OS (IMPROVEMENT)", url: `https://rctlabs.co${localePrefix}/technology/rct-7` },
+      { "@type": "ListItem", position: 1, name: "G1 — Architect's Genome (WHY)", url: `https://delentia.com${localePrefix}/genome` },
+      { "@type": "ListItem", position: 2, name: "G2 — Constitutional Genome (WHAT)", url: `https://delentia.com${localePrefix}/genome` },
+      { "@type": "ListItem", position: 3, name: "G3 — JITNA Routing Genome (HOW)", url: `https://delentia.com${localePrefix}/technology/jitna` },
+      { "@type": "ListItem", position: 4, name: "G4 — Trust Genome (WHO)", url: `https://delentia.com${localePrefix}/genome` },
+      { "@type": "ListItem", position: 5, name: "G5 — Temporal Genome (WHEN)", url: `https://delentia.com${localePrefix}/genome` },
+      { "@type": "ListItem", position: 6, name: "G6 — Sovereign Genome (WHERE)", url: `https://delentia.com${localePrefix}/technology/constitutional-ai` },
+      { "@type": "ListItem", position: 7, name: "G7 — RCT-7 Mental OS (IMPROVEMENT)", url: `https://delentia.com${localePrefix}/technology/rct-7` },
     ],
   }
 
@@ -49,3 +49,4 @@ export default async function GenomePage() {
     </>
   )
 }
+

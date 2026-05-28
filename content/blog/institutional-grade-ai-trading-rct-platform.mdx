@@ -6,19 +6,19 @@ reviewerId: "rct-research-desk"
 date: "2026-05-17"
 lastReviewed: "2026-05-12"
 category: "engineering"
-excerpt: "An architectural blueprint for applying rct-platform's FDIA, SignedAI, and Delta Engine to institutional trading. This article maps the 7-state IntentLoop to a complete news-driven trading pipeline — from data ingestion through multi-model risk gating and RCTDB trade outcome logging."
-tags: ["Algorithmic Trading", "AI Trading", "FDIA", "SignedAI", "Delta Engine", "HexaCore", "Intent Loop", "Fintech AI", "rct-platform"]
+excerpt: "An architectural blueprint for applying delentia-os's FDIA, SignedAI, and Delta Engine to institutional trading. This article maps the 7-state IntentLoop to a complete news-driven trading pipeline — from data ingestion through multi-model risk gating and DelentiaDB trade outcome logging."
+tags: ["Algorithmic Trading", "AI Trading", "FDIA", "SignedAI", "Delta Engine", "HexaCore", "Intent Loop", "Fintech AI", "delentia-os"]
 readTime: 14
 references:
-  - "https://github.com/rctlabs/rct-platform"
-  - "https://rctlabs.github.io/rct-platform/examples/"
+  - "https://github.com/delentia-labs/delentia-os"
+  - "https://delentia-labs.github.io/delentia-os/examples/"
   - "https://arxiv.org/abs/2305.14325"
   - "https://www.cfa.org/en/research-and-policy-advocacy/ai-in-investment-management"
 ---
 
 # Building an Institutional-Grade AI Trading System on the RCT Platform
 
-**Important framing before we begin:** This article is an architectural blueprint. `rct-platform` v1.0.2a0 is a developer SDK — it provides the algorithmic building blocks (FDIA scoring, SignedAI consensus, Delta Engine compression, JITNA routing). It is not a production-ready trading system. A working trading deployment based on this architecture requires additional extensions — described explicitly in the [Extensions Required](#what-you-need-to-build) section.
+**Important framing before we begin:** This article is an architectural blueprint. `delentia-os` v1.0.2a0 is a developer SDK — it provides the algorithmic building blocks (FDIA scoring, SignedAI consensus, Delta Engine compression, JITNA routing). It is not a production-ready trading system. A working trading deployment based on this architecture requires additional extensions — described explicitly in the [Extensions Required](#what-you-need-to-build) section.
 
 This is also not financial advice. The patterns described here are engineering patterns for building deterministic, auditable AI systems in the financial domain.
 
@@ -46,7 +46,7 @@ MEMORY_CHECK → Memory Delta Engine (warm recall)
 VALIDATED    → FDIA Scorer (constitutional validation)
 COMPUTING    → Multi-model Analysis (LLM ensemble)
 VERIFYING    → SignedAI Risk Gatekeeper
-COMMITTING   → RCTDB Trade Outcome Logging
+COMMITTING   → DelentiaDB Trade Outcome Logging
 (ADAPT)      → G7 Performance Feedback
 ```
 
@@ -163,12 +163,12 @@ For a high-risk signal (TIER_6, 67% consensus required), six models independentl
 
 **The cryptographic signature matters.** If a trade produces a loss and the organization needs to audit the decision — for compliance, for risk management, for regulatory review — the signed consensus output provides an immutable record: exactly which models evaluated the trade, what each model concluded, whether consensus was reached, at what timestamp, and what the FDIA score was at the time of decision. This is not a log that someone can edit retroactively. It is a signed attestation.
 
-### Stage 6: COMMITTING — RCTDB Trade Outcome Logging
+### Stage 6: COMMITTING — DelentiaDB Trade Outcome Logging
 
-After consensus is reached (or the trade is blocked), the outcome is logged to RCTDB as a Loop Intent Memory:
+After consensus is reached (or the trade is blocked), the outcome is logged to DelentiaDB as a Loop Intent Memory:
 
 ```python
-# Logged in RCTDB for G7 ADAPT cycle
+# Logged in DelentiaDB for G7 ADAPT cycle
 outcome = {
     "loop_id": signal.timestamp,
     "fdia_score": result.f_score,
@@ -206,14 +206,14 @@ In practice, this means 70–80% of routine signals (confirmation of known trend
 
 ## What You Need to Build
 
-`rct-platform` v1.0.2a0 provides the algorithmic core. A production trading deployment requires three additional components:
+`delentia-os` v1.0.2a0 provides the algorithmic core. A production trading deployment requires three additional components:
 
 ### 1. Market Data Adapters
 
 The platform does not include exchange connectivity. You need to build WebSocket connections to your data sources:
 
 ```python
-# Example adapter interface (not included in rct-platform)
+# Example adapter interface (not included in delentia-os)
 class MarketDataAdapter:
     def stream_news(self) -> AsyncIterator[NewsEvent]: ...
     def stream_prices(self, symbols: list[str]) -> AsyncIterator[PriceEvent]: ...
@@ -224,7 +224,7 @@ Tested adapters exist for Interactive Brokers (via ib_insync), Alpaca (via alpac
 
 ### 2. Financial Intent Dictionary
 
-JITNA's 6-field intent schema (`I/D/Δ/A/R/M`) needs a domain-specific vocabulary for financial events. The current `rct-platform` includes a general intent schema. A financial deployment needs:
+JITNA's 6-field intent schema (`I/D/Δ/A/R/M`) needs a domain-specific vocabulary for financial events. The current `delentia-os` includes a general intent schema. A financial deployment needs:
 
 ```python
 # Financial intent classification (extend JITNA vocabulary)
@@ -241,7 +241,7 @@ FINANCIAL_INTENTS = {
 
 ### 3. Position Sizing Algorithm
 
-FDIA produces a signal quality score. How that score translates to position sizing is a separate decision that `rct-platform` does not prescribe. A common approach is a Kelly Criterion variant weighted by the FDIA F score:
+FDIA produces a signal quality score. How that score translates to position sizing is a separate decision that `delentia-os` does not prescribe. A common approach is a Kelly Criterion variant weighted by the FDIA F score:
 
 ```python
 def compute_position_size(f_score: float, kelly_fraction: float, 
@@ -264,7 +264,7 @@ For institutional deployments subject to regulatory oversight (MiFID II, SEC, SE
 1. **FDIA decision trace** — for every trade decision: D score, I classification, A status, resulting F score, constitutional rule applied
 2. **SignedAI consensus record** — Ed25519-signed multi-model agreement, timestamped, with model identities
 3. **Delta Engine recall log** — which prior decisions informed warm recall, at what compression ratio
-4. **RCTDB outcome log** — post-trade performance, loop duration, G7 adaptation signals
+4. **DelentiaDB outcome log** — post-trade performance, loop duration, G7 adaptation signals
 
 These artifacts together answer the regulatory question: "On date X, your system made a decision to reduce semiconductor exposure by 6%. Show us exactly how that decision was made." The answer is not "the AI recommended it" — it is a reproducible, mathematically-verified decision trace.
 
@@ -274,8 +274,8 @@ These artifacts together answer the regulatory question: "On date X, your system
 
 This architectural pattern is designed to be shared with the quantitative trading and algorithmic trading community:
 
-- [GitHub: rct-platform](https://github.com/rctlabs/rct-platform) — the SDK, examples, and benchmark
-- [rctlabs.github.io/rct-platform/examples/](https://rctlabs.github.io/rct-platform/examples/) — full documentation
+- [GitHub: delentia-os](https://github.com/delentia-labs/delentia-os) — the SDK, examples, and benchmark
+- [delentia-labs.github.io/delentia-os/examples/](https://delentia-labs.github.io/delentia-os/examples/) — full documentation
 - Community discussion: Reddit r/algotrading, r/quant, QuantConnect community
 - Academic citation: see CITATION.cff in the repository
 
@@ -283,4 +283,4 @@ If you are building a trading system on this architecture and encounter integrat
 
 ---
 
-*Related articles: [7 Genome System Architecture](/en/blog/rct-7-genome-system) · [FDIA Equation Explained](/en/blog/fdia-equation-explained) · [SignedAI Multi-LLM Consensus](/en/blog/signedai-multi-llm-consensus-explained) · [Delta Engine 74% Compression](/en/blog/delta-engine-74-percent-compression) · [RCT Platform Roadmap](/en/blog/rct-platform-roadmap-preview)*
+*Related articles: [7 Genome System Architecture](/en/blog/rct-7-genome-system) · [FDIA Equation Explained](/en/blog/fdia-equation-explained) · [SignedAI Multi-LLM Consensus](/en/blog/signedai-multi-llm-consensus-explained) · [Delta Engine 74% Compression](/en/blog/delta-engine-74-percent-compression) · [RCT Platform Roadmap](/en/blog/delentia-os-roadmap-preview)*

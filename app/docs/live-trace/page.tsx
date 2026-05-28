@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -183,7 +183,7 @@ export default async function LiveTracePage() {
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="outline" size="sm" className="font-mono text-xs">
               <Link
-                href="https://github.com/rctlabs/rct-platform/blob/main/tools/generate_trace.py"
+                href="https://github.com/delentia-labs/delentia-os/blob/main/tools/generate_trace.py"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -194,7 +194,7 @@ export default async function LiveTracePage() {
             </Button>
             <Button asChild variant="outline" size="sm" className="font-mono text-xs">
               <Link
-                href="https://github.com/rctlabs/rct-platform/tree/main/adversarial_tests"
+                href="https://github.com/delentia-labs/delentia-os/tree/main/adversarial_tests"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -339,28 +339,28 @@ export default async function LiveTracePage() {
             </h2>
             <p className="text-warm-sand/70 text-sm mb-5">
               {isTh
-                ? "รัน generate_trace.py บน rct-platform เพื่อดู interactive HTML trace จาก session จริงของคุณ"
-                : "Run generate_trace.py from rct-platform to generate a fully interactive HTML trace from your own session logs."}
+                ? "รัน generate_trace.py บน delentia-os เพื่อดู interactive HTML trace จาก session จริงของคุณ"
+                : "Run generate_trace.py from delentia-os to generate a fully interactive HTML trace from your own session logs."}
             </p>
             <div className="bg-dark-deep rounded-lg p-4 font-mono text-xs text-warm-sand/80 mb-5 overflow-x-auto">
-              <div className="text-warm-sand/40 mb-1"># Install rct-platform</div>
-              <div className="text-warm-cream">pip install rct-platform</div>
+              <div className="text-warm-sand/40 mb-1"># Install delentia-os</div>
+              <div className="text-warm-cream">pip install delentia-os</div>
               <div className="text-warm-sand/40 mt-3 mb-1"># Generate demo trace (opens in browser)</div>
               <div className="text-warm-cream">python -m rct_platform.tools.generate_trace --demo</div>
               <div className="text-warm-sand/40 mt-3 mb-1"># Or run from source</div>
-              <div className="text-warm-cream">git clone https://github.com/rctlabs/rct-platform</div>
-              <div className="text-warm-cream">cd rct-platform</div>
+              <div className="text-warm-cream">git clone https://github.com/delentia-labs/delentia-os</div>
+              <div className="text-warm-cream">cd delentia-os</div>
               <div className="text-warm-cream">python tools/generate_trace.py --demo --output trace_view.html</div>
             </div>
             <div className="flex flex-wrap gap-3">
               <Button asChild size="sm" className="font-mono text-xs">
                 <Link
-                  href="https://github.com/rctlabs/rct-platform"
+                  href="https://github.com/delentia-labs/delentia-os"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <GitBranch className="w-3 h-3 mr-1.5" />
-                  rctlabs/rct-platform
+                  rctlabs/delentia-os
                   <ExternalLink className="w-3 h-3 ml-1.5 opacity-60" />
                 </Link>
               </Button>
@@ -378,3 +378,4 @@ export default async function LiveTracePage() {
     </>
   )
 }
+

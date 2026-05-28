@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
@@ -12,8 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "41 Algorithms & Analysearch",
     "41 อัลกอริทึม & Analysearch",
-    "RCT Labs 41 proprietary algorithms across 9 capability tiers — from foundation intent processing to autonomous planning. Public pages distinguish open-SDK verification from larger enterprise runtime validation and controlled benchmark claims.",
-    "อัลกอริทึมเฉพาะ 41 ตัวของ RCT Labs ใน 9 Tiers: จาก foundation intent processing ถึง autonomous planning โดยหน้า public จะแยก open-SDK verification ออกจาก enterprise runtime validation และ benchmark claims ที่มี scope ชัดเจน",
+    "Delentia Labs 41 proprietary algorithms across 9 capability tiers — from foundation intent processing to autonomous planning. Public pages distinguish open-SDK verification from larger enterprise runtime validation and controlled benchmark claims.",
+    "อัลกอริทึมเฉพาะ 41 ตัวของ Delentia Labs ใน 9 Tiers: จาก foundation intent processing ถึง autonomous planning โดยหน้า public จะแยก open-SDK verification ออกจาก enterprise runtime validation และ benchmark claims ที่มี scope ชัดเจน",
     "/algorithms",
     ["41 algorithms", "Analysearch", "AI algorithms", "9-tier algorithm", "production AI algorithms", "AI orchestration algorithms"]
   )
@@ -24,20 +24,20 @@ export default async function AlgorithmsPage() {
   const localePrefix = locale === "th" ? "/th" : "/en"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "อัลกอริทึม" : "Algorithms", url: `https://rctlabs.co${localePrefix}/algorithms` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "อัลกอริทึม" : "Algorithms", url: `https://delentia.com${localePrefix}/algorithms` },
   ])
 
   const faqSchema = getFAQSchema([
     {
-      question: "How are the RCT Labs algorithms organized?",
+      question: "How are the Delentia Labs algorithms organized?",
       answer:
         "The 41 proprietary algorithms are grouped into 9 capability tiers: Foundation (4), Analysis (5), Reasoning (5), Orchestration (4), Verification (5), Memory (4), Adaptation (5), Synthesis (5), and Autonomy (4). Each tier extends the one below it.",
     },
     {
       question: "What is Analysearch?",
       answer:
-        "Analysearch is RCT Labs' proprietary multi-depth analysis and synthesis engine. It operates in four modes — Quick (<200ms), Standard (2–5s), Deep (10–30s), and Mirror (15–45s) — each activating different algorithm tiers to match the required reasoning depth.",
+        "Analysearch is Delentia Labs' proprietary multi-depth analysis and synthesis engine. It operates in four modes — Quick (<200ms), Standard (2–5s), Deep (10–30s), and Mirror (15–45s) — each activating different algorithm tiers to match the required reasoning depth.",
     },
     {
       question: "What is the difference between Quick, Standard, Deep, and Mirror modes in Analysearch?",
@@ -59,17 +59,17 @@ export default async function AlgorithmsPage() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "RCT Labs 41 Algorithms",
+    name: "Delentia Labs 41 Algorithms",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Tier 1 Foundation", description: "4 algorithms — Intent parsing, normalization, token discipline, and baseline routing.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-1` },
-      { "@type": "ListItem", position: 2, name: "Tier 2 Analysis", description: "5 algorithms — Entity detection, context classification, semantic tagging, and pattern recognition.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-2` },
-      { "@type": "ListItem", position: 3, name: "Tier 3 Reasoning", description: "5 algorithms — Structured reasoning strategies that expand, compare, and validate solution paths.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-3` },
-      { "@type": "ListItem", position: 4, name: "Tier 4 Orchestration", description: "4 algorithms — Task-to-model coordination for speed, cost, and quality balancing.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-4` },
-      { "@type": "ListItem", position: 5, name: "Tier 5 Verification", description: "5 algorithms — Consensus, hallucination checks, evidence scoring, and quality gates.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-5` },
-      { "@type": "ListItem", position: 6, name: "Tier 6 Memory", description: "4 algorithms — Compression, semantic indexing, retrieval, and session continuity.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-6` },
-      { "@type": "ListItem", position: 7, name: "Tier 7 Adaptation", description: "5 algorithms — Personalization, execution tuning, and enterprise learning loops.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-7` },
-      { "@type": "ListItem", position: 8, name: "Tier 8 Synthesis", description: "5 algorithms — Cross-domain signal fusion for multi-disciplinary insights.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-8` },
-      { "@type": "ListItem", position: 9, name: "Tier 9 Autonomy", description: "4 algorithms — Longer-horizon planning, constraint handling, and governed autonomous execution.", url: `https://rctlabs.co${localePrefix}/algorithms#tier-9` },
+      { "@type": "ListItem", position: 1, name: "Tier 1 Foundation", description: "4 algorithms — Intent parsing, normalization, token discipline, and baseline routing.", url: `https://delentia.com${localePrefix}/algorithms#tier-1` },
+      { "@type": "ListItem", position: 2, name: "Tier 2 Analysis", description: "5 algorithms — Entity detection, context classification, semantic tagging, and pattern recognition.", url: `https://delentia.com${localePrefix}/algorithms#tier-2` },
+      { "@type": "ListItem", position: 3, name: "Tier 3 Reasoning", description: "5 algorithms — Structured reasoning strategies that expand, compare, and validate solution paths.", url: `https://delentia.com${localePrefix}/algorithms#tier-3` },
+      { "@type": "ListItem", position: 4, name: "Tier 4 Orchestration", description: "4 algorithms — Task-to-model coordination for speed, cost, and quality balancing.", url: `https://delentia.com${localePrefix}/algorithms#tier-4` },
+      { "@type": "ListItem", position: 5, name: "Tier 5 Verification", description: "5 algorithms — Consensus, hallucination checks, evidence scoring, and quality gates.", url: `https://delentia.com${localePrefix}/algorithms#tier-5` },
+      { "@type": "ListItem", position: 6, name: "Tier 6 Memory", description: "4 algorithms — Compression, semantic indexing, retrieval, and session continuity.", url: `https://delentia.com${localePrefix}/algorithms#tier-6` },
+      { "@type": "ListItem", position: 7, name: "Tier 7 Adaptation", description: "5 algorithms — Personalization, execution tuning, and enterprise learning loops.", url: `https://delentia.com${localePrefix}/algorithms#tier-7` },
+      { "@type": "ListItem", position: 8, name: "Tier 8 Synthesis", description: "5 algorithms — Cross-domain signal fusion for multi-disciplinary insights.", url: `https://delentia.com${localePrefix}/algorithms#tier-8` },
+      { "@type": "ListItem", position: 9, name: "Tier 9 Autonomy", description: "4 algorithms — Longer-horizon planning, constraint handling, and governed autonomous execution.", url: `https://delentia.com${localePrefix}/algorithms#tier-9` },
     ],
   }
 
@@ -82,3 +82,4 @@ export default async function AlgorithmsPage() {
     </>
   )
 }
+

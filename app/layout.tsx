@@ -1,4 +1,4 @@
-import type React from "react"
+﻿import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk, Space_Mono, Kanit } from "next/font/google"
 import { LocaleLangSync } from "@/components/locale-lang-sync"
@@ -106,14 +106,14 @@ const kanit = Kanit({
 export async function generateMetadata(): Promise<Metadata> {
   // NOTE: No headers() call here — keeps root layout ISR-compatible.
   // Locale-specific metadata is provided by each page's generateMetadata.
-  const title = "RCT Labs - Intent-Driven AI Operating System"
+  const title = "Delentia Labs - Intent-Driven AI Operating System"
   const description = "Constitutional AI infrastructure with 10-layer architecture, multi-LLM consensus, and data sovereignty for enterprise deployment."
 
   return {
     metadataBase: new URL(SITE_URL),
     title: {
       default: title,
-      template: "%s | RCT Labs",
+      template: "%s | Delentia Labs",
     },
     description,
     keywords: [
@@ -133,7 +133,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     authors: [{ name: "Ittirit Saengow", url: `${SITE_URL}/authors/ittirit-saengow` }],
     creator: "Ittirit Saengow",
-    publisher: "RCT Labs",
+    publisher: "Delentia Labs",
     formatDetection: {
       email: false,
       telephone: false,
@@ -151,7 +151,7 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "en_US",
       alternateLocale: ["th_TH"],
       url: `${SITE_URL}/en`,
-      siteName: "RCT Labs",
+      siteName: "Delentia Labs",
       title,
       description,
       images: [

@@ -1,6 +1,6 @@
 ---
 title: "Enterprise AI Memory Systems อธิบาย: สิ่งที่ทีมส่วนใหญ่เข้าใจผิดเกี่ยวกับ Context, Recall และ Trust"
-author: "RCT Labs Research Desk"
+author: "Delentia Labs Research Desk"
 excerpt: "ทีมส่วนใหญ่ implement AI memory ด้วยการ store conversation history ใน database นั่นไม่ใช่ memory system — มันคือ log system สี่งานหลักที่ AI memory ต้องทำ และทำไม memory ถึงแยกไม่ออกจาก trust"
 date: "2026-03-26"
 lastReviewed: "2026-05-13"
@@ -121,17 +121,17 @@ Memory architecture ส่งผลโดยตรงต่อสิ่งที
 - **Response consistency** ขึ้นกับว่าระบบ retrieve ข้อมูลเดิมสำหรับ query ที่คล้ายกันหรือเปล่า
 - **Compliance evidence** ต้องการ governance memory ที่ออกแบบมาก่อน ไม่ใช่ retrofitted หลัง
 
-สำหรับ RCT Ecosystem: RCTDB แบ่งออกเป็น Hot/Warm/Cold zones ตาม data access patterns; Delta Engine รักษา full provenance trail สำหรับทุก write operation; PDPA erasure propagates ผ่านทุก tiers ภายใน 200ms
+สำหรับ RCT Ecosystem: DelentiaDB แบ่งออกเป็น Hot/Warm/Cold zones ตาม data access patterns; Delta Engine รักษา full provenance trail สำหรับทุก write operation; PDPA erasure propagates ผ่านทุก tiers ภายใน 200ms
 
 ---
 
 ## Reading Path
 
-- **ทำความเข้าใจ full architecture:** [Core Systems](/core-systems) — RCTDB zones, Delta Engine, JITNA
+- **ทำความเข้าใจ full architecture:** [Core Systems](/core-systems) — DelentiaDB zones, Delta Engine, JITNA
 - **ดู memory architecture ในบริบท enterprise:** [Architecture Overview](/architecture)  
 - **Enterprise AI memory solutions:** [Solutions: Enterprise AI Memory](/solutions/enterprise-ai-memory)
 - **Documentation เชิงเทคนิค:** [Technical Docs](/docs)
 
 ---
 
-*บทความนี้เขียนโดย RCT Labs Research Desk, reviewed โดย อิทธิฤทธิ์ แซ่โง้ว*
+*บทความนี้เขียนโดย Delentia Labs Research Desk, reviewed โดย อิทธิฤทธิ์ แซ่โง้ว*

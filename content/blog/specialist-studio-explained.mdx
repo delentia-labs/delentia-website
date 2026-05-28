@@ -13,10 +13,10 @@ references:
   - "https://arxiv.org/abs/2210.03629"
   - "https://arxiv.org/abs/2304.01373"
   - "https://www.nist.gov/artificial-intelligence"
-  - "https://rctlabs.github.io/rct-platform/architecture/"
-  - "https://rctlabs.co/en/genome"
-  - "https://rctlabs.co/en/products/artent-ai"
-  - "https://rctlabs.co/en/algorithms"
+  - "https://delentia-labs.github.io/delentia-os/architecture/"
+  - "https://delentia.com/en/genome"
+  - "https://delentia.com/en/products/delentia-ai"
+  - "https://delentia.com/en/algorithms"
 ---
 
 # Specialist Studio: Domain-Specific AI Orchestration in the RCT Ecosystem
@@ -174,7 +174,7 @@ Operators should monitor three Studio-specific metrics:
 The Specialist Studio does not operate in isolation — it connects to the full RCT ecosystem:
 
 - **[Circuit Breaker Pattern](/en/blog/circuit-breaker-pattern-ai-systems)** — Provides fault isolation at the Studio boundary. If a Studio's primary model provider degrades, the Circuit Breaker opens and routes to fallback providers without service interruption.
-- **[Intent Farming](/en/blog/intent-farming-grow-ai-context)** — The Studio's RCTDB persistence builds domain-specific intent profiles over time, reducing cold-start costs with each session.
+- **[Intent Farming](/en/blog/intent-farming-grow-ai-context)** — The Studio's DelentiaDB persistence builds domain-specific intent profiles over time, reducing cold-start costs with each session.
 - **[RCT Control Plane](/en/blog/rct-control-plane-governance-layer)** — Governs Studio lifecycle, enforces organizational policy across multiple Studio instances, and provides the audit trail required for regulatory compliance.
 - **[Evaluation Harnesses](/en/blog/evaluation-harnesses-enterprise-llm)** — Domain-specific test suites validate Studio configuration before production deployment.
 

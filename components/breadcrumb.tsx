@@ -30,8 +30,8 @@ const routeLabels: Record<string, { en: string; th: string }> = {
   "enterprise-ai-memory": { en: "Enterprise AI Memory", th: "ระบบความจำ AI" },
   "dynamic-ai-routing": { en: "Dynamic AI Routing", th: "การกำหนดเส้นทาง AI" },
   products: { en: "Products", th: "ผลิตภัณฑ์" },
-  rctlabs: { en: "RCT Labs", th: "RCT Labs" },
-  "artent-ai": { en: "ARTENT AI", th: "ARTENT AI" },
+  rctlabs: { en: "Delentia Labs", th: "Delentia Labs" },
+  "delentia-ai": { en: "Delentia AI", th: "Delentia AI" },
   "signed-ai": { en: "Signed AI", th: "Signed AI" },
   pricing: { en: "Pricing", th: "ราคา" },
   architecture: { en: "System Architecture", th: "สถาปัตยกรรมระบบ" },
@@ -90,7 +90,7 @@ export default function Breadcrumb() {
       "@type": "ListItem",
       "position": index + 1,
       "name": crumb.label,
-      "item": `https://rctlabs.co${crumb.href}`,
+      "item": `https://delentia.com${crumb.href}`,
     })),
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [effectivePathname, language])

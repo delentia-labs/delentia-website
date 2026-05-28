@@ -1,4 +1,4 @@
-import { headers } from "next/headers"
+﻿import { headers } from "next/headers"
 
 export default async function CompanyPressRedirect() {
   const locale = (await headers()).get("x-locale") === "th" ? "th" : "en"
@@ -7,8 +7,8 @@ export default async function CompanyPressRedirect() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://rctlabs.co/${locale}` },
-      { "@type": "ListItem", position: 2, name: "Press", item: `https://rctlabs.co${target}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://delentia.com/${locale}` },
+      { "@type": "ListItem", position: 2, name: "Press", item: `https://delentia.com${target}` },
     ],
   }
 
@@ -22,3 +22,4 @@ export default async function CompanyPressRedirect() {
     </>
   )
 }
+

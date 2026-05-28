@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema"
@@ -22,9 +22,9 @@ export default async function Page() {
   const localePrefix = locale === "th" ? "/th" : ""
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "โซลูชั่น" : "Solutions", url: `https://rctlabs.co${localePrefix}/solutions` },
-    { name: locale === "th" ? "Regional AI" : "Regional AI", url: `https://rctlabs.co${localePrefix}/solutions/regional-ai` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "โซลูชั่น" : "Solutions", url: `https://delentia.com${localePrefix}/solutions` },
+    { name: locale === "th" ? "Regional AI" : "Regional AI", url: `https://delentia.com${localePrefix}/solutions/regional-ai` },
   ])
 
   const faqSchema = getFAQSchema([
@@ -50,3 +50,4 @@ export default async function Page() {
     </>
   )
 }
+

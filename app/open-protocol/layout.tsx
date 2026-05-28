@@ -1,4 +1,4 @@
-import type React from "react"
+﻿import type React from "react"
 import type { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
@@ -22,8 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function OpenProtocolLayout({ children }: { children: React.ReactNode }) {
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: "https://rctlabs.co/en" },
-    { name: "Open Protocol", url: "https://rctlabs.co/en/open-protocol" },
+    { name: "Home", url: "https://delentia.com/en" },
+    { name: "Open Protocol", url: "https://delentia.com/en/open-protocol" },
   ])
   const techArticle = {
     "@context": "https://schema.org",
@@ -31,9 +31,9 @@ export default async function OpenProtocolLayout({ children }: { children: React
     name: "RCT Open Protocol",
     headline: "RCT Open Protocol: Standards for Intent-Driven AI Runtime Interoperability",
     description: "Open protocol standards defining how intent-driven AI systems negotiate workflows, exchange structured data, and maintain auditable runtime contracts across enterprise deployments.",
-    url: "https://rctlabs.co/en/open-protocol",
-    author: { "@type": "Person", name: "Ittirit Saengow", url: "https://rctlabs.co/en/authors/ittirit-saengow" },
-    publisher: { "@type": "Organization", name: "RCT Labs", url: "https://rctlabs.co" },
+    url: "https://delentia.com/en/open-protocol",
+    author: { "@type": "Person", name: "Ittirit Saengow", url: "https://delentia.com/en/authors/ittirit-saengow" },
+    publisher: { "@type": "Organization", name: "Delentia Labs", url: "https://delentia.com" },
     keywords: "open protocol, RCT protocol, intent-driven AI, workflow negotiation, auditable AI runtime",
   }
   return (

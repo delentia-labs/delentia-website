@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -15,9 +15,9 @@ export default function IntentOSPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://rctlabs.co${localePrefix}` },
-      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://rctlabs.co${localePrefix}/philosophy` },
-      { "@type": "ListItem", position: 3, name: "Intent OS", item: `https://rctlabs.co${localePrefix}/philosophy/intent-os` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://delentia.com${localePrefix}` },
+      { "@type": "ListItem", position: 2, name: "Philosophy", item: `https://delentia.com${localePrefix}/philosophy` },
+      { "@type": "ListItem", position: 3, name: "Intent OS", item: `https://delentia.com${localePrefix}/philosophy/intent-os` },
     ],
   }
   const faqSchema = {
@@ -241,3 +241,4 @@ export default function IntentOSPage() {
     </>
   )
 }
+

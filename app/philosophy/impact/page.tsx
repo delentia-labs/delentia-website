@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,10 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Impact — What RCT Labs Has Proven",
-    "ผลกระทบ — สิ่งที่ RCT Labs พิสูจน์แล้ว",
-    "RCT Labs real-world impact: a solo-developer constitutional AI program, separated public SDK verified and enterprise private snapshot evidence lanes, and Thailand-to-global governance standards.",
-    "ผลกระทบจริงของ RCT Labs: โครงการ Constitutional AI โดยนักพัฒนาคนเดียว พร้อมการแยก evidence lane ระหว่าง public SDK verified และ enterprise private snapshot และมาตรฐาน governance จากไทยสู่โลก",
+    "Impact — What Delentia Labs Has Proven",
+    "ผลกระทบ — สิ่งที่ Delentia Labs พิสูจน์แล้ว",
+    "Delentia Labs real-world impact: a solo-developer constitutional AI program, separated public SDK verified and enterprise private snapshot evidence lanes, and Thailand-to-global governance standards.",
+    "ผลกระทบจริงของ Delentia Labs: โครงการ Constitutional AI โดยนักพัฒนาคนเดียว พร้อมการแยก evidence lane ระหว่าง public SDK verified และ enterprise private snapshot และมาตรฐาน governance จากไทยสู่โลก",
     "/philosophy/impact"
   )
 }
@@ -25,9 +25,9 @@ export default async function ImpactPage() {
   const isEn = locale === "en"
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Philosophy", url: `https://rctlabs.co${localePrefix}/philosophy` },
-    { name: "Impact", url: `https://rctlabs.co${localePrefix}/philosophy/impact` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Philosophy", url: `https://delentia.com${localePrefix}/philosophy` },
+    { name: "Impact", url: `https://delentia.com${localePrefix}/philosophy/impact` },
   ])
   const faq = getFAQSchema([
     {
@@ -52,9 +52,9 @@ export default async function ImpactPage() {
       titleEn: "Solo-Developer Proof of Possibility",
       titleTh: "Solo-Developer Proof of Possibility",
       descEn:
-        "One engineer, zero-dollar infrastructure budget, 30-day bootstrap sprint. The result: a multi-LLM consensus platform with Constitutional AI enforcement, PDPA-native architecture, and an enterprise private snapshot covering 4,849 automated tests. This is the most important claim RCT Labs has proven — that enterprise-grade AI systems do not require enterprise-sized teams or budgets.",
+        "One engineer, zero-dollar infrastructure budget, 30-day bootstrap sprint. The result: a multi-LLM consensus platform with Constitutional AI enforcement, PDPA-native architecture, and an enterprise private snapshot covering 4,849 automated tests. This is the most important claim Delentia Labs has proven — that enterprise-grade AI systems do not require enterprise-sized teams or budgets.",
       descTh:
-        "วิศวกรหนึ่งคน งบประมาณ infrastructure เป็นศูนย์ sprint bootstrap 30 วัน ผลลัพธ์: platform multi-LLM consensus พร้อม Constitutional AI enforcement สถาปัตยกรรม PDPA-native และ enterprise private snapshot ที่ครอบคลุมการทดสอบอัตโนมัติ 4,849 รายการ นี่คือข้อพิสูจน์ที่สำคัญที่สุดของ RCT Labs — ระบบ AI ระดับองค์กรไม่จำเป็นต้องมีทีมหรืองบประมาณขนาดองค์กร",
+        "วิศวกรหนึ่งคน งบประมาณ infrastructure เป็นศูนย์ sprint bootstrap 30 วัน ผลลัพธ์: platform multi-LLM consensus พร้อม Constitutional AI enforcement สถาปัตยกรรม PDPA-native และ enterprise private snapshot ที่ครอบคลุมการทดสอบอัตโนมัติ 4,849 รายการ นี่คือข้อพิสูจน์ที่สำคัญที่สุดของ Delentia Labs — ระบบ AI ระดับองค์กรไม่จำเป็นต้องมีทีมหรืองบประมาณขนาดองค์กร",
     },
     {
       icon: FlaskConical,
@@ -85,9 +85,9 @@ export default async function ImpactPage() {
       titleEn: "Thailand → Global Constitutional AI Standard",
       titleTh: "จากไทย → มาตรฐาน Constitutional AI ระดับโลก",
       descEn:
-        "RCT Labs began in Bangkok with a PDPA-compliance-first architecture. The same Constitutional AI enforcement layer that satisfies Thai regulatory requirements is portable to GDPR (EU), CCPA (California), and APAC privacy frameworks. The vision is a single verifiable AI governance specification that works across jurisdictions — building it first in Thailand is the strategic starting point.",
+        "Delentia Labs began in Bangkok with a PDPA-compliance-first architecture. The same Constitutional AI enforcement layer that satisfies Thai regulatory requirements is portable to GDPR (EU), CCPA (California), and APAC privacy frameworks. The vision is a single verifiable AI governance specification that works across jurisdictions — building it first in Thailand is the strategic starting point.",
       descTh:
-        "RCT Labs เริ่มต้นในกรุงเทพฯ ด้วยสถาปัตยกรรมที่ PDPA-compliance-first ชั้น Constitutional AI enforcement เดียวกันที่ตอบสนองข้อกำหนดของกฎระเบียบไทยสามารถย้ายไปใช้กับ GDPR (EU), CCPA (California) และกรอบความเป็นส่วนตัวของ APAC วิสัยทัศน์คือ specification การกำกับดูแล AI ที่ตรวจสอบได้ชุดเดียวที่ทำงานได้ทั่วทุกเขตอำนาจศาล",
+        "Delentia Labs เริ่มต้นในกรุงเทพฯ ด้วยสถาปัตยกรรมที่ PDPA-compliance-first ชั้น Constitutional AI enforcement เดียวกันที่ตอบสนองข้อกำหนดของกฎระเบียบไทยสามารถย้ายไปใช้กับ GDPR (EU), CCPA (California) และกรอบความเป็นส่วนตัวของ APAC วิสัยทัศน์คือ specification การกำกับดูแล AI ที่ตรวจสอบได้ชุดเดียวที่ทำงานได้ทั่วทุกเขตอำนาจศาล",
     },
   ]
 
@@ -107,12 +107,12 @@ export default async function ImpactPage() {
         </Link>
 
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-          {isEn ? "Impact at RCT Labs" : "ผลกระทบของ RCT Labs"}
+          {isEn ? "Impact at Delentia Labs" : "ผลกระทบของ Delentia Labs"}
         </h1>
         <p className="text-xl text-muted-foreground mb-16 max-w-3xl">
           {isEn
-            ? "What RCT Labs has already proven — in working code, passing tests, and documented benchmarks."
-            : "สิ่งที่ RCT Labs พิสูจน์แล้ว — ในโค้ดที่ใช้งานได้ การทดสอบที่ผ่าน และ benchmark ที่มีเอกสาร"}
+            ? "What Delentia Labs has already proven — in working code, passing tests, and documented benchmarks."
+            : "สิ่งที่ Delentia Labs พิสูจน์แล้ว — ในโค้ดที่ใช้งานได้ การทดสอบที่ผ่าน และ benchmark ที่มีเอกสาร"}
         </p>
 
         <div className="grid gap-8 md:gap-10">
@@ -159,3 +159,4 @@ export default async function ImpactPage() {
     </>
   )
 }
+

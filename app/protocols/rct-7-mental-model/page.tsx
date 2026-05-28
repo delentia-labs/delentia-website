@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -75,9 +75,9 @@ export default function RCT7MentalModelPage() {
   const locale = getLocaleFromPathname(pathname) ?? "en"
   const isEn = locale === "en"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: isEn ? "Home" : "หน้าหลัก", url: `https://rctlabs.co/${locale}` },
-    { name: isEn ? "Protocols" : "โปรโตคอล", url: `https://rctlabs.co/${locale}/protocols` },
-    { name: "RCT-7 Mental Model", url: `https://rctlabs.co/${locale}/protocols/rct-7-mental-model` },
+    { name: isEn ? "Home" : "หน้าหลัก", url: `https://delentia.com/${locale}` },
+    { name: isEn ? "Protocols" : "โปรโตคอล", url: `https://delentia.com/${locale}/protocols` },
+    { name: "RCT-7 Mental Model", url: `https://delentia.com/${locale}/protocols/rct-7-mental-model` },
   ])
 
   const bg = isDark ? "#141414" : "#ffffff"
@@ -235,3 +235,4 @@ export default function RCT7MentalModelPage() {
     </>
   )
 }
+

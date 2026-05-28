@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { FormEvent, useEffect, useState } from "react"
 import Link from "next/link"
@@ -83,7 +83,7 @@ export default function SignInPage() {
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-warm-amber/20 border border-warm-amber/30 mb-4">
             <span className="text-warm-amber font-bold text-lg">R</span>
           </div>
-          <h1 className="text-2xl font-bold tracking-tight">RCT Labs</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Delentia Labs</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             Constitutional AI Operating System
           </p>
@@ -172,3 +172,4 @@ export default function SignInPage() {
     </main>
   )
 }
+

@@ -39,7 +39,7 @@ const calendarData: TimelineWindow[] = [
     milestones: [
       { label: "Frontend SEO complete", labelTh: "จบงาน Frontend + SEO", type: "launch" },
       { label: "Website soft launch", labelTh: "เปิดตัวเว็บไซต์รอบแรก", type: "launch" },
-      { label: "Primary domain routed to rctlabs.co", labelTh: "โยกโดเมนหลักไปยัง rctlabs.co", type: "launch" },
+      { label: "Primary domain routed to delentia.com", labelTh: "โยกโดเมนหลักไปยัง delentia.com", type: "launch" },
     ],
   },
   {
@@ -49,11 +49,11 @@ const calendarData: TimelineWindow[] = [
     yearLabelTh: "2569",
     isCurrent: false,
     milestones: [
-      { label: "rctlabs.co DNS live", labelTh: "DNS rctlabs.co เปิดใช้งาน", type: "launch" },
+      { label: "delentia.com DNS live", labelTh: "DNS delentia.com เปิดใช้งาน", type: "launch" },
       { label: "Google Search Console submission", labelTh: "ส่ง Google Search Console", type: "launch" },
       { label: "Early Access program open", labelTh: "เปิดแผนงาน Early Access", type: "community" },
       { label: "Lifetime Plan available", labelTh: "Lifetime Plan พร้อมใช้งาน", type: "community" },
-      { label: "ArtentAI static soft launch", labelTh: "ArtentAI เปิดตัว static mode", type: "feature" },
+      { label: "DelentiaAI static soft launch", labelTh: "DelentiaAI เปิดตัว static mode", type: "feature" },
     ],
   },
   {
@@ -64,7 +64,7 @@ const calendarData: TimelineWindow[] = [
     isCurrent: false,
     milestones: [
       { label: "Backend Phase 1: Full RCT OS", labelTh: "Backend Phase 1: Full RCT OS", type: "feature" },
-      { label: "ArtentAI: real backend connected", labelTh: "ArtentAI: เชื่อมต่อ Backend จริง", type: "feature" },
+      { label: "DelentiaAI: real backend connected", labelTh: "DelentiaAI: เชื่อมต่อ Backend จริง", type: "feature" },
       { label: "Typhoon LLM integration", labelTh: "เชื่อมต่อ Typhoon Regional LLM", type: "feature" },
       { label: "GitHub Public launch", labelTh: "เปิด GitHub Public", type: "community" },
       { label: "Full Docs: RCT Ecosystem", labelTh: "Full Docs: RCT Ecosystem", type: "community" },
@@ -78,7 +78,7 @@ const calendarData: TimelineWindow[] = [
     yearLabelTh: "2569",
     isCurrent: false,
     milestones: [
-      { label: "ArtentAI Platform launch", labelTh: "เปิดตัว ArtentAI Platform", type: "product" },
+      { label: "DelentiaAI Platform launch", labelTh: "เปิดตัว DelentiaAI Platform", type: "product" },
       { label: "SignedAI Platform launch", labelTh: "เปิดตัว SignedAI Platform", type: "product" },
       { label: "Product suite: all core products live", labelTh: "Product suite ครบ: เปิดใช้งานทั้งหมด", type: "product" },
       { label: "Enterprise onboarding pipeline", labelTh: "Enterprise onboarding pipeline เปิด", type: "product" },

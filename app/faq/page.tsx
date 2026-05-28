@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 export const dynamic = "force-dynamic"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
@@ -36,7 +36,7 @@ const faqSchemaData = [
   },
   {
     question: "What is Intent Farming and how does it reduce AI costs over time?",
-    answer: "Intent Farming is the systematic practice of accumulating and enriching AI context over time, converting one-shot queries into progressively smarter sessions. Instead of starting cold each session, the RCTDB memory layer preserves intent history across 8 dimensions. The Delta Engine compresses this context by 74%, enabling warm recall in under 50ms. Over time, the percentage of queries served from warm cache increases — reducing LLM calls, cutting costs, and improving response quality through compounding context. The RCT Platform's warm recall rate improves by approximately 3–5% per week of operation.",
+    answer: "Intent Farming is the systematic practice of accumulating and enriching AI context over time, converting one-shot queries into progressively smarter sessions. Instead of starting cold each session, the DelentiaDB memory layer preserves intent history across 8 dimensions. The Delta Engine compresses this context by 74%, enabling warm recall in under 50ms. Over time, the percentage of queries served from warm cache increases — reducing LLM calls, cutting costs, and improving response quality through compounding context. The RCT Platform's warm recall rate improves by approximately 3–5% per week of operation.",
   },
 ]
 
@@ -45,10 +45,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return createBilingualMetadata(
     locale,
-    "Frequently Asked Questions — RCT Labs Enterprise AI FAQ",
-    "คำถามที่พบบ่อย — FAQ สำหรับระบบ AI ระดับองค์กรของ RCT Labs",
-    "Answers about FDIA, JITNA, deployment, pricing, integrations, and the architecture behind the RCT Labs constitutional AI platform.",
-    "คำตอบเกี่ยวกับ FDIA, JITNA, การ deploy, ราคา, integration และสถาปัตยกรรมเบื้องหลังแพลตฟอร์ม Constitutional AI ของ RCT Labs",
+    "Frequently Asked Questions — Delentia Labs Enterprise AI FAQ",
+    "คำถามที่พบบ่อย — FAQ สำหรับระบบ AI ระดับองค์กรของ Delentia Labs",
+    "Answers about FDIA, JITNA, deployment, pricing, integrations, and the architecture behind the Delentia Labs constitutional AI platform.",
+    "คำตอบเกี่ยวกับ FDIA, JITNA, การ deploy, ราคา, integration และสถาปัตยกรรมเบื้องหลังแพลตฟอร์ม Constitutional AI ของ Delentia Labs",
     "/faq",
     ["enterprise AI FAQ", "FDIA questions", "JITNA FAQ", "constitutional AI FAQ"]
   )
@@ -58,8 +58,8 @@ export default async function FAQPage() {
   const locale = await getRequestLocale()
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "คำถามที่พบบ่อย" : "FAQ", url: `https://rctlabs.co${localePrefix}/faq` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "คำถามที่พบบ่อย" : "FAQ", url: `https://delentia.com${localePrefix}/faq` },
   ])
 
   return (
@@ -70,3 +70,4 @@ export default async function FAQPage() {
     </>
   )
 }
+

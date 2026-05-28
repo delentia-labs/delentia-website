@@ -1,14 +1,14 @@
-import { ImageResponse } from "next/og"
+﻿import { ImageResponse } from "next/og"
 import { headers } from "next/headers"
 
-export const alt = "RCT Labs - Intent Operating System"
+export const alt = "Delentia Labs - Intent Operating System"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
 export default async function OgImage() {
   const headerList = await headers()
   const locale = headerList.get("x-locale") === "th" ? "th" : "en"
-  const title = locale === "th" ? "RCT Labs" : "RCT Labs"
+  const title = locale === "th" ? "Delentia Labs" : "Delentia Labs"
   const subtitle = locale === "th" ? "ระบบปฏิบัติการ AI ที่เน้น Intent" : "Intent Operating System"
   const tagline = locale === "th"
     ? "Constitutional AI · Multi-LLM Consensus · Data Sovereignty"
@@ -131,3 +131,4 @@ export default async function OgImage() {
     { ...size }
   )
 }
+

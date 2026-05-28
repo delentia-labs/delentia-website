@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { headers } from "next/headers"
 import { createBilingualMetadata, type Locale } from "@/lib/seo-bilingual"
 import { getBreadcrumbSchema, getFAQSchema, getOrganizationSchema } from "@/lib/schema"
@@ -15,10 +15,10 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "Company",
     "บริษัท",
-    "About RCT Labs: company mission, research direction, public values, authority references, and the organizational context behind the constitutional AI platform.",
-    "เกี่ยวกับ RCT Labs: ภารกิจของบริษัท ทิศทางงานวิจัย ค่านิยมสาธารณะ และบริบทขององค์กรที่อยู่เบื้องหลังแพลตฟอร์ม constitutional AI",
+    "About Delentia Labs: company mission, research direction, public values, authority references, and the organizational context behind the constitutional AI platform.",
+    "เกี่ยวกับ Delentia Labs: ภารกิจของบริษัท ทิศทางงานวิจัย ค่านิยมสาธารณะ และบริบทขององค์กรที่อยู่เบื้องหลังแพลตฟอร์ม constitutional AI",
     "/company",
-    ["RCT Labs company", "constitutional AI company", "about RCT Labs", "AI research company", "intent operating system company"]
+    ["Delentia Labs company", "constitutional AI company", "about Delentia Labs", "AI research company", "intent operating system company"]
   )
 }
 
@@ -27,17 +27,17 @@ export default async function CompanyPage() {
   const localePrefix = locale === "th" ? "/th" : "/en"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Company", url: `https://rctlabs.co${localePrefix}/company` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Company", url: `https://delentia.com${localePrefix}/company` },
   ])
 
   const faqSchema = getFAQSchema([
     {
-      question: locale === "th" ? "RCT Labs คือองค์กรประเภทใด" : "What kind of organization is RCT Labs?",
+      question: locale === "th" ? "Delentia Labs คือองค์กรประเภทใด" : "What kind of organization is Delentia Labs?",
       answer:
         locale === "th"
-          ? "RCT Labs เป็นองค์กรที่พัฒนา constitutional AI operating system, open protocols และ infrastructure สำหรับ enterprise AI ที่ต้องการความน่าเชื่อถือ การกำกับดูแล และความสามารถในการตรวจสอบย้อนหลัง"
-          : "RCT Labs builds a constitutional AI operating system, open protocols, and supporting infrastructure for enterprise AI deployments that need trust, governance, and auditability.",
+          ? "Delentia Labs เป็นองค์กรที่พัฒนา constitutional AI operating system, open protocols และ infrastructure สำหรับ enterprise AI ที่ต้องการความน่าเชื่อถือ การกำกับดูแล และความสามารถในการตรวจสอบย้อนหลัง"
+          : "Delentia Labs builds a constitutional AI operating system, open protocols, and supporting infrastructure for enterprise AI deployments that need trust, governance, and auditability.",
     },
     {
       question: locale === "th" ? "ควรอ่านหน้า Company นี้ทำไม" : "Why does the Company page matter?",
@@ -59,3 +59,4 @@ export default async function CompanyPage() {
     </>
   )
 }
+

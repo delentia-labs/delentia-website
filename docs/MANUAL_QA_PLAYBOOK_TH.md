@@ -34,7 +34,7 @@ npm run smoke:pages
 ## 3. ตรวจตัวเลข canonical
 
 แหล่ง truth ปัจจุบัน:
-- public SDK proof มาจาก `rct-platform/docs/testing/TESTING_CANONICAL.md`
+- public SDK proof มาจาก `delentia-os/docs/testing/TESTING_CANONICAL.md`
 - shared website constants อยู่ที่ `lib/site-config.ts`
 
 สิ่งที่ต้องตรงกัน:

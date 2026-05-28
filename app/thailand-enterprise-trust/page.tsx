@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
@@ -53,8 +53,8 @@ export default async function ThailandEnterpriseTrustPage() {
   const isTh = locale === "th"
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: isTh ? "หน้าแรก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: isTh ? "ชั้นความน่าเชื่อถือสำหรับองค์กรไทย" : "Thailand Enterprise Trust Layer", url: `https://rctlabs.co${localePrefix}/thailand-enterprise-trust` },
+    { name: isTh ? "หน้าแรก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: isTh ? "ชั้นความน่าเชื่อถือสำหรับองค์กรไทย" : "Thailand Enterprise Trust Layer", url: `https://delentia.com${localePrefix}/thailand-enterprise-trust` },
   ])
 
   const faqSchema = getFAQSchema([

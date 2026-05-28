@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getRequestLocale } from "@/lib/request-locale"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -12,14 +12,14 @@ export async function generateMetadata(): Promise<Metadata> {
     locale,
     "AI Methodology Comparisons",
     "เปรียบเทียบแนวทางสถาปัตยกรรม AI",
-    "Side-by-side comparisons of Constitutional AI, RAG, verification-first methods, and more. Evidence-based analysis from RCT Labs engineers.",
-    "เปรียบเทียบ Constitutional AI, RAG, verification-first และแนวทางสถาปัตยกรรม AI อื่น ๆ แบบเทียบกันชัดเจน พร้อมการวิเคราะห์เชิงหลักฐานจากทีม RCT Labs",
+    "Side-by-side comparisons of Constitutional AI, RAG, verification-first methods, and more. Evidence-based analysis from Delentia Labs engineers.",
+    "เปรียบเทียบ Constitutional AI, RAG, verification-first และแนวทางสถาปัตยกรรม AI อื่น ๆ แบบเทียบกันชัดเจน พร้อมการวิเคราะห์เชิงหลักฐานจากทีม Delentia Labs",
     "/compare",
     [
       "constitutional AI vs RAG",
       "RCT vs LLM APIs",
       "verification vs prompt engineering",
-      "RCTdb vs vector database",
+      "DelentiaDB vs vector database",
       "AI methodology comparison",
     ]
   )
@@ -32,14 +32,14 @@ export default async function ComparePage() {
   const compareSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "AI Methodology Comparisons — RCT Labs",
+    "name": "AI Methodology Comparisons — Delentia Labs",
     "url": `${SITE_URL}${localePrefix}/compare`,
-    "description": "Side-by-side comparisons of Constitutional AI, RAG, verification-first methods, and more. Evidence-based analysis from RCT Labs.",
+    "description": "Side-by-side comparisons of Constitutional AI, RAG, verification-first methods, and more. Evidence-based analysis from Delentia Labs.",
     "hasPart": [
       { "@type": "WebPage", "name": "Constitutional AI vs RAG", "url": `${SITE_URL}${localePrefix}/compare/constitutional-ai-vs-rag` },
-      { "@type": "WebPage", "name": "RCT Labs vs LLM APIs", "url": `${SITE_URL}${localePrefix}/compare/rct-labs-vs-llm-apis` },
+      { "@type": "WebPage", "name": "Delentia Labs vs LLM APIs", "url": `${SITE_URL}${localePrefix}/compare/delentia-labs-vs-llm-apis` },
       { "@type": "WebPage", "name": "Verification vs Prompt Engineering", "url": `${SITE_URL}${localePrefix}/compare/verification-vs-prompt-engineering` },
-      { "@type": "WebPage", "name": "RCTDB vs Vector Databases", "url": `${SITE_URL}${localePrefix}/compare/rctdb-vs-vector-databases` }
+      { "@type": "WebPage", "name": "DelentiaDB vs Vector Databases", "url": `${SITE_URL}${localePrefix}/compare/delentiadb-vs-vector-databases` }
     ]
   }
 
@@ -56,3 +56,4 @@ export default async function ComparePage() {
     </>
   )
 }
+

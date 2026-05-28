@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -50,8 +50,8 @@ export default function ContactPageClient() {
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground">
             {isTh
-              ? "มีคำถามเกี่ยวกับ RCT Labs หรืออยากร่วมงานกับเรา? เรายินดีพูดคุยกับคุณ"
-              : "Have questions about RCT Labs? Want to collaborate? We'd love to hear from you."}
+              ? "มีคำถามเกี่ยวกับ Delentia Labs หรืออยากร่วมงานกับเรา? เรายินดีพูดคุยกับคุณ"
+              : "Have questions about Delentia Labs? Want to collaborate? We'd love to hear from you."}
           </p>
           {funnelIntent ? (
             <div className="mx-auto max-w-2xl rounded-2xl border border-warm-amber/30 bg-warm-amber/10 px-5 py-4 text-left">
@@ -100,7 +100,7 @@ export default function ContactPageClient() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center space-y-4">
             <h3 className="text-xl font-semibold text-foreground">{isTh ? "สอบถามทั่วไป" : "General Inquiries"}</h3>
-            <p className="text-muted-foreground">{isTh ? "สำหรับคำถามทั่วไปและข้อมูลเกี่ยวกับ RCT Labs" : "For general questions and information about RCT Labs"}</p>
+            <p className="text-muted-foreground">{isTh ? "สำหรับคำถามทั่วไปและข้อมูลเกี่ยวกับ Delentia Labs" : "For general questions and information about Delentia Labs"}</p>
             <p className="text-sm font-medium text-warm-amber">{GENERAL_CONTACT_EMAIL}</p>
           </div>
           <div className="text-center space-y-4">
@@ -124,3 +124,4 @@ export default function ContactPageClient() {
     </main>
   )
 }
+

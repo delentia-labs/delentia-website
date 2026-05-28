@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+﻿import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
@@ -12,10 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale()
   return createBilingualMetadata(
     locale,
-    "Community Members — Coming Soon | RCT Labs",
-    "สมาชิกชุมชน — เร็วๆ นี้ | RCT Labs",
-    "RCT Labs community member directory is under construction. Connect with developers and researchers building on the RCT Labs platform.",
-    "ไดเรกทอรีสมาชิกชุมชนของ RCT Labs อยู่ระหว่างการพัฒนา เชื่อมต่อกับนักพัฒนาและนักวิจัยที่สร้างบน RCT Labs platform",
+    "Community Members — Coming Soon | Delentia Labs",
+    "สมาชิกชุมชน — เร็วๆ นี้ | Delentia Labs",
+    "Delentia Labs community member directory is under construction. Connect with developers and researchers building on the Delentia Labs platform.",
+    "ไดเรกทอรีสมาชิกชุมชนของ Delentia Labs อยู่ระหว่างการพัฒนา เชื่อมต่อกับนักพัฒนาและนักวิจัยที่สร้างบน Delentia Labs platform",
     "/community/members"
   )
 }
@@ -25,16 +25,16 @@ export default async function CommunityMembersPage() {
   const isEn = locale === "en"
   const localePrefix = locale === "th" ? "/th" : "/en"
   const breadcrumb = getBreadcrumbSchema([
-    { name: "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: "Community", url: `https://rctlabs.co${localePrefix}/community` },
-    { name: "Members", url: `https://rctlabs.co${localePrefix}/community/members` },
+    { name: "Home", url: `https://delentia.com${localePrefix}` },
+    { name: "Community", url: `https://delentia.com${localePrefix}/community` },
+    { name: "Members", url: `https://delentia.com${localePrefix}/community/members` },
   ])
   const faq = getFAQSchema([
     {
       question: isEn ? "Who should join the member directory?" : "ใครควรเข้าร่วม member directory?",
       answer: isEn
-        ? "Engineers, researchers, product builders, and technical operators active in the RCT Labs ecosystem."
-        : "วิศวกร นักวิจัย นักสร้างผลิตภัณฑ์ และผู้ปฏิบัติการเทคนิคที่ทำงานในระบบนิเวศ RCT Labs",
+        ? "Engineers, researchers, product builders, and technical operators active in the Delentia Labs ecosystem."
+        : "วิศวกร นักวิจัย นักสร้างผลิตภัณฑ์ และผู้ปฏิบัติการเทคนิคที่ทำงานในระบบนิเวศ Delentia Labs",
     },
     {
       question: isEn ? "What does early access include?" : "early access จะได้อะไรบ้าง?",
@@ -94,7 +94,7 @@ export default async function CommunityMembersPage() {
           </article>
           <article className="rounded-xl border border-border bg-card p-5">
             <h2 className="text-base font-semibold text-foreground mb-2">{isEn ? "Research Interest Tags" : "แท็กความสนใจวิจัย"}</h2>
-            <p className="text-sm text-muted-foreground">{isEn ? "Map members by FDIA, JITNA, RCTDB, and governance themes." : "จัดกลุ่มสมาชิกตามหัวข้อ FDIA, JITNA, RCTDB และ governance"}</p>
+            <p className="text-sm text-muted-foreground">{isEn ? "Map members by FDIA, JITNA, DelentiaDB, and governance themes." : "จัดกลุ่มสมาชิกตามหัวข้อ FDIA, JITNA, DelentiaDB และ governance"}</p>
           </article>
           <article className="rounded-xl border border-border bg-card p-5">
             <h2 className="text-base font-semibold text-foreground mb-2">{isEn ? "Collaboration Match" : "การจับคู่ความร่วมมือ"}</h2>
@@ -107,3 +107,4 @@ export default async function CommunityMembersPage() {
     </>
   )
 }
+

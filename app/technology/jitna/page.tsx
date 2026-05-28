@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+﻿import { Metadata } from "next"
 import { headers } from "next/headers"
 import { createBilingualMetadata } from "@/lib/seo-bilingual"
 import { getBreadcrumbSchema } from "@/lib/schema"
@@ -25,9 +25,9 @@ export default async function Page() {
   const localePrefix = locale === "th" ? "/th" : ""
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://rctlabs.co${localePrefix}` },
-    { name: locale === "th" ? "เทคโนโลยี" : "Technology", url: `https://rctlabs.co${localePrefix}/technology/jitna` },
-    { name: "JITNA Protocol", url: `https://rctlabs.co${localePrefix}/technology/jitna` },
+    { name: locale === "th" ? "หน้าหลัก" : "Home", url: `https://delentia.com${localePrefix}` },
+    { name: locale === "th" ? "เทคโนโลยี" : "Technology", url: `https://delentia.com${localePrefix}/technology/jitna` },
+    { name: "JITNA Protocol", url: `https://delentia.com${localePrefix}/technology/jitna` },
   ])
 
   const techArticleSchema = {
@@ -39,9 +39,9 @@ export default async function Page() {
     description: locale === "th"
       ? "JITNA RFC-001 v2.0 — HTTP ของ Agentic AI โปรโตคอลการสื่อสารแบบเปิดสำหรับ AI Agent"
       : "JITNA RFC-001 v2.0 — The HTTP of Agentic AI. Open communication protocol for AI agents.",
-    author: { "@type": "Organization", name: "RCT Labs" },
-    publisher: { "@type": "Organization", name: "RCT Labs", logo: { "@type": "ImageObject", url: "https://rctlabs.co/RCTLogo-horizontal.svg" } },
-    url: `https://rctlabs.co${localePrefix}/technology/jitna`,
+    author: { "@type": "Organization", name: "Delentia Labs" },
+    publisher: { "@type": "Organization", name: "Delentia Labs", logo: { "@type": "ImageObject", url: "https://delentia.com/RCTLogo-horizontal.svg" } },
+    url: `https://delentia.com${localePrefix}/technology/jitna`,
     inLanguage: locale,
     keywords: "JITNA, Just In Time Nodal Assembly, AI agent protocol, agentic AI, RFC-001, open protocol",
   }
@@ -54,3 +54,4 @@ export default async function Page() {
     </>
   )
 }
+
